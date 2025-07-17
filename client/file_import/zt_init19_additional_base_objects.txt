@@ -1,0 +1,126 @@
+ZTIC 2    131131/21
+ZTIC 3    zinfinitree.com/address
+ZTIC 1    abc.com/test1
+ZTIC 4    zinfinitree.com/server_config
+ZTIC 6    zinfinitree.com/software
+ZTIC 7    zinfinitree.com/validation
+
+RZTI 1          receiver ztic
+
+      mode 1 means create/update with no future timestamps [DEPRECATED]
+MODE%99                                                     [DEPRECATED replaced by MPPG]
+
+
+    message processing parameters--general
+     default timesmp     msg id-client       last idx  mode user                SWdsiSWcod           
+MPPG 5179248000.000      id123               1234      99   usr1                4    1    
+
+     Desc                                    Timestamp
+MSET MaintainSetId#1                         5179248000.000  
+
+
+CMNT TMPL                                        template for maintaing an object
+
+
+
+
+     ObjKind   Object    ObjElem   Template  
+RecIdKzticKcodeOzticOcodeEzticEcodeTzticTcode     OEValue
+ELEM 2    22   2    1    2    22   2    22        Code Scheme for pure numeric Object Codes
+ELEM 2    36   2    1    2    36   2    36        Function to increment a code (standard)
+ELEM 2    22   2    1    2    205  2    22        0123456789
+ELEM 2    36   2    1    2    36   2    36        Function for standard code increment
+ELEM 2    36   2    2    2    36   2    36        Function for Server Message Parse
+ELEM 2    36   2    3    2    36   2    36        Function for Server Message Query
+ELEM 2    37   2    1    2    37   2    37        Class for standard code increment
+ELEM 2    37   2    2    2    37   2    37        Class for Server Message Parse
+ELEM 2    37   2    3    2    37   2    37        Class for Server Message Query
+ELEM 2    39   6    1    2    39   2    39        Resource for class to increment a code (standard)
+ELEM 2    39   6    2    2    39   2    39        Resource for class for Server Message Parse
+ELEM 2    39   6    3    2    39   2    39        Resource for class for Server Message Query
+ELEM 2    39   6    4    2    39   2    39        Resource for class to Validate Message Syntax
+ELEM 2    39   6    5    2    39   2    39        Resource for class to Validate Links
+ELEM 2    39   6    6    2    39   2    39        Resource for class to Validate Queried Object
+ELEM 2    42   4    1    2    42   2    42        Runtime Profile 1 for Patch Level 1 of base server
+ELEM 2    42   4    2    2    42   2    42        Runtime Profile 2 for Patch Level 2 of base server
+ELEM 2    42   4    3    2    42   2    42        Runtime Profile 3 for Patch Level 3 of base server
+ELEM 2    43   4    1    2    43   2    43        Runtime Component 1 for Patch Level 00001 using baseline classes of base server
+ELEM 2    43   4    2    2    43   2    43        Runtime Component 2 for Patch Level 00002 using baseline classes of base server
+ELEM 2    43   4    3    2    43   2    43        Runtime Component 3 for Patch Level 00003 using baseline classes of base server
+ELEM 2    13   4    1    2    13   2    13        Set of Baseline Classes available with patch level 00001
+ELEM 2    13   4    2    2    13   2    13        Set of new Classes available with patch level 00002
+ELEM 2    13   4    3    2    13   2    13        Set of new Classes available with patch level 00003
+
+
+       extended keys
+     ObjKind   Object    ObjElem   Template  
+RecIdKzticKcodeOzticOcodeEzticEcodeTzticTcode     OEValue
+ELEM 2    18   2    1    2    18   2    18        English (language)
+ELEM 2    18   2    2    2    18   2    18        Spanish (language)
+
+ELEM 2    44   6    000012    44   2    44        Base Server Patch Level 00001
+ELEM 2    44   6    000022    44   2    44        Base Server Patch Level 00002
+ELEM 2    44   6    000032    44   2    44        Base Server Patch Level 00003
+
+
+     ObjKind   Object    ObjElem   Template  
+RecIdKzticKcodeOzticOcodeEzticEcodeTzticTcode     OEValue
+ELEM 2    33   2    1    2    33   2    33        No (blank) extended key (extended key definition)
+ELEM 2    33   2    2    2    33   2    33        Language            (extended key definition)
+ELEM 2    33   2    3    2    33   2    33        SoftwarePatch Level (extended key definition)
+ELEM 2    33   2    4    2    33   2    33        Language & Patch Level (composite extended key definition)
+
+
+      values for link type usage type
+     ObjKind   Object    ObjElem   Template  
+RecIdKzticKcodeOzticOcodeEzticEcodeTzticTcode     OEValue
+
+ELEM 2    58   2    1    2    58   2    58        Standard Link Type Usage Type
+ELEM 2    58   2    2    2    58   2    58        Link Type Usage Type for Server Generated Links
+
+
+
+
+
+
+     ObjKind   Object    TypeDef   Type      Template
+RecIdKdiscKcodeOzticOcodeTzticTcodeTzticTcode
+TYPE 2    33   2    2    2    13   2    33        Object Kind (language) for Extended Key (language)
+TYPE 2    33   2    3    5    9    2    33        Object Kind (SW patch level) for Extended Key (SW patch level)
+TYPE 2    22   2    1    2    15   2    1         Increment Function for numeric code scheme 
+TYPE 2    36   2    1    2    16   2    1         Class/Program for Function to increment code
+TYPE 2    36   2    2    2    16   2    2         Class/Program for Function for Server Message Parse
+TYPE 2    36   2    3    2    16   2    3         Class/Program for Function for Server Message Query
+TYPE 2    43   4    1    2    17   6    00001     Patch Level for Runtime Profile Component 1
+TYPE 2    43   4    2    2    17   6    00002     Patch Level for Runtime Profile Component 2
+TYPE 2    43   4    3    2    17   6    00003     Patch Level for Runtime Profile Component 3
+TYPE 2    43   4    1    2    18   4    1         Set of Classes for Runtime Profile Component 1 (baseline classes)
+TYPE 2    43   4    2    2    18   4    1         Set of Classes for Runtime Profile Component 2 (baseline classes)
+TYPE 2    43   4    3    2    18   4    1         Set of Classes for Runtime Profile Compoennt 3 (baseline classes)       
+TYPE 2    33   2    4    2    20   2    51        Template for Language & Patch Level (composite extended key definition)        
+
+RecIdKzticKcodeOzticOcodeLTdsiLTcodLKdsiLKcodLzticLcode
+LINK 2    37   2    1    2    9    2    39   6    1             link class to increment code to resource
+LINK 2    37   2    3    2    9    2    39   6    3             link class for message query to resource
+LINK 2    37   7    1    2    9    2    39   6    4             link class to Validate Message Syntax to Resource moved from validation objects
+LINK 2    37   7    2    2    9    2    39   6    5             link class to Validate Links to Resource
+LINK 2    37   7    3    2    9    2    39   6    6             link class to Validate Queried Object to Resource
+
+LINK 2    42   4    1    2    10   2    43   4    1             link runtime profile 1 to runtime profile component 1  
+LINK 2    42   4    2    2    10   2    43   4    2             link runtime profile 2 to runtime profile component 2
+LINK 2    42   4    3    2    10   2    43   4    3             link runtime profile 3 to runtime profile component 3
+LINK 2    13   4    1    2    13   2    37   2    1             link set of Baseline Classes available with patch level 00001 to member class to increment code
+LINK 2    13   4    1    2    13   2    37   2    2             link set of Baseline Classes available with patch level 00001 to member class for Server Message Parse
+LINK 2    13   4    1    2    13   2    37   2    3             link set of Baseline Classes available with patch level 00001 to member class for Server Message Query
+LINK 2    13   4    1    2    13   2    37   7    1             link set of Baseline Classes available with patch level 00001 to member class for Server Message Syntax Validate
+LINK 2    13   4    1    2    13   2    37   7    2             link set of Baseline Classes available with patch level 00001 to member class for Server Message Validate Links
+LINK 2    13   4    1    2    13   2    37   7    3             link set of Baseline Classes available with patch level 00001 to member class for Server Validate Queried Object
+
+LINK%2    13   4    2    2    13   2    37   2    1             link set of classes for Runtime Profile Component 2 to member class to increment code ??
+LINK%2    13   4    3    2    13   2    37   2    1             link set of classes for Runtime Profile Component 3 to member class to increment code ??
+
+
+
+
+
+

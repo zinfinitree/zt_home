@@ -1,0 +1,22 @@
+ZTIC 1    amplabs.ai/test1
+ZTIC 2    131131/21
+ZTIC 3    zinfinitree.com/address
+ZTIC 4    zinfinitree.com/document
+ZTIC 5    zinfinitree.com/spreadsheet
+ZTIC 6    zinfinitree.com/multimedia_object
+ZTIC 7    131131/22
+ZTIC 8    zinfinitree.com/storage
+ZTIC 9    zinfinitree.com/app
+ZTIC 10   zinfinitree.com/workflow
+ZTIC 11   zinfinitree.com/messaging
+ZTIC 12   zinfinitree.com/map
+ZTIC 13   zinfinitree.com/server_config
+ZTIC 14   zinfinitree.com/address_app_data
+RZTI 1
+MPPG 212440895685.000    abc123              123       99   user1     13   2    
+EXTK 2    2    2    1    
+MSET ObjectQset                              212440895685.000
+ELEM 10   3    1    3001 10   3                   Workflow #1
+ELEM 10   3    1    3001 10   9                   messageStr
+ELEM 10   3    1    3001 10   10                  
+ELEM 10   3    1    3001 10   11                  0

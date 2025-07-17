@@ -1,0 +1,293 @@
+<html>
+  <head>
+    <title>ZT Query</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">  </script>
+    <script>
+      $(document).ready(function(){
+        var file_name, obj_template;
+        var op_num, dsi, file_num;
+        $("#submit").click(function(){
+          TargetNS=$('.ddlTargetNS').val();
+          language=$('.ddlLanguage').val();
+          query_op_num=$('.ddlQueryOperation').val();
+          obj_templ_ztic=$('.ddlTemplateZTIC').val();
+          obj_templ_code=$('.ddlTemplateCode').val();
+          obj_kind_ztic=$('.ddlObjectKindZTIC').val();
+          obj_kind_code=$('.ddlObjectKindCode').val();
+          obj_ztic=$("#obj_ztic").val();
+          obj_code=$("#obj_code").val();
+          srch_val=$("#srch_val").val();
+          object_usage_type = document.querySelector('input[name = "object_usage_type"]:checked').value;
+          file_directory=$("#file_directory").val();
+          file_name=$("#file_name").val();
+          resp_map_mode = document.querySelector('input[name = "resp_map_mode"]:checked').value;
+          var jqxhr = $.post("http://localhost:3000/zt/client/process_query",{TargetNS: TargetNS, language: language, query_op_num: query_op_num, obj_templ_ztic: obj_templ_ztic, obj_templ_code: obj_templ_code, obj_kind_ztic: obj_kind_ztic, obj_kind_code: obj_kind_code, obj_ztic: obj_ztic, obj_code: obj_code, srch_val: srch_val, resp_map_mode: resp_map_mode, file_directory: file_directory, file_name: file_name, object_usage_type: object_usage_type}, function(data){ 
+  console.log(data);
+       //open a new window note:this is a popup so it may be blocked by your browser
+       var newWindow = window.open("", "new window", "width=800, height=400");
+
+       //write the data to the document of the newWindow
+       newWindow.document.write(data);
+  //alert( "success" );
+})
+  .done(function() {
+   // alert( "second success" );
+   //console.log("test data: ");
+  })
+  .fail(function() {
+  //  alert( "error" );
+  })
+  .always(function() {
+  //  alert( "finished" );
+  });
+ 
+
+  jqxhr.done(function( data ) {
+   // alert( "Data Loaded: ");
+   // console.log("data returned: ");
+   
+  });
+// Perform other work here ...
+ 
+// Set another completion function for the request above
+jqxhr.always(function() {
+  //alert( "second finished");
+   //console.log("data: ");
+           
+
+            //if(data ==='done')
+            //  {
+            //   // alert(data);
+            
+            // }
+          });
+        });
+      });
+    </script>
+
+
+  </head>
+  <body>
+    <h1>ZT Query</h1>
+    <br />
+
+    <H3>Select Namespace of Target ZT Instance/Language</H3>
+          <div>
+    <select class="ddlTargetNS">
+      <option value="amplabs.ai/test1">ALT1 amplabs.ai/test1</option>
+      <option value="abc.com/test1">TST1 abc.com/test1</option>
+      <option value="abc.com/test2">TST2 abc.com/test2</option>
+      <option value="zinfinitree.com/doc1">DOC1 zinfinitree.com/doc1</option>
+      <option value="zinfinitree.com/doc2">DOC2 zinfinitree.com/doc2</option>
+      <option value="zinfinitree.com/zin1">ZIN1 zinfinitree.com/zin1</option>  
+      <option value="zinfinitree.com/zin2">ZIN2 zinfinitree.com/zin2</option> 
+      <option value="abc.com/ztst">ZTST abc.com/ztst</option>
+      <option value="zinfinitree.com/dev">DS Dev zinfinitree.com/dev</option>
+      <option value="zinfinitree.com/prod">DS Prod zinfinitree.com/prod</option>
+    </select>
+    
+
+
+
+
+  <!--  <input type="button" class="btnClick Button" value="Process" />  -->
+  </div>
+          <div>
+    <select class="ddlLanguage">
+      <option value="1">English</option>
+      <option value="2">Spanish</option>
+     </select>
+    
+  <!--  <input type="button" class="btnClick Button" value="Process" />  -->
+  </div>
+
+   <br />
+
+    <H3>Select operation</H3>
+          <div>
+    <select class="ddlQueryOperation">
+      <option value="QueryObjectKind">Query by Template</option>
+      <option value="QueryOEvalue">Query by Object Element Value</option>
+ <!--     <option value="InitAll">Initialize DS Instance (import starting objects)</option>  -->      
+ <!--     <option value="Clear">Clear DS Instance</option>  -->
+    </select>
+ <!--   <input type="button" class="btnProcess Button" value="Process" />  -->
+  </div>
+  
+
+   <br /> <br />
+        <H3>Select Object Template ZTIC/Code</H3>
+          <div>
+    <select class="ddlTemplateZTIC">
+      <option value="amplabs.ai/test1">amplabs.ai/test1</option>
+      <option value="abc.com/test1">abc.com</option>
+      <option value="abc.com/test2">abc.com/test2</option>
+      <option value="zinfinitree.com/address">zinfinitree.com/address</option>
+      <option value="zinfinitree.com/document">zinfinitree.com/document</option>
+      <option value="zinfinitree.com/spreadsheet">zinfinitree.com/spreadsheet</option>
+      <option value="131131/22">131131/22</option>
+      <option value="zinfinitree.com/storage">zinfinitree.com/storage</option>
+      <option value="zinfinitree.com/app">zinfinitree.com/app</option>
+
+      <option value="zinfinitree.com/dev_agile">zinfinitree.com/dev_agile</option>
+      <option value="zinfinitree.com/workflow">zinfinitree.com/workflow</option>
+      <option value="zinfinitree.com/messaging">zinfinitree.com/messaging</option>
+      <option value="zinfinitree.com/map">zinfinitree.com/map</option>
+      <option value="zinfinitem.com/zin1">zinfinitem.com/zin1</option>
+
+
+      <option value="131131/21">DS Core 131131/21</option>
+    </select>
+    
+ 
+  </div>
+
+          <div>
+    <select class="ddlTemplateCode">
+      <option value="1">Address Template</option>
+      <option value="1">Document Template</option>
+      <option value="2">Document Element Template</option>
+      <option value="1">Spreadsheet Template</option>
+      <option value="1">Message Definition Template</option>
+      <option value="2">Message Element Template</option>
+      <option value="1">Storage Domain Template</option>
+      <option value="2">Storage Location Template</option>
+      <option value="3">Thing Template</option>
+
+      <option value="1">Agile Project Template</option>
+      <option value="5">Agile Task Template</option>
+
+      <option value="1">Application Template</option>
+      <option value="2">Application Page Template</option>
+
+
+      <option value="1">Object Kind Template</option>
+      <option value="2">Object Template Template</option>
+      <option value="3">Object Element Template</option>
+      <option value="4">Table Element Template</option>
+      <option value="5">Type Template Rule Template</option>
+      <option value="13">Set Template</option>
+     </select>
+  
+   </div>
+    <br /><br />  
+    
+
+    <H3>Select Object Kind ZTIC/Code</H3>
+          <div>
+    <select class="ddlObjectKindZTIC">
+      <option value="amplabs.ai/test1">amplabs.ai/test1</option>
+      <option value="abc.com/test1">abc.com</option>
+      <option value="abc.com/test2">abc.com/test2</option>
+      <option value="zinfinitree.com/address">zinfinitree.com/address</option>
+      <option value="zinfinitree.com/document">zinfinitree.com/document</option>
+      <option value="zinfinitree.com/spreadsheet">zinfinitree.com/spreadsheet</option>
+      <option value="131131/22">131131/22</option>
+      <option value="zinfinitree.com/storage">zinfinitree.com/storage</option>
+      <option value="zinfinitree.com/messagine">zinfinitree.com/messaging</option>
+      <option value="zinfinitree.com/map">zinfinitree.com/map</option>
+
+      <option value="zinfinitree.com/app">zinfinitree.com/app</option>
+
+      <option value="zinfinitree.com/dev_agile">zinfinitree.com/dev_agile</option>
+      
+      <option value="zinfinitem.com/zin1">zinfinitem.com/zin1</option>
+
+      <option value="131131/21">DS Core 131131/21</option>
+    </select>
+    
+ 
+  </div>
+
+
+
+   <div>
+    <select class="ddlObjectKindCode">
+      <option value="1">Address</option>
+      <option value="1">Document</option>
+      <option value="2">Document Element</option>
+      <option value="1">Spreadsheet</option>
+      <option value="1">Message Definition</option>
+      <option value="2">Message Element</option>
+      <option value="1">Storage Domain</option>
+      <option value="2">Storage Location</option>
+      <option value="3">Thing</option>
+
+      <option value="1">Agile Project</option>
+      <option value="5">Agile Task</option>
+
+      <option value="1">Application</option>
+      <option value="1">Object Kind</option>
+      <option value="2">Object Template</option>
+      <option value="3">Object Element</option>
+      <option value="4">Table Element</option>
+      <option value="5">Type Template Rule</option>
+      <option value="13">Set</option>
+    </select>
+    
+  </div>
+
+
+  <br /> 
+
+
+
+
+  <br />
+
+
+  <H3>Object Namespace/Code</H3>
+  <table>
+    <tr><td>Namespace:</td>
+   <!--<label for="namespace">Object Namespace:</label> -->
+  <td><input list="namespaces" name="obj_ztic" id="obj_ztic"></td>
+  
+  <datalist id="namespaces">
+    <option value="All">
+    <option value="amplabs.ai/test1">
+    <option value="abc.com/test1">
+    <option value="abc.com/test2">
+    <option value="zinfinitree.com/doc1">
+    <option value="zinfinitree.com/doc2">
+    <option value="zinfinitree.com/address">
+    <option value="zinfinitree.com/document">
+    <option value="zinfinitree.com/spreadsheet">
+    <option value="131131/22">
+    <option value="zinfinitree.com/storage">
+    <option value="zinfinitree.com/messaging>
+    <option value="zinfinitree.com/map">
+    <option value="zinfinitem.com/zin1">
+
+    <option value="131131/21">
+  </datalist>
+  </tr></td>
+  <tr><td>Code:</td><td> <input type="TEXT" id="obj_code" size="10"></td></tr>
+  <tr><td>Search Value:</td><td> <input type="TEXT" id="srch_val" size="40"></td></tr>
+</table>
+
+<div>
+  <input type="radio" id="maint_format_default" name="object_usage_type" value="select_object" checked>Select Object Specified
+  <input type="radio" id="maint_format_generic" name="object_usage_type" value="select_by_set">Select Members of Set Specified<br>
+</div>
+
+  <H3>Save Mapped Response to File</H3>
+
+     <input type="radio" id="no_mapping" name="resp_map_mode" value="no_mapping" checked>
+     <label for="no_map">No Response Mapping</label><br>
+     <input type="radio" id="map_without_templ" name="resp_map_mode" value="map_without_templ">
+     <label for="map_without_templ">Map Response without Template</label><br>
+     <input type="radio" id="map_wtih_templ" name="resp_map_mode" value="map_with_templ">
+     <label for="map_with_templ">Map Response with Template</label>
+  
+     <table>
+     <tr><td>Directory</td><td> <input type="TEXT" id="file_directory" value="./mapped_responses/" size="40"><td></tr>
+     <tr><td>Filename</td><td> <input type="TEXT" id="file_name" value="expfile_yyyymmdd.txt" size="40" ></td></tr>
+     </table>
+
+
+    <br /> <br /><br />
+    <input type="button" id="submit" value="Submit">
+    <br /><br /> <br /><br />
+  
+  </body>
+</html>

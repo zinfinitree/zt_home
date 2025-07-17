@@ -1,0 +1,566 @@
+ZTIC 2    131131/21
+ZTIC 3    zinfinitree.com/workflow
+ZTIC 1    abc.com/test1
+ZTIC 4    zinfinitree.com/server_config
+ZTIC 5    zinfinitree.com/spreadsheet
+ZTIC 6    zinfinitree.com/multimedia_object
+ZTIC 7    131131/22
+ZTIC 8    zinfinitree.com/time
+ZTIC 9    zinfinitree.com/time_tz_est
+ZTIC 10   zinfinitree.com/person
+ZTIC 11   zinfinitree.com/log
+ZTIC 12   zinfinitree.com/map
+ZTIC 13   zinfinitree.com/messaging
+
+
+RZTI 1          receiver ztic
+ 
+
+  
+
+
+      mode 1 means create/update with no future timestamps [DEPRECATED]
+MODE%1                                                     [DEPRECATED replaced by MPPG]
+
+
+    message processing parameters--general
+     default timesmp     msg id-client       last idx  mode user                SWdsiSWcod           
+MPPG 5179248000.000      id123               1234      99   usr1                4    2    
+
+
+
+     ExtKeyDef ExtKeyVal     
+RecIdEKDdsEKDcoEKVdsEKVco
+EXTK 2    2    2    1
+
+     
+     Desc                                    Timestamp
+MSET MaintainSetId#1                         5179248000.000  
+
+CMNT TMPL                                        template for maintaing an object
+
+     ObjKind   Object    ObjElem   Template  
+RecIdKzticKcodeOzticOcodeEzticEcodeTzticTcode     OEValue
+ELEM 2    1    3    1    2    1    2    1         Workflow Definition (Object Kind)
+ELEM 2    1    3    2    2    1    2    1         Workflow Definition Type (Object Kind)
+ELEM 2    1    3    3    2    1    2    1         Workflow (Object Kind)
+ELEM 2    1    3    4    2    1    2    1         Workflow Step Series (Object Kind)
+ELEM 2    1    3    5    2    1    2    1         Workflow Step (Object Kind)
+ELEM 2    1    3    6    2    1    2    1         Workflow Step Type (Object Kind)
+ELEM 2    1    3    7    2    1    2    1         Workflow Local Values Container Definition (Object Kind)
+ELEM 2    1    3    8    2    1    2    1         Workflow Local Values Container
+ELEM 2    1    3    9    2    1    2    1         Workflow Loop Iteration Status (Object Kind)
+ELEM 2    1    3    10   2    1    2    1         Workflow Domain (Object Kind)
+ELEM 2    1    3    11   2    1    2    1         Workflow Status (Object Kind)
+ELEM 2    1    3    12   2    1    2    1         Workflow Loop (Object Kind)
+ELEM 2    1    3    13   2    1    2    1         Workflow Loop Type (Object Kind)
+ELEM 2    1    3    14   2    1    2    1         Workflow Step Series Status (Object Kind)
+
+
+ELEM 2    2    3    1    2    2    2    2         Workflow Definition (Base Template)     
+ELEM 2    2    3    2    2    2    2    2         Workflow Definition Type (Base Template)
+ELEM 2    2    3    3    2    2    2    2         Workflow (Base Template)
+ELEM 2    2    3    4    2    2    2    2         Workflow Step Series (Base Template)
+ELEM 2    2    3    5    2    2    2    2         Workflow Step (Base Template)
+ELEM 2    2    3    6    2    2    2    2         Workflow Step Type (Base Template)
+ELEM 2    2    3    7    2    2    2    2         Workflow Local Values Container Definition (Base Template)
+ELEM 2    2    3    8    2    2    2    2         Workflow Local Values Container (Base Template)
+ELEM 2    2    3    9    2    2    2    2         Workflow Loop Iteration Status (Base Template)
+ELEM 2    2    3    10   2    2    2    2         Workflow Domain (Base Template)
+ELEM 2    2    3    11   2    2    2    2         Workflow Status (Base Template)
+
+ELEM 2    12   3    1    2    12   2    12        Workflow Definition (Technical Profile)
+ELEM 2    12   3    2    2    12   2    12        Workflow Definition Type (Technical Profile)
+ELEM 2    12   3    3    2    12   2    12        Workflow (Technical Profile)
+ELEM 2    12   3    4    2    12   2    12        Workflow Step Series (Technical Profile)
+ELEM 2    12   3    5    2    12   2    12        Workflow Step (Technical Profile)
+ELEM 2    12   3    6    2    12   2    12        Workflow Step Type (Technical Profile)
+ELEM 2    12   3    7    2    12   2    12        Workflow Local Values Container Definition (Technical Profile)
+ELEM 2    12   3    8    2    12   2    12        Workflow Local Values Container (Technical Profile)
+ELEM 2    12   3    9    2    12   2    12        Workflow Loop Iteration Status (Technical Profile)
+ELEM 2    12   3    10   2    12   2    12        Workflow Domain (Technical Profile)
+ELEM 2    12   3    11   2    12   2    12        Workflow Status (Technical Profile)
+
+ 
+ELEM 2    21   3    1    2    21   2    21        Code Range for Workflow Definition (Code Range)
+ELEM 2    21   3    2    2    21   2    21        Code Range for Workflow Definition Type (Code Range)
+ELEM 2    21   3    3    2    21   2    21        Code Range for Workflow (Code Range)
+ELEM 2    21   3    4    2    21   2    21        Code Range for Workflow Step Series (Code Range)
+ELEM 2    21   3    5    2    21   2    21        Code Range for Workflow Step (Code Range)
+ELEM 2    21   3    6    2    21   2    21        Code Range for Workflow Step Type (Code Range)
+ELEM 2    21   3    7    2    21   2    21        Code Range for Local Values Container Definition (Code Range)
+ELEM 2    21   3    8    2    21   2    21        Code Range for Local Values Container (Code Range)
+ELEM 2    21   3    9    2    21   2    21        Code Range for Set Member Iteration Status (Code Range)
+ELEM 2    21   3    10   2    21   2    21        Code Range for Workflow Domain (Code Range)
+ELEM 2    21   3    11   2    21   2    21        Code Range for Workflow Status (Code Range)
+ELEM 2    21   3    1    2    204  2    21        1001
+ELEM 2    21   3    2    2    204  2    21        2001
+ELEM 2    21   3    3    2    204  2    21        3001
+ELEM 2    21   3    4    2    204  2    21        4001
+ELEM 2    21   3    5    2    204  2    21        5001
+ELEM 2    21   3    6    2    204  2    21        6001
+ELEM 2    21   3    7    2    204  2    21        7001
+ELEM 2    21   3    8    2    204  2    21        8001
+ELEM 2    21   3    9    2    204  2    21        9001
+ELEM 2    21   3    10   2    204  2    21        10001
+ELEM 2    21   3    11   2    204  2    21        11001
+
+ELEM 2    2    3    11   2    2    2    1         Code Range for Workflow Definition (Base Template) 
+ELEM 2    2    3    12   2    2    2    1         Code Range for Workflow Definition Type (Base Template)
+ELEM 2    2    3    13   2    2    2    1         Code Range for Workflow (Base Template)
+ELEM 2    2    3    14   2    2    2    1         Code Range for Workflow Step Series (Base Template)
+ELEM 2    2    3    15   2    2    2    1         Code Range for Workflow Step (Base Template)
+ELEM 2    2    3    16   2    2    2    1         Code Range for Workflow Step Type (Base Template)
+ELEM 2    2    3    17   2    2    2    1         Code Range for Local Values Container Definition (Base Template)
+ELEM 2    2    3    18   2    2    2    1         Code Range for Local Values Container (Base Template)
+ELEM 2    2    3    19   2    2    2    1         Code Range for Set Member Iteration Status (Base Template)
+  ??? for workflow status
+
+ELEM 2    12   3    11   2    12   2    12        Code Range for Workflow Definition  (Technical Profile)
+ELEM 2    12   3    12   2    12   2    12        Code Range for Workflow Definition Type (Technical Profile)
+ELEM 2    12   3    13   2    12   2    12        Code Range for Workflow (Technical Profile)
+ELEM 2    12   3    14   2    12   2    12        Code Range for Workflow Step Series (Technical Profile)
+ELEM 2    12   3    15   2    12   2    12        Code Range for Workflow Step (Technical Profile)
+ELEM 2    12   3    16   2    12   2    12        Code Range for Workflow Step Type (Technical Profile)
+ELEM 2    12   3    17   2    12   2    12        Code Range for Local Values Container Definition (Technical Profile)
+ELEM 2    12   3    18   2    12   2    12        Code Range for Local Values Container (Technical Profile)
+ELEM 2    12   3    19   2    12   2    12        Code Range for Set Member Iteration Status (Technical Profile)
+   ??? for workflow status
+
+ELEM 2    3    3    1    2    3    2    3         Workflow Definition Description         (Object Element)
+ELEM 2    3    3    2    2    3    2    3         Workflow Definition Type Description    (Object Element)
+ELEM 2    3    3    3    2    3    2    3         Workflow Description                    (Object Element)
+ELEM 2    3    3    4    2    3    2    3         Workflow Step Series Description        (Object Element)
+ELEM 2    3    3    5    2    3    2    3         Workflow Step Descrition                (Object Element)
+ELEM 2    3    3    6    2    3    2    3         Workflow Step Type Description          (Object Element)
+ELEM 2    3    3    7    2    3    2    3         Workflow Local Values Container Definition Description  (Object Element)
+ELEM 2    3    3    8    2    3    2    3         Workflow Local Values Container Description (Object Element)
+ELEM 2    3    3    9    2    3    2    3         Workflow Current Step Series Namespace  (Object Element)
+ELEM 2    3    3    10   2    3    2    3         Workflow Current Step Series Code       (Object Element)
+ELEM 2    3    3    11   2    3    2    3         Workflow Current Step Index in Step Series (Object Element)
+ELEM 2    3    3    12   2    3    2    3         Workflow Set Member Iteration Status Description (Object Element)
+ELEM 2    3    3    13   2    3    2    3         Workflow Set Member Iteration Status Set Namespace (Object Element)
+ELEM 2    3    3    14   2    3    2    3         Workflow Set Member Iteration Status Set Code (Object Element)
+ELEM 2    3    3    15   2    3    2    3         Workflow Set Member Iteration Status Current Set Member Namespace (Object Element)
+ELEM 2    3    3    16   2    3    2    3         Workflow Set Member Iteration Status Current Set Member Code (Object Element)
+ELEM 2    3    3    17   2    3    2    3         Workflow Domain Description (Object Element)
+ELEM 2    3    3    18   2    3    2    3         Workflow Status Description (Object Element)
+ELEM 2    3    3    19   2    3    2    3         Workflow Loop Description (Object Element)
+ELEM 2    3    3    20   2    3    2    3         Workflow Loop Type Description (Object Element)
+
+
+ELEM 2    31   3    1    2    31   2    31        Workflow Definition Description DE (Data Element)
+ELEM 2    31   3    2    2    31   2    31        Workflow Definition Type Description DE    (Data Element)
+ELEM 2    31   3    3    2    31   2    31        Workflow Description DE               (Data Element)
+ELEM 2    31   3    4    2    31   2    31        Workflow Step Series Description DE (Data Element)
+ELEM 2    31   3    5    2    31   2    31        Workflow Step Description DE        (Data Element)
+ELEM 2    31   3    6    2    31   2    31        Workflow Step Type Description DE       (Data Element)
+ELEM 2    31   3    7    2    31   2    31        Workflow Local Values Container Definition Description (Data Element)
+ELEM 2    31   3    8    2    31   2    31        Workflow Local Values Container Description          (Data Element)
+ELEM 2    31   3    9    2    31   2    31        Workflow Current Step Series Namespace (Data Element)
+ELEM 2    31   3    10   2    31   2    31        Workflow Current Step Series Code (Data Element)
+ELEM 2    31   3    11   2    31   2    31        Workflow Current Step Index in Step Series (Data Element)
+ELEM 2    31   3    12   2    31   2    31        Workflow Set Member Iteration Status Description (Data Element)
+ELEM 2    31   3    13   2    31   2    31        Workflow Set Member Iteration Status Set Namespace DE (Data Element)
+ELEM 2    31   3    14   2    31   2    31        Workflow Set Member Iteration Status Set Code DE (Data Element)
+ELEM 2    31   3    15   2    31   2    31        Workflow Set Member Iteration Status Current Set Member Namespace DE (Data Element)
+ELEM 2    31   3    16   2    31   2    31        Workflow Set Member Iteration Status Current Set Member Code DE (Data Element)
+ELEM 2    31   3    17   2    31   2    31        Workflow Domain Description (Data Element)
+ELEM 2    31   3    18   2    31   2    31        Workflow Status Description (Data Element)
+ELEM 2    31   3    19   2    31   2    31        Workflow Loop Description (Data Element)
+ELEM 2    31   3    20   2    31   2    31        Workflow Loop Type Description (Data Element)
+
+
+ELEM 2    31   3    100  2    31   2    31        Current Code                    (Data Element)
+
+ELEM 2    32   3    1    2    32   2    32        Workflow Definition Description  DT           (Data Type)
+ELEM 2    32   3    2    2    32   2    32        Workflow Definition Type Description  DT      (Data Type)
+ELEM 2    32   3    3    2    32   2    32        Workflow Description DT                  (Data Type)
+ELEM 2    32   3    4    2    32   2    32        Workflow Step Series Description  DT      (Data Type)
+ELEM 2    32   3    5    2    32   2    32        Workflow Step Description        DT      (Data Type)
+ELEM 2    32   3    6    2    32   2    32        Workflow Step Type Description              DT      (Data Type)
+ELEM 2    32   3    7    2    32   2    32        Workflow Local Values Container Definition Description  DT      (Data Type)
+ELEM 2    32   3    8    2    32   2    32        Workflow Local Values Container Description    DT      (Data Type)
+ELEM 2    32   3    9    2    32   2    32        Workflow Current Step Series Namespace         DT      (Data Type)
+ELEM 2    32   3    10   2    32   2    32        Workflow Current Step Series Code              DT      (Data Type)
+ELEM 2    32   3    11   2    32   2    32        Workflow Current Step Index in Step Series (Data Type)
+ELEM 2    32   3    12   2    32   2    32        Workflow Set Member Iteration Status Description (Data Type)
+ELEM 2    32   3    13   2    32   2    32        Workflow Set Member Iteration Status Set Namespace (Data Type)
+ELEM 2    32   3    14   2    32   2    32        Workflow Set Member Iteration Status Set Code (Data Type)
+ELEM 2    32   3    15   2    32   2    32        Workflow Set Member Iteration Status Current Set Member Namespace (Data Type)
+ELEM 2    32   3    16   2    32   2    32        Workflow Set Member Iteration Status Current Set Member Code (Data Type)
+ELEM 2    32   3    17   2    32   2    32        Workflow Domain Description (Data Type)
+ELEM 2    32   3    18   2    32   2    32        Workflow Status Description (Data Type)
+ELEM 2    32   3    19   2    32   2    32        Workflow Loop Description (Data Type)
+ELEM 2    32   3    20   2    32   2    32        Workflow Loop Type Description (Data Type)
+
+ELEM 2    32   3    100  2    32   2    32        Current Code for Document DT      (Data Type)
+
+ELEM 2    10   3    1    2    10   2    10        Link Type: Workflow Defintion to Workflow Step Series              
+ELEM 2    10   3    2    2    10   2    10        Link Type: Workflow Step Series to Workflow Step
+ELEM 2    10   3    3    2    10   2    10        Link Type: Workflow Step of Workflow Step Series
+ELEM 2    10   3    4    2    10   2    10        Link Type: Workflow Step of type Conditional Branch to Workflow Step Series DEPRECATED
+ELEM 2    10   3    5    2    10   2    10        Link Type: Workflow Step Series to Function, 1st step series linked to a function that returns true is executed
+ELEM 2    10   3    6    2    10   2    10        Link Type: Workflow Step to a Map
+ELEM%2    10   3    7    2    10   2    10        Link Type: Workflow Definition to a Set
+ELEM 2    10   3    8    2    10   2    10        Link Type: Workflow Definition to Local Values Container Definition
+ELEM 2    10   3    9    2    10   2    10        Link Type: Workflow to Local Values Container
+ELEM 2    10   3    10   2    10   2    10        Link Type: Local Values Container Definition to Parameter
+ELEM 2    10   3    11   2    10   2    10        Link Type: Local Values Container to Parameter Value
+ELEM 2    10   3    12   2    10   2    10        Link Type: Workflow Definition to Workflow (server generated link based on type value)
+ELEM 2    10   3    13   2    10   2    10        Link Type: Workflow to Loop Interation Status
+ELEM 2    10   3    14   2    10   2    10        Link Type: Workflow Domain to Workflow Definition
+ELEM 2    10   3    15   2    10   2    10        Link Type: Workflow to a Log Entry
+ELEM 2    10   3    16   2    10   2    10        Link Type: Workflow Step to Message Sender
+ELEM 2    10   3    17   2    10   2    10        Link Type: Workflow Step to Message Receiver
+ELEM 2    10   3    18   2    10   2    10        Link Type: Workflow to Message Container
+ELEM 2    10   3    19   2    10   2    10        Link Type: Workflow Step Series to Loop (highest link value is outer loop)
+ELEM 2    10   3    20   2    10   2    10        Link Type: Workflow Loop to Object Kind to be selected when looping at a message
+ELEM 2    10   3    21   2    10   2    10        Link Type: Workflow to Step Series Status
+
+
+ELEM 2    11   3    1    2    11   2    11        Link Target Type: Workflow Definition to Workflow Step Series 
+ELEM 2    11   3    2    2    11   2    11        Link Target Type: Workflow Step Series to Workflow Step
+ELEM 2    11   3    3    2    11   2    11        Link Target Type: Workflow Step to Workflow Step Series
+ELEM 2    11   3    4    2    11   2    11        Link Target Type: Workflow Step of type Conditional Branch to Workflow Step Series DEPRECATED
+ELEM 2    11   3    5    2    11   2    11        Link Target Type: Workflow Step Series to Function, 1st step series linked to a functions that returns true is executed
+ELEM 2    11   3    6    2    11   2    11        Link Target Type: Workflow Step to a Map
+ELEM%2    11   3    7    2    11   2    11        Link Target Type: Workflow Step to an Adapter  DEPRECATED
+ELEM 2    11   3    8    2    11   2    11        Link Target Type: Workflow Definition to Local Values Container Definition
+ELEM 2    11   3    9    2    11   2    11        Link Target Type: Workflow to Local Values Container
+ELEM 2    11   3   10    2    11   2    11        Link Target Type: Local Values Container Definition to Parameter
+ELEM 2    11   3   11    2    11   2    11        Link Target Type: Local Values Container to Parameter Value
+ELEM 2    11   3   12    2    11   2    11        Link Target Type: Workflow Definition to Workflow (server generated link based on type value)
+ELEM 2    11   3   13    2    11   2    11        Link Target Type: Workflow to Set Member Iteration Status
+ELEM 2    11   3   14    2    11   2    11        Link Target Type: Workflow Domain to Workflow Definition
+ELEM 2    11   3   15    2    11   2    11        Link Target Type: Workflow to a Log Entry 
+ELEM 2    11   3   16    2    11   2    11        Link Target Type: Workflow Step to Message Sender
+ELEM 2    11   3   17    2    11   2    11        Link Target Type: Workflow Step to Message Receier
+
+ELEM 2    9    3    1    2    9    2    9         Type Definition: Workflow Definition Type for Workflow Defintion
+ELEM 2    9    3    2    2    9    2    9         Type Definition: Workflow Definition for a Workflow
+ELEM 2    9    3    3    2    9    2    9         Type Definition: Workflow Step Type for a Step
+ELEM 2    9    3    4    2    9    2    9         Type Definition: Workflow Staus for a Workflow
+ELEM 2    9    3    4    2    9    2    9         Type Definition: Message Sender for a Message Container 
+ELEM 2    9    3    5    2    9    2    9         Type Definition: Message Payload Type for a Message Sender
+ELEM 2    9    3    6    2    9    2    9         Type Definition: Message Payload Type for a Message Receiver
+ELEM 2    9    3    7    2    9    2    9         Type Definition: Loop Type for a Loop
+ELEM 2    9    3    8    2    9    2    9         Type Definition: Loop for a Loop Iteration Status
+
+
+ELEM 3    6    3    1    3    12   3    6         Request to Server (Workflow Step Type)
+ELEM 3    6    3    2    3    12   3    6         Branch/Loop (Workflow Step Type)
+ELEM 3    6    3    3    3    12   3    6         Send Message (Workflow Step Type)
+ELEM 3    6    3    4    3    12   3    6         Receive Message (Workflow Step Type)
+ELEM 3    6    3    5    3    12   3    6         Update Local Values Container (Workflow Step Type)
+ELEM 3    6    3    6    3    12   3    6         User Action (Workflow Step Type)
+ELEM%3    6    3    7    3    12   3    6         Send (data to adapter) (Workflow Step Type)  DEPRECATED
+ELEM 3    6    3    8    3    12   3    6         Timer (Workflow Step Type)
+
+ELEM 3    11   3    1    3    18   3    11        New (Workflow Status)
+ELEM 3    11   3    2    3    18   2    11        Started (Workflow Status)
+ELEM 3    11   3    3    3    18   2    11        Completed (Workflow Status)
+ELEM 3    11   3    4    3    18   2    11        Error Restartable (Workflow Status)
+ELEM 3    11   3    5    3    18   2    11        Unrecoverable Error (Workflow Status)
+ELEM 3    11   3    6    3    18   2    11        On Hold (Workflow Status)
+
+
+
+
+  
+   max length for data elements used for workflow
+ELEM 2    31   3    1    2    214  2    31        45             Workflow Definition Description         
+ELEM 2    31   3    2    2    214  2    31        45             Workflow Definition Type Description    
+ELEM 2    31   3    3    2    214  2    31        45             Workflow Description                    
+ELEM 2    31   3    4    2    214  2    31        45             Workflow Step Series Description        
+ELEM 2    31   3    5    2    214  2    31        45             Workflow Step Descrition                
+ELEM 2    31   3    6    2    214  2    31        45             Workflow Step Type Description          
+ELEM 2    31   3    7    2    214  2    31        45             Workflow Local Values Container Definition Description  
+ELEM 2    31   3    8    2    214  2    31        45             Workflow Local Values Container Description 
+ELEM 2    31   3    9    2    214  2    31        75             Workflow Current Step Series Namespace  
+ELEM 2    31   3    10   2    214  2    31        5              Workflow Current Step Series Code       
+ELEM 2    31   3    11   2    214  2    31        5              Workflow Current Step Index in Step Series 
+ELEM 2    31   3    12   2    214  2    31        45             Workflow Set Member Iteration Status Description 
+ELEM 2    31   3    13   2    214  2    31        75             Workflow Set Member Iteration Status Set Namespace 
+ELEM 2    31   3    14   2    214  2    31        5              Workflow Set Member Iteration Status Set Code 
+ELEM 2    31   3    15   2    214  2    31        75             Workflow Set Member Iteration Status Current Set Member Namespace 
+ELEM 2    31   3    16   2    214  2    31        5              Workflow Set Member Iteration Status Current Set Member Code 
+ELEM 2    31   3    17   2    214  2    31        45             Workflow Domain Description
+ELEM 2    31   3    18   2    214  2    31        45             Workflow Status Description 
+ELEM 2    31   3    19   2    214  2    31        45             Workflow Loop Description 
+ELEM 2    31   3    20   2    214  2    31        45             Workflow Loop Type Description
+
+ELEM 2    31   3    100  2    214  2    31        10             Current Code
+
+
+
+
+
+     ObjKind   Object    TypeDef   Type      Template  
+RecIdKdiscKcodeOzticOcodeTDdsiTDcodTzticTcodeTzticTcode
+TYPE 2    2    3    1    2    3    3    1               Object Kind for template for Workflow Definition
+TYPE 2    2    3    2    2    3    3    2               Object Kind for template for Workflow Definition Type
+TYPE 2    2    3    3    2    3    3    3               Object Kind for template for Workflow
+TYPE 2    2    3    4    2    3    3    4               Object Kind for template for Step Series
+TYPE 2    2    3    5    2    3    3    5               Object Kind for template for Step
+TYPE 2    2    3    6    2    3    3    6               Object Kind for template for Step Type
+TYPE 2    2    3    7    2    3    3    7               Object Kind for template for Local Values Container Definition
+TYPE 2    2    3    8    2    3    3    8               Object Kind for template for Local Values Container
+TYPE 2    2    3    9    2    3    3    9               Object Kind for template for Set Member Iteration status
+TYPE 2    2    3    10   2    3    3    10              Object Kind for template for Workflow Domain
+TYPE 2    2    3    11   2    3    3    11              Object Kind for template for Workflow Status
+
+ 
+TYPE 2    1    3    1    2    5    3    1               Code Range for Workflow Definition
+TYPE 2    1    3    2    2    5    3    2               Code Range for Workflow Definition Type
+TYPE 2    1    3    3    2    5    3    3               Code Range for Workflow
+TYPE 2    1    3    4    2    5    3    4               Code Range for Workflow Step Series
+TYPE 2    1    3    5    2    5    3    5               Code Range for Workflow Step
+TYPE 2    1    3    6    2    5    3    6               Code Range for Workflow Step Type
+TYPE 2    1    3    7    2    5    3    7               Code Range for Workflow Local Values Container Definition
+TYPE 2    1    3    8    2    5    3    8               Code Range for Workflow Local Values Container
+TYPE 2    1    3    9    2    5    3    9               Code Range for Workflow Set Member Iteration Status
+TYPE 2    1    3    10   2    5    3    10              Code Range for Workflow Domain
+TYPE 2    1    3    11   2    5    3    11              Code Range for Workflow Status
+
+
+TYPE 2    21   3    1    2    6    2    1               Code Scheme for Workflow Definition
+TYPE 2    21   3    2    2    6    2    1               Code Scheme for Workflow Definition Type
+TYPE 2    21   3    3    2    6    2    1               Code Scheme for Workflow
+TYPE 2    21   3    4    2    6    2    1               Code Scheme for Workflow Step Series
+TYPE 2    21   3    5    2    6    2    1               Code Scheme for Workflow Step
+TYPE 2    21   3    6    2    6    2    1               Code Scheme for Workflow Step Type
+TYPE 2    21   3    7    2    6    2    1               Code Scheme for Workflow Local Values Container Definition
+TYPE 2    21   3    8    2    6    2    1               Code Scheme for Workflow Local Values Container
+TYPE 2    21   3    9    2    6    2    1               Code Scheme for Workflow Set Member Iteration Status
+TYPE 2    21   3    10   2    6    2    1               Code Scheme for Workflow Domain
+TYPE 2    21   3    11   2    6    2    1               Code Scheme for Workflow Status
+
+
+TYPE 2    3    3    1    2    9    3    1               Data Element for Workflow Definition Description Object Element
+TYPE 2    3    3    2    2    9    3    2               Data Element for Workflow Definition Type Description Object Element
+TYPE 2    3    3    3    2    9    3    3               Data Element for Workflow Description Object Element
+TYPE 2    3    3    4    2    9    3    4               Data Element for Workflow Step Series Description Object Element
+TYPE 2    3    3    5    2    9    3    5               Data Element for Workflow Step Description Object Element
+TYPE 2    3    3    6    2    9    3    6               Data Element for Workflow Step Type Description Object Element
+TYPE 2    3    3    7    2    9    3    7               Data Element for Workflow Local Values Container Definition Description Object Element 
+TYPE 2    3    3    8    2    9    3    8               Data Element for Workflow Local Values Container Description Object Element
+TYPE 2    3    3    9    2    9    3    9               Data Element for Workflow Current Step Series Namespace Object Element
+TYPE 2    3    3    10   2    9    3    10              Data Element for Workflow Current Step Series Code Object Element
+TYPE 2    3    3    11   2    9    3    11              Data Element for Workflow Current Step Index in Step Series Object Element
+TYPE 2    3    3    12   2    9    3    12              Data Element for Workflow Set Member Iteration Status Description Object Element
+TYPE 2    3    3    13   2    9    3    13              Data Element for Workflow Set Member Iteration Status Set Namespace Object Element
+TYPE 2    3    3    14   2    9    3    14              Data Element for Workflow Set Member Iteration Status Set Code Object Element
+TYPE 2    3    3    15   2    9    3    15              Data Element for Workflow Set Member Iteration Status Current Set Member Namespace Object Element
+TYPE 2    3    3    16   2    9    3    16              Data Element for Workflow Set Member Iteration Status Current Set Member Code Object Element
+TYPE 2    3    3    17   2    9    3    17              Data Element for Workflow Domain Description Object Element
+TYPE 2    3    3    18   2    9    3    18              Data Element for Workflow Status Description Object Element
+TYPE 2    3    3    19   2    9    3    19              Data Element for Workflow Loop Description Object Element
+TYPE 2    3    3    20   2    9    3    20              Data Element for Workflow Loop Type Description Object Element
+
+
+TYPE 2    31   3    1    2    10   3    1               Data Type for Workflow Definition Description Data Element
+TYPE 2    31   3    2    2    10   3    2               Data Type for Workflow Definition Type Description Data Element
+TYPE 2    31   3    3    2    10   3    3               Data Type for Workflow Description Data Element
+TYPE 2    31   3    4    2    10   3    4               Data Type for Workflow Step Series Description Data Element
+TYPE 2    31   3    5    2    10   3    5               Data Type for Workflow Step Description Data Element
+TYPE 2    31   3    6    2    10   3    6               Data Type for Workflow Step Type Description Data Element
+TYPE 2    31   3    7    2    10   3    7               Data Type for Workflow Local Values Container Definition Description Data Element
+TYPE 2    31   3    8    2    10   3    8               Data Type for Workflow Local Values Container Description Data Element
+TYPE 2    31   3    9    2    10   3    9               Data Type for Workflow Current Step Series Namespace Data Element
+TYPE 2    31   3    10   2    10   3    10              Data Type for Workflow Current Step Series Code Data Element
+TYPE 2    31   3    11   2    10   3    11              Data Type for Workflow Current Step Index in Step Series Data Element 
+TYPE 2    31   3    12   2    10   3    12              Data Type for Workflow Set Member Iteration Status Description Data Element
+TYPE 2    31   3    13   2    10   3    13              Data Type for Workflow Set Member Iteration Status Set Namespace Data Element
+TYPE 2    31   3    14   2    10   3    14              Data Type for Workflow Set Member Iteration Status Set Code Data Element
+TYPE 2    31   3    15   2    10   3    15              Data Type for Workflow Set Member Iteration Status Current Set Member Namespace Data Element
+TYPE 2    31   3    16   2    10   3    16              Data Type for Workflow Set Member Iteration Status Current Set Member Code Data Element
+TYPE 2    31   3    17   2    10   3    17              Data Type for Workflow Domain Description Data Element
+TYPE 2    31   3    18   2    10   3    18              Data Type for Workflow Status Description Data Element
+TYPE 2    31   3    19   2    10   3    19              Data Type for Workflow Loop Description Data Element
+TYPE 2    31   3    20   2    10   3    20              Data Type for Workflow Loop Type Description Data Element
+
+
+TYPE 2    31   3    1    2    11   2    2               Extended Key Definition (language) for Workflow Definition Description Data Element
+TYPE 2    31   3    2    2    11   2    2               Extended Key Definition (language) for Workflow Definition Type Description Data Element
+TYPE 2    31   3    3    2    11   2    2               Extended Key Definition (language) for Workflow Description Data Element
+TYPE 2    31   3    4    2    11   2    2               Extended Key Definition (language) for Workflow Step Series Description Data Element
+TYPE 2    31   3    6    2    11   2    2               Extended Key Definition (language) for Workflow Step Description Data Element
+TYPE 2    31   3    7    2    11   2    2               Extended Key Definition (language) for Workflow Step Type Description Data Element
+TYPE 2    31   3    8    2    11   2    2               Extended Key Definition (language) for Workflow Local Values Container Definition Description Data Element
+TYPE 2    31   3    9    2    11   2    2               Extended Key Definition (language) for Workflow Local Values Container Description Data Element
+TYPE 2    31   3    12   2    11   2    2               Extended Key Definition (language) for Workflow Set Member Iteration Status Description Data Element
+TYPE 2    31   3    17   2    11   2    2               Extended Key Definition (language) for Workflow Domain Description Data Element
+TYPE 2    31   3    18   2    11   2    2               Extended Key Definition (language) for Workflow Status
+TYPE 2    31   3    19   2    11   2    2               Extended Key Definition (language) for Workflow Loop
+TYPE 2    31   3    20   2    11   2    2               Extended Key Definition (language) for Workflow Loop Type
+
+
+
+TYPE 2    10   3    1    2    2    3    1               link target type for link type for Workflow Definition to Workflow Step Series 
+TYPE 2    10   3    2    2    2    3    2               link target type for link type for Step Series to Workflow Step
+TYPE 2    10   3    3    2    2    3    3               link target type for link type for Workflow Step to Workflow Step Series
+TYPE 2    10   3    4    2    2    3    4               link target type for link type for Workflow Step of type Conditional Branch to Workflow Step Series DEPRECATED
+TYPE 2    10   3    5    2    2    3    5               link target type for link type for Workflow Step series to boolean Function 1st true is executed
+TYPE 2    10   3    6    2    2    3    6               link target type for link type for Workflow Step to Map
+TYPE%2    10   3    7    2    2    3    7               link target type for link type for Workflow Step to an Adapter DEPRECATED
+TYPE 2    10   3    8    2    2    3    8               link target type for link type for Workflow Definition to Local Values Container Definition
+TYPE 2    10   3    9    2    2    3    9               link target type for link type for Workflow to Local Values Container
+TYPE 2    10   3    10   2    2    3    10              link target type for link type for Local Values Container Definition to Parameter
+TYPE 2    10   3    11   2    2    3    11              link target type for link type for Local Values Container to Parameter Value
+TYPE 2    10   3    12   2    2    3    12              link target type for link type for Workflow Definition to Workflow (server generated link based on type value)
+TYPE 2    10   3    13   2    2    3    13              link target type for link type for Workflow to Set Member Iteration Status
+TYPE 2    10   3    14   2    2    3    14              link target type for link type for Workflow Domain to Workflow Definition
+TYPE 2    10   3    15   2    2    3    15              link target type for link type for Workflow to a Log Entry 
+TYPE 2    10   3    16   2    2    3    16              link target type for link type for Workflow Step to Message Sender
+TYPE 2    10   3    17   2    2    3    17              link target type for link type for Workflow Step to Message Receiver
+
+
+
+
+TYPE 2    9    3    1    2    4    3    2               Object Kind for Type Def Workflow Definition Type for Workflow Definition: Object Kind for Workflow Definition Type 
+TYPE 2    9    3    2    2    4    3    1               Object Kind for Type Def Workflow Definition for a Workflow: Object Kind for Workflow Definition
+TYPE 2    9    3    3    2    4    3    6               Object Kind for Type Def Workflow Step Type for a Step:  Object Kind for Workflow Step Type
+TYPE 2    9    3    4    2    4    2    13              Object Kind for Type Def Set for a Workflow Step of type loop:  Object Kind for Set Def
+
+
+       
+
+
+     ObjKind   Object    TypeDef   Type      Template
+RecIdKdiscKcodeOzticOcodeTDdsiTDcodTzticTcodeTzticTcode
+TYPE 2    1    3    1    2    22   3    1    2    1     Default Object Template--Minimal Data for Workflow Definition (Object Kind)
+TYPE 2    1    3    2    2    22   3    2    2    1     Default Object Template--Minimal Data for Workflow Definition Type (Object Kind)
+TYPE 2    1    3    3    2    22   3    3    2    1     Default Object Template--Minimal Data for Workflow (Object Kind)
+TYPE 2    1    3    4    2    22   3    4    2    1     Default Object Template--Minimal Data for Workflow Step Series (Object Kind)
+TYPE 2    1    3    5    2    22   3    5    2    1     Default Object Template--Minimal Data for Workflow Step (Object Kind)
+TYPE 2    1    3    6    2    22   3    6    2    1     Default Object Template--Minimal Data for Workflow Step Type (Object Kind)
+TYPE 2    1    3    7    2    22   3    7    2    1     Default Object Template--Minimal Data for Workflow Local Values Container Definition (Object Kind)
+TYPE 2    1    3    8    2    22   3    8    2    1     Default Object Template--Minimal Data for Workflow Local Values Container
+TYPE 2    1    3    9    2    22   3    9    2    1     Default Object Template--Minimal Data for Workflow Set Member Iteration Status (Object Kind)
+TYPE 2    1    3    10   2    22   3    10   2    1     Default Object Template--Minimal Data for Workflow Domain (Object Kind)
+
+
+
+
+  to specifiy that links from thing to thing transaction line item are server generated
+TYPE%2    9    3    4    2    24   3    4    2    9     Link Type for Type Definition: Thing for Thing Transaction Line Item (for bi-directional connection) CAUSES ERROr 20211023
+
+TYPE 2    10   3    12   2    26   2    2    2    10    Link Type Usage Type for Link Type: Workflow Definition to Workflow (server generated link) 
+
+
+
+     ObjKind   Object    LinkType   ToKind   ToObject  Template  
+RecIdKzticKcodeOzticOcodeLTdsiLTcodLKdsiLKcodLzticLcodeTzticTcode         
+LINK 2    2    3    1    2    1    2    12   3    1    2    2    link object template for workflow definition to technical profile for workflow definition
+LINK 2    2    3    2    2    1    2    12   3    2    2    2    link object template for workflow definition type to technical profile for workflow definition type
+LINK 2    2    3    3    2    1    2    12   3    3    2    2    link object template for workflow to technical profile for workflow
+LINK 2    2    3    4    2    1    2    12   3    4    2    2    link object template for workflow step series to technical profile for workflow step series
+LINK 2    2    3    5    2    1    2    12   3    5    2    2    link object template for workflow step to technical profile for workflow step
+LINK 2    2    3    6    2    1    2    12   3    6    2    2    link object template for workflow step type to technical profile for workflow step type
+LINK 2    2    3    7    2    1    2    12   3    7    2    2    link object templ for workflow local val container def to tech profile for workflow local values container def
+LINK 2    2    3    8    2    1    2    12   3    8    2    2    link object template for workflow local values container to tech profile for workflow local values container
+LINK 2    2    3    9    2    1    2    12   3    9    2    2    link object template for workflow set member iteration status to tech profle  for set member iteration status
+LINK 2    2    3    10   2    1    2    12   3    10   2    2    link object template for workflow domain to tech profile for workflow domain 
+
+
+
+LINK 2    12   3    1    2    3    2    3    3    1    2    12   link tech profile to object element for Workflow Definition Description
+LINK 2    12   3    2    2    3    2    3    3    2    2    12   link tech profile to object element for Workflow Definition Type Description
+LINK 2    12   3    3    2    3    2    3    3    3    2    12   link tech profile to object element for Workflow Description
+LINK 2    12   3    4    2    3    2    3    3    4    2    12   link tech profile to object element for Workflow Step Series Description
+LINK 2    12   3    5    2    3    2    3    3    5    2    12   link tech profile to object element for Workflow Step Description
+LINK 2    12   3    6    2    3    2    3    3    6    2    12   link tech profile to object element for Workflow Step Type Description
+LINK 2    12   3    7    2    3    2    3    3    7    2    12   link tech profile to object element for Workflow Local Values Container Definition Description 
+LINK 2    12   3    8    2    3    2    3    3    8    2    12   link tech profile to object element for Workflow Local Values Container Description
+LINK 2    12   3    3    2    3    2    3    3    9    2    12   link tech profile to object element for Workflow Current Step Series Namespace
+LINK 2    12   3    3    2    3    2    3    3    10   2    12   link tech profile to object element for Workflow Current Step Series Code
+LINK 2    12   3    3    2    3    2    3    3    11   2    12   link tech profile to object element for Workflow Current Step Index in Step Series
+LINK 2    12   3    9    2    3    2    3    3    12   2    12   link tech profile to object element for Workflow Set Member Iteration Status Description
+LINK 2    12   3    9    2    3    2    3    3    13   2    12   link tech profile to object element for Workflow Set Member Iteration Status Set Namespace
+LINK 2    12   3    9    2    3    2    3    3    14   2    12   link tech profile to object element for Workflow Set Member Iteration Status Set Code
+LINK 2    12   3    9    2    3    2    3    3    15   2    12   link tech profile to object element for Workflow Set Member Iteration Status Current Set Member Namespace
+LINK 2    12   3    9    2    3    2    3    3    16   2    12   link tech profile to object element for Workflow Set Member Iteration Status Current Set Member Code
+LINK 2    12   3    10   2    3    2    3    3    17   2    12   link tech profile to object element for Workflow Domain Description
+LINK 2    12   3    11   2    3    2    3    3    18   2    12   link tech profile to object element for Workflow Status Description
+LINK 2    12   3    12   2    3    2    3    3    19   2    12   link tech profile to object element for Workflow Loop
+LINK 2    12   3    13   2    3    2    3    3    20   2    12   link tech profile to object element for Workflow Loop Type
+
+
+
+LINK 2    12   3    1    2    22   2    31   3    1    2    12   link tech profile to data element for Workflow Definition Description
+LINK 2    12   3    2    2    22   2    31   3    2    2    12   link tech profile to data element for Workflow Definition Type Description
+LINK 2    12   3    3    2    22   2    31   3    3    2    12   link tech profile to data element for Workflow Description
+LINK 2    12   3    4    2    22   2    31   3    4    2    12   link tech profile to data element for Workflow Step Series Description
+LINK 2    12   3    5    2    22   2    31   3    5    2    12   link tech profile to data element for Workflow Step Description
+LINK 2    12   3    6    2    22   2    31   3    6    2    12   link tech profile to data element for Workflow Step Type Description
+LINK 2    12   3    7    2    22   2    31   3    7    2    12   link tech profile to data element for Workflow Local Values Container Definition Description
+LINK 2    12   3    8    2    22   2    31   3    8    2    12   link tech profile to data element for Workflow Local Values Container Description
+LINK 2    12   3    3    2    22   2    31   3    9    2    12   link tech profile to data element for Workflow Current Step Series Namespace
+LINK 2    12   3    3    2    22   2    31   3    10   2    12   link tech profile to data element for Workflow Current Step Series Code
+LINK 2    12   3    3    2    22   2    31   3    11   2    12   link tech profile to data element for Workflow Current Step Index in Step Series
+LINK 2    12   3    9    2    22   2    31   3    12   2    12   link tech profile to data element for Workflow Set Member Iteration Status Description
+LINK 2    12   3    9    2    22   2    31   3    13   2    12   link tech profile to data element for Workflow Set Member Iteration Status Set Namespace
+LINK 2    12   3    9    2    22   2    31   3    14   2    12   link tech profile to data element for Workflow Set Member Iteration Status Set Code
+LINK 2    12   3    9    2    22   2    31   3    15   2    12   link tech profile to data element for Workflow Set Member Iteration Status Current Set Member Namespace
+LINK 2    12   3    9    2    22   2    31   3    16   2    12   link tech profile to data element for Workflow Set Member Iteration Status Current Set Member Code
+LINK 2    12   3    10   2    22   2    31   3    17   2    12   link tech profile to data element for Workflow Domain Description
+LINK 2    12   3    11   2    22   2    31   3    18   2    12   link tech profile to data element for Workflow Status Description
+LINK 2    12   3    12   2    22   2    31   3    19   2    12   link tech profile to data element for Workflow Loop
+LINK 2    12   3    13   2    22   2    31   3    20   2    12   link tech profile to data element for Workflow Loop Type
+
+
+
+
+LINK 2    12   3    1    2    4    2    9    3    1    2    12   link tech profile for workflow definition to type def for workflow def type for a workflow definition
+LINK 2    12   3    3    2    4    2    9    3    2    2    12   link tech profile for workflow to type definition for workflow definition for a workflow
+LINK 2    12   3    5    2    4    2    9    3    3    2    12   link tech profile for workflow step to type definition for workflow step type for a workflow step
+LINK 2    12   3    5    2    4    2    9    2    4    2    12   link tech profile for workflow step to type definition for object set for a workflow step (of type loop)
+
+
+
+
+
+     ObjKind   Object    LinkType   ToKind   ToObject  Template  
+RecIdKzticKcodeOzticOcodeLTdsiLTcodLKdsiLKcodLzticLcodeTzticTcode
+LINK 2    12   3    1    2    5    2    10   3    1    2    12   link tech profile to link type for workflow definition to workflow step series
+LINK 2    12   3    4    2    5    2    10   3    2    2    12   link tech profile to link type for workflow step series to workflow step
+LINK 2    12   3    5    2    5    2    10   3    3    2    12   link tech profile to link type for workflow step of type loop to workflow step series
+LINK 2    12   3    5    2    5    2    10   3    4    2    12   link tech profile to link type for workflow step of type conditional branch to workflow step series
+LINK 2    12   3    4    2    5    2    10   3    5    2    12   link tech profile to link type for workflow step series to function, 1st true is executed
+LINK%2    12   3    5    2    5    2    10   3    6    2    12   link tech profile to link type for workflow step to map  TEMP DEL REACTIVATE WHEN READY
+LINK%2    12   3    5    2    5    2    10   3    7    2    12   link tech profile to link type for workflow step to adapter  DEPRECATED
+LINK 2    12   3    1    2    5    2    10   3    8    2    12   link tech profile to link type for workflow definition to local values container definition
+LINK 2    12   3    3    2    5    2    10   3    9    2    12   link tech profile to link type for workflow to local values container
+LINK 2    12   3    7    2    5    2    10   3    10   2    12   link tech profile to link type for local values container definition to parameter
+LINK 2    12   3    8    2    5    2    10   3    11   2    12   link tech profile to link type for local values container to parameter value
+LINK 2    12   3    1    2    5    2    10   3    12   2    12   link tech profile to link type for workflow definition to workflow (server generated link based on type value)
+LINK 2    12   3    3    2    5    2    10   3    13   2    12   link tech profile to link type for workflow to set member iteration status
+LINK 2    12   3    10   2    5    2    10   3    14   2    12   link tech profile to link type for workflow domain to workflow definition
+LINK%2    12   3    3    2    5    2    10   3    15   2    12   link tech profile to link type for workflow to log entry  TEMP DEL REACTIVATE WHEN READY
+LINK 2    12   3    5    2    5    2    10   3    16   2    12   link tech profile to link type for workflow step to message sender
+LINK 2    12   3    5    2    5    2    10   3    17   2    12   link tech profile to link type for workflow step to message receiver
+
+
+LINK 2    11   3    1    2    6    2    2    3    4    2    11   link "Link Target Type" for workflow def-->workflow step series to base template for workflow step series
+LINK 2    11   3    2    2    6    2    2    3    5    2    11   link "Link Target Type" for workflow step series-->workflow step to base template for workflow step
+LINK 2    11   3    3    2    6    2    2    3    4    2    11   link "Link Target Type" for workflow step to wf step series to base template for wf step series
+LINK 2    11   3    4    2    6    2    2    3    4    2    11   link "Link Target Type" for wf step of cond brnch to wf step series to base templ for wf step series DEPRECA
+LINK 2    11   3    5    2    6    2    2    2    36   2    11   link "Link Target Type" for wf step series to function to base template for function
+LINK 2    11   3    6    2    6    2    2    12   1    2    11   link "Link Target Type" for workflow step to map to base template for map
+LINK%2    11   3    7    2    6    2    2    13   2    2    11   link "Link Target Type" for workflow step-->request adapter to base template for request adapter DEPRECATED
+LINK 2    11   3    8    2    6    2    2    3    7    2    11   link "Link Target Type" for workflow def-->local val contaier def to base template for local val container def
+LINK 2    11   3    9    2    6    2    2    3    8    2    11   link "Link Target Type" for workflow-->local values container to base template for local valus container
+LINK 2    11   3    10   2    6    2    2    2    26   2    11   link "Link Target Type" for workflow local val container def-->parameter to base template for parameter 
+LINK 2    11   3    11   2    6    2    2    2    57   2    11   link "Link Target Type" for workflow local values container-->parameter value to base template for param val
+LINK 2    11   3    12   2    6    2    2    3    3    2    11   link "Link Target Type" for workflow def-->workflow (server gen link_ to base template for workflow
+LINK 2    11   3    13   2    6    2    2    3    9    2    11   link "Link Target Type" for workflow-->set mbr iteration status to base template for set member iteration sta
+LINK 2    11   3    14   2    6    2    2    3    1    2    11   link "Link Target Type" for workflow domain-->workflow def to base template for workflow def
+LINK 2    11   3    15   2    6    2    2    11   1    2    11   link "Link Target Type" for workflow-->log entry to base template for log entry
+LINK 2    11   3    16   2    6    2    2    13   3    2    11   link "Link Target Type" for workflow step-->message sender to base template for message sender
+LINK 2    11   3    17   2    6    2    2    13   4    2    11   link "Link Target Type" for workflow step-->message receiver to base template for message receiver   
+
+
+
+
+

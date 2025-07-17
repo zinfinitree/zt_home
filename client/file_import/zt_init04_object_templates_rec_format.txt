@@ -1,0 +1,244 @@
+ZTIC 2    131131/21
+ZTIC 3    zinfinitree.com/address
+ZTIC 1    abc.com/test1
+
+RZTI 1          receiver ztic
+
+      mode 1 means create/update with no future timestamps [DEPRECATED]
+MODE%99                                                     [DEPRECATED replaced by MPPG]
+
+
+    message processing parameters--general
+     default timesmp     msg id-client       last idx  mode user                SWdsiSWcod           
+MPPG 5179248000.000      id123               1234      99   usr1                4    1    
+
+     Desc                                    Timestamp
+MSET MaintainSetId#1                         5179248000.000  
+
+CMNT TMPL                                        template for maintaining an object template
+
+     ObjKind   Object    ObjElem   Template  
+RecIdKzticKcodeOzticOcodeEzticEcodeTzticTcode     OEValue
+ELEM 2    2    2    1    2    2    2    2         Object Kind (Base Template)
+ELEM 2    2    2    2    2    2    2    2         Object Template (Base Template) 
+ELEM 2    2    2    3    2    2    2    2         Object Element (Base Template)    
+ELEM 2    2    2    4    2    2    2    2         Table Element (Base Template) 
+ELEM 2    2    2    5    2    2    2    2         Type Value Based Template Rule (Base Template)
+ELEM 2    2    2    6    2    2    2    2         Link Based Template Rule (Base Template)
+ELEM 2    2    2    7    2    2    2    2         Object Element Value Based Template Rule (Base Template)      
+ELEM 2    2    2    8    2    2    2    2         Object Kind Type (Base Template) 
+ELEM 2    2    2    9    2    2    2    2         Object Type Definition (Base Template)
+ELEM 2    2    2    10   2    2    2    2         Link Type (Base Template)
+ELEM 2    2    2    11   2    2    2    2         Link Target Type (Base Template)
+ELEM 2    2    2    12   2    2    2    2         Technical Profile (Base Template)
+ELEM 2    2    2    13   2    2    2    2         Object Set Definition (Base Template)
+ELEM 2    2    2    14   2    2    2    2         ZT Instance (Base Template)
+ELEM 2    2    2    15   2    2    2    2         Namespace (Base Template)
+ELEM 2    2    2    16   2    2    2    2         Object Element Usage Type (Base Template)
+ELEM 2    2    2    17   2    2    2    2         Object Template Type (Base Template)
+ELEM 2    2    2    18   2    2    2    2         Language (Base Template)
+ELEM 2    2    2    19   2    2    2    2         User (Base Template)
+ELEM 2    2    2    20   2    2    2    2         User Type (Base Template) 
+ELEM 2    2    2    21   2    2    2    2         Code Range (Base Template)
+ELEM 2    2    2    22   2    2    2    2         Code Scheme (Base Template)
+ELEM 2    2    2    23   2    2    2    2         Code Scheme Type (Base Template)
+ELEM 2    2    2    24   2    2    2    2         System Message Definition (Base Template)
+ELEM 2    2    2    25   2    2    2    2         System Message Definition Type (Base Template)
+ELEM 2    2    2    26   2    2    2    2         Parameter (Base Template)
+ELEM 2    2    2    27   2    2    2    2         Parameter Type (Base Template)
+ELEM 2    2    2    28   2    2    2    2         System Message Definition Category (Base Template)
+ELEM 2    2    2    29   2    2    2    2         System Message Parameter Category (Base Template)
+ELEM 2    2    2    30   2    2    2    2         Table (Base Template)
+ELEM 2    2    2    31   2    2    2    2         Data Element (Base Template)
+ELEM 2    2    2    32   2    2    2    2         Data Type (Base Template)
+ELEM 2    2    2    33   2    2    2    2         Extended Key Definition (Base Template)
+ELEM 2    2    2    34   2    2    2    2         Extended Key Definition Category (Base Template)
+ELEM 2    2    2    35   2    2    2    2         Object Element Usage Type (Base Template)
+ELEM 2    2    2    36   2    2    2    2         Function (Base Template)
+ELEM 2    2    2    37   2    2    2    2         Class/Program (Base Template)
+ELEM 2    2    2    38   2    2    2    2         Class/Program Type (Base Template)
+ELEM 2    2    2    39   2    2    2    2         Resource (Base Template)
+ELEM 2    2    2    40   2    2    2    2         Resource Protcol (Base Template)
+ELEM 2    2    2    41   2    2    2    2         Resource Name Extension (Base Template)
+ELEM 2    2    2    42   2    2    2    2         Software Runtime Profile (Base Template)
+ELEM 2    2    2    43   2    2    2    2         Software Runtime Componenst (Base Template)
+ELEM 2    2    2    44   2    2    2    2         Patch Level (Base Template)
+ELEM 2    2    2    45   2    2    2    2         Language & Patch Level Composite Extended Key (Base Template)
+ELEM 2    2    2    46   2    2    2    2         Object Set Defintion Type (Base Template)
+ELEM 2    2    2    47   2    2    2    2         Link Type Usage Type (Base Template)
+ELEM 2    2    2    48   2    2    2    2         Type Value Based Object Set (Base Template)
+ELEM 2    2    2    49   2    2    2    2         Template Set (Base Template)   
+ELEM 2    2    2    50   2    2    2    2         Generic Object (Base Template)
+ELEM 2    2    2    51   2    2    2    2         Generic Object Element Value (Base Template) 
+ELEM 2    2    2    52   2    2    2    2         Function Group (Base Template)
+ELEM 2    2    2    53   2    2    2    2         Function Group Type (Base Template)
+ELEM 2    2    2    54   2    2    2    2         Parameter Value Group (Base Template)
+ELEM 2    2    2    55   2    2    2    2         Object Template Path (Base Template)
+ELEM 2    2    2    56   2    2    2    2         Type Definition Path (Base Template)
+ELEM 2    2    2    57   2    2    2    2         Parameter Value (Base Template)
+ELEM 2    2    2    58   2    2    2    2         Statistical Values Object (Base Template)
+ELEM 2    2    2    59   2    2    2    2         Statistical Values Dimension (Base Template)
+ELEM 2    2    2    60   2    2    2    2         Statistic Type (Base Template) sum, count, mean, mode, median, std dev
+ELEM 2    2    2    61   2    2    2    2         Unit of Measure (Base Template)
+ELEM 2    2    2    62   2    2    2    2         Unit of Measure Dimension (Base Template)  length, weight, time, currency 
+ELEM 2    2    2    63   2    2    2    2         Type Definition Usage Type (Base Template)
+ELEM 2    2    2    64   2    2    2    2         System Message Element Definition (Base Template)
+ELEM 2    2    2    65   2    2    2    2         System Message Element Definition Type (Base Template)
+ELEM 2    2    2    66   2    2    2    2         Numeric Data Type Details (Base Template)
+ELEM 2    2    2    67   2    2    2    2         Function Group Set Launch Point (Base Template)
+
+     ObjKind   Object    TypeDef   Type      Template  
+RecIdKdiscKcodeOzticOcodeTDdsiTDcodTzticTcodeTzticTcode
+TYPE 2    2    2    1    2    3    2    1               Object Kind for template for Object Kind (Base Template)
+TYPE 2    2    2    2    2    3    2    2               Object Kind for template for Object Template (Base Template) 
+TYPE 2    2    2    3    2    3    2    3               Object Kind for template for Object Element (Base Template)    
+TYPE 2    2    2    4    2    3    2    4               Object Kind for template for Table Element (Base Template) 
+TYPE 2    2    2    5    2    3    2    5               Object Kind for template for Type Template Rule (Base Template)
+TYPE 2    2    2    6    2    3    2    6               Object Kind for template for Link Template Rule (Base Template)
+TYPE 2    2    2    7    2    3    2    7               Object Kind for template for Object Element Template Rule (Base Template)      
+TYPE 2    2    2    8    2    3    2    8               Object Kind for template for Extended Key Definition (Base Template) 
+TYPE 2    2    2    9    2    3    2    9               Object Kind for template for Object Type Definition (Base Template)
+TYPE 2    2    2    10   2    3    2    10              Object Kind for template for Link Type (Base Template)
+TYPE 2    2    2    11   2    3    2    11              Object Kind for template for Link Target Type (Base Template)
+TYPE 2    2    2    12   2    3    2    12              Object Kind for template for Technical Profile (Base Template)
+TYPE 2    2    2    13   2    3    2    13              Object Kind for template for Object Set (Base Template)
+TYPE 2    2    2    14   2    3    2    14              Object Kind for template for DS Instance (Base Template)
+TYPE 2    2    2    15   2    3    2    15              Object Kind for template for Namespace (Base Template)
+TYPE 2    2    2    16   2    3    2    16              Object Kind for template for Object Element Usage Type (Base Template)
+TYPE 2    2    2    17   2    3    2    17              Object Kind for template for Server (Base Template)
+TYPE 2    2    2    18   2    3    2    18              Object Kind for template for Language (Base Template)
+TYPE 2    2    2    19   2    3    2    19              Object Kind for template for User (Base Template)
+TYPE 2    2    2    20   2    3    2    20              Object Kind for template for User Type (Base Template) 
+TYPE 2    2    2    21   2    3    2    21              Object Kind for template for Code Range (Base Template)
+TYPE 2    2    2    22   2    3    2    22              Object Kind for template for Code Scheme (Base Template)
+TYPE 2    2    2    23   2    3    2    23              Object Kind for template for Code Scheme Type (Base Template)
+TYPE 2    2    2    24   2    3    2    24              Object Kind for template for System Message Definition (Base Template)
+TYPE 2    2    2    25   2    3    2    25              Object Kind for template for System Message Definition Type (Base Template)
+TYPE 2    2    2    26   2    3    2    26              Object Kind for template for System Message Definition Parameter (Base Template)
+TYPE 2    2    2    27   2    3    2    27              Object Kind for template for System Message Definition Parameter Type (Base Template)
+TYPE 2    2    2    28   2    3    2    28              Object Kind for template for System Message Definition Category (Base Template)
+TYPE 2    2    2    29   2    3    2    29              Object Kind for template for System Message Definition Parameter Category (Base Template)
+TYPE 2    2    2    30   2    3    2    30              Object Kind for template for Object Kind Type (standard, composite key etc) (Base Template)
+TYPE 2    2    2    31   2    3    2    31              Object Kind for template for Data Element (Base Template)
+TYPE 2    2    2    32   2    3    2    32              Object Kind for template for Data Type (Base Template)
+TYPE 2    2    2    33   2    3    2    33              Object Kind for template for Extended Key Definition (Base Template)
+TYPE 2    2    2    34   2    3    2    34              Object Kind for template for Extended Key Definition Category (Base Template)
+TYPE 2    2    2    35   2    3    2    35              Object Kind for template for Object Element Usage Type (Base Template)
+TYPE 2    2    2    36   2    3    2    36              Object Kind for template for Function (Base Template)
+TYPE 2    2    2    37   2    3    2    37              Object Kind for template for Class/Program (Base Template)
+TYPE 2    2    2    38   2    3    2    38              Object Kind for template for Class/Program Type (Base Template)
+TYPE 2    2    2    39   2    3    2    39              Object Kind for template for Resource (Base Template)
+TYPE 2    2    2    40   2    3    2    40              Object Kind for template for Resource Protcol (Base Template)
+TYPE 2    2    2    41   2    3    2    41              Object Kind for template for Resource Name Extension (Base Template)
+TYPE 2    2    2    42   2    3    2    42              Object Kind for template for Text Category (Base Template)
+TYPE 2    2    2    43   2    3    2    43              Object Kind for template for Placeholder for code 43 (Base Template)
+TYPE 2    2    2    44   2    3    2    44              Object Kind for template for Placeholder for code 44 (Base Template)
+TYPE 2    2    2    45   2    3    2    45              Object Kind for template for Placeholder for code 45 (Base Template)
+TYPE 2    2    2    46   2    3    2    46              Object Kind for template for Set Definition Type (Base Template)
+TYPE 2    2    2    47   2    3    2    47              Object Kind for template for Generic Object (Base Template)
+TYPE 2    2    2    48   2    3    2    48              Object Kind for template for Placeholder for code 48 (Base Template)
+TYPE 2    2    2    49   2    3    2    49              Object Kind for template for Placeholder for code 49 (Base Template)
+
+TYPE 2    2    2    50   2    3    2    50              Object Kind for template for Generic Object (Base Template)
+TYPE 2    2    2    51   2    3    2    51              Object Kind for template for Generic Object Element Value (Base Template) 
+TYPE 2    2    2    52   2    3    2    52              Object Kind for template for Validation (Base Template)
+TYPE 2    2    2    53   2    3    2    53              Object Kind for template for Validation Type (Base Template)
+TYPE 2    2    2    54   2    3    2    54              Object Kind for template for Calculated Value Scenario (Base Template)
+TYPE 2    2    2    55   2    3    2    55              Object Kind for template for Object Template Path (Base Template)
+TYPE 2    2    2    56   2    3    2    56              Object Kind for template for Type Definition Path (Base Template)
+TYPE 2    2    2    57   2    3    2    57              Object Kind for template for Parameter Value (Base Template)
+TYPE 2    2    2    58   2    3    2    58              Object Kind for template for Statistical Values Object (Base Template)
+TYPE 2    2    2    59   2    3    2    59              Object Kind for template for Statistical Values Dimension (Base Template)
+TYPE 2    2    2    60   2    3    2    60              Object Kind for template for Statistic Type (Base Template) sum, count, mean, mode, median, std dev
+TYPE 2    2    2    61   2    3    2    61              Object Kind for template for Unit of Measure (Base Template)
+TYPE 2    2    2    62   2    3    2    62              Object Kind for template for Unit of Measure Dimension (Base Template)  length, weight, time, currency 
+TYPE 2    2    2    63   2    3    2    63              Object Kind for template for Type Definition Usage Type
+TYPE 2    2    2    64   2    3    2    64              Object Kind for template for System Message Element Definition (Base Template)
+TYPE 2    2    2    65   2    3    2    65              Object Kind for template for System Message Element Definition Type (Base Template)
+TYPE 2    2    2    66   2    3    2    66              Object Kind for template for Numeric Data Type Details (Base Template)
+ELEM 2    2    2    67   2    3    2    67              Object Kind for template for Function Group Set Launch Point (Base Template)
+
+
+
+  links from base template to base technical profiles
+RecIdKzticKcodeOzticOcodeLTdsiLTcodLKdsiLKcodLzticLcodeTzticTcode
+LINK 2    2    2    1    2    1    2    12   2    1    2    2    Object Kind (Base Template) to Base Tech Profile
+LINK 2    2    2    2    2    1    2    12   2    2    2    2    Object Template (Base Template) to Base Tech Profile
+LINK 2    2    2    3    2    1    2    12   2    3    2    2    Object Element (Base Template) to Base Tech Profile    
+LINK 2    2    2    4    2    1    2    12   2    4    2    2    Table Element (Base Template) to Base Tech Profile 
+LINK 2    2    2    5    2    1    2    12   2    5    2    2    Type Template Rule (Base Template) to Base Tech Profile 
+LINK 2    2    2    6    2    1    2    12   2    6    2    2    Link Template Rule (Base Template) to Base Tech Profile
+LINK 2    2    2    7    2    1    2    12   2    7    2    2    Object Elem Templ Rule (Base Templ) to Base Tech Profile      
+LINK 2    2    2    8    2    1    2    12   2    8    2    2    Extended Key Definition (Base Template) to Base Tech Profile
+LINK 2    2    2    9    2    1    2    12   2    9    2    2    Object Type Definition (Base Template) to Base Tech Profile
+LINK 2    2    2    10   2    1    2    12   2    10   2    2    Link Type (Base Template) to Base Tech Profile
+LINK 2    2    2    11   2    1    2    12   2    11   2    2    Link Target Type (Base Template) to Base Tech Profile
+LINK 2    2    2    12   2    1    2    12   2    12   2    2    Technical Profile (Base Template) to Base Tech Profile
+LINK 2    2    2    13   2    1    2    12   2    13   2    2    Object Set (Base Template) to Base Tech Profile
+LINK 2    2    2    14   2    1    2    12   2    14   2    2    DS Instance (Base Template) to Base Tech Profile
+LINK 2    2    2    15   2    1    2    12   2    15   2    2    Namespace (Base Template) to Base Tech Profile
+LINK 2    2    2    16   2    1    2    12   2    16   2    2    Object Element Usage Type (Base Template) to Base Tech Profile
+LINK 2    2    2    17   2    1    2    12   2    17   2    2    Server (Base Template) to Base Tech Profile
+LINK 2    2    2    18   2    1    2    12   2    18   2    2    Language (Base Template) to Base Tech Profile
+LINK 2    2    2    19   2    1    2    12   2    19   2    2    User (Base Template) to Base Tech Profile
+LINK 2    2    2    20   2    1    2    12   2    20   2    2    User Type (Base Template) to Base Tech Profile 
+LINK 2    2    2    21   2    1    2    12   2    21   2    2    Code Range (Base Template) to Base Tech Profile
+LINK 2    2    2    22   2    1    2    12   2    22   2    2    Code Scheme (Base Template) to Base Tech Profile
+LINK 2    2    2    23   2    1    2    12   2    23   2    2    Code Scheme Type (Base Template) to Base Tech Profile
+LINK 2    2    2    24   2    1    2    12   2    24   2    2    System Message Definition (Base Template) to Base Tech Profile
+LINK 2    2    2    25   2    1    2    12   2    25   2    2    System Message Definition Type (Base Template) to Base Tech Profile
+LINK 2    2    2    26   2    1    2    12   2    26   2    2    System Message Definition Parameter (Base Template) to Base Tech Profile
+LINK 2    2    2    27   2    1    2    12   2    27   2    2    System Message Definition Parameter Type (Base Template) to Base Tech Profile
+LINK 2    2    2    28   2    1    2    12   2    28   2    2    System Message Definition Category (Base Template) to Base Tech Profile
+LINK 2    2    2    29   2    1    2    12   2    29   2    2    System Message Definition Parameter Category (Base Template) to Base Tech Profile
+LINK 2    2    2    30   2    1    2    12   2    30   2    2    Function (Base Template) to Base Tech Profile
+LINK 2    2    2    31   2    1    2    12   2    31   2    2    Function Type (Base Template) to Base Tech Profile
+LINK 2    2    2    32   2    1    2    12   2    32   2    2    Function Parameter (Base Template) to Base Tech Profile
+LINK 2    2    2    33   2    1    2    12   2    33   2    2    Function Parameter Type (Base Template) to Base Tech Profile
+LINK 2    2    2    34   2    1    2    12   2    34   2    2    Function Category (Base Templ) to Base Tech Profile
+LINK 2    2    2    35   2    1    2    12   2    35   2    2    Funcxxx (Base Template) to Base Tech Profile
+LINK 2    2    2    36   2    1    2    12   2    36   2    2    Funcxxx Type (Base Template) to Base Tech Profile
+LINK 2    2    2    37   2    1    2    12   2    37   2    2    Event (Base Template) to Base Tech Profile
+LINK 2    2    2    38   2    1    2    12   2    38   2    2    Class/Program Type (Base Template) to Base Tech Profile
+LINK 2    2    2    39   2    1    2    12   2    39   2    2    Resource (Base Template) to Base Tech Profile
+LINK 2    2    2    40   2    1    2    12   2    40   2    2    Text (Base Template) to Base Tech Profile
+LINK 2    2    2    41   2    1    2    12   2    41   2    2    Text Type (Base Template) to Base Tech Profile
+LINK 2    2    2    42   2    1    2    12   2    42   2    2    Text Category (Base Template) to Base Tech Profile
+LINK 2    2    2    43   2    1    2    12   2    43   2    2    Placeholder for code 43 (Base Template) to Base Tech Profile
+LINK 2    2    2    44   2    1    2    12   2    44   2    2    Placeholder for code 44 (Base Template) to Base Tech Profile
+LINK 2    2    2    45   2    1    2    12   2    45   2    2    Placeholder for code 45 (Base Template) to Base Tech Profile
+LINK 2    2    2    46   2    1    2    12   2    46   2    2    Set Definition Type  (Base Template) to Base Tech Profile
+LINK 2    2    2    47   2    1    2    12   2    47   2    2    Generic Object (Base Template) to Base Tech Profile
+LINK 2    2    2    48   2    1    2    12   2    48   2    2    Placeholder for code 48 (Base Template) to Base Tech Profile
+LINK 2    2    2    49   2    1    2    12   2    49   2    2    Placeholder for code 49 (Base Template) to Base Tech Profile
+LINK 2    2    2    50   2    1    2    12   2    50   2    2    Placeholder for code 50 (Base Template) to Base Tech Profile
+LINK 2    2    2    51   2    1    2    12   2    51   2    2    Language & Patch Level Extended Key (Base Template) to Base Tech Profile
+
+LINK 2    2    2    52   2    1    2    12   2    52   2    2    Validation to Base Tech Profile
+LINK 2    2    2    53   2    1    2    12   2    53   2    2    Validation Type to Base Tech Profile
+LINK 2    2    2    54   2    1    2    12   2    54   2    2    Calculated Value Scenario to Base Tech Profile
+LINK 2    2    2    55   2    1    2    12   2    55   2    2    Object Template Path to Base Tech Profile
+LINK 2    2    2    56   2    1    2    12   2    56   2    2    Definition Path to Base Tech Profile
+LINK 2    2    2    57   2    1    2    12   2    57   2    2    Table to Base Tech Profile
+LINK 2    2    2    58   2    1    2    12   2    58   2    2    Statistical Values Object to Base Tech Profile
+LINK 2    2    2    59   2    1    2    12   2    59   2    2    Statistical Values Dimension to Base Tech Profile
+LINK 2    2    2    60   2    1    2    12   2    60   2    2    Statistic Type to Base Tech Profile sum, count, mean, mode, median, std dev
+LINK 2    2    2    61   2    1    2    12   2    61   2    2    Unit of Measure to Base Tech Profile
+LINK 2    2    2    62   2    1    2    12   2    62   2    2    Unit of Measure Dimension to Base Tech Profile  length, weight, time, currency       
+LINK 2    2    2    63   2    1    2    12   2    63   2    2    Type Definition Usage Type to Base Tech Profile 
+LINK 2    2    2    64   2    1    2    12   2    64   2    2    System Message Element Definition to Base Tech Profile
+LINK 2    2    2    65   2    1    2    12   2    65   2    2    System Message Element Definition Type to Base Technical Profile
+LINK 2    2    2    66   2    1    2    12   2    66   2    2    Numeric Data Type Details to Base Technical Profile
+LINK 2    2    2    67   2    1    2    12   2    67   2    2    Function Group Set Launch Point to Base Technical Profile
+
+
+
+QSET%OTdsiOTcodSelMdRspSmQSMid                                           query set member format, not used for this message (excluded by %)
+QSLS%SSeGnSSePnOpera                                                     query selection set format, not used for this message (excluded by %)    
+QOSS%LevelUsage                                                          query object selection set member, not used for this message (excluded by %)
+QOBJ%KzticKcodeOzticOcode                                                query object, not used for this message (excluded by %)
+QELM%EzticEcodeSgrpnSetopOperaQualfValue                                 query element, not used for this message (excluded by %)
+
+
+
+

@@ -1,0 +1,147 @@
+steps to import doc1 from file
+
+find last doc elem code used to determine next code:
+find last spreadsheet code used:
+find last mult-media object code used:
+find last message definition code used:
+
+
+update next codes in ds2_import_app02_document_def_record_format.txt file where needed
+
+current example: no changes
+ELEM 2    21   3    1    2    204  2    21        110 new (same) value for document code next code   DONE
+ELEM 2    21   3    2    2    204  2    21        580 new (same) value for document element code next code  DONE
+ELEM 2    21   3    3    2    204  2    21        301 new (same) value for document type code next code
+ELEM 2    21   3    4    2    204  2    21        401 new (same) value for document type code next code
+
+
+old example:
+ELEM 2    21   3    1    2    204  2    21        110
+ELEM 2    21   3    2    2    204  2    21        550
+ELEM 2    21   3    3    2    204  2    21        301
+ELEM 2    21   3    4    2    204  2    21        401
+
+old example:
+ELEM 2    21   3    1    2    204  2    21        110   ok
+ELEM 2    21   3    2    2    204  2    21        550   ok, 546 is last used
+ELEM 2    21   3    3    2    204  2    21        301   ok
+ELEM 2    21   3    4    2    204  2    21        401   ok
+
+
+old example:
+ELEM 2    21   3    1    2    204  2    21        110  new (same) value for document code next code   DONE
+ELEM 2    21   3    2    2    204  2    21        550  new value for document element code next code  DONE
+ELEM 2    21   3    3    2    204  2    21        301  new (same) value for document type code next code
+ELEM 2    21   3    4    2    204  2    21        401  new (same) value for document element type code next code
+
+
+
+
+update next code in ds2_import_app03_spreadsheet_def_record_format.txt, last used spreadsheet is 1025, no update needed
+
+current values keep the same 20240605
+ELEM 2    21   3    1    2    204  2    21        1050
+ELEM 2    21   3    2    2    204  2    21        2050
+ELEM 2    21   3    3    2    204  2    21        3050
+ELEM 2    21   3    4    2    204  2    21        4050
+ELEM 2    21   3    5    2    204  2    21        5050
+ELEM 2    21   3    6    2    204  2    21        6050
+ELEM 2    21   3    7    2    204  2    21        7050
+ELEM 2    21   3    8    2    204  2    21        8050
+ELEM 2    21   3    9    2    204  2    21        9050
+
+
+
+old example:
+ELEM 2    21   3    1    2    204  2    21        1050     DONE
+ELEM 2    21   3    2    2    204  2    21        2050     DONE
+ELEM 2    21   3    3    2    204  2    21        3050     DONE
+ELEM 2    21   3    4    2    204  2    21        4050     DONE
+ELEM 2    21   3    5    2    204  2    21        5050     DONE
+ELEM 2    21   3    6    2    204  2    21        6050     DONE
+ELEM 2    21   3    7    2    204  2    21        7050     DONE
+ELEM 2    21   3    8    2    204  2    21        8050     DONE
+ELEM 2    21   3    9    2    204  2    21        9050     DONE
+
+
+
+update next code in ds2_import_app09_multimedia_object_def_record_format.txt
+
+current values (keep the same):
+ELEM 2    21   3    1    2    204  2    21        1050  last code used 1052, change to 1060, DONE 20240702
+ELEM 2    21   3    3    2    204  2    21        3001   keep the same
+
+old values:
+ELEM 2    21   3    1    2    204  2    21        1050  values are ok
+ELEM 2    21   3    3    2    204  2    21        3001
+
+old example:
+ELEM 2    21   3    1    2    204  2    21        1050  updated next code for multi-media object     DONE 
+ELEM 2    21   3    3    2    204  2    21        3001
+
+
+
+
+update next code in ds2_init15_code_range_rec_format.txt for resources
+
+current example: (keep the same)
+ELEM 2    21   2    13   2    21   2    21        Object Set Definition (Code Range)
+ELEM 2    21   2    14   2    21   2    21        ZT Instance (Code Range)
+ELEM 2    21   2    15   2    21   2    21        Namespace (Code Range)
+ELEM 2    21   2    13   2    204  2    21        13050
+ELEM 2    21   2    14   2    204  2    21        14000
+ELEM 2    21   2    15   2    204  2    21        15050
+
+ELEM 2    21   2    39   2    204  2    21        39050   changed to 39060  DONE 20230704
+
+
+
+old example values:  values are ok
+ELEM 2    21   2    13   2    204  2    21        13050
+ELEM 2    21   2    14   2    204  2    21        14000
+ELEM 2    21   2    15   2    204  2    21        15050
+
+ELEM 2    21   2    39   2    204  2    21        39050
+
+
+old example:
+ELEM 2    21   2    13   2    204  2    21        13050 updated next code for set          DONE
+ELEM 2    21   2    14   2    204  2    21        14000
+ELEM 2    21   2    15   2    204  2    21        15050 updated next code for namespace    DONE
+
+ELEM 2    21   2    39   2    204  2    21        39050 updated next code for resource     DONE
+
+
+new:
+edit source file DOC1_101_expfile_20240809 to remove sets and message definition and copy to file_import folder and rename to DOC1_101_expfile_mod_removed_sets_and_msg_def_20240812.txt
+
+old:
+edit source file DOC1_101_expfile_20240809 to remove sets and message definition and copy to file_import folder and rename to DOC1_101_expfile_mod_removed_sets_and_msg_def_20240809.txt
+
+
+old:
+edit source file DOC1_101_expfile_20240630.txt to remove set members and copy to client file_import folder and rename to DOC1_101_expfile_mod_removed_sets_20240630.txt
+
+old:
+edit source file DOC1_101_expfile_20240305.txt to remove set members and copy to client file_import folder and rename to DOC1_101_expfile_mod_removed_sets_20240305.txt
+
+old:
+edit source file expfile_doc1_no_templ_20220313a.txt from mapped_responses to remove set members then copy to client folder and rename to expfile_doc1_no_templ_20220313a_mod.txt 
+
+
+
+find all sets used by spreadsheets  DONE, none new
+find and remove all message definition entries  DONE used regular expression ^.*[STRING].*$\n i.e. ^.*ELEM 7.*$\n and ^.*LINK 7.*$\n to remove all ELEM 7 and LINK 7 rows 
+query and map and new sets and find file in mapped_responses folder, copy file to client folder and remove set members
+update the ds2_file_list_doc1_sets_rec_format.txt to include the new files
+
+
+do imports in record format
+
+delete all object in env DOC1   DONE_20240812
+import all standard objects DONE_20240812
+import sets using manually entered file with list ds2_file_list_doc1_sets_rec_format.txt DONE_20240812
+import document DOC1_101_expfile_mod_removed_sets_and_msg_def_20240812.txt as manually entered file name  DONE_20240812
+
+
+

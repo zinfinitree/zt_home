@@ -1,0 +1,205 @@
+ZTIC 2    131131/21
+ZTIC 3    zinfinitree.com/address
+ZTIC 1    abc.com/test1
+ZTIC 4    zinfinitree.com/server_config
+ZTIC 5    zinfinitree.com/software
+
+RZTI 1          receiver ztic
+
+
+      mode 1 means create/update with no future timestamps [DEPRECATED]
+MODE%1                                                     [DEPRECATED replaced by MPPG]
+
+
+    message processing parameters--general
+     default timesmp     msg id-client       last idx  mode user                SWdsiSWcod           
+MPPG 5179248000.000      id123               1234      99   usr1                4    1    
+     
+     Desc                                    Timestamp
+MSET MaintainSetId#1                         5179248000.000  
+
+CMNT TMPL                                         template for maintaing an object
+
+     ObjKind   Object    ObjElem   Template  
+RecIdKzticKcodeOzticOcodeEzticEcodeTzticTcode     OEValue
+ELEM 2    1    2    1    2    1    2    1         Object Kind (Object Kind)
+ELEM 2    1    2    2    2    1    2    1         Object Template (Object Kind) 
+ELEM 2    1    2    3    2    1    2    1         Object Element (Object Kind)    
+ELEM 2    1    2    4    2    1    2    1         Table Element (Object Kind) 
+ELEM 2    1    2    5    2    1    2    1         Type Value Based Template Rule (Object Kind)
+ELEM 2    1    2    6    2    1    2    1         Link Based Template Rule (Object Kind)
+ELEM 2    1    2    7    2    1    2    1         Object Element Value Based Template Rule (Object Kind)      
+ELEM 2    1    2    8    2    1    2    1         Object Kind Type (Object Kind)  
+ELEM 2    1    2    9    2    1    2    1         Object Type Definition (Object Kind)
+ELEM 2    1    2    10   2    1    2    1         Link Type (Object Kind)
+ELEM 2    1    2    11   2    1    2    1         Link Target Type (Object Kind)
+ELEM 2    1    2    12   2    1    2    1         Technical Profile (Object Kind)
+ELEM 2    1    2    13   2    1    2    1         Object Set Definition (Object Kind)
+ELEM 2    1    2    14   2    1    2    1         ZT Instance (Object Kind)
+ELEM 2    1    2    15   2    1    2    1         Namespace (Object Kind)
+ELEM 2    1    2    16   2    1    2    1         Object Element Usage Type (Object Kind)
+ELEM 2    1    2    17   2    1    2    1         Object Template Type (Object Kind)
+ELEM 2    1    2    18   2    1    2    1         Language (Object Kind)
+ELEM 2    1    2    19   2    1    2    1         User (Object Kind)
+ELEM 2    1    2    20   2    1    2    1         User Type (Object Kind) 
+ELEM 2    1    2    21   2    1    2    1         Code Range (Object Kind)
+ELEM 2    1    2    22   2    1    2    1         Code Scheme (Object Kind)
+ELEM 2    1    2    23   2    1    2    1         Code Scheme Type (Object Kind)
+ELEM 2    1    2    24   2    1    2    1         System Message Definition (Object Kind)
+ELEM 2    1    2    25   2    1    2    1         System Message Definition Type (Object Kind)
+ELEM 2    1    2    26   2    1    2    1         Parameter (Object Kind)
+ELEM 2    1    2    27   2    1    2    1         Parameter Type (Object Kind)
+ELEM 2    1    2    28   2    1    2    1         System Message Definition Category (Object Kind)
+ELEM 2    1    2    29   2    1    2    1         System Message Parameter Category (Object Kind)
+ELEM 2    1    2    30   2    1    2    1         Table (Object Kind) 
+ELEM 2    1    2    31   2    1    2    1         Data Element (Object Kind)
+ELEM 2    1    2    32   2    1    2    1         Data Type (Object Kind)
+ELEM 2    1    2    33   2    1    2    1         Extended Key Definition (Object Kind)
+ELEM 2    1    2    34   2    1    2    1         Extended Key Definition Type (Object Kind)
+ELEM 2    1    2    35   2    1    2    1         Object Element Usage Type (Object Kind)
+ELEM 2    1    2    36   2    1    2    1         Function (Object Kind)
+ELEM 2    1    2    37   2    1    2    1         Class/Program (Object Kind)
+ELEM 2    1    2    38   2    1    2    1         Class/Program Type (Object Kind)
+ELEM 2    1    2    39   2    1    2    1         Resource (Object Kind)
+ELEM 2    1    2    40   2    1    2    1         Resource Protcol (Object Kind)
+ELEM 2    1    2    41   2    1    2    1         Resource Name Extension (Object Kind)
+ELEM 2    1    2    42   2    1    2    1         Software Runtime Profile (Object Kind)
+ELEM 2    1    2    43   2    1    2    1         Software Runtime Component (Object Kind)
+ELEM 2    1    2    44   2    1    2    1         Patch Level (Object Kind)
+ELEM 2    1    2    45   2    1    2    1         Language & Patch Level Composite Extended Key (Object Kind)
+ELEM 2    1    2    46   2    1    2    1         Object Set Definition Type (Object Kind)
+ELEM 2    1    2    47   2    1    2    1         Link Type Usage Type (Object Kind) i.e. standard, object sequencing
+ELEM 2    1    2    48   2    1    2    1         Type Value Based Object Set (Object Kind)
+ELEM 2    1    2    49   2    1    2    1         Template Set (Object Kind)
+ELEM 2    1    2    50   2    1    2    1         Generic Object (Object Kind)
+ELEM 2    1    2    51   2    1    2    1         Generic Object Element Value (Object Kind) 
+ELEM 2    1    2    52   2    1    2    1         Function Group (Object Kind)
+ELEM 2    1    2    53   2    1    2    1         Function Group Type (Object Kind)
+ELEM 2    1    2    54   2    1    2    1         Parameter Value Group   (Object Kind)
+ELEM 2    1    2    55   2    1    2    1         Object Template Path (Object Kind)
+ELEM 2    1    2    56   2    1    2    1         Type Definition Path (Object Kind)
+ELEM 2    1    2    57   2    1    2    1         Parameter Value (Object Kind)
+ELEM 2    1    2    58   2    1    2    1         Statistical Values Object (Object Kind)
+ELEM 2    1    2    59   2    1    2    1         Statistical Values Dimension (Object Kind)
+ELEM 2    1    2    60   2    1    2    1         Statistic Type (Object Kind) sum, count, mean, mode, median, std dev
+ELEM 2    1    2    61   2    1    2    1         Unit of Measure (Object Kind)
+ELEM 2    1    2    62   2    1    2    1         Unit of Measure Dimension (Object Kind)  length, weight, time, currency       
+ELEM 2    1    2    63   2    1    2    1         Type Definition Usage Type (Object Kind)
+ELEM 2    1    2    64   2    1    2    1         System Message Element Definition (Object Kind)
+ELEM 2    1    2    65   2    1    2    1         System Message Element Definition Type (Object Kind) 
+ELEM 2    1    2    66   2    1    2    1         Numeric Data Type Details (Object Kind)
+ELEM 2    1    2    67   2    1    2    1         Function Group Set Launch Point
+ELEM%2    1    2    68   2    1    2    1         User Interface Profile     (can be a link target for Object Template, can be linked to one or more UI attributes)
+ELEM%2    1    2    69   2    1    2    1         User Interface Attribute   (can be linked to one or more other UI attributes)
+ELEM%2    1    2    70   2    1    2    1         User Interface Attribute Type     (type value for UI Attribute)
+ELEM%2    1    2    71   2    1    2    1         User Interface Attribute Category (type value for UI Attribute Type)
+
+
+
+    object kind types
+ELEM 2    8    2    1    2    8    2    8         Standard (Object Kind Type)        
+ELEM 2    8    2    2    2    8    2    8         Composite Extended Key (Object Kind Type)
+ 
+    software declaration
+     ObjKind   Object    ObjElem   Template  
+RecIdKzticKcodeOzticOcodeEzticEcodeTzticTcode     OEValue
+ELEM%2    1    5    1    2    1    2    1         Function (Object Kind)
+ELEM%2    1    5    2    2    1    2    1         Function Type (Object Kind)
+ELEM%2    1    5    3    2    1    2    1         Function Category (Object Kind)
+ELEM%2    1    5    4    2    1    2    1         Function Parameter (Object Kind)
+ELEM%2    1    5    5    2    1    2    1         Function Parameter Type (Object Kind)
+ELEM%2    1    5    6    2    1    2    1         Function Parameter Direction (Object Kind)
+ELEM%2    1    5    7    2    1    2    1         Program/Class (Object Kind)
+ELEM%2    1    5    8    2    1    2    1         Program/Class Type (Object Kind)
+ELEM%2    1    5    9    2    1    2    1         Server Software Patch Level (Object Kind)
+ELEM%2    1    5    10   2    1    2    1         Server Software Runtime Profile (Object Kind)
+ELEM%2    1    5    11   2    1    2    1         Server Software Runtime Profile Component (Object Kind)
+
+
+     ObjKind   Object    TypeDef   Type      Template
+RecIdKdiscKcodeOzticOcodeTDdsiTDcodTzticTcodeTzticTcode
+TYPE 2    1    2    1    2    22   2    1    2    1     Default Object Template--Minimal Data for Object Kind (Object Kind)
+TYPE 2    1    2    2    2    22   2    2    2    1     Default Object Template--Minimal Data for Object Template (Object Kind) 
+TYPE 2    1    2    3    2    22   2    3    2    1     Default Object Template--Minimal Data for Object Element (Object Kind)    
+TYPE 2    1    2    4    2    22   2    4    2    1     Default Object Template--Minimal Data for Table Element (Object Kind) 
+TYPE 2    1    2    5    2    22   2    5    2    1     Default Object Template--Minimal Data for Type Template Rule (Object Kind)
+TYPE 2    1    2    6    2    22   2    6    2    1     Default Object Template--Minimal Data for Link Template Rule (Object Kind)
+TYPE 2    1    2    7    2    22   2    7    2    1     Default Object Template--Minimal Data for Object Element Templ Rule (Object Kind)      
+TYPE 2    1    2    8    2    22   2    8    2    1     Default Object Template--Minimal Data for Object Kind Type (Object Kind) 
+TYPE 2    1    2    9    2    22   2    9    2    1     Default Object Template--Minimal Data for Object Type Definition (Object Kind)
+TYPE 2    1    2    10   2    22   2    10   2    1     Default Object Template--Minimal Data for Link Type (Object Kind)
+TYPE 2    1    2    11   2    22   2    11   2    1     Default Object Template--Minimal Data for Link Target Type (Object Kind)
+TYPE 2    1    2    12   2    22   2    12   2    1     Default Object Template--Minimal Data for Technical Profile (Object Kind)
+TYPE 2    1    2    13   2    22   2    13   2    1     Default Object Template--Minimal Data for Object Set Definition (Object Kind)
+TYPE 2    1    2    14   2    22   2    14   2    1     Default Object Template--Minimal Data for Object Set Definition Type (Object Kind)
+TYPE 2    1    2    15   2    22   2    15   2    1     Default Object Template--Minimal Data for Namespace (Object Kind)
+TYPE 2    1    2    16   2    22   2    16   2    1     Default Object Template--Minimal Data for Object Element Usage Type (Object Kind)
+TYPE 2    1    2    17   2    22   2    17   2    1     Default Object Template--Minimal Data for Object Composite Set Operator (Object Kind)
+TYPE 2    1    2    18   2    22   2    18   2    1     Default Object Template--Minimal Data for Language (Object Kind)
+TYPE 2    1    2    19   2    22   2    19   2    1     Default Object Template--Minimal Data for User (Object Kind)
+TYPE 2    1    2    20   2    22   2    20   2    1     Default Object Template--Minimal Data for User Type (Object Kind) 
+TYPE 2    1    2    21   2    22   2    21   2    1     Default Object Template--Minimal Data for Code Range (Object Kind)
+TYPE 2    1    2    22   2    22   2    22   2    1     Default Object Template--Minimal Data for Code Scheme (Object Kind)
+TYPE 2    1    2    23   2    22   2    23   2    1     Default Object Template--Minimal Data for Code Scheme Type (Object Kind)
+TYPE 2    1    2    24   2    22   2    24   2    1     Default Object Template--Minimal Data for System Message Definition (Object Kind)
+TYPE 2    1    2    25   2    22   2    25   2    1     Default Object Template--Minimal Data for System Message Definition Type (Object Kind)
+TYPE 2    1    2    26   2    22   2    26   2    1     Default Object Template--Minimal Data for System Message/Function Definition Parameter (Object Kind)
+TYPE 2    1    2    27   2    22   2    27   2    1     Default Object Template--Minimal Data for System Message/Function Definition Parameter Type (Object Kind)
+TYPE 2    1    2    28   2    22   2    28   2    1     Default Object Template--Minimal Data for System Message Definition Category (Object Kind)
+TYPE 2    1    2    29   2    22   2    29   2    1     Default Object Template--Minimal Data for System Message Parameter Category (Object Kind)
+TYPE 2    1    2    30   2    22   2    30   2    1     Default Object Template--Minimal Data for Object Kind Type (Object Kind) (standard, composite key etc)
+TYPE 2    1    2    31   2    22   2    31   2    1     Default Object Template--Minimal Data for Data Element (Object Kind)
+TYPE 2    1    2    32   2    22   2    32   2    1     Default Object Template--Minimal Data for Data Type (Object Kind)
+TYPE 2    1    2    33   2    22   2    33   2    1     Default Object Template--Minimal Data for Extended Key Definition (Object Kind)
+TYPE 2    1    2    34   2    22   2    34   2    1     Default Object Template--Minimal Data for Extended Key Definition Type (Object Kind)
+TYPE 2    1    2    35   2    22   2    35   2    1     Default Object Template--Minimal Data for Object Element Usage Type (Object Kind)
+TYPE 2    1    2    36   2    22   2    36   2    1     Default Object Template--Minimal Data for Function (Object Kind)
+TYPE 2    1    2    37   2    22   2    37   2    1     Default Object Template--Minimal Data for Class/Program (Object Kind)
+TYPE 2    1    2    38   2    22   2    38   2    1     Default Object Template--Minimal Data for Class/Program Type (Object Kind)
+TYPE 2    1    2    39   2    22   2    39   2    1     Default Object Template--Minimal Data for Resource (Object Kind)
+TYPE 2    1    2    40   2    22   2    40   2    1     Default Object Template--Minimal Data for Resource Protcol (Object Kind)
+TYPE 2    1    2    41   2    22   2    41   2    1     Default Object Template--Minimal Data for Resource Name Extension (Object Kind)
+TYPE 2    1    2    42   2    22   2    42   2    1     Default Object Template--Minimal Data for Software Runtime Profile (Object Kind)
+TYPE 2    1    2    43   2    22   2    43   2    1     Default Object Template--Minimal Data for Software Runtime Component (Object Kind)
+TYPE 2    1    2    44   2    22   2    44   2    1     Default Object Template--Minimal Data for Patch Level (Object Kind)
+TYPE 2    1    2    45   2    22   2    45   2    1     Default Object Template--Minimal Data for Language & Patch Level Composite Extended Key (Object Kind)
+TYPE 2    1    2    46   2    22   2    46   2    1     Default Object Template--Minimal Data for Object Set Definition Type (Object Kind)
+TYPE 2    1    2    47   2    22   2    47   2    1     Default Object Template--Minimal Data for Generic Object (Object Kind)
+TYPE 2    1    2    48   2    22   2    48   2    1     Default Object Template--Minimal Data for Placeholder for code 48 (Object Kind)
+TYPE 2    1    2    49   2    22   2    49   2    1     Default Object Template--Minimal Data for Placeholder for code 49 (Object Kind)
+
+TYPE 2    1    2    50   2    22   2    50   2    1     Default Object Template--Minimal Data for Generic Object (Object Kind)
+TYPE 2    1    2    51   2    22   2    51   2    1     Default Object Template--Minimal Data for Generic Object Element Value (Object Kind) 
+TYPE 2    1    2    52   2    22   2    52   2    1     Default Object Template--Minimal Data for Validation (Object Kind)
+TYPE 2    1    2    53   2    22   2    53   2    1     Default Object Template--Minimal Data for Validation Type (Object Kind)
+TYPE 2    1    2    54   2    22   2    54   2    1     Default Object Template--Minimal Data for Calculated Value Scenario (Object Kind)
+TYPE 2    1    2    55   2    22   2    55   2    1     Default Object Template--Minimal Data for Object Template Path (Object Kind)
+TYPE 2    1    2    56   2    22   2    56   2    1     Default Object Template--Minimal Data for Type Definition Path (Object Kind)
+TYPE 2    1    2    57   2    22   2    57   2    1     Default Object Template--Minimal Data for Parameter Value (Object Kind)
+TYPE 2    1    2    58   2    22   2    58   2    1     Default Object Template--Minimal Data for Statistical Values Object (Object Kind)
+TYPE 2    1    2    59   2    22   2    59   2    1     Default Object Template--Minimal Data for Statistical Values Dimension (Object Kind)
+TYPE 2    1    2    60   2    22   2    60   2    1     Default Object Template--Minimal Data for Statistic Type (Object Kind) sum, count, mean, mode, median, std dev
+TYPE 2    1    2    61   2    22   2    61   2    1     Default Object Template--Minimal Data for Unit of Measure (Object Kind)
+TYPE 2    1    2    62   2    22   2    62   2    1     Default Object Template--Minimal Data for Unit of Measure Dimension (Object Kind)  length, weight, time, currency 
+TYPE 2    1    2    63   2    22   2    63   2    1     Default Object Template--Minimal Data for Type Definition Usage Type
+TYPE 2    1    2    64   2    22   2    64   2    1     Default Object Template--Minimal Data for System Message Element Definition
+TYPE 2    1    2    65   2    22   2    65   2    1     Default Object Template--Minimal Data for System Message Element Definition Type
+TYPE 2    1    2    66   2    22   2    66   2    1     Default Object Template--Minimal Data for Numeric Data Type Details
+TYPE 2    1    2    67   2    22   2    67   2    1     Default Object Template--Minimal Data for Function Group Set Launch Point
+
+
+
+
+
+     ObjKind   Object    LinkType   ToKind   ToObject  Template
+RecIdKzticKcodeOzticOcodeLTdsiLTcodLKdsiLKcodLzticLcodeTzticTcode         
+LINK%2    2    3    1    2    1    2    12   3    1    2    2    link object template to technical profile
+
+
+
+
+
+
+
+
+

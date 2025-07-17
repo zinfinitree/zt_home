@@ -1,0 +1,18 @@
+ZTIC 1    zinfinitree.com/doc1
+ZTIC 2    131131/21
+ZTIC 3    zinfinitree.com/address
+ZTIC 4    zinfinitree.com/document
+ZTIC 5    zinfinitree.com/spreadsheet
+ZTIC 6    zinfinitree.com/multimedia_object
+ZTIC 7    zinfinitree.com/server_config
+ZTIC 8    zinfinitree.com/address_app_data
+RZTI 1
+MPPG 5179248000.000      abc123              123       99   user1     7    2    
+EXTK 2    2    2    1    
+MSET ObjectQset                              5179248000.000  
+ELEM 2    13   1    130102    13                  Set of Base Table Elements
+LINK 2    13   1    130102    12   2    1    2    4 
+LINK 2    13   1    130102    19   2    13   1    13004             
+ELEM 2    1    2    4    2    1                   Table Element (Object Kind)
+TYPE 2    1    2    4    2    22   2    4              
+TYPE 2    1    2    4    2    5    2    4              

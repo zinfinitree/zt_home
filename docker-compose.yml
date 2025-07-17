@@ -1,0 +1,45 @@
+version: "3"
+services:
+  zinfinitree-server:
+    container_name: zinfinitree-server
+    image: zinfinitree-server
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile.zinfinitree-server
+    ports:
+      - "5001:5001"
+    links:
+#      - mongo
+      - zinfinitree-client
+    environment:
+      - DB_URL=...ADD YOUR MONGO DB URL HERE...
+      - ZT_SERVER_HOME_DIR=/zt_home/server
+      - ZT_SERVER_DEFAULT_SOFTWARE_RUNTIME_PROFILE={"namespace":"zinfinitree.com/server_config","code":"2    "} 
+      - ZT_SERVER_STARTUP_PARAMS=[{"parameterName":"targetNS                 ","seqNum":"1    ","value":"TST1 abc.com/test1"},{"parameterName":"targetNS                 ","seqNum":"2    ","value":"TST2 abc.com/test2"},{"parameterName":"targetNS                 ","seqNum":"3    ","value":"ZTST abc.com/ztst"},{"parameterName":"targetNS                 ","seqNum":"4    ","value":"DOC1 zinfinitree.com/doc1"},{"parameterName":"targetNS                 ","seqNum":"6    ","value":"ZIN1 zinfinitem.com/zin1"},{"parameterName":"targetNS                 ","seqNum":"7    ","value":"ALT1 amplabs.ai/test1"},{"parameterName":"targetNS                 ","seqNum":"8    ","value":"DOC2 ds.com/doc2"},{"parameterName":"initializeMode           ","seqNum":"1    ","value":"+"},{"parameterName":"msgURL                   ","seqNum":"1    ","value":"/ds2/process_message  -- param did not work"},{"parameterName":"RuntimeProfileDefault    ","seqNum":"ds.co","value":"m/base                             2"},{"parameterName":"","seqNum":"","value":""}]
+#      - DB_URL=mongodb://mongo:27017/dfs2DB
+#    platform: linux/amd64        
+#  mongo:
+#    container_name: mongo
+#    image: mongo
+#    volumes:
+#      - ./data:/data/db
+#    ports:
+#      - '27017:27017'
+#    platform: linux/amd64  
+  zinfinitree-client:
+    container_name: zinfinitree-client
+    image: zinfinitree-client
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile.zinfinitree-client
+    ports:
+      - "3000:3000"
+    environment:
+      - ZT_SERVER_IP=zinfinitree-server
+      - ZT_CLIENT_IP=http://localhost
+      - ZT_CLIENT_PORT=3000
+      - ZINFINITREE_WEBSITE_PARAMETERS={"TargetNS":"amplabs.ai/test1","language":"1","user_name":"xxx","user_password":"x","AppNS":"zinfinitree.com/dev_agile","app_code":"1002","PageNS":"amplabs.ai/test1","page_code":""}
+#    platform: linux/amd64  
+

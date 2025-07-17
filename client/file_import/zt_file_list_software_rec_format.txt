@@ -1,0 +1,3 @@
+zt_init21_zt_server_patch_00001_software_rec_format.txt
+zt_init22_zt_server_patch_00002_software_rec_format.txt
+zt_init23_zt_server_patch_00003_software_rec_format.txt

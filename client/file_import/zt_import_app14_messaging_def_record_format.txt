@@ -1,0 +1,617 @@
+ZTIC 2    131131/21
+ZTIC 3    zinfinitree.com/messaging
+ZTIC 1    abc.com/test1
+ZTIC 4    zinfinitree.com/server_config
+ZTIC 5    zinfinitree.com/spreadsheet
+ZTIC 6    zinfinitree.com/multimedia_object
+ZTIC 7    131131/22
+ZTIC 8    zinfinitree.com/time
+ZTIC 9    zinfinitree.com/time_tz_est
+ZTIC 10   zinfinitree.com/person
+ZTIC 11   zinfinitree.com/map
+
+
+RZTI 1          receiver ztic
+ 
+
+%   copied from ds2_import_app13_app_def_record_format.txt on 20220711    
+
+
+      mode 1 means create/update with no future timestamps [DEPRECATED]
+MODE%1                                                     [DEPRECATED replaced by MPPG]
+
+
+    message processing parameters--general
+     default timesmp     msg id-client       last idx  mode user                SWdsiSWcod           
+MPPG 5179248000.000      id123               1234      99   usr1                4    2    
+
+
+
+     ExtKeyDef ExtKeyVal     
+RecIdEKDdsEKDcoEKVdsEKVco
+EXTK 2    2    2    1
+
+     
+     Desc                                    Timestamp
+MSET MaintainSetId#1                         5179248000.000  
+
+CMNT TMPL                                        template for maintaing an object
+
+     ObjKind   Object    ObjElem   Template  
+RecIdKzticKcodeOzticOcodeEzticEcodeTzticTcode     OEValue
+ELEM 2    1    3    1    2    1    2    1         Messaging Domain (Object Kind)
+ELEM 2    1    3    2    2    1    2    1         Messaging Domain Type (Object Kind)
+ELEM 2    1    3    3    2    1    2    1         Message Sender (Object Kind)
+ELEM 2    1    3    4    2    1    2    1         Message Receiver (Object Kind)
+ELEM%2    1    3    5    2    1    2    1         Message Data Format (Object Kind) deprecated use message definition
+ELEM%2    1    3    6    2    1    2    1         Message Data Format Type (Object Kind) deprecated use message definition
+ELEM 2    1    3    7    2    1    2    1         Messaging Partner (Object Kind)
+ELEM 2    1    3    8    2    1    2    1         Messaging Partner Type (Object Kind) 
+ELEM 2    1    3    9    2    1    2    1         Message Container (Object Kind)
+ELEM 2    1    3    10   2    1    2    1         Message (Object Kind)
+ELEM 2    1    3    11   2    1    2    1         Message Payload Type (Object Kind)
+
+
+ELEM 2    2    3    1    2    2    2    2         Messaging Domain (Base Template)              
+ELEM 2    2    3    2    2    2    2    2         Messaging Domain Type (Base Template)
+ELEM 2    2    3    3    2    2    2    2         Message Sender (Base Template)
+ELEM 2    2    3    4    2    2    2    2         Message Receiver (Base Template)
+ELEM%2    2    3    5    2    2    2    2         Message Data Format (Base Template) deprecated use message definition
+ELEM%2    2    3    6    2    2    2    2         Message Data Format Type (Base Template) deprecated use message definition
+ELEM 2    2    3    7    2    2    2    2         Messaging Partner (Base Template)
+ELEM 2    2    3    8    2    2    2    2         Messaging Partner Type (Base Template)
+ELEM 2    2    3    9    2    2    2    2         Message Container (Base Template)
+ELEM 2    2    3    10   2    2    2    2         Message (Base Template)
+ELEM 2    2    3    11   2    2    2    2         Message Payload Type (Base Template)
+
+ELEM 2    12   3    1    2    12   2    12        Messaging Domain (Technical Profile)
+ELEM 2    12   3    2    2    12   2    12        Messaging Domain Type (Technical Profile)
+ELEM 2    12   3    3    2    12   2    12        Message Sender (Technical Profile)
+ELEM 2    12   3    4    2    12   2    12        Message Receiver (Technical Profile)
+ELEM%2    12   3    5    2    12   2    12        Message Data Format (Technical Profile) deprecated use message definition
+ELEM%2    12   3    6    2    12   2    12        Message Data Format Type (Technical Profile) deprecated use message definitin
+ELEM 2    12   3    7    2    12   2    12        Messaging Partner (Technical Profile)
+ELEM 2    12   3    8    2    12   2    12        Messaging Partner Type (Technical Profile)
+ELEM 2    12   3    9    2    12   2    12        Message Container (Technical Profile)
+ELEM 2    12   3    10   2    12   2    12        Message (Technical Profile)
+ELEM 2    12   3    11   2    12   2    12        Message Payload Type (Technical Profile)
+
+
+ELEM 2    21   3    1    2    21   2    21        Code Range for Messaging Domain (Code Range)
+ELEM 2    21   3    2    2    21   2    21        Code Range for Messaging Domain Type (Code Range)
+ELEM 2    21   3    3    2    21   2    21        Code Range for Message Sender (Code Range)
+ELEM 2    21   3    4    2    21   2    21        Code Range for Message Receiver (Code Range)
+ELEM%2    21   3    5    2    21   2    21        Code Range for Message Data Format Target (Code Range) deprecated use message definition
+ELEM%2    21   3    6    2    21   2    21        Code Range for Message Data Format Type (Code Range) deprecated use message definition
+ELEM 2    21   3    7    2    21   2    21        Code Range for Messaging Partner (Code Range)
+ELEM 2    21   3    8    2    21   2    21        Code Range for Messaging Partner Type (Code Range)
+
+ELEM 2    21   3    1    2    204  2    21        1001
+ELEM 2    21   3    2    2    204  2    21        2001
+ELEM 2    21   3    3    2    204  2    21        3001
+ELEM 2    21   3    4    2    204  2    21        4001
+ELEM 2    21   3    5    2    204  2    21        5001
+ELEM 2    21   3    6    2    204  2    21        6001
+ELEM 2    21   3    7    2    204  2    21        7001
+ELEM 2    21   3    8    2    204  2    21        8001
+
+
+ELEM 2    2    3    13   2    2    2    1         Code Range for Messaging Domain (Base Template) 
+ELEM 2    2    3    14   2    2    2    1         Code Range for Messaging Domain Type (Base Template)
+ELEM 2    2    3    15   2    2    2    1         Code Range for Message Sender (Base Template)
+ELEM 2    2    3    16   2    2    2    1         Code Range for Message Receiver (Base Template)
+ELEM%2    2    3    17   2    2    2    1         Code Range for Message Data Format (Base Template) deprecated use message definition
+ELEM%2    2    3    18   2    2    2    1         Code Range for Message Data Format Type (Base Template) deprecated use message definition
+ELEM 2    2    3    19   2    2    2    1         Code Range for Messaging Partner (Base Template)
+ELEM 2    2    3    20   2    2    2    1         Code Range for Messaging Partner Type (Base Template)
+ELEM 2    2    3    21   2    2    2    1         Code Range for Message Container (Base Template)
+ELEM 2    2    3    22   2    2    2    1         Code Range for Message (Base Template)
+ELEM 2    2    3    23   2    2    2    1         Code Range for Message Payload Type (Base Template)
+
+ELEM 2    12   3    13   2    12   2    12        Code Range for Messaging Domain (Technical Profile)
+ELEM 2    12   3    14   2    12   2    12        Code Range for Messaging Domain Type (Technical Profile)
+ELEM 2    12   3    15   2    12   2    12        Code Range for Message Sender (Technical Profile)
+ELEM 2    12   3    16   2    12   2    12        Code Range for Message Receiver (Technical Profile)
+ELEM%2    12   3    17   2    12   2    12        Code Range for Message Data Format (Technical Profile) deprecated use message definition
+ELEM%2    12   3    18   2    12   2    12        Code Range for Message Data Format Type (Technical Profile) deprecated use message definition
+ELEM 2    12   3    19   2    12   2    12        Code Range for Messaging Partner (Technical Profile)
+ELEM 2    12   3    20   2    12   2    12        Code Range for Messaging Partner Type (Technical Profile)
+ELEM 2    12   3    21   2    12   2    12        Code Range for Message Container (Technical Profile)
+ELEM 2    12   3    22   2    12   2    12        Code Range for Message (Technical Profile)
+ELEM 2    12   3    23   2    12   2    12        Code Range for Message Payload Type (Technical Profile)
+
+
+
+ELEM 2    3    3    1    2    3    2    3         Messaging Domain Description         (Object Element)
+ELEM 2    3    3    2    2    3    2    3         Messaging Domain Type Description  (Object Element)
+ELEM 2    3    3    3    2    3    2    3         Message Sender Description     (Object Element)
+ELEM 2    3    3    4    2    3    2    3         Message Receiver Description (Object Element)
+ELEM%2    3    3    5    2    3    2    3         Message Data Format Description       (Object Element) deprecated use message definition
+ELEM%2    3    3    6    2    3    2    3         Message Data Format Type Description      (Object Element) deprecated use message definition
+ELEM 2    3    3    7    2    3    2    3         Messaging Partner Description (Object Element)
+ELEM 2    3    3    8    2    3    2    3         Messaging Partner Type Description (Object Element)
+ELEM 2    3    3    9    2    3    2    3         Message Sender Polling Period (Object Element)
+ELEM 2    3    3    10   2    3    2    3         Message Container Description (Object Element)
+ELEM 2    3    3    11   2    3    2    3         Message Description (Object Element)
+ELEM 2    3    3    12   2    3    2    3         Message Payload Type Description (Object Element)
+ELEM 2    3    3    13   2    3    2    3         Message Payload String (Object Element)
+ELEM 2    3    3    14   2    3    2    3         Message Payload Last Updated Timestamp (Object Element)
+ELEM 2    3    3    15   2    3    2    3         Message Payload Last Processed Timestamp (Object Element)
+
+ELEM 2    31   3    1    2    31   2    31        Messaging Domain Description DE (Data Element)
+ELEM 2    31   3    2    2    31   2    31        Messaging Domain Type Description DE    (Data Element)
+ELEM 2    31   3    3    2    31   2    31        Message Sender Description DE               (Data Element)
+ELEM 2    31   3    4    2    31   2    31        Message Receiver Description DE (Data Element)
+ELEM%2    31   3    5    2    31   2    31        Message Data Format Description DE        (Data Element) deprecated use message definition
+ELEM%2    31   3    6    2    31   2    31        Message Data Format Type Description       (Data Element) deprecated use message definition
+ELEM 2    31   3    7    2    31   2    31        Messaging Partner Description (Data Element)
+ELEM 2    31   3    8    2    31   2    31        Messaging Partner Type Description (Data Element)
+ELEM 2    31   3    9    2    31   2    31        Message Sender Polling Period DE (Data Element)
+ELEM 2    31   3    10   2    31   2    31        Message Container Description DE (Data Element)
+ELEM 2    31   3    11   2    31   2    31        Message Description DE (Data Element)
+ELEM 2    31   3    12   2    31   2    31        Message Payload Type Description DE (Data Element)
+ELEM 2    31   3    13   2    31   2    31        Message Payload String DE (Data Element)
+ELEM 2    31   3    14   2    31   2    31        Message Payload Last Updated Timestamp DE (Data Element)
+ELEM 2    31   3    15   2    31   2    31        Message Payload Last Processed Timestamp DE (Data Element)
+
+ELEM 2    31   3    100  2    31   2    31        Current Code                    (Data Element)
+
+ELEM 2    32   3    1    2    32   2    32        Messaging Domain Description  DT           (Data Type)
+ELEM 2    32   3    2    2    32   2    32        Messaging Domain Type Description  DT      (Data Type)
+ELEM 2    32   3    3    2    32   2    32        Message Sender Description DT                  (Data Type)
+ELEM 2    32   3    4    2    32   2    32        Message Receiver Description  DT      (Data Type)
+ELEM%2    32   3    5    2    32   2    32        Message Data Format Description DT      (Data Type)  deprecated use message definition
+ELEM%2    32   3    6    2    32   2    32        Message Data Format Type Description              DT      (Data Type) deprecated use message definition
+ELEM 2    32   3    7    2    32   2    32        Messaging Partner Description Description (Data Type)
+ELEM 2    32   3    8    2    32   2    32        Messaging Partner Type Description (Data Type)
+ELEM 2    32   3    9    2    32   2    32        Message Sender Polling Period (Data Type)
+ELEM 2    32   3    10   2    32   2    32        Message Container Description (Data Type)
+ELEM 2    32   3    11   2    32   2    32        Message Description (Data Type)
+ELEM 2    32   3    12   2    32   2    32        Message Payload Type Description (Data Type)
+ELEM 2    32   3    13   2    32   2    32        Message Payload String (Data Type)
+ELEM 2    32   3    14   2    32   2    32        Message Payload Last Updated Timestamp (Data Type)
+ELEM 2    32   3    15   2    32   2    32        Message Payload Last Processed Timestamp (Data Type)
+
+ELEM 2    32   3    100  2    32   2    32        Current Code for Document DT      (Data Type)
+
+
+ELEM 2    10   3    1    2    10   2    10        Link Type: Messaging Domain to Message Sender                
+ELEM 2    10   3    2    2    10   2    10        Link Type: Messaging Domain to Message Receiver  
+ELEM 2    10   3    3    2    10   2    10        Link Type: Message Sender to Message Receiver (for recipients)
+ELEM 2    10   3    4    2    10   2    10        Link Type: Message Receiver to Message Sender (for response)
+ELEM 2    10   3    5    2    10   2    10        Link Type: Message Sender to Resource
+ELEM 2    10   3    6    2    10   2    10        Link Type: Message Receiver to Resource
+ELEM 2    10   3    7    2    10   2    10        Link Type: Message Sender to Map
+ELEM 2    10   3    8    2    10   2    10        Link Type: Message Receiver to Map
+ELEM 2    10   3    9    2    10   2    10        Link Type: Message Sender to Message Definition
+ELEM 2    10   3    10   2    10   2    10        Link Type: Message Receiver to Message Definition
+ELEM 2    10   3    11   2    10   2    10        Link Type: Message Container to Message from Sender
+ELEM 2    10   3    12   2    10   2    10        Link Type: Message Container to Message after Mapping on Sender Side
+ELEM 2    10   3    13   2    10   2    10        Link Type: Message Container to Message after Mapping on Receiver Side
+ELEM 2    10   3    14   2    10   2    10        Link Type: Message Container to Message including Response from Target
+ELEM 2    10   3    15   2    10   2    10        Link Type: Message Sender to Class/Program to create messages
+ELEM 2    10   3    16   2    10   2    10        Link Type: Message Receiver to Class/Program to deliver messages
+
+
+ELEM 2    11   3    1    2    11   2    11        Link Target Type: Messaging Domain to Message Sender 
+ELEM 2    11   3    2    2    11   2    11        Link Target Type: Messaging Domain to Message Receiver
+ELEM 2    11   3    3    2    11   2    11        Link Target Type: Message Sender to Message Receiver (for recipients)
+ELEM 2    11   3    4    2    11   2    11        Link Target Type: Message Receiver to Message Sender (for response)
+ELEM 2    11   3    5    2    11   2    11        Link Target Type: Message Sender to Resource
+ELEM 2    11   3    6    2    11   2    11        Link Target Type: Message Receiver to Resource
+ELEM 2    11   3    7    2    11   2    11        Link Target Type: Message Sender to Map
+ELEM 2    11   3    8    2    11   2    11        Link Target Type: Message Receiver to Map
+ELEM 2    11   3    9    2    11   2    11        Link Target Type: Message Sender to Message Definition
+ELEM 2    11   3    10   2    11   2    11        Link Target Type: Message Receiver to Message Definition
+ELEM 2    11   3    11   2    11   2    11        Link Target Type: Message Container to Message from Sender
+ELEM 2    11   3    12   2    11   2    11        Link Target Type: Message Container to Message after Mapping on Sender Side
+ELEM 2    11   3    13   2    11   2    11        Link Target Type: Message Container to Message after mapping on Receiver Side
+ELEM 2    11   3    14   2    11   2    11        Link Target Type: Message Container to Message including Response from Target
+ELEM 2    11   3    15   2    11   2    11        Link Target Type: Message Sender to Class/Program to create messages
+ELEM 2    11   3    16   2    11   2    11        Link Target Type: Message Receiver to Class/Program to deliver messages
+
+ELEM 2    9    3    1    2    9    2    9         Type Definition: Messaging Partner for Message Sender
+ELEM 2    9    3    2    2    9    2    9         Type Definition: Messaging Partner for Message Receiver
+ELEM 2    9    3    3    2    9    2    9         Type Definition: Message Sender for a Message Container
+ELEM 2    9    3    4    2    9    2    9         Type Definition: Message Definition for Message
+
+
+
+  copied for example
+ELEM%2    3    3    1    2    3    2    3         Messaging Domain Description         (Object Element)
+ELEM52    3    3    2    2    3    2    3         Messaging Domain Type Description  (Object Element)
+ELEM%2    3    3    3    2    3    2    3         Message Sender Description     (Object Element)
+ELEM%2    3    3    4    2    3    2    3         Message Receiver Description (Object Element)
+ELEM%2    3    3    5    2    3    2    3         Message Data Format Description       (Object Element)  deprecated use message definition
+ELEM%2    3    3    6    2    3    2    3         Message Data Format Type Description      (Object Element) deprecated use message definition
+ELEM%2    3    3    7    2    3    2    3         Messaging Partner Description (Object Element)
+ELEM%2    3    3    8    2    3    2    3         Messaging Partner Type Description (Object Element)
+ELEM%2    3    3    9    2    3    2    3         Message Sender Polling Period (Object Element)
+
+
+
+
+
+  max length for data elements used for document
+ELEM 2    31   3    1    2    214  2    31        45             Messaging Domain Description
+ELEM 2    31   3    2    2    214  2    31        45             Messaging Domain Type Description
+ELEM 2    31   3    3    2    214  2    31        45             Message Sender Description
+ELEM 2    31   3    4    2    214  2    31        45             Message Receiver Description
+ELEM%2    31   3    5    2    214  2    31        45             Message Data Format Description deprecated use message definition
+ELEM%2    31   3    6    2    214  2    31        45             Message Data Format Type Description  deprecated use message definition
+ELEM 2    31   3    7    2    214  2    31        45             Messaging Partner Description
+ELEM 2    31   3    8    2    214  2    31        45             Messaging Partner Type Description
+ELEM 2    31   3    9    2    214  2    31        10             Message Sender Polling Period
+ELEM 2    31   3    10   2    214  2    31        45             Message Container Description
+ELEM 2    31   3    11   2    214  2    31        45             Message Description 
+ELEM 2    31   3    12   2    214  2    31        45             Message Payload Type Description 
+
+
+                         
+ELEM%2    31   3    14   2    214  2    31        5              
+ELEM%2    31   3    15   2    214  2    31        5              
+ELEM%2    31   3    16   2    214  2    31        5              
+ELEM 2    31   3    100  2    214  2    31        10             Current Code
+
+
+  copied for example
+ELEM%2    1    3    1    2    1    2    1         Messaging Domain (Object Kind)
+ELEM%2    1    3    2    2    1    2    1         Messaging Domain Type (Object Kind)
+ELEM%2    1    3    3    2    1    2    1         Message Sender (Object Kind)
+ELEM%2    1    3    4    2    1    2    1         Message Receiver (Object Kind)
+ELEM%2    1    3    5    2    1    2    1         Message Data Format (Object Kind)  deprecated use message definition
+ELEM%2    1    3    6    2    1    2    1         Message Data Format Type (Object Kind) deprecated use message definition
+ELEM%2    1    3    7    2    1    2    1         Messaging Partner (Object Kind)
+ELEM%2    1    3    8    2    1    2    1         Messaging Partner Type (Object Kind)
+ELEM%2    1    3    9    2    1    2    1         Message Container (Object Kind)
+ELEM%2    1    3    10   2    1    2    1         Message (Object Kind)
+ELEM%2    1    3    11   2    1    2    1         Message Payload Type (Object Kind)
+
+
+     ObjKind   Object    TypeDef   Type      Template  
+RecIdKdiscKcodeOzticOcodeTDdsiTDcodTzticTcodeTzticTcode
+TYPE 2    2    3    1    2    3    3    1               Object Kind for template for Messaging Domain
+TYPE 2    2    3    2    2    3    3    2               Object Kind for template for Messaging Domain Type
+TYPE 2    2    3    3    2    3    3    3               Object Kind for template for Message Sender
+TYPE 2    2    3    4    2    3    3    4               Object Kind for template for Message Receiver
+TYPE%2    2    3    5    2    3    3    5               Object Kind for template for Message Data Format deprecated use message definition
+TYPE%2    2    3    6    2    3    3    6               Object Kind for template for Message Data Format Type deprecated use message definition
+TYPE 2    2    3    7    2    3    3    7               Object Kind for template for Messaging Partner
+TYPE 2    2    3    8    2    3    3    8               Object Kind for template for Messagine Partner Type
+TYPE 2    2    3    9    2    3    3    9               Object Kind for template for Message Container
+TYPE 2    2    3    10   2    3    3    10              Object Kind for template for Message
+TYPE 2    2    3    11   2    3    3    11              Object Kind for template for Message Payload Type
+
+ 
+TYPE 2    1    3    1    2    5    3    1               Code Range for Messaging Domain
+TYPE 2    1    3    2    2    5    3    2               Code Range for Messaging Domain Type
+TYPE 2    1    3    3    2    5    3    3               Code Range for Message Sender
+TYPE 2    1    3    4    2    5    3    4               Code Range for Message Receiver
+TYPE%2    1    3    5    2    5    3    5               Code Range for Message Data Format deprecated use message definition
+TYPE%2    1    3    6    2    5    3    6               Code Range for Message Data Format Type deprecated use message definition
+TYPE 2    1    3    7    2    5    3    7               Code Range for Messaging Partner
+TYPE 2    1    3    8    2    5    3    8               Code Range for Messaging Partner Type
+TYPE 2    1    3    9    2    5    3    9               Code Range for Message Container
+TYPE 2    1    3    10   2    5    3    10              Code Range for Message
+TYPE 2    1    3    11   2    5    3    11              Code Range for Message Payload Type
+
+
+TYPE 2    21   3    1    2    6    2    1               Code Scheme for Messaging Domain
+TYPE 2    21   3    2    2    6    2    1               Code Scheme for Messaging Domain Type
+TYPE 2    21   3    3    2    6    2    1               Code Scheme for Message Sender
+TYPE 2    21   3    4    2    6    2    1               Code Scheme for Message Receiver
+TYPE%2    21   3    5    2    6    2    1               Code Scheme for Message Data Format  deprecated use message definition
+TYPE%2    21   3    6    2    6    2    1               Code Scheme for Message Data Format Type deprecated use message definition
+TYPE 2    21   3    7    2    6    2    1               Code Scheme for Messaging Partner
+TYPE 2    21   3    8    2    6    2    1               Code Scheme for Messaging Partner Type
+TYPE 2    21   3    9    2    6    2    1               Code Scheme for Message Container
+TYPE 2    21   3    10   2    6    2    1               Code Scheme for Message
+TYPE 2    21   3    11   2    6    2    1               Code Scheme for Message Payload Type
+
+  copied for example
+ELEM%2    3    3    1    2    3    2    3         Messaging Domain Description         (Object Element)
+ELEM52    3    3    2    2    3    2    3         Messaging Domain Type Description  (Object Element)
+ELEM%2    3    3    3    2    3    2    3         Message Sender Description     (Object Element)
+ELEM%2    3    3    4    2    3    2    3         Message Receiver Description (Object Element)
+ELEM%2    3    3    5    2    3    2    3         Message Data Format Description       (Object Element) deprecated use message definition
+ELEM%2    3    3    6    2    3    2    3         Message Data Format Type Description      (Object Element) deprecated use message definition
+ELEM%2    3    3    7    2    3    2    3         Messaging Partner Description (Object Element)
+ELEM%2    3    3    8    2    3    2    3         Messaging Partner Type Description (Object Element)
+ELEM%2    3    3    9    2    3    2    3         Message Sender Polling Period (Object Element)
+ELEM%2    3    3    10   2    3    2    3         Message Container Description (Object Element)
+ELEM%2    3    3    11   2    3    2    3         Message Description (Object Element)
+ELEM%2    3    3    12   2    3    2    3         Message Payload Type Description (Object Element)
+ELEM%2    3    3    13   2    3    2    3         Message Payload String (Object Element)
+ELEM%2    3    3    14   2    3    2    3         Message Payload Updated Timestamp (Object Element)
+ELEM%2    3    3    15   2    3    2    3         Message Payload Processed Timestamp (Object Element)
+
+TYPE 2    3    3    1    2    9    3    1               Data Element for Messaging Domain Description Object Element
+TYPE 2    3    3    2    2    9    3    2               Data Element for Messaging Domain Type Description Object Element
+TYPE 2    3    3    3    2    9    3    3               Data Element for Message Sender Description Object Element
+TYPE 2    3    3    4    2    9    3    4               Data Element for Message Receiver Description Object Element
+TYPE%2    3    3    5    2    9    3    5               Data Element for Message Data Format Description Object Element deprecated use message definition
+TYPE%2    3    3    6    2    9    3    6               Data Element for Message Data Format Type Description Object Element deprecated use message definition
+TYPE 2    3    3    7    2    9    3    7               Data Element for Messaging Partner Description Object Element 
+TYPE 2    3    3    8    2    9    3    8               Data Element for Messaging Partner Type Description Object Element
+TYPE 2    3    3    9    2    9    3    9               Data Element for Message Sender Polling Period Object Element
+TYPE 2    3    3    10   2    9    3    10              Data Element for Message Container Description Object Element
+TYPE 2    3    3    11   2    9    3    11              Data Element for Message Description Object Element
+TYPE 2    3    3    12   2    9    3    12              Data Element for Message Payload Type Object Element
+TYPE 2    3    3    13   2    9    3    13              Data Element for Message Payload String Object Element
+TYPE 2    3    3    14   2    9    3    14              Data Element for Message Payload Updated Timestamp Object Element
+TYPE 2    3    3    15   2    9    3    15              Data Element for Message Payload Processed Timestamp Object Element
+
+
+TYPE 2    31   3    1    2    10   3    1               Data Type for Messaging Domain Description Data Element
+TYPE 2    31   3    2    2    10   3    2               Data Type for Messaging Domain Type Description Data Element
+TYPE 2    31   3    3    2    10   3    3               Data Type for Message Sender Description Data Element
+TYPE 2    31   3    4    2    10   3    4               Data Type for Message Receiver Description Data Element
+TYPE%2    31   3    5    2    10   3    5               Data Type for Message Data Format Description Data Element deprecated use message definition
+TYPE52    31   3    6    2    10   3    6               Data Type for Message Data Format Type Description Data Element deprecated use message definition
+TYPE 2    31   3    7    2    10   3    7               Data Type for Messagine Partner Description Data Element
+TYPE 2    31   3    8    2    10   3    8               Data Type for Messaging Partner Type Description Data Element
+TYPE 2    31   3    9    2    10   3    9               Data Type for Message Sender Polling Period Data Element
+TYPE 2    31   3    10   2    10   3    10              Data Type for Message Container Description Data Element
+TYPE 2    31   3    11   2    10   3    11              Data Type for Message Description Data Element
+TYPE 2    31   3    12   2    10   3    12              Data Type for Message Payload Type Description Data Element
+TYPE 2    31   3    13   2    10   3    13              Data Type for Message Payload String Data Element
+TYPE 2    31   3    14   2    10   3    14              Data Type for Message Payload Updated Timestamp Data Element
+TYPE 2    31   3    15   2    10   3    15              Data Type for Message Payload Processed Timestamp Data Element
+
+
+TYPE 2    31   3    1    2    11   2    2               Extended Key Definition (language) for Messaging Domain Description Data Element
+TYPE 2    31   3    2    2    11   2    2               Extended Key Definition (language) for Messaging Domain Type Description Data Element
+TYPE 2    31   3    3    2    11   2    2               Extended Key Definition (language) for Message Sender Description Data Element
+TYPE 2    31   3    4    2    11   2    2               Extended Key Definition (language) for Message Receiver Description Data Element
+TYPE%2    31   3    5    2    11   2    2               Extended Key Definition (language) for Message Data Format Description Data Element deprecated use message definition
+TYPE%2    31   3    6    2    11   2    2               Extended Key Definition (language) for Message Data Format Type Description Data Element deprecated use message def
+TYPE 2    31   3    7    2    11   2    2               Extended Key Definition (language) for Messaging Partner Description Data Element
+TYPE 2    31   3    8    2    11   2    2               Extended Key Definition (language) for Messaging Partner Type Description Data Element
+TYPE 2    31   3    10   2    11   2    2               Extended Key Definition (language) for Message Container Description Data Element
+TYPE 2    31   3    11   2    11   2    2               Extended Key Definition (language) for Message Description Data Element
+TYPE 2    31   3    12   2    11   2    2               Extended Key Definition (language) for Message Payload Type Description Data Element
+
+
+
+  copied for example
+ELEM%2    10   3    1    2    10   2    10        Link Type: Messaging Domain to Message Sender                
+ELEM%2    10   3    2    2    10   2    10        Link Type: Messaging Domain to Message Receiver  
+ELEM%2    10   3    3    2    10   2    10        Link Type: Message Sender to Message Receiver (for recipients)
+ELEM%2    10   3    4    2    10   2    10        Link Type: Message Receiver to Message Sender (for response)
+ELEM%2    10   3    5    2    10   2    10        Link Type: Message Sender to Resource
+ELEM%2    10   3    6    2    10   2    10        Link Type: Message Receiver to Resource
+ELEM%2    10   3    7    2    10   2    10        Link Type: Message Sender to Map
+ELEM%2    10   3    8    2    10   2    10        Link Type: Message Receiver to Map
+ELEM%2    10   3    9    2    10   2    10        Link Type: Message Sender to Message Definition
+ELEM%2    10   3    10   2    10   2    10        Link Type: Message Receiver to Message Definition
+ELEM%2    10   3    11   2    10   2    10        Link Type: Message Container to Message from Sender
+ELEM%2    10   3    12   2    10   2    10        Link Type: Message Container to Message after Mapping on Sender Side
+ELEM%2    10   3    13   2    10   2    10        Link Type: Message Container to Message after Mapping on Receiver Side
+ELEM%2    10   3    14   2    10   2    10        Link Type: Message Container to Message including Response from Target
+ELEM%2    10   3    15   2    10   2    10        Link Type: Message Sender to Class/Program to create messages
+ELEM%2    10   3    16   2    10   2    10        Link Type: Message Receiver to Class/Program to deliver messages
+
+
+
+TYPE 2    10   3    1    2    2    3    1               link target type for link type for Messaging Domain to Message Sender
+TYPE 2    10   3    2    2    2    3    2               link target type for link type for Messaging Domain to Message Receiver
+TYPE 2    10   3    3    2    2    3    3               link target type for link type for Message Sender to Message Receiver (for recipients)
+TYPE 2    10   3    4    2    2    3    4               link target type for link type for Message Receiver to Message Sender (for response)
+TYPE 2    10   3    5    2    2    3    5               link target type for link type for Message Sender to resource
+TYPE 2    10   3    6    2    2    3    6               link target type for link type for Message Receiver to resource
+TYPE 2    10   3    7    2    2    3    7               link target type for link type for Message Sender to Map
+TYPE 2    10   3    8    2    2    3    8               link target type for link type for Message Receiver to map
+TYPE 2    10   3    9    2    2    3    9               link target type for link type for Message Sender to message definition
+TYPE 2    10   3    10   2    2    3    10              link target type for link type for Message Receiver to message definition
+TYPE 2    10   3    11   2    2    3    11              link target type for link type for Message Container to Message from Sender
+TYPE 2    10   3    12   2    2    3    12              link target type for link type for Message Container to Message after Mapping on Sender Side
+TYPE 2    10   3    13   2    2    3    13              link target type for link type for Message Container to Message after Mapping on Receiver Side
+TYPE 2    10   3    14   2    2    3    14              link target type for link type for Message Container to Message including Response from Target
+TYPE 2    10   3    15   2    2    3    15              link target type for link type for Message Sender to Class/Program to create messages
+TYPE 2    10   3    16   2    2    3    16              link target type for link type for Message Receiver to Class/Program to deliver messages
+
+
+ copied for example
+ELEM%2    9    3    1    2    9    2    9         Type Definition: Messaging Partner for Sender
+ELEM%2    9    3    2    2    9    2    9         Type Definition: Messaging Partner for Receiver
+ELEM%2    9    3    3    2    9    2    9         Type Definition: Message Sender for a Message Container
+ELEM%2    9    3    4    2    9    2    9         Type Definition: Message Definition for Message
+
+
+
+TYPE 2    9    3    1    2    4    3    7               Object Kind for Type Def Messaging Partner for Sender: Object Kind for Messaging Partner
+TYPE 2    9    3    2    2    4    3    7               Object Kind for Type Def Messaging Partner for Receiver: Object Kind for Messaging Partner
+TYPE 2    9    3    3    2    4    3    3               Object Kind for Type Def Message Sender for a Message Container: Object Kind for Message Sender
+TYPE 2    9    3    4    2    4    7    1               Object Kind for Type Def Message Definition for a Message: Object Kind for Message Definition
+
+
+  copied for example
+ELEM%2    1    3    1    2    1    2    1         Messaging Domain (Object Kind)
+ELEM%2    1    3    2    2    1    2    1         Messaging Domain Type (Object Kind)
+ELEM%2    1    3    3    2    1    2    1         Message Sender (Object Kind)
+ELEM%2    1    3    4    2    1    2    1         Message Receiver (Object Kind)
+ELEM%2    1    3    5    2    1    2    1         Message Data Format (Object Kind)  deprecated use message definition
+ELEM%2    1    3    6    2    1    2    1         Message Data Format Type (Object Kind) deprecated use message definition
+ELEM%2    1    3    7    2    1    2    1         Messaging Partner (Object Kind)
+ELEM%2    1    3    8    2    1    2    1         Messaging Partner Type (Object Kind) 
+ELEM%2    1    3    9    2    1    2    1         Message Container (Object Kind)
+ELEM%2    1    3    10   2    1    2    1         Message (Object Kind)
+ELEM%2    1    3    11   2    1    2    1         Message Payload Type (Object Kind)
+
+
+     ObjKind   Object    TypeDef   Type      Template
+RecIdKdiscKcodeOzticOcodeTDdsiTDcodTzticTcodeTzticTcode
+TYPE 2    1    3    1    2    22   3    1    2    1     Default Object Template--Minimal Data for Messaging Domain (Object Kind)
+TYPE 2    1    3    2    2    22   3    2    2    1     Default Object Template--Minimal Data for Messaging Domain Type (Object Kind)
+TYPE 2    1    3    3    2    22   3    3    2    1     Default Object Template--Minimal Data for Message Sender (Object Kind)
+TYPE 2    1    3    4    2    22   3    4    2    1     Default Object Template--Minimal Data for Message Receiver (Object Kind)
+TYPE%2    1    3    5    2    22   3    5    2    1     Default Object Template--Minimal Data for Message Data Format (Object Kind) deprecated use message definition
+TYPE%2    1    3    6    2    22   3    6    2    1     Default Object Template--Minimal Data for Message Data Format Type (Object Kind) deprecated use message definition
+TYPE 2    1    3    7    2    22   3    7    2    1     Default Object Template--Minimal Data for Messaging Partner (Object Kind)
+TYPE 2    1    3    8    2    22   3    8    2    1     Default Object Template--Minimal Data for Messaging Partner Type (Object Kind)
+TYPE 2    1    3    9    2    22   3    9    2    1     Default Object Template--Minimal Data for Message Container (Object Kind)
+TYPE 2    1    3    10   2    22   3    10   2    1     Default Object Template--Minimal Data for Message (Object Kind)
+TYPE 2    1    3    11   2    22   3    11   2    1     Default Object Template--Minimal Data for Message Payload Type (Object Kind)
+
+
+  to specifiy that links from thing to thing transaction line item are server generated
+TYPE%2    9    3    4    2    24   3    4    2    9     Link Type for Type Definition: Thing for Thing Transaction Line Item (for bi-directional connection) CAUSES ERROr 20211023
+
+TYPE%2    10   3    4    2    26   2    2    2    10    Link Type Usage Type for Link Type: Thing to Thing Transaction Line Item (server generated link) ACTIVATE WHEN CORRECTED
+
+  copied for example
+ELEM%2    1    3    1    2    1    2    1         Messaging Domain (Object Kind)
+ELEM%2    1    3    2    2    1    2    1         Messaging Domain Type (Object Kind)
+ELEM%2    1    3    3    2    1    2    1         Message Sender (Object Kind)
+ELEM%2    1    3    4    2    1    2    1         Message Receiver (Object Kind)
+ELEM%2    1    3    5    2    1    2    1         Message Data Format (Object Kind) deprecated use message definition
+ELEM%2    1    3    6    2    1    2    1         Message Data Format Type (Object Kind) deprecated use message definition
+ELEM%2    1    3    7    2    1    2    1         Messaging Partner (Object Kind)
+ELEM%2    1    3    8    2    1    2    1         Messaging Partner Type (Object Kind)
+ELEM%2    1    3    9    2    1    2    1         Message Container (Object Kind)
+ELEM%2    1    3    10   2    1    2    1         Message (Object Kind)
+ELEM%2    1    3    11   2    1    2    1         Message Payload Type (Object Kind)
+
+
+     ObjKind   Object    LinkType   ToKind   ToObject  Template  
+RecIdKzticKcodeOzticOcodeLTdsiLTcodLKdsiLKcodLzticLcodeTzticTcode         
+LINK 2    2    3    1    2    1    2    12   3    1    2    2    link object template for Messaging Domain to technical profile for Messaging Domain
+LINK 2    2    3    2    2    1    2    12   3    2    2    2    link object template for Messaging Domain type to technical profile for Messaging Domain type
+LINK 2    2    3    3    2    1    2    12   3    3    2    2    link object template for Message Sender to technical profile for Message Sender
+LINK 2    2    3    4    2    1    2    12   3    4    2    2    link object template for Message Receiver to technical profile for Message Receiver
+LINK%2    2    3    5    2    1    2    12   3    5    2    2    link object template for message data format to technical profile for message data format deprecated
+LINK%2    2    3    6    2    1    2    12   3    6    2    2    link object template for message data format type to technical profile for message data format type deprecated
+LINK 2    2    3    7    2    1    2    12   3    7    2    2    link object template for messaging partner to tech profile for messaging partner
+LINK 2    2    3    8    2    1    2    12   3    8    2    2    link object template for messaging partner type to tech profile for messaging partner type
+LINK 2    2    3    9    2    1    2    12   3    9    2    2    link object template for message container to tech profile for message container
+LINK 2    2    3    10   2    1    2    12   3    10   2    2    link object template for message to tech profile for message
+LINK 2    2    3    11   2    1    2    12   3    11   2    2    link object template for message payload type to tech profile for message payload type
+
+  copied for example
+ELEM%2    3    3    1    2    3    2    3         Messaging Domain Description         (Object Element)
+ELEM%2    3    3    2    2    3    2    3         Messaging Domain Type Description  (Object Element)
+ELEM%2    3    3    3    2    3    2    3         Message Sender Description     (Object Element)
+ELEM%2    3    3    4    2    3    2    3         Message Receiver Description (Object Element)
+ELEM%2    3    3    5    2    3    2    3         Message Data Format Description       (Object Element) deprecated use message definition
+ELEM%2    3    3    6    2    3    2    3         Message Data Format Type Description      (Object Element) deprecated use message definition
+ELEM%2    3    3    7    2    3    2    3         Messaging Partner Description (Object Element)
+ELEM%2    3    3    8    2    3    2    3         Messaging Partner Type Description (Object Element)
+ELEM%2    3    3    9    2    3    2    3         Message Sender Polling Period (Object Element)
+ELEM%2    3    3    10   2    3    2    3         Message Container Description (Object Element)
+ELEM%2    3    3    11   2    3    2    3         Message Description (Object Element)
+ELEM%2    3    3    12   2    3    2    3         Message Payload Type Description (Object Element)
+ELEM%2    3    3    13   2    3    2    3         Message Payload String (Object Element)
+ELEM%2    3    3    14   2    3    2    3         Message Payload Updated Timestamp (Object Element)
+ELEM%2    3    3    15   2    3    2    3         Message Payload Processed Timestamp (Object Element)
+
+
+LINK 2    12   3    1    2    3    2    3    3    1    2    12   link tech profile to object element for Messaging Domain Description
+LINK 2    12   3    2    2    3    2    3    3    2    2    12   link tech profile to object element for Messaging Domain Type Description
+LINK 2    12   3    3    2    3    2    3    3    3    2    12   link tech profile to object element for Message Sender Description
+LINK 2    12   3    4    2    3    2    3    3    4    2    12   link tech profile to object element for Message Receiver Description
+LINK%2    12   3    5    2    3    2    3    3    5    2    12   link tech profile to object element for Message Data Format Description deprecated
+LINK%2    12   3    6    2    3    2    3    3    6    2    12   link tech profile to object element for Message Data Format Type Description deprecated
+LINK 2    12   3    7    2    3    2    3    3    7    2    12   link tech profile to object element for Messaging Partner Description
+LINK 2    12   3    8    2    3    2    3    3    8    2    12   link tech profile to object element for Messaging Partner Type Description
+LINK 2    12   3    3    2    3    2    3    3    9    2    12   link tech profile to object element for Message Sender Polling Periond
+LINK 2    12   3    9    2    3    2    3    3    10   2    12   link tech profile to object element for Message Container Description
+LINK 2    12   3    10   2    3    2    3    3    11   2    12   link tech profile to object element for Message Description
+LINK 2    12   3    11   2    3    2    3    3    12   2    12   link tech profile to object element for Message Payload Type Description
+LINK 2    12   3    10   2    3    2    3    3    13   2    12   link tech profile to object element for Message Payload String
+LINK 2    12   3    10   2    3    2    3    3    14   2    12   link tech profile to object element for Message Payload Last Updated Timestamp
+LINK 2    12   3    10   2    3    2    3    3    15   2    12   link tech profile to object element for Message Payload Last Processed Timestamp
+
+
+LINK 2    12   3    1    2    22   2    31   3    1    2    12   link tech profile to data element for Messaging Domain description
+LINK 2    12   3    2    2    22   2    31   3    2    2    12   link tech profile to data element for Messaging Domain type description
+LINK 2    12   3    3    2    22   2    31   3    3    2    12   link tech profile to data element for Message Sender description
+LINK 2    12   3    4    2    22   2    31   3    4    2    12   link tech profile to data element for Message Receiver description
+LINK%2    12   3    5    2    22   2    31   3    5    2    12   link tech profile to data element for message data format description deprecated
+LINK%2    12   3    6    2    22   2    31   3    6    2    12   link tech profile to data element for message data format type description deprecated
+LINK 2    12   3    7    2    22   2    31   3    7    2    12   link tech profile to data element for messaging partner description
+LINK 2    12   3    8    2    22   2    31   3    8    2    12   link tech profile to data element for messaging partner type description
+LINK 2    12   3    3    2    22   2    31   3    9    2    12   link tech profile to data element for message sender polling period
+LINK 2    12   3    9    2    22   2    31   3    10   2    12   link tech profile to data element for message container description
+LINK 2    12   3    10   2    22   2    31   3    11   2    12   link tech profile to data element for message description
+LINK 2    12   3    11   2    22   2    31   3    12   2    12   link tech profile to data element for message payload type description
+LINK 2    12   3    10   2    22   2    31   3    13   2    12   link tech proflle to data element for message payload string
+LINK 2    12   3    10   2    22   2    31   3    14   2    12   link tech profile to data element for message payload last updated timestamp
+LINK 2    12   3    10   2    22   2    31   3    15   2    12   link tech profile to data element for message payload last processed timestamp
+
+
+
+  copied for example
+ELEM%2    9    3    1    2    9    2    9         Type Definition: Messaging Partner for Message Sender
+ELEM%2    9    3    2    2    9    2    9         Type Definition: Messaging Partner for Message Receiver
+ELEM%2    9    3    3    2    9    2    9         Type Definition: Message Sender for a Message Container
+ELEM%2    9    3    4    2    9    2    9         Type Definition: Message Definition for Message
+
+
+???
+LINK 2    12   3    3    2    4    2    9    3    1    2    12   link tech profile for message sender to type definition for messaging partner for message sender
+LINK 2    12   3    4    2    4    2    9    3    2    2    12   link tech profile for message receiver to type definition for messaging partner for message receiver
+LINK 2    12   3    9    2    4    2    9    3    3    2    12   link tech profile for message container to type definition for message sender for a message container
+LINK 2    12   3    10   2    4    2    9    3    4    2    12   link tech profile for message to type definition for message definition for a message
+???
+
+  copied for example
+ELEM%2    10   3    1    2    10   2    10        Link Type: Messaging Domain to Message Sender                
+ELEM%2    10   3    2    2    10   2    10        Link Type: Messaging Domain to Message Receiver  
+ELEM%2    10   3    3    2    10   2    10        Link Type: Message Sender to Message Receiver (for recipients)
+ELEM%2    10   3    4    2    10   2    10        Link Type: Message Receiver to Message Sender (for response)
+ELEM%2    10   3    5    2    10   2    10        Link Type: Message Sender to Resource
+ELEM%2    10   3    6    2    10   2    10        Link Type: Message Receiver to Resource
+ELEM%2    10   3    7    2    10   2    10        Link Type: Message Sender to Map
+ELEM%2    10   3    8    2    10   2    10        Link Type: Message Receiver to Map
+ELEM%2    10   3    9    2    10   2    10        Link Type: Message Sender to Message Definition
+ELEM%2    10   3    10   2    10   2    10        Link Type: Message Receiver to Message Definition
+ELEM%2    10   3    11   2    10   2    10        Link Type: Message Container to Message from Sender
+ELEM%2    10   3    12   2    10   2    10        Link Type: Message Container to Message after Mapping on Sender Side
+ELEM%2    10   3    13   2    10   2    10        Link Type: Message Container to Message after Mapping on Receiver Side
+ELEM%2    10   3    14   2    10   2    10        Link Type: Message Container to Message including Response from Target
+ELEM%2    10   3    15   2    10   2    10        Link Type: Message Sender to Class/Program to create messages
+ELEM%2    10   3    16   2    10   2    10        Link Type: Message Receiver to Class/Program to deliver messages
+
+
+LINK 2    12   3    1    2    5    2    10   3    1    2    12   link tech profile to link type for Messaging Domain to Message Sender
+LINK 2    12   3    1    2    5    2    10   3    2    2    12   link tech profile to link type for Messaging Domain to Message Receiver
+LINK 2    12   3    3    2    5    2    10   3    3    2    12   link tech profile to link type for Message Sender to Message Receiver (for recipients) 
+LINK 2    12   3    4    2    5    2    10   3    4    2    12   link tech profile to link type for Message Receiver to Message Sender (for response)
+LINK 2    12   3    3    2    5    2    10   3    5    2    12   link tech profile to link type for Message Sender to resource
+LINK 2    12   3    4    2    5    2    10   3    6    2    12   link tech profile to link type for Message Receiver to resource
+LINK 2    12   3    3    2    5    2    10   3    7    2    12   link tech profile to link type for Message Sender to Map   
+LINK 2    12   3    4    2    5    2    10   3    8    2    12   link tech profile to link type for Message Receiver to Map 
+LINK 2    12   3    3    2    5    2    10   3    9    2    12   link tech profile to link type for Message Sender to message definition
+LINK 2    12   3    4    2    5    2    10   3    10   2    12   link tech profile to link type for Message Receiver to message definition
+LINK 2    12   3    9    2    5    2    10   3    11   2    12   link tech profile to link type for Message Container to Message from Sender
+LINK 2    12   3    9    2    5    2    10   3    12   2    12   link tech profile to link type for Message Container to Message after Mapping on Sender Side
+LINK 2    12   3    9    2    5    2    10   3    13   2    12   link tech profile to link type for Message Container to Message after Mapping on Receiver Side
+LINK 2    12   3    9    2    5    2    10   3    14   2    12   link tech profile to link type for Message Container to Message including Response from Target
+LINK 2    12   3    3    2    5    2    10   3    15   2    12   link tech profile to link type for Message Sender to Class/Program to create messages
+LINK 2    12   3    4    2    5    2    10   3    16   2    12   link tech profile to link type for Message Receiver to Class/Program to deliver messages
+
+
+
+LINK 2    11   3    1    2    6    2    2    3    3    2    11   Link "Link Target Type" for Messaging Domain-->Message Sender to base template for Message Sender          
+LINK 2    11   3    2    2    6    2    2    3    4    2    11   Link "Link Target Type" for Messaging Domain-->Message Receiver to base template for Message Receiver
+LINK 2    11   3    3    2    6    2    2    3    4    2    11   Link "Link Target Type" for Message Sender-->Message Receiver to base template for Message Receiver
+LINK 2    11   3    4    2    6    2    2    3    3    2    11   link "Link Target Type" for Message Receiver-->Message Sender to base template for Message Sender
+LINK 2    11   3    5    2    6    2    2    2    39   2    11   Link "Link Target Type" for Message Sender-->Resource to base template for Resource 
+LINK 2    11   3    6    2    6    2    2    2    39   2    11   Link "Link Target Type" for Message Receiver-->Resource to base template for Resource
+LINK 2    11   3    7    2    6    2    2    11   1    2    11   Link "Link Target Type" for Message Sender-->Map to base template for Map  
+LINK 2    11   3    8    2    6    2    2    11   1    2    11   Link "Link Target Type" for Message Receiver-->Map to base template for Map 
+LINK 2    11   3    9    2    6    2    2    7    1    2    11   Link "Link Target Type" for Message Sender-->Message Definition to base template for Message Definition
+LINK 2    11   3    10   2    6    2    2    7    1    2    11   Link "Link Target Type" for Message Receiver-->Message Definition to base template for Message Definition
+LINK 2    11   3    11   2    6    2    2    3    10   2    11   Link "Link Target Type" for Message Container-->Message from Sender to base template for Message
+LINK 2    11   3    12   2    6    2    2    3    10   2    11   Link "Link Target Type" for Message Container-->Message after Mapping on Sender Side to base template for Message
+LINK 2    11   3    13   2    6    2    2    3    10   2    11   Link "Link Target Type" for Message Container-->Message after Mapping on Receiver Side to base template for Message
+LINK 2    11   3    14   2    6    2    2    3    10   2    11   Link "Link Target Type" for Message Container-->Message including Response from Target to base template for Message
+LINK 2    11   3    15   2    6    2    2    2    37   2    11   Link "Link Target Type" for Message Sender-->Class/Program to create messages to base template for Class/Program
+LINK 2    11   3    16   2    6    2    2    2    37   2    11   Link "Link Target Type" for Message Receiver-->Class/Program to deliver messages to base template for Class/Program
+
+
+
+
+
+
+

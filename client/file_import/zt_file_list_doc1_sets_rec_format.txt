@@ -1,0 +1,6 @@
+expfile_doc1_set_13003_20210629.txt
+expfile_doc1_set_13004_20210629.txt
+expfile_doc1_set_13010_20210716.txt
+expfile_doc1_set_13020_20211027.txt
+expfile_doc1_set_13021_20211027.txt
+expfile_doc1_set_13031_20220316.txt

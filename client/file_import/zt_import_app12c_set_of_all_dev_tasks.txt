@@ -1,0 +1,26 @@
+ZTIC 1    zinfinitree.com/dev_agile
+ZTIC 2    131131/21
+ZTIC 3    zinfinitree.com/address
+ZTIC 4    zinfinitree.com/document
+ZTIC 5    zinfinitree.com/spreadsheet
+ZTIC 6    zinfinitree.com/multimedia_object
+ZTIC 7    131131/22
+ZTIC 8    zinfinitree.com/storage
+ZTIC 9    zinfinitree.com/app
+ZTIC 10   zinfinitree.com/workflow
+ZTIC 11   zinfinitree.com/messaging
+ZTIC 12   zinfinitree.com/map
+ZTIC 13   zinfinitree.com/server_config
+ZTIC 14   zinfinitree.com/address_app_data
+ZTIC 15   zinfinitree.com/dev_agile
+ZTIC 16   amplabs.ai/test1
+ZTIC 17   All
+RZTI 1
+MPPG 5179248000.000      abc123              123       99   user1     13   2    
+EXTK 2    2    2    1    
+MSET ObjectQset                              5179248000.000  
+ELEM 2    13   1    130512    13                  Set of all Agile Tasks
+LINK 2    13   1    130512    12   2    1    15   5                             5179248000.000           
+ELEM 2    1    15   5    2    1                   Task (Object Kind)
+TYPE 2    1    15   5    2    5    15   5              
+TYPE 2    1    15   5    2    22   15   5                        

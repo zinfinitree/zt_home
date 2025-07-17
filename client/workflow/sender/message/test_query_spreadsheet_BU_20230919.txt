@@ -1,0 +1,22 @@
+ZTIC 1    abc.com/test1
+ZTIC 2    131131/21
+ZTIC 3    zinfinitree.com/address
+ZTIC 4    zinfinitree.com/document
+ZTIC 5    zinfinitree.com/spreadsheet
+ZTIC 6    zinfinitree.com/multimedia_object
+ZTIC 7    zinfinitree.com/message
+ZTIC 8    zinfinitree.com/storage
+ZTIC 9    zinfinitree.com/server_config
+ZTIC 10   zinfinitree.com/address_app_data
+RZTI 1
+MPPG 212452105734.48962  id123               1234      1    usr1                9    2
+EXTK 2    2    2    1
+QSET 2    2    1    +    ObjTmplQset
+QSLS 10   0    1
+QOSS 1lev 1usg
+QOBJ 2    2    5    1
+QSET 5    1    1    +    ObjectQset
+QSLS 20   0    1
+QOSS 1lev 1usg
+QOBJ 12345123451    1051
+

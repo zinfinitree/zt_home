@@ -1,0 +1,1165 @@
+ZTIC 2    131131/21
+ZTIC 3    zinfinitree.com/address
+ZTIC 1    abc.com/test1
+ZTIC 4    131131/22
+ZTIC 5    zinfinitree.com/doc1
+
+RZTI 1          receiver ztic
+
+      mode 1 means create/update with no future timestamps [DEPRECATED]
+
+
+    message processing parameters--general
+     default timesmp     msg id-client       last idx  mode user                SWdsiSWcod           
+MPPG 5179248000.000      id123               1234      99   usr1                4    1    
+
+     Desc                                    Timestamp
+MSET MaintainSetId#1                         5179248000.000  
+
+CMNT TMPL                                        template for maintaining an object template
+
+     ObjKind   Object    ObjElem   Template  
+RecIdKzticKcodeOzticOcodeEzticEcodeTzticTcode     OEValue
+ELEM 4    1    5    101  4    1    4    1         ZT Standard Message Format
+ELEM 4    2    5    1    4    4    4    2         Root
+ELEM 4    2    5    1    4    5    4    2         Root is at the top of the Message Definition Heirarchy and it the direct or indirect parent of all Message Elements in the Message
+ELEM 4    2    5    2    4    4    4    2         Header
+ELEM 4    2    5    2    4    5    4    2         Header is at the top of the Header section of the Message Defintion.  It is populated primarily by the Client but can also be updated by the Server, for example, to add to ZT Instance Codes and related Namespaces when the Response refers to Namespaces that are not included in the Request
+ELEM 4    2    5    20   4    4    4    2         Message Definiton 
+ELEM 4    2    5    20   4    5    4    2         Message Defintion includes the Message Elements used to declare the Message Definition version and Template
+ELEM 4    2    5    200  4    4    4    2         Message Definition version ZT Instance Code
+ELEM 4    2    5    200  4    5    4    2         Message Definition version ZT Instance Code identifies the source Instance of the Message Definition.  The ZT Instance Code used here needs to be declared in Message Element 2100 along with the related Namespace in Message Element 2101.  Typically this would be the base instance and Namespace of ZT Specification.
+ELEM 4    2    5    201  4    4    4    2         Message Definition version Code
+ELEM 4    2    5    201  4    5    4    2         Message Definition version Code is used to declare the version of the Message Definition used by the Message
+ELEM 4    2    5    202  4    4    4    2         Message Definition version Template ZT Instance Code
+ELEM 4    2    5    202  4    5    4    2         Message Definition version Template ZT Instance Code identifies the source Instance of Template use for the Message Definition.  The ZT Instance Code use here needs to be declare int Messge Element 2100 along with the related Namespace in Message Element 2101.
+ELEM 4    2    5    203  4    4    4    2         Message Definition version Template Code
+ELEM 4    2    5    203  4    5    4    2         Message Definition version Template Code is used to identify the template for the Message Definition version used to for this message
+ELEM 4    2    5    21   4    4    4    2         ZTISet
+ELEM 4    2    5    21   4    5    4    2         ZTISet contains all of the ZT Instances declared for the Message and their related Namespaces
+ELEM 4    2    5    210  4    4    4    2         ZT Instance
+ELEM 4    2    5    210  4    5    4    2         ZT Instance includes the values for one occurance of ZT Instance Code and its Namespace
+ELEM 4    2    5    2100 4    4    4    2         Code
+ELEM 4    2    5    2100 4    5    4    2         Code is used to declare one DS Instance Code within a ZT Instance Set
+ELEM 4    2    5    2101 4    4    4    2         Namespace
+ELEM 4    2    5    2101 4    5    4    2         Namespace is used to delare the Namespace associated with the ZT Instance Code in Message Element 2100
+ELEM 4    2    5    22   4    4    4    2         Message Partners
+ELEM 4    2    5    22   4    5    4    2         Message Partners contains identifiers for the sender and receiver of a message
+ELEM 4    2    5    220  4    4    4    2         SenderServerZTICode
+ELEM 4    2    5    221  4    4    4    2         SenderZTICode
+ELEM 4    2    5    222  4    4    4    2         ReceiverServerZTICode
+ELEM 4    2    5    223  4    4    4    2         ReceiverZTICode
+ELEM 4    2    5    223  4    5    4    2         Receiver ZT Instance Code is a reference to Message Element 2100 and the related Namespace in Message Element 2101.  The server uses this to find the target Table Name Prefix, Table Element 32, for storing or retrieving data
+ELEM 4    2    5    23   4    4    4    2         MessageProcessingParameters
+ELEM 4    2    5    23   4    5    4    2         Message Processing Parameters contains values that tell the server how to process the message
+ELEM 4    2    5    230  4    4    4    2         General
+ELEM 4    2    5    230  4    5    4    2         General is a section of the Message that contains General Processing Parameters
+ELEM 4    2    5    2301 4    4    4    2         DefaultEffectiveTimeStamp
+ELEM 4    2    5    2301 4    5    4    2         DefaultEffectiveTimeStamp is the timestamp used for processing if the timestamp is not specified at a more detailed level of the message
+ELEM 4    2    5    2302 4    4    4    2         MessageIdClient
+ELEM 4    2    5    2302 4    5    4    2         MessageIdClient is a message identifier that is assigned by the client and retained by the server.  Each message sent by the client should have a unique id assigned by the client
+ELEM 4    2    5    2303 4    4    4    2         IndexOfLastRequestSegment
+ELEM 4    2    5    2303 4    5    4    2         IndexOfLastRequestSegment contains the last index used by a client after building a request message.  Subsequent updates to the message are by the server, even updates to the header which is primarily built by the client.  An example is an update of the header status by the server
+ELEM 4    2    5    2304 4    4    4    2         DefaultUpdateMode--TO BE DEPRECATED
+ELEM 4    2    5    2304 4    5    4    2         DefaultUpdateMode--TO BE DEPRECATED is used for update mode if it is not assigned at a more detailed level of the message
+ELEM 4    2    5    230404    4    4    2         DefaultUpdateModeZTIC
+ELEM 4    2    5    230404    5    4    2         DefaultUpdateModeZTIC is the ZTIC of update mode used if it is not assigned at a more detailed level of the message
+ELEM 4    2    5    230414    4    4    2         DefaultUpdateModeCode
+ELEM 4    2    5    230414    5    4    2         DefaultUpdateModeCode is the Code of the update mode used if it is not assigned at a more detailed level
+ELEM%4    2    5    2305 4    4    4    2         User
+ELEM%4    2    5    2305 4    5    4    2         User is the user name of the user making the request.  The user name must already exist on the server to allow processing of the message
+ELEM 4    2    5    230504    4    4    2         User ZTIC
+ELEM 4    2    5    230504    5    4    2         ZT Instance Code of User making request
+ELEM 4    2    5    230514    4    4    2         User Code
+ELEM 4    2    5    230514    5    4    2         User Code for User making request
+ELEM 4    2    5    2306 4    4    4    2         ServerSoftwareRuntimeProfileZTICode
+ELEM 4    2    5    2306 4    5    4    2         ServerSoftwareRuntimeProfileZTICode is the DS Instance Code of the preferred runtime software profile for processing of the message
+ELEM 4    2    5    2307 4    4    4    2         ServerSoftwareRuntimeProfileCode
+ELEM 4    2    5    2307 4    5    4    2         ServerSoftwareRuntimeProfileCode is the Code of the preferred runtime software profile for processing of the message
+ELEM 4    2    5    231  4    4    4    2         ExtendedKeySet
+ELEM 4    2    5    231  4    5    4    2         ExtendedKeySet is where extended keys are declared for the message
+ELEM 4    2    5    2310 4    4    4    2         ExtendedKey
+ELEM 4    2    5    2310 4    5    4    2         ExtendedKey is the parent for an individual instance of an Extended Key
+ELEM 4    2    5    2311 4    4    4    2         ExtendedKeyDefinitionCodeZTIC
+ELEM 4    2    5    2311 4    5    4    2         ExtendedKeyDefinitionCodeZTIC is the Code ZTIC for an Extentended Key
+ELEM 4    2    5    2312 4    4    4    2         ExtendedKeyDefinitionCode
+ELEM 4    2    5    2312 4    5    4    2         ExtendedKeyDefinitionCode is the Code for an Extended Key
+ELEM 4    2    5    2313 4    4    4    2         ExtendedKeyValueZTIC
+ELEM 4    2    5    2313 4    5    4    2         ExtendedKeyValueZTIC is the ZTIC for an Extended Key value
+ELEM 4    2    5    2314 4    4    4    2         ExtendedKeyValueCode
+ELEM 4    2    5    2314 4    5    4    2         ExtendedKeyValueCode is the Code for an Extended Key value
+ELEM 4    2    5    233  4    4    4    2         QueueProcessing
+ELEM 4    2    5    233  4    5    4    2         QueueProcessing contains the parameters required for queue processing of messages if this is supported by the server
+ELEM 4    2    5    2331 4    4    4    2         SerializationActive
+ELEM 4    2    5    2331 4    5    4    2         SerializationActive is a boolean value that activates serialization of messages if supported by the server
+ELEM 4    2    5    2332 4    4    4    2         QueueName
+ELEM 4    2    5    2332 4    5    4    2         QueueName identifies a unique queue, assigned by the client for queue sequential processing of messages
+ELEM 4    2    5    2333 4    4    4    2         SerializationKey
+ELEM 4    2    5    2333 4    5    4    2         SerializationKey determines the sequence of this message for queue processing, it is a positve integer
+%% start exlude dynamic parameters from spec for now
+ELEM%4    2    5    234  4    4    4    2         DynamicParameters
+ELEM%4    2    5    234  4    5    4    2         DynamicParameters are used by the client to pass processing values to the server in a flexible manner
+ELEM%4    2    5    2340 4    4    4    2         DynamicParameterSet
+ELEM%4    2    5    2340 4    5    4    2         DynamicParameterSet is used to organize a set of related dynamic parameters
+ELEM%4    2    5    2341 4    4    4    2         DynamicParameterSetId
+ELEM%4    2    5    2341 4    5    4    2         DynamicParameterSetId is numeric code assigned by the client to identify a dynamic parameter set 
+ELEM%4    2    5    2342 4    4    4    2         DynamicParameterScenario
+ELEM%4    2    5    2342 4    5    4    2         DynamicParameterScenario is used to assign meaningto a dynamic parameter set
+ELEM%4    2    5    2343 4    4    4    2         DynamicParameter
+ELEM%4    2    5    2343 4    5    4    2         DynamicParameter is used as a parent for individual parameter values
+ELEM%4    2    5    2344 4    4    4    2         DynamicParameterZTIC
+ELEM%4    2    5    2344 4    5    4    2         DynamicParameterZTIC is the ZTIC assigned to an individual dynamic parameter value
+ELEM%4    2    5    2345 4    4    4    2         DynamicParameterCode
+ELEM%4    2    5    2345 4    5    4    2         DynamicParameterCode is the Code assigned to an individual dynamic parameter value
+ELEM%4    2    5    2346 4    4    4    2         DynamicParameterValue
+ELEM%4    2    5    2346 4    5    4    2         DynamicParameterValue hold an individual dynamic parameter value
+%% end exclude dynamic parameters from spec for now
+ELEM 4    2    5    3    4    4    4    2         Request 
+ELEM 4    2    5    3    4    5    4    2         Request is the parent to all Message Elements in the Request section of the message  
+ELEM 4    2    5    30   4    4    4    2         MaintainSet
+ELEM 4    2    5    30   4    5    4    2         MaintainSet is a child of Request and contains Message Elements use for creating or changing objects 
+ELEM 4    2    5    300  4    4    4    2         Maintain
+ELEM 4    2    5    300  4    5    4    2         Maintain holds the values used to create or change object, the Message Elements contained here would share the same parameters
+ELEM 4    2    5    3000 4    4    4    2         ID
+ELEM 4    2    5    3000 4    5    4    2         ID Identifies a Maintain.  It is populated by the client and returned by the server in the response using Message Element 4000
+ELEM 4    2    5    3003 4    4    4    2         DefaultEffectiveTimestamp
+ELEM 4    2    5    3003 4    5    4    2         DefaultEffectiveTimestamp is the default timestamp for database updates, used if not specified at a more detailed level of the message
+ELEM 4    2    5    3008 4    4    4    2         UpdateMode -- to be DEPRECATED
+ELEM 4    2    5    3008 4    5    4    2         UpdateMode -- to be DEPRECATED determines how data is processed. mode 1 is standard, mode 99 has no validation and is used from server initialization
+ELEM 4    2    5    300804    4    4    2         UpdateModeZTIC
+ELEM 4    2    5    300804    5    4    2         UpdateMode ZTIC
+ELEM 4    2    5    300814    4    4    2         UpdateModeCode
+ELEM 4    2    5    300814    5    4    2         UpdateMode determines how data is processed. mode 1 is standard, mode 99 has no validation and is used from server initialization
+ELEM 4    2    5    3030 4    4    4    2         ObjectSet
+ELEM 4    2    5    3030 4    5    4    2         ObjectSet contains a group of objects to be maintained (created or changed)
+ELEM 4    2    5    3031 4    4    4    2         Object
+ELEM 4    2    5    3031 4    5    4    2         Object contains the data needed to maintain one instance of an object
+ELEM 4    2    5    3032 4    4    4    2         ObjectKindZTICode
+ELEM 4    2    5    3032 4    5    4    2         ObjectKindZTICode is the ZT Instance Kind Code for an object being maintained
+ELEM 4    2    5    3033 4    4    4    2         ObjectKindCode
+ELEM 4    2    5    3033 4    5    4    2         ObjectKindCode is the Kind Code for an object being maintained
+ELEM 4    2    5    3034 4    4    4    2         ObjectZTICode
+ELEM 4    2    5    3034 4    5    4    2         ObjectZTICode is the ZT Instance Code for the object being maintained
+ELEM 4    2    5    3035 4    4    4    2         ObjectCodeTemp
+ELEM 4    2    5    3035 4    5    4    2         ObjectCodeTemp is code assigned in a message before it has been  assigned by the server
+ELEM 4    2    5    3036 4    4    4    2         NewCode (boolean)
+ELEM 4    2    5    3036 4    5    4    2         NewCode (boolean) is used to indicate if the server should assign a new code for the object being maintained
+ELEM 4    2    5    3037 4    4    4    2         ID
+ELEM 4    2    5    3037 4    5    4    2         ID is used to identify an object, assigned by the client and provided back in the response
+ELEM 4    2    5    3038 4    4    4    2         ParentID
+ELEM 4    2    5    3039 4    5    4    2         ParentID has the parent ID of an object that is in a hierarchy
+ELEM 4    2    5    303904    4    4    2         TemplateZTIC
+ELEM 4    2    5    303904    5    4    2         TemplateZTIC has the template DS Instance Code of the object being maintained
+ELEM 4    2    5    303914    4    4    2         TemplateCode
+ELEM 4    2    5    303914    5    4    2         TemplateCode has the template Code of the object being maintained
+ELEM 4    2    5    303924    4    4    2         ObjectStatus
+ELEM 4    2    5    303924    5    4    2         ObjectStatus is status of complete object
+ELEM 4    2    5    3040 4    4    4    2         ElementSet
+ELEM 4    2    5    3040 4    5    4    2         ElementSet contains the element values for an object being maintained
+ELEM 4    2    5    3041 4    4    4    2         Element
+ELEM 4    2    5    3041 4    5    4    2         Element contains the values for one element 
+ELEM 4    2    5    3042 4    4    4    2         ObjectElementZTICode
+ELEM 4    2    5    3042 4    5    4    2         ObjectElementZTICode is the Element ZT Instance Code for the object element being maintained
+ELEM 4    2    5    3043 4    4    4    2         ObjectElementCode
+ELEM 4    2    5    3043 4    5    4    2         ObjectElementCode is the Element Code for the object being maintained
+ELEM 4    2    5    3044 4    4    4    2         ObjectElementValue
+ELEM 4    2    5    3044 4    5    4    2         ObjectElementValue is the value of the element being maintained
+ELEM 4    2    5    3046 4    4    4    2         ObjectElementStatus
+ELEM 4    2    5    3046 4    5    4    2         ObjectElementStatus is the status for ObjectElementValue
+ELEM 4    2    5    3047 4    4    4    2         EffectiveTimeStamp
+ELEM 4    2    5    3047 4    5    4    2         EffectiveTimeStamp is the effective timestamp for Object ElementValue
+ELEM 4    2    5    3050 4    4    4    2         TypeSet
+ELEM 4    2    5    3050 4    5    4    2         TypeSet contains the type values for the object being maintained
+ELEM 4    2    5    3051 4    4    4    2         Type
+ELEM 4    2    5    3051 4    5    4    2         Type contains an individual type value for the object being maintained
+ELEM 4    2    5    3052 4    4    4    2         TypeDefinitionZTICode
+ELEM 4    2    5    3052 4    5    4    2         TypeDefinitionZTICode is type definition DS Instance Code for the object being maintained
+ELEM 4    2    5    3053 4    4    4    2         TypeDefinitionCode
+ELEM 4    2    5    3053 4    5    4    2         TypeDefinitionCode is the type definition Code for the object being maintained
+ELEM 4    2    5    3054 4    4    4    2         TypeValueZTICode is the ZT Instance Code of a type value for the object being maintained
+ELEM 4    2    5    3055 4    4    4    2         TypeValueCode is the Code of a type value for the object being maintained
+ELEM 4    2    5    3056 4    4    4    2         TypeValueStatus
+ELEM 4    2    5    3056 4    5    4    2         TypeValueStatus is the status for the Type Value
+ELEM 4    2    5    3057 4    4    4    2         EffectiveTimeStamp
+ELEM 4    2    5    3057 4    5    4    2         EffectiveTimeStamp is the effective timestamp for the Type Value
+ELEM 4    2    5    3060 4    4    4    2         LinkSet
+ELEM 4    2    5    3060 4    5    4    2         LinkSet contains the link values for the object being maintained
+ELEM 4    2    5    3061 4    4    4    2         Link
+ELEM 4    2    5    3061 4    5    4    2         Link contains an individual link for the object being maintained
+ELEM 4    2    5    3062 4    4    4    2         LinkTypeZTIC
+ELEM 4    2    5    3062 4    5    4    2         LinkTypeZTIC has the DS Instance Code of the link type for the link of the object being maintained
+ELEM 4    2    5    3063 4    4    4    2         LinkTypeCode
+ELEM 4    2    5    3063 4    5    4    2         LinkTypeCode has the Code of the link type for the link of the object being maintained
+ELEM 4    2    5    3064 4    4    4    2         LinkToKindZTIC
+ELEM 4    2    5    3064 4    5    4    2         LinkToKindZTIC has the ZT Instance Code of the kind of the object being linked to for the object being maintained
+ELEM 4    2    5    3065 4    4    4    2         LinkToKindCode
+ELEM 4    2    5    3065 4    5    4    2         LinkToKindCode has the Kind Code of the object being linked to for the object being maintained
+ELEM 4    2    5    3066 4    4    4    2         LinkToZTIC
+ELEM 4    2    5    3066 4    5    4    2         LinkToZTIC has the ZT Instance Code of the object being linked  to for the object being maintained
+ELEM 4    2    5    3067 4    4    4    2         LinkToCode
+ELEM 4    2    5    3067 4    5    4    2         LinkToCode has the ZT Code for the  object being linked to for the object being maintained
+ELEM 4    2    5    3068 4    4    4    2         NewLinkTargetCode (boolean)
+ELEM 4    2    5    3068 4    5    4    2         NewLinkTargetCode is a boolean that indicates that this is a link to an object that  will be assigned a new code on the server
+ELEM 4    2    5    306914    4    4    2         LinkStatus
+ELEM 4    2    5    306914    5    4    2         Status Code for the link
+ELEM 4    2    5    306924    4    4    2         EffectiveTimeStamp
+ELEM 4    2    5    306924    5    4    2         EffectiveTimeStamp is the effective timestamp for the link
+ELEM 4    2    5    306934    4    4    2         LinkValue
+ELEM 4    2    5    306934    5    4    2         LinkValue indicates the strength or priority of the link
+ELEM 4    2    5    31   4    4    4    2         QuerySet
+ELEM 4    2    5    31   4    5    4    2         QuerySet contains the values needed to query objects from a ZT Server
+ELEM 4    2    5    310  4    4    4    2         Query
+ELEM 4    2    5    310  4    5    4    2         Query contains the values to query objects for a specific template
+ELEM 4    2    5    3100 4    4    4    2         ID
+ELEM 4    2    5    3100 4    5    4    2         ID contains and identifier assigned by the client and returned by the server in the response
+ELEM 4    2    5    3101 4    4    4    2         ObjectTemplateZTIcode
+ELEM 4    2    5    3101 4    5    4    2         ObjectTemplateZTIcode is the ZT Instance Code the template being used in a query
+ELEM 4    2    5    3102 4    4    4    2         ObjectTemplateCode
+ELEM 4    2    5    3102 4    5    4    2         ObjectTemplateCode is the Code of the template being used in a query
+ELEM%4    2    5    3103 4    4    4    2         SelectionMode
+ELEM%4    2    5    3103 4    5    4    2         SelectionMode contains a parameter to indicate how selection will be performed
+ELEM 4    2    5    310304    4    4    2         SelectionModeZTIC
+ELEM 4    2    5    310304    5    4    2         SelectionModeZTIC contains ZTIC of the Selection Mode used to indicate how selection will be done
+ELEM 4    2    5    310314    4    4    2         SelectionModeCode
+ELEM 4    2    5    310314    5    4    2         SelectionModeCode contains Code of the Selection Mode used to indicate how selection will be done
+ELEM 4    2    5    310324    4    4    2         StatusExclusionSet
+ELEM 4    2    5    310324    5    4    2         StatusExclusionSet is the parent for a set of excluded status codes for the response message
+ELEM 4    2    5    310334    4    4    2         ExcludedStatus
+ELEM 4    2    5    310334    5    4    2         ExcludedStatus is a object status code that is to be excluded from the response message
+ELEM%4    2    5    310324    4    4    2         StartTimeStamp
+ELEM%4    2    5    310324    5    4    2         StartTimeStamp used to indicate the beginning of a timestamp range
+ELEM%4    2    5    310334    4    4    2         EndTimeStamp
+ELEM%4    2    5    310334    5    4    2         EndTimeStamp used to indicate the end of a timestamp range
+ELEM%4    2    5    3104 4    4    4    2         RespondInSummaryOnlyBoolean
+ELEM%4    2    5    3104 4    5    4    2         RespondInSummaryOnlyBoolean is a parameter that indicates if the server should respond only in summary
+ELEM 4    2    5    3104 4    4    4    2         EffectiveTimestampSet
+ELEM 4    2    5    3104 4    5    4    2         Effective Timestamp Set holds a set of timestamps the used for selection of data from the server
+ELEM 4    2    5    310404    4    4    2         EffectiveTimestamp
+ELEM 4    2    5    310404    5    4    2         Effective Timestamp is used to control which data is select from a server 
+ELEM 4    2    5    310414    4    4    2         Timestamp Operator
+ELEM 4    2    5    310414    5    4    2         Timestamp Operator is used to indicate ranges for a timestamp using for example < or >
+ELEM 4    2    5    310424    4    4    2         Timestamp value
+ELEM 4    2    5    310424    5    4    2         Timestamp value, the value of an individual timestamp or the low or high value for a range of timestamps
+ELEM 4    2    5    3105 4    4    4    2         QueryResponseControlParameterSet
+ELEM 4    2    5    3105 4    5    4    2         QueryResponseControlParameterSet holds parameters that control how many objects and the content of objects returned in a response
+ELEM 4    2    5    310504    4    4    2         QueryResponseControlParameter
+ELEM 4    2    5    310504    5    4    2         QueryResponseControlParameter contains the reponse control parameters for a specific response type
+ELEM 4    2    5    310514    4    4    2         ResponseTypeZTIC
+ELEM 4    2    5    310514    5    4    2         ResponseTypeZTIC is the ZT Instance Code for the response type
+ELEM 4    2    5    310524    4    4    2         ResponseTypeCode
+ELEM 4    2    5    310524    5    4    2         ResponseTypeCode indicates type of response, 1=standard, 2=Template of a Linkable Object, 3=permitted type values, 4=permitted link-to values, 5=object set members for sets that are linked to and 6=object set members for sets that are type values of queried objects
+ELEM 4    2    5    310534    4    4    2         RelatedObject_ObjectKindZTIC
+ELEM 4    2    5    310534    5    4    2         RelatedObject_ObjectKindZTIC is the ZT Instance Code of the object kind of a related object used for response control
+ELEM 4    2    5    310544    4    4    2         RelatedObject_ObjectKindCode
+ELEM 4    2    5    310544    5    4    2         RelatedObject_ObjectKindCode is the Code of the object kind of a related object used for response control
+ELEM 4    2    5    310554    4    4    2         RelatedObject_ObjectZTIC 
+ELEM 4    2    5    310554    5    4    2         RelatedObject_ObjectZTIC is the ZT Instance Code of a related object used for response control
+ELEM 4    2    5    310564    4    4    2         RelatedObject_ObjectCode 
+ELEM 4    2    5    310564    5    4    2         RelatedObject_ObjectCode is the Code of a related object used for response control, usually a set, a type definition or a link type 
+
+ELEM 4    2    5    310604    4    4    2         MaximumNumberOfObectsReturned
+ELEM 4    2    5    310604    5    4    2         MaximumNumberOfObjectReturned is the maximum number of objects returned for a response type
+ELEM 4    2    5    310614    4    4    2         MaximumHierarchyLevelsReturned
+ELEM 4    2    5    310614    5    4    2         MaximumHierarchyLevelsReturned indicates how deep in the hierarchy to return linked objects
+ELEM 4    2    5    310624    4    4    2         OffsetFromBeginningObject
+ELEM 4    2    5    310624    5    4    2         OffsetFromBeginningObject is the number of objects after the starting object to return to the client
+ELEM 4    2    5    310634    4    4    2         SortObjectZTIC
+ELEM 4    2    5    310634    5    4    2         SortObjectZTIC is the ZT Instance Code for the sort object used to sort objects returned to the client
+ELEM 4    2    5    310644    4    4    2         SortObjectCode
+ELEM 4    2    5    310644    5    4    2         SortObjectCode is the Code of the sort object used to sort objects returned to the client
+ELEM 4    2    5    310654    4    4    2         SetMemberResponseMode
+ELEM 4    2    5    310654    5    4    2         SetMemberResponseMode indicates how much data is returned for set members 1=minimal data, 2=maximal data
+ELEM 4    2    5    3107 4    4    4    2         SelectionParameterValueSet
+ELEM 4    2    5    3107 4    5    4    2         SelectionParameterValueSet hold parameters that can be passed to the server, can be used by Object Elements that have calculated values
+ELEM 4    2    5    310704    4    4    2         SelectionParameterValue
+ELEM 4    2    5    310704    5    4    2         SelectionParameterValue contains the identifiers and value for a parameter value
+ELEM 4    2    5    310714    4    4    2         ParameterValueGroupZTIC
+ELEM 4    2    5    310714    5    4    2         ParameterValueGroupZTIC is the ZT Instance Code used to identify a group of parameters that could for example be passed to calculate and object element value
+ELEM 4    2    5    310724    4    4    2         ParameterValueGroupCode
+ELEM 4    2    5    310724    5    4    2         ParameterValueGroupCode is the Code to identify a group of parameters that could be passed to calculate an object element value
+ELEM 4    2    5    310734    4    4    2         ParameterZTIC
+ELEM 4    2    5    310734    5    4    2         ParameterZTIC is the ZT Instance Code for a parameter
+ELEM 4    2    5    310744    4    4    2         ParameterCode
+ELEM 4    2    5    310744    5    4    2         ParameterCode is the Code for a parameter
+ELEM 4    2    5    310754    4    4    2         ParameterValueRowCounter
+ELEM 4    2    5    310754    5    4    2         ParameterValueRowCounter is a numeric counter used whith parameter values with multiple RecIdKzticKcodeOzticOcodeEzticEcodeTzticTcodeNewCdOEValue
+ELEM 4    2    5    310764    4    4    2         ParameterValue
+ELEM 4    2    5    310764    5    4    2         ParameterValue is the value for a parameter passed to the server for a query
+ELEM 4    2    5    3110 4    4    4    2         SelectionSet
+ELEM 4    2    5    3110 4    5    4    2         SelectionSet contains the values needed to select objects from the server
+ELEM 4    2    5    3111 4    4    4    2         Selection
+ELEM 4    2    5    3111 4    5    4    2         Selection contains the values needed to select a specific set of objects from the server, possibly combined with other sets
+ELEM 4    2    5    3112 4    4    4    2         SelectionGroupNumber
+ELEM 4    2    5    3112 4    5    4    2         SelectionGroupNumber identifies a group used in combining selection sets 
+ELEM 4    2    5    3113 4    4    4    2         NumberOfSelectionGroupParent
+ELEM 4    2    5    3113 4    5    4    2         NumberOfSelectionGroupParent identifies the parent group, used to combine selection sets
+ELEM 4    2    5    3114 4    4    4    2         SetOperator
+ELEM 4    2    5    3114 4    5    4    2         SetOperator is a set operator used to combiine selection sets
+ELEM 4    2    5    3120 4    4    4    2         ObjectSelectionSet
+ELEM 4    2    5    3120 4    5    4    2         ObjectSelectionSet is used to select object based on object identifiers
+ELEM 4    2    5    3121 4    4    4    2         ObjectSelection
+ELEM 4    2    5    3121 4    5    4    2         ObjectSelection is an individual instance of an object set used for selection based on object identifiers
+ELEM 4    2    5    3122 4    4    4    2         Level
+ELEM 4    2    5    3122 4    5    4    2         Level is the hierarchy level of an object being used for selection
+ELEM 4    2    5    3123 4    4    4    2         UsageTypeZTIC
+ELEM 4    2    5    3123 4    5    4    2         Usage Type ZTIC indicate the usage type for object selection
+ELEM 4    2    5    3124 4    4    4    2         UsageTypeCode
+ELEM 4    2    5    3124 4    5    4    2         Usage Type Code to indicate usage type for object selection
+ELEM 4    2    5    3130 4    4    4    2         ObjectSet
+ELEM 4    2    5    3130 4    5    4    2         ObjectSet is used as a parent for a group of objects used for selection
+ELEM 4    2    5    3131 4    4    4    2         Object
+ELEM 4    2    5    3131 4    5    4    2         Object is an individual instance of an object used for selection
+ELEM 4    2    5    3134 4    4    4    2         ObjectZTIC
+ELEM 4    2    5    3134 4    5    4    2         ObjectZTIC is the ZTIC of an individual object used for selection
+ELEM 4    2    5    3135 4    4    4    2         ObjectCode
+ELEM 4    2    5    3135 4    5    4    2         ObjectCode is the Code of an individual object used for selection
+ELEM 4    2    5    3140 4    4    4    2         ElementSet
+ELEM 4    2    5    3140 4    5    4    2         ElementSet is a set of elements used to select objects based on element values
+ELEM 4    2    5    3141 4    4    4    2         Element
+ELEM 4    2    5    3141 4    5    4    2         Element is a an individual element used to select objects based on element values
+ELEM 4    2    5    3142 4    4    4    2         ObjectElementZTIC
+ELEM 4    2    5    3142 4    5    4    2         ObjectElementZTIC is the Element ZTIC for an element used to select objects based on element values
+ELEM 4    2    5    3143 4    4    4    2         ObjectElementCode 
+ELEM 4    2    5    3143 4    5    4    2         ObjectElementCode is the Element Code of an element used to select objects based on element values
+ELEM 4    2    5    3144 4    4    4    2         SelectionGroupNumber
+ELEM 4    2    5    3144 4    5    4    2         SelectionGroupNumber is an identifier used to combine selections by element values
+ELEM 4    2    5    3145 4    4    4    2         SetOperator
+ELEM 4    2    5    3145 4    5    4    2         SetOperator contains a set of operators to combine selections based on element values
+ELEM 4    2    5    3146 4    4    4    2         Operator 
+ELEM 4    2    5    3146 4    5    4    2         Operator used to compare element values for selection
+ELEM 4    2    5    3147 4    4    4    2         Qualifier
+ELEM 4    2    5    3147 4    5    4    2         Qualifier used to specify how selection based on element values is performed
+ELEM 4    2    5    3148 4    4    4    2         Value
+ELEM 4    2    5    3148 4    5    4    2         Value is the element value used for selection
+ELEM 4    2    5    3150 4    4    4    2         TypeSet
+ELEM 4    2    5    3150 4    5    4    2         TypeSet contains values for selecting objects based on type values
+ELEM 4    2    5    3151 4    4    4    2         Type
+ELEM 4    2    5    3151 4    5    4    2         Type contains an individual type value for selection objects based on type value
+ELEM 4    2    5    3152 4    4    4    2         TypeDefinitionZTICode
+ELEM 4    2    5    3152 4    5    4    2         TypeDefinitionZTICode is the ZT Instance Code for the type definition used for selection based on type value
+ELEM 4    2    5    3153 4    4    4    2         TypeDefinitionCode
+ELEM 4    2    5    3153 4    5    4    2         TypeDefinitoionCode is the Code for the type definition used for selection based on type value
+ELEM 4    2    5    3154 4    4    4    2         TypeValueZTICode
+ELEM 4    2    5    3154 4    5    4    2         TypeValueZTICode is the DS Instance Code for the type value used for selection based on type value
+ELEM 4    2    5    3155 4    4    4    2         TypeValueCode
+ELEM 4    2    5    3155 4    5    4    2         TypeValueCode is the Code for the type value used for selection based on type value
+ELEM 4    2    5    3156 4    4    4    2         SelectionGroupNumber
+ELEM 4    2    5    3156 4    5    4    2         SelectionGroupNumber is an identifier used when combining selections based on type value
+ELEM 4    2    5    3157 4    4    4    2         SetOperator
+ELEM 4    2    5    3157 4    5    4    2         SetOperator is used to determine how selections based on type value are combined
+ELEM 4    2    5    3160 4    4    4    2         LinkSet
+ELEM 4    2    5    3160 4    5    4    2         LinkSet contains values for selection objects based on links
+ELEM 4    2    5    3161 4    4    4    2         Link
+ELEM 4    2    5    3161 4    5    4    2         Link contains values for an individual link used to select objects based on links
+ELEM 4    2    5    3162 4    4    4    2         LinkTypeZTIC
+ELEM 4    2    5    3162 4    5    4    2         LinkTypeZTIC is the ZT Instance code for the link type used for selection based on links
+ELEM 4    2    5    3163 4    4    4    2         LinkTypeCode
+ELEM 4    2    5    3163 4    5    4    2         LinkTypeCode is the Code used for the link type used for selection base on links
+ELEM 4    2    5    3164 4    4    4    2         LinkToKindZTIC
+ELEM 4    2    5    3164 4    5    4    2         LinkToKindZTIC is the ZT Instance Code to the object kind being linked to for selection based on links
+ELEM 4    2    5    3165 4    4    4    2         LinkToKindCode
+ELEM 4    2    5    3165 4    5    4    2         LinkToKindCode is the code for the object kind being linked to for selection based on links
+ELEM 4    2    5    3166 4    4    4    2         LinkToZTIC
+ELEM 4    2    5    3166 4    5    4    2         LinkToZTIC is the ZT Instance Code of the object being linked to for selection based on links
+ELEM 4    2    5    3167 4    4    4    2         LinkToCode
+ELEM 4    2    5    3167 4    5    4    2         LinkToCode is the Code of the object being linked to for selection based on links
+ELEM 4    2    5    3168 4    4    4    2         SelectionGroupNumber
+ELEM 4    2    5    3168 4    5    4    2         SelectionGroupNumber is an identifier used to combine selections based on links
+ELEM 4    2    5    3169 4    4    4    2         SetOperator
+ELEM 4    2    5    3169 4    5    4    2         SetOperator is an operator used for combining selections based on links
+ELEM 4    2    5    316914    4    4    2         LinkStatus
+ELEM 4    2    5    316914    5    4    2         Status of Link
+ELEM 4    2    5    316924    4    4    2         EffectiveTimeStamp
+ELEM 4    2    5    316924    5    4    2         Effective TimeStamp of link
+ELEM 4    2    5    316934    4    4    2         LinkValue
+ELEM 4    2    5    316934    5    4    2         Value of Strength of Link
+ELEM 4    2    5    3170 4    4    4    2         AdditionalSelectionSet
+ELEM 4    2    5    3170 4    5    4    2         AdditionalSelectionSet contains values for selection based on additional criterion
+ELEM 4    2    5    3171 4    4    4    2         AdditionalSelection
+ELEM 4    2    5    3171 4    5    4    2         AdditionalSelection is an individual instance of an object selecting based on additional criterion
+ELEM 4    2    5    3172 4    4    4    2         UsageType
+ELEM 4    2    5    3172 4    5    4    2         UsageType indicates how selection will be done based on additional criterion
+ELEM 4    2    5    3173 4    4    4    2         ObjectZTIC
+ELEM 4    2    5    3173 4    5    4    2         ObjectZTIC is the ZT Instance Code of an object used for selection based on additional criterion
+ELEM 4    2    5    3174 4    4    4    2         ObjectCode
+ELEM 4    2    5    3174 4    5    4    2         ObjectCode is the code of an object used for selection based on additional criterion
+ELEM 4    2    5    3175 4    4    4    2         SelectionGroupNumber
+ELEM 4    2    5    3175 4    5    4    2         SelectionGroupNumber is an identifier used for combining selections based on additional criterion
+ELEM 4    2    5    3176 4    4    4    2         SetOperator
+ELEM 4    2    5    3176 4    5    4    2         SetOperator is an operator used for combining selections based on group number
+ELEM 4    2    5    3177 4    4    4    2         ObjectSelectionModeForValues
+ELEM 4    2    5    3177 4    5    4    2         Object Selection Mode For Values 1=via related set  2=selection from message 3=both
+ELEM 4    2    5    32   4    4    4    2         RequestMessageStatusSet
+ELEM 4    2    5    32   4    5    4    2         RequestMessageStatusSet contains message status data added by the client in the request message
+ELEM 4    2    5    320  4    4    4    2         MessageStatus
+ELEM 4    2    5    320  4    5    4    2         MessageStatus is an individual instance of a message status
+ELEM 4    2    5    3201 4    4    4    2         MessageStatusZTIC
+ELEM 4    2    5    3201 4    5    4    2         MessageStatusZTIC is the ZTIC for a message status update
+ELEM 4    2    5    3202 4    4    4    2         MessageStatusCode
+ELEM 4    2    5    3202 4    5    4    2         MessageStatusCode is the Code for a message status update
+ELEM 4    2    5    3203 4    4    4    2         MessageStatusTimestamp
+ELEM 4    2    5    3203 4    5    4    2         MessageStatusTimestamp has the time a message status was updated
+ELEM 4    2    5    3204 4    4    4    2         MessageStatusText
+ELEM 4    2    5    3204 4    5    4    2         MessageStatusText has the text for a message status update
+ELEM 4    2    5    33   4    4    4    2         ClientLogMessageSet
+ELEM 4    2    5    33   4    5    4    2         ClientLogMessageSet contains log message entries
+ELEM 4    2    5    330  4    4    4    2         ClientLogMessage
+ELEM 4    2    5    330  4    5    4    2         ClientLogMessage is an indiviual occurance of a log message
+ELEM 4    2    5    3301 4    4    4    2         LogMessageZTIC
+ELEM 4    2    5    3301 4    5    4    2         LogMessageZTIC is the ZTIC for a log message
+ELEM 4    2    5    3302 4    4    4    2         LogMessageCode
+ELEM 4    2    5    3302 4    5    4    2         LogMessageCode is the Code for a log message
+ELEM 4    2    5    3303 4    4    4    2         LogMessageTimestamp
+ELEM 4    2    5    3303 4    5    4    2         LogMessageTimestamp is the time a log entry was written
+ELEM 4    2    5    3304 4    4    4    2         LogMessageRelatedIndex
+ELEM 4    2    5    3304 4    5    4    2         LogMessageRelatedIndex tells the message index that the log message relates to
+ELEM 4    2    5    3305 4    4    4    2         LogMessageText
+ELEM 4    2    5    3305 4    5    4    2         LogMessageText has the text of a log message
+ELEM 4    2    5    4    4    4    4    2         Response
+ELEM 4    2    5    4    4    5    4    2         Response contains all of the messge elements of the response and is populated by the server
+ELEM 4    2    5    40   4    4    4    2         MaintainResponseSet
+ELEM 4    2    5    40   4    5    4    2         MaintainResponseSet corresponds to the MaintainSet in the Request and contains data pertaining to newly created or changed objects
+ELEM 4    2    5    400  4    4    4    2         MaintainResponse
+ELEM 4    2    5    400  4    5    4    2         MaintainResponse corresponds to Maintain in the Request 
+ELEM 4    2    5    4000 4    4    4    2         ID 
+ELEM 4    2    5    4000 4    5    4    2         ID corresponds to ID in in the Maintain in the Request and hold the same value as was sent in the Request
+ELEM 4    2    5    4030 4    4    4    2         ObjectSet
+ELEM 4    2    5    4030 4    5    4    2         ObjectSet contains  data related to objects that have been maintained
+ELEM 4    2    5    4031 4    4    4    2         Object
+ELEM 4    2    5    4031 4    5    4    2         Object contains data for an individual object that has been maintained
+ELEM 4    2    5    4032 4    4    4    2         ObjectKindZTICode
+ELEM 4    2    5    4032 4    5    4    2         ObjectKindZTICode is the Kind DSI Code for an object that was maintained
+ELEM 4    2    5    4033 4    4    4    2         ObjectKindCode
+ELEM 4    2    5    4033 4    5    4    2         ObjectKindCode is the Kind Code for  an  object that was maintained
+ELEM 4    2    5    4034 4    4    4    2         ObjectZTICode
+ELEM 4    2    5    4034 4    5    4    2         ObjectZTICode is the code of an object that was maintained
+ELEM 4    2    5    4035 4    4    4    2         ObjectCodeTemp
+ELEM 4    2    5    4035 4    5    4    2         ObjectCodeTemp is the temporary code assigned by the client before the actual code was assigned by the server for a created object
+ELEM 4    2    5    4036 4    4    4    2         ObjectCodeAssigned
+ELEM 4    2    5    4036 4    5    4    2         ObjectCodeAssigned is the code assigned by the server for an object that was created
+ELEM 4    2    5    4037 4    4    4    2         ID
+ELEM 4    2    5    4037 4    5    4    2         ID is  the  identifier in the message for an object maintained, used to show hierarchy
+ELEM 4    2    5    4038 4    4    4    2         ParentID
+ELEM 4    2    5    4038 4    5    4    2         ParentID is the identifier in the message for the parent of the object maintained, used to show hierarchy
+
+ % deleted 20240510 not needed for maintain response
+ELEM%4    2    5    403904    4    4    2         TemplateZTIC
+ELEM%4    2    5    403904    5    4    2         TemplateZTIC is the ZTIC of the template of the object maintained
+ELEM%4    2    5    403914    4    4    2         TemplateCode
+ELEM%4    2    5    403914    5    4    2         TemplateCode is the Code of the template of the object maintained
+ELEM%4    2    5    4040 4    4    4    2         ElementSet
+ELEM%4    2    5    4040 4    5    4    2         ElementSet contains the elements of a maintained object
+ELEM%4    2    5    4041 4    4    4    2         Element
+ELEM%4    2    5    4041 4    5    4    2         Element is an individual element for a maintained object
+ELEM%4    2    5    4042 4    4    4    2         ObjectElementZTICode
+ELEM%4    2    5    4042 4    5    4    2         ObjectElementZTICode is the ZTIC for an object element populated by the server in a message response
+ELEM%4    2    5    4043 4    4    4    2         ObjectElementCode
+ELEM%4    2    5    4043 4    5    4    2         ObjectElementCode is the Code for an object element populated by the server in a message response
+ELEM%4    2    5    4044 4    4    4    2         ObjectElementValue
+ELEM%4    2    5    4044 4    5    4    2         ObjectElementValue is the value for an object element populated by the server in a message response
+ELEM%4    2    5    4046 4    4    4    2         ObjectElementStatus
+ELEM%4    2    5    4046 4    5    4    2         ObjectElementStatus is the status of and Object Element reuturned in a query response
+ELEM%4    2    5    4047 4    4    4    2         EffectiveTimeStamp
+ELEM%4    2    5    4047 4    5    4    2         EffectiveTimeStamp is the effective time stamp for the Object Element
+ELEM%4    2    5    4050 4    4    4    2         TypeSet
+ELEM%4    2    5    4050 4    5    4    2         TypeSet contains the  type values of a maintained object 
+ELEM%4    2    5    4051 4    4    4    2         Type
+ELEM%4    2    5    4051 4    5    4    2         Type is an individual type value for a maintained object
+ELEM%4    2    5    4052 4    4    4    2         TypeDefinitionZTICode
+ELEM%4    2    5    4052 4    5    4    2         TypeDefinitionZTICode is the ZTIC for a type definition of a type value maintained on a server
+ELEM%4    2    5    4053 4    4    4    2         TypeDefinitionCode
+ELEM%4    2    5    4053 4    5    4    2         TypeDefinitionCode is the Code for a type definition of a type value maintained on a server
+ELEM%4    2    5    4054 4    4    4    2         TypeValueZTICode
+ELEM%4    2    5    4054 4    5    4    2         TypeValueZTICode is the ZTIC for a type value maintained on a server
+ELEM%4    2    5    4055 4    4    4    2         TypeValueCode
+ELEM%4    2    5    4055 4    5    4    2         TypeValueCode is the Code for a type value maintained on a server
+ELEM%4    2    5    4056 4    4    4    2         TypeValueStatus
+ELEM%4    2    5    4056 4    5    4    2         TypeValueStatus is the status of the Type Value returned in a query response
+ELEM%4    2    5    4057 4    4    4    2         EffectiveTimeStamp
+ELEM%4    2    5    4057 4    5    4    2         EffectiveTimeStam is the effective time stamp of the Type Value
+ELEM%4    2    5    4060 4    4    4    2         LinkSet
+ELEM%4    2    5    4060 4    5    4    2         LinkSet contains the links for maintained object
+ELEM%4    2    5    4061 4    4    4    2         Link
+ELEM%4    2    5    4061 4    5    4    2         Link is an individual link for a maintained object
+ELEM%4    2    5    4062 4    4    4    2         LinkTypeZTIC
+ELEM%4    2    5    4062 4    5    4    2         LinkTypeZTIC is the ZTIC for a link type of a link maintained on a server
+ELEM%4    2    5    4063 4    4    4    2         LinkTypeCode
+ELEM%4    2    5    4063 4    5    4    2         LinkTypeCode is the Code for a link type of a link maintained on a server
+ELEM%4    2    5    4064 4    4    4    2         LinkToKindZTIC
+ELEM%4    2    5    4064 4    5    4    2         LinkToKindZTIC is the ZTIC for a link to kind maintained on a server
+ELEM%4    2    5    4065 4    4    4    2         LinkToKindCode
+ELEM%4    2    5    4065 4    5    4    2         LinkToKindCode is the Code for a link to kind maintained on a server
+ELEM%4    2    5    4066 4    4    4    2         LinkToZTIC
+ELEM%4    2    5    4066 4    5    4    2         LinkToZTIC is the ZTIC for a link to maintained on a server
+ELEM%4    2    5    4067 4    4    4    2         LinkToCode 
+ELEM%4    2    5    4067 4    5    4    2         LinkToCode is the Code for a link to maintained on a server
+ELEM%4    2    5    406914    4    4    2         LinkStatus
+ELEM%4    2    5    406914    5    4    2         LinkStatus is the status of the Link returned in a query response
+ELEM%4    2    5    406924    4    4    2         EffectiveTimeStamp
+ELEM%4    2    5    406924    5    4    2         EffectiveTimeStamp is the effective time stamp of the link
+  %  end delete 20240510
+
+ELEM 4    2    5    41   4    4    4    2         QueryResponseSet
+ELEM 4    2    5    41   4    5    4    2         QueryResponseSet contains the response by the server to a query sent by the client
+ELEM 4    2    5    410  4    4    4    2         QueryResponse
+ELEM 4    2    5    410  4    5    4    2         QueryResponse contains the response to a query set from the client
+ELEM 4    2    5    4100 4    4    4    2         ID
+ELEM 4    2    5    4100 4    5    4    2         ID identifies a query response and corresponds/holds the same value sent in 3100
+ELEM 4    2    5    4101 4    4    4    2         ObjectTemplateZTIcode
+ELEM 4    2    5    4101 4    5    4    2         ObjectTemplateZTIcode has the ZTIC of the template used for the query
+ELEM 4    2    5    4102 4    4    4    2         ObjectTemplateCode
+ELEM 4    2    5    4102 4    5    4    2         ObjectTemplateCode is the Code of the template used for the query
+ELEM 4    2    5    4103 4    4    4    2         DefaultEffectiveTimeStamp
+ELEM 4    2    5    4103 4    5    4    2         DefaultEffictiveTimeStamp is the timestamp that is used for selections from this query set if not specified at a more detailed level
+ELEM 4    2    5    4104 4    4    4    2         DEPRECATED Response Type 1=standard, 2=template of linkable object
+ELEM 4    2    5    4104 4    5    4    2         DEPRECATED Response Type indicates the content of responses for the query set - replaced by 41051
+ELEM 4    2    5    4105 4    4    4    2         DEPRECATED linkableObjectLinkType_ztic (for response type 2)
+ELEM 4    2    5    4105 4    5    4    2         DEPRECATED linkableObjectLinkType_ztic is the ZTIC of the link type for linkable object selected for response type 2, linked templates - replaced by 41052
+ELEM 4    2    5    4106 4    4    4    2         DEPRECATED linkableObjectLinkType_code (for response type 2)
+ELEM 4    2    5    4106 4    5    4    2         DEPRECATED linkableObjectLinkType_code is the code of the link type for linkable object selected for response type 2, linked templates - replaced by 41053
+ELEM 4    2    5    410514    4    4    2         ResponseTypeZTIC
+ELEM 4    2    5    410514    5    4    2         ResponseTypeZTIC is the ZT Instance Code of the response type for the parent Query Response
+ELEM 4    2    5    410524    4    4    2         ResponseTypeCode
+ELEM 4    2    5    410524    5    4    2         ResponseTypeCode is the Code of the response type for the parent Query Response
+ELEM 4    2    5    410534    4    4    2         RelatedObjectKindZTIC 
+ELEM 4    2    5    410534    5    4    2         RelatedObjectKindZTIC is the ZT Instance Code of the related object kind
+ELEM 4    2    5    410544    4    4    2         RelatedObjectKindCode 
+ELEM 4    2    5    410544    5    4    2         RelatedObjectKindCode is the Code of the related object kind 
+ELEM 4    2    5    410554    4    4    2         RelatedObjectZTIC 
+ELEM 4    2    5    410554    5    4    2         RelatedObjectZTIC is the ZT Instance Code of the related object 
+ELEM 4    2    5    410564    4    4    2         RelatedObjectCode 
+ELEM 4    2    5    410564    5    4    2         RelatedObjectCode is the Code of the related object for the response type 
+ELEM 4    2    5    4130 4    4    4    2         ObjectSet
+ELEM 4    2    5    4130 4    5    4    2         ObjectSet contains the objects from a query response
+ELEM 4    2    5    4131 4    4    4    2         Object
+ELEM 4    2    5    4131 4    5    4    2         Object is an individual instance of an object from a query response
+ELEM 4    2    5    4132 4    4    4    2         ObjectKindZTICode
+ELEM 4    2    5    4132 4    5    4    2         ObjectKindZTICode is the Object Kind DSI Code for an object in a query response
+ELEM 4    2    5    4133 4    4    4    2         ObjectKindCode
+ELEM 4    2    5    4133 4    5    4    2         ObjectKindCode is the Kind Code for an object in a query response
+ELEM 4    2    5    4134 4    4    4    2         ObjectZTICode
+ELEM 4    2    5    4134 4    5    4    2         ObjectZTICode is the ZTIC for an object in a query response
+ELEM 4    2    5    4135 4    4    4    2         ObjectCode
+ELEM 4    2    5    4135 4    5    4    2         ObjectCode is the Code for an object in a query response
+ELEM 4    2    5    4137 4    4    4    2         ID
+ELEM 4    2    5    4137 4    5    4    2         ID is an indentifier assigned by the server for an object in a query response, used to show the hierarchy of objects
+ELEM 4    2    5    4138 4    4    4    2         ParentId
+ELEM 4    2    5    4138 4    5    4    2         ParentId is the id of the parent object in the hierarchy of objects in a query response
+ELEM 4    2    5    4139 4    4    4    2         LevelsDown
+ELEM 4    2    5    4139 4    5    4    2         LevelsDown indicates how far down in the hierarchy the object is in the set of objects in a query response
+ELEM 4    2    5    413904    4    4    2         TemplateZTIC
+ELEM 4    2    5    413904    5    4    2         TemplateZTIC is the ZTIC of the template used by a object in a query response
+ELEM 4    2    5    413914    4    4    2         TemplateCode
+ELEM 4    2    5    413914    5    4    2         TemplateCode is the Code of the template used by a object in a query response
+ELEM 4    2    5    413924    4    4    2         ObjectStatus
+ELEM 4    2    5    413924    5    4    2         ObjectStatus is the status of the complete object i.e. active, inactive, flag for deletion
+ELEM 4    2    5    4140 4    4    4    2         ElementSet
+ELEM 4    2    5    4140 4    5    4    2         ElementSet has the elements for an object in a query response
+ELEM 4    2    5    4141 4    4    4    2         Element
+ELEM 4    2    5    4141 4    5    4    2         Element is an individual element for an object in a query response
+ELEM 4    2    5    4142 4    4    4    2         ObjectElementZTICode
+ELEM 4    2    5    4142 5    5    4    2         ObjectElementZTICode is the ZTIC for an object element for an object in a query response
+ELEM 4    2    5    4143 4    4    4    2         ObjectElementCode
+ELEM 4    2    5    4143 4    5    4    2         ObjectElementCode is the Code for an object element for an object in a query response
+ELEM 4    2    5    4144 4    4    4    2         ObjectElementValue
+ELEM 4    2    5    4144 4    5    4    2         ObjectElementValue is the value for an object element for an object in a query response
+ELEM 4    2    5    4146 4    4    4    2         ObjectElementStatus
+ELEM 4    2    5    4146 4    5    4    2         ObjectElementStatus is the status for the object element
+ELEM 4    2    5    4147 4    4    4    2         EffectiveTimeStamp
+ELEM 4    2    5    4147 4    5    4    2         EffectiveTimeStamp is the time stamp for the ObjectElement 
+ELEM 4    2    5    4150 4    4    4    2         TypeSet
+ELEM 4    2    5    4150 4    5    4    2         TypeSet has the type values for an object in a query response
+ELEM 4    2    5    4151 4    4    4    2         Type
+ELEM 4    2    5    4151 4    5    4    2         Type is an individual type value for an object in a query response
+ELEM 4    2    5    4152 4    4    4    2         TypeDefinitionZTICode
+ELEM 4    2    5    4152 4    5    4    2         TypeDefinitionZTICode is the the ZTIC for the type defintion for a type value for an object in a query response
+ELEM 4    2    5    4153 4    4    4    2         TypeDefinitionCode
+ELEM 4    2    5    4153 4    5    4    2         TypeDefinitionCode is the Code for the type definition for a type value for an object in a query response
+ELEM 4    2    5    4154 4    4    4    2         TypeValueZTICode
+ELEM 4    2    5    4154 4    5    4    2         TypeValueZTICode is the ZTIC for the type value for an object in a query response
+ELEM 4    2    5    4155 4    4    4    2         TypeValueCode
+ELEM 4    2    5    4155 4    5    4    2         TypeValueCode is the Code for the type value for an object in a query response
+ELEM 4    2    5    4156 4    4    4    2         TypeValueStatus
+ELEM 4    2    5    4156 4    5    4    2         TypeValueStatus is the status code for the TypeValueCode
+ELEM 4    2    5    4157 4    4    4    2         EffectiveTimeStamp
+ELEM 4    2    5    4157 4    5    4    2         EffectiveTimeStamp is the time stamp for the Type Value
+ELEM 4    2    5    4160 4    4    4    2         LinkSet
+ELEM 4    2    5    4160 4    5    4    2         LinkSet has the links for an obect in a query response
+ELEM 4    2    5    4161 4    4    4    2         Link
+ELEM 4    2    5    4161 4    5    4    2         Link is an individual link for an object in a query response
+ELEM 4    2    5    4162 4    4    4    2         LinkTypeZTIC
+ELEM 4    2    5    4162 4    5    4    2         LinkTypeZTIC is the ZTIC for the link type for a link for an object in a query response
+ELEM 4    2    5    4163 4    4    4    2         LinkTypeCode
+ELEM 4    2    5    4163 4    5    4    2         LinkTypeCode is the Code for the link type for a link for an object in a query response
+ELEM 4    2    5    4164 4    4    4    2         LinkToKindZTIC
+ELEM 4    2    5    4164 4    5    4    2         LinkToKindZTIC is the ZTIC for the link-to kind for a link for an object in a query response
+ELEM 4    2    5    4165 4    4    4    2         LinkToKindCode
+ELEM 4    2    5    4165 4    5    4    2         LinkToKindCode is the Code for the link-to kind for a link for an object in a query response
+ELEM 4    2    5    4166 4    4    4    2         LinkToZTIC
+ELEM 4    2    5    4166 4    5    4    2         LinkToZTIC is the ZTIC for the link-to for a link for an object in a query response
+ELEM 4    2    5    4167 4    4    4    2         LinkToCode
+ELEM 4    2    5    4167 4    5    4    2         LinkToCode is the Code for the link-to for a link for an object in a query response
+ELEM 4    2    5    416914    4    4    2         LinkStatus
+ELEM 4    2    5    416914    5    4    2         LinkStatus is the status for the link
+ELEM 4    2    5    416924    4    4    2         EffectiveTimeStamp
+ELEM 4    2    5    416924    5    4    2         EffectiveTimeStamp is the effective time stamp for the link
+ELEM 4    2    5    416934    4    4    2         LinkValue
+ELEM 4    2    5    416934    5    4    2         LinkValue indicates the strength or priority of the link
+
+ELEM 4    2    5    4180 4    4    4    2         StatisticalValueObjectSet
+ELEM 4    2    5    4180 4    5    4    2         StatisticalValueObjectSet contains all statistical values for a query response       
+ELEM 4    2    5    4181 4    4    4    2         StatisticalValuesObject
+ELEM 4    2    5    4181 4    5    4    2         StatisticalValuesObject contains object with a set of statistical values for a query response
+ELEM 4    2    5    418104    4    4    2         StatisticalValuesObjectZTIC
+ELEM 4    2    5    418104    5    4    2         StatisticalValuesObjectZTIC is the ZT instance code for a statistical values object
+ELEM 4    2    5    418114    4    4    2         StatisticalValuesObjectCode
+ELEM 4    2    5    418114    5    4    2         StatisticalValuesObjectCode is the code for a statistical values object
+ELEM 4    2    5    418124    4    4    2         StatisticTypeZTIC
+ELEM 4    2    5    418124    5    4    2         StatisticTypeZTIC is the ZT instance code for the statistic type
+ELEM 4    2    5    418134    4    4    2         StatisticTypeCode
+ELEM 4    2    5    418134    5    4    2         StatisticTypeCode is the code for the statistic type
+ELEM 4    2    5    418144    4    4    2         SourceSetZTIC
+ELEM 4    2    5    418144    5    4    2         SourceSetZTIC is the ZT instance code for the set of objects to be summarized
+ELEM 4    2    5    418154    4    4    2         SourceSetCode
+ELEM 4    2    5    418154    5    4    2         SourceSetCode is the code of set of objects to be summarized
+ELEM 4    2    5    418164    4    4    2         UomZTIC
+ELEM 4    2    5    418164    5    4    2         UomZTIC is the ZT instance code of the unit of measure being used
+ELEM 4    2    5    418174    4    4    2         UomCode
+ELEM 4    2    5    418174    5    4    2         UomCode is the code of the unit of measure being used
+ELEM 4    2    5    418204    4    4    2         SourceObjectElementZTIC
+ELEM 4    2    5    418204    5    4    2         SourceObjectElementZTIC is the ZT instance code of the object element the summarized data comes from
+ELEM 4    2    5    418214    4    4    2         SourceObjectElementCode
+ELEM 4    2    5    418214    5    4    2         SourceObjectElementCode is the code of the object element the summarized data comes from
+ELEM 4    2    5    418224    4    4    2         StatisticalValuesObjectLabel
+ELEM 4    2    5    418224    5    4    2         StatisticalValuesObjectLabel is the label of the statistical values object
+ELEM 4    2    5    4183 4    4    4    2         DimensionSet 
+ELEM 4    2    5    4183 4    5    4    2         DimensionSet contains a set of dimensions
+ELEM 4    2    5    418304    4    4    2         Dimension
+ELEM 4    2    5    418304    5    4    2         Dimension contains the data for one dimension
+ELEM 4    2    5    418314    4    4    2         DimensionZTIC
+ELEM 4    2    5    418314    5    4    2         DimensionZTIC is the ZT instance code for the dimension
+ELEM 4    2    5    418324    4    4    2         DimensionCode 
+ELEM 4    2    5    418324    5    4    2         DimensionCode is the code for the dimension
+ELEM 4    2    5    418334    4    4    2         DimensionLabel 
+ELEM 4    2    5    418334    5    4    2         DimensionLabel is the label for the dimension
+ELEM 4    2    5    418344    4    4    2         IndexInTypeDefinitionPathForDataSummarization
+ELEM 4    2    5    418344    5    4    2         IndexInTypeDefinitionPathForDataSummarization is the index position in the type definition path used for summarization
+ELEM 4    2    5    418354    4    4    2         IndexInTypeDefinitionPathForGrouping
+ELEM 4    2    5    418354    5    4    2         IndexInTypeDefinitionPathForGrouping is the index position in the type definition path for grouping
+ELEM 4    2    5    418364    4    4    2         IndexInTypeDefinitionPathForGrouping2
+ELEM 4    2    5    418364    5    4    2         IndexInTypeDefinitionPathForGrouping2 is the index position in the type definition path for second grouping
+ELEM 4    2    5    4184 4    4    4    2         TypeDefinitionPath 
+ELEM 4    2    5    4184 4    5    4    2         TypeDefinitionPath contains a set of Type Definitions used for the Statistical Values Object 
+ELEM 4    2    5    418404    4    4    2         PathZTIC 
+ELEM 4    2    5    418404    5    4    2         PathZTIC is the ZT instance code for a Type Definition Path 
+ELEM 4    2    5    418414    4    4    2         PathCode 
+ELEM 4    2    5    418414    5    4    2         PathCode is the Code for a Type Definition Path 
+ELEM 4    2    5    418424    4    4    2         TypeDefinitionSet
+ELEM 4    2    5    418424    5    4    2         TypeDefinitionSet contains a set of Type Definitions 
+ELEM 4    2    5    418434    4    4    2         TypeDefinition 
+ELEM 4    2    5    418434    5    4    2         TypeDefinition contains values for a Type Definition 
+ELEM 4    2    5    418444    4    4    2         TypeDefinitionZTIC 
+ELEM 4    2    5    418444    5    4    2         TypeDefinitionZTIC is the ZT instance code for the Type Definition 
+ELEM 4    2    5    418454    4    4    2         TypeDefinitionCode 
+ELEM 4    2    5    418454    5    4    2         TypeDefinitionCode is the Code for the Type Definition 
+ELEM 4    2    5    418464    4    4    2         IndexInPath 
+ELEM 4    2    5    418464    5    4    2         IndexInPath is the index of the Type Definition in the Type Definition Path 
+ELEM 4    2    5    4185 4    4    4    2         StatisticalValueSet 
+ELEM 4    2    5    4185 4    5    4    2         StatisticalValueSet contains a set of statistical values 
+ELEM 4    2    5    418504    4    4    2         StatisticalValue 
+ELEM 4    2    5    418504    5    4    2         StatisticalValue constains a statistical value 
+ELEM 4    2    5    418514    4    4    2         StatisticalValueID 
+ELEM 4    2    5    418514    5    4    2         StatisticalValueID is the ID for a statistical value 
+ELEM 4    2    5    418524    4    4    2         StatisticalValue
+ELEM 4    2    5    418524    5    4    2         StatisticalValue is the value for a statistical value 
+ELEM 4    2    5    4186 4    4    4    2         StatisticalValueTypeValueSet 
+ELEM 4    2    5    4186 4    5    4    2         StatisticalValueTypeValueSet contains the type values for a statistical value 
+ELEM 4    2    5    418604    4    4    2         StatisticalValueTypeValue 
+ELEM 4    2    5    418604    5    4    2         StatisticalValueTypeValue contains the Type Value for a Statistical Value 
+ELEM 4    2    5    418614    4    4    2         TypeDefinitionZTIC 
+ELEM 4    2    5    418614    5    4    2         TypeDefinitionZTIC is the ZT instance code for a Type Definition for a statistical value 
+ELEM 4    2    5    418624    4    4    2         TypeDefinitionCode 
+ELEM 4    2    5    418624    5    4    2         TypeDefinitionCode is the code for a Type Definition for a statistical value 
+ELEM 4    2    5    418634    4    4    2         TypeValueZTIC 
+ELEM 4    2    5    418634    5    4    2         TypeValueZTIC is the ZT instance code for a Type Value for a statistical value 
+ELEM 4    2    5    418644    4    4    2         TypeValueCode 
+ELEM 4    2    5    418644    5    4    2         TypeValueCode is the code for a Type Value for a statistical value 
+ELEM 4    2    5    418654    4    4    2         SortKey 
+ELEM 4    2    5    418654    5    4    2         SortKey is the sort key for the Type Value for a statistical value 
+ELEM 4    2    5    418664    4    4    2         LabelForTypeValue 
+ELEM 4    2    5    418664    5    4    2         LabelForSummarizationForTypeValue is the label for a Type Value for a statistical value 
+ELEM 4    2    5    418674    4    4    2         GroupID1 
+ELEM 4    2    5    418674    5    4    2         GroupID1 is the ID for the primary grouping for the statistical value
+ELEM 4    2    5    418684    4    4    2         GroupID2
+ELEM 4    2    5    418684    5    4    2         GroupID2 is the ID of the secondary grouping for the statistical value
+ELEM 4    2    5    418694    4    4    2         GroupID3
+ELEM 4    2    5    418694    5    4    2         GroupID3 is the ID for the tertiary grouping of the statistical value
+ELEM 4    2    5    4188 4    4    4    2         GroupSet
+ELEM 4    2    5    4188 4    5    4    2         GroupSet contains a set of groups to define grouping for statistical values 
+ELEM 4    2    5    418804    4    4    2         Group
+ELEM 4    2    5    418804    5    4    2         Group of statistical values
+ELEM 4    2    5    418814    4    4    2         GroupID
+ELEM 4    2    5    418814    5    4    2         GroupID is the ID used identify grouping values for statistical values 
+ELEM 4    2    5    418824    4    4    2         GroupLabel 
+ELEM 4    2    5    418824    5    4    2         GroupLabel is the label for a grouping code 
+ELEM 4    2    5    418834    4    4    2         DimensionZTIC
+ELEM 4    2    5    418834    5    4    2         DimensionZTIC is the ZT instance code group 
+ELEM 4    2    5    418844    4    4    2         DimensionCode 
+ELEM 4    2    5    418844    5    4    2         DimensionCode is the code for a Dimension for a group 
+ELEM 4    2    5    418854    4    4    2         IndexInTypeDefinitionPath 
+ELEM 4    2    5    418854    5    4    2         IndexInTypeDefinitionPath is the index of a Type Definition in a Type Definition Path 
+ELEM 4    2    5    418864    4    4    2         TypeValueZTIC 
+ELEM 4    2    5    418864    5    4    2         TypeValueZTIC is the ZT instance code for the Type Value in a group 
+ELEM 4    2    5    418874    4    4    2         TypeValueCode 
+ELEM 4    2    5    418874    5    4    2         TypeValueCode is the code for a Type Value in a group 
+
+
+ELEM 4    2    5    42   4    4    4    2         ResponseMessageStatusSet
+ELEM 4    2    5    42   4    5    4    2         ResponseMessageStatusSet contains the Response Message Status values
+ELEM 4    2    5    420  4    4    4    2         MessageStatus
+ELEM 4    2    5    420  4    5    4    2         MessageStatus is an indidual instance of a MessageStatus
+ELEM 4    2    5    4201 4    4    4    2         MessageStatusZTIC
+ELEM 4    2    5    4201 4    5    4    2         MessageStatusZTIC is the DS Instance a ResponseMessage Status
+ELEM 4    2    5    4202 4    4    4    2         MessageStatusCode
+ELEM 4    2    5    4202 4    5    4    2         MessageStatusCode is the Code for a Response Message Status
+ELEM 4    2    5    4203 4    4    4    2         MessageStatusTimestamp
+ELEM 4    2    5    4203 4    5    4    2         MessageStatusTimestamp is the timestamp for a Message Status
+ELEM 4    2    5    4204 4    4    4    2         MessageStatusText
+ELEM 4    2    5    4204 4    5    4    2         MessageStatusText is the text for a message status
+ELEM 4    2    5    43   4    4    4    2         ServerLogSystemMessageSet
+ELEM 4    2    5    43   4    5    4    2         ServerLogSystemMessageSet contains server log messages
+ELEM 4    2    5    430  4    4    4    2         ServerLogSystemMessage
+ELEM 4    2    5    430  4    5    4    2         ServerLogSystemMessage is an individual instance of a server log message
+ELEM 4    2    5    4300 4    4    4    2         ID
+ELEM 4    2    5    4300 4    5    4    2         ID is the identifier for a server log message
+ELEM 4    2    5    4301 4    4    4    2         SystemMessageDefZTIC
+ELEM 4    2    5    4301 4    5    4    2         SystemMessageDefZTIC is the DS Instance for a system message definition
+ELEM 4    2    5    4302 4    4    4    2         SystemMessageDefCode
+ELEM 4    2    5    4302 4    5    4    2         SystemMessageDefCode is the Code the a system message definition
+ELEM 4    2    5    4303 4    4    4    2         MessageCategory
+ELEM 4    2    5    4303 4    5    4    2         MessageCategory is the category for a system message
+ELEM 4    2    5    4304 4    4    4    2         Timestamp
+ELEM 4    2    5    4304 4    5    4    2         Timestamp is the timestamp for a system message
+ELEM 4    2    5    4311 4    4    4    2         RelatedSection
+ELEM 4    2    5    4311 4    5    4    2         RelatedSection has the section of the message related to the system message
+ELEM 4    2    5    4312 4    4    4    2         RelatedSectionID
+ELEM 4    2    5    4312 4    5    4    2         RelatedSectionID has the section ID of the message related to the system message
+ELEM 4    2    5    4313 4    4    4    2         SerialNumberOfRelatedMessageElement
+ELEM 4    2    5    4313 4    5    4    2         SerialNumberOfRelatedMessageElement contains the serial number of the message element related to the system message
+ELEM 4    2    5    4321 4    4    4    2         ShortSystemMessage
+ELEM 4    2    5    4321 4    5    4    2         ShortSystemMessage is the short text version of a system message
+ELEM 4    2    5    4322 4    4    4    2         LongSystemMessage
+ELEM 4    2    5    4322 4    5    4    2         LongSystemMessage is the long text version of a system message
+ELEM 4    2    5    4330 4    4    4    2         ParameterSet
+ELEM 4    2    5    4330 4    5    4    2         ParameterSet contains the parameters for a system message
+ELEM 4    2    5    4331 4    4    4    2         Parameter
+ELEM 4    2    5    4331 4    5    4    2         Parameter contains an indiidual parameter for a system message
+ELEM 4    2    5    4332 4    4    4    2         ParameterZTIC
+ELEM 4    2    5    4332 4    5    4    2         ParameterZTIC is the ZT Instance Code for a parameter for a system message
+ELEM 4    2    5    4333 4    4    4    2         ParameterCode
+ELEM 4    2    5    4333 4    5    4    2         ParameterCode is the code for a parameter for a system message
+ELEM 4    2    5    4334 4    4    4    2         ParameterValue
+ELEM 4    2    5    4334 4    5    4    2         ParameterValue is the value for a parameter for a system message
+ELEM 4    2    5    9900 4    4    4    2         Comment line
+ELEM 4    2    5    9900 4    5    4    2         Comment line can be used to add comments to a message but is not processed by the server
+ELEM 4    2    5    9901 4    4    4    2         SuppressParentSegment
+ELEM 4    2    5    9901 4    5    4    2         Is used to suppress parent segment
+
+
+
+     ObjKind   Object    TypeDef   Type      Template  
+RecIdKdiscKcodeOzticOcodeTDdsiTDcodTzticTcodeTzticTcode
+TYPE%2    2    2    2    2    3    2    2               Object Kind for template for Object Template
+TYPE%2    2    2    12   2    3    2    12              Object Kind for template for Technical Profile
+TYPE%2    2    2    3    2    3    2    3               Object Kind for template for Object Element
+TYPE%2    2    2    31   2    3    2    31              Object Kind for template for Data Element
+TYPE%2    2    2    9    2    3    2    9               Object Kind for template for Type Definition
+TYPE%2    2    2    10   2    3    2    10              Object Kind for template for Link Type
+
+
+
+  links from message elements to message elements
+RecIdKzticKcodeOzticOcodeLTdsiLTcodLKdsiLKcodLzticLcodeTzticTcode                                   LkVal
+LINK 4    1    5    101  4    1    4    2    5    1    4    2                                       10000     link ZT Standard Message Format to root
+LINK 4    2    5    1    4    2    4    2    5    2    4    2                                       10000     link root to header
+LINK 4    2    5    1    4    2    4    2    5    3    4    2                                        9000     link root to request
+LINK 4    2    5    1    4    2    4    2    5    4    4    2                                        8000     link root to response
+LINK 4    2    5    2    4    2    4    2    5    20   4    2                                       10000     link header to message schema
+LINK 4    2    5    2    4    2    4    2    5    21   4    2                                        9000     link header to zti set
+LINK 4    2    5    2    4    2    4    2    5    22   4    2                                        8000     link header to message partners
+LINK 4    2    5    2    4    2    4    2    5    23   4    2                                        7000     link header to message processing parameters
+LINK 4    2    5    20   4    2    4    2    5    200  4    2                                       10000     link message schema to Message Schema version DSI Code 
+LINK 4    2    5    20   4    2    4    2    5    201  4    2                                        9000     link message schema to Message Schema version Code
+LINK 4    2    5    20   4    2    4    2    5    202  4    2                                        8000     link message schema to Message Schema version Template DSI Code
+LINK 4    2    5    20   4    2    4    2    5    203  4    2                                        7000     link message schema to Message Schema version Template Code
+LINK 4    2    5    21   4    2    4    2    5    210  4    2                                        6000     link dsi set to dsi
+LINK 4    2    5    210  4    2    4    2    5    2100 4    2                                       10000     link dsi to zti code
+LINK 4    2    5    210  4    2    4    2    5    2101 4    2                                        9000     link dsi to zti namespace
+LINK 4    2    5    22   4    2    4    2    5    220  4    2                                       10000     link message partners to SenderServerZTICode
+LINK 4    2    5    22   4    2    4    2    5    221  4    2                                        9000     link message partners to SenderZTICode
+LINK 4    2    5    22   4    2    4    2    5    222  4    2                                        8000     link message partners to ReceiverServerZTICode
+LINK 4    2    5    22   4    2    4    2    5    223  4    2                                        7000     link message partners to ReceiverZTICode
+LINK 4    2    5    23   4    2    4    2    5    230  4    2                                       10000     link message processing parameters to general
+LINK 4    2    5    230  4    2    4    2    5    2301 4    2                                       10000     link general processing parameters to DefaultEffectiveTimeStamp
+LINK 4    2    5    230  4    2    4    2    5    2302 4    2                                        9000     link general processing parameters to MessageIdClient
+LINK 4    2    5    230  4    2    4    2    5    2303 4    2                                        8000     link general processing parameters to IndexOfLastRequestSegment
+LINK 4    2    5    230  4    2    4    2    5    2304 4    2                                        7000     link general processing parameters to DefaultUpdateMode
+LINK 4    2    5    230  4    2    4    2    5    230404    2                                        6500     link general processing parameters to DefaultUpdateModeZTIC
+LINK 4    2    5    230  4    2    4    2    5    230414    2                                        6400     link general processing parameters to DefaultUpdateModeCode
+LINK%4    2    5    230  4    2    4    2    5    2305 4    2                                        6001     link general processing parameters to User  (DEPRECATED)
+LINK 4    2    5    230  4    2    4    2    5    230504    2                                        6000     link general processing parameters to User ZTIC
+LINK 4    2    5    230  4    2    4    2    5    230514    2                                        5999     link general processing parameters to User Code               
+LINK 4    2    5    230  4    2    4    2    5    2306 4    2                                        5000     link general processing parameters to ServerSoftwareRuntimeProfile ZTICode
+LINK 4    2    5    230  4    2    4    2    5    2307 4    2                                        4000     link general processing parameters to ServerSoftwareRuntimeProfileCode
+LINK 4    2    5    23   4    2    4    2    5    231  4    2                                       10000     link message processing parameters to extended key set
+LINK 4    2    5    231  4    2    4    2    5    2310 4    2                                       10000     link extended key set to extended key  
+LINK 4    2    5    2310 4    2    4    2    5    2311 4    2                                       10000     link extended key to ExtendedKeyDefinitionCodeZTIC 
+LINK 4    2    5    2310 4    2    4    2    5    2312 4    2                                        9000     link extended key to ExtendedKeyDefinitionCode 
+LINK 4    2    5    2310 4    2    4    2    5    2313 4    2                                        8000     link extended key to ExtendedKeyValueZTIC 
+LINK 4    2    5    2310 4    2    4    2    5    2314 4    2                                        7000     link extended key to ExtendedKeyValueCode
+LINK 4    2    5    23   4    2    4    2    5    233  4    2                                       10000     link message processing parameters to queue processing
+LINK 4    2    5    233  4    2    4    2    5    2331 4    2                                       10000     link queue processing to serialization active
+LINK 4    2    5    233  4    2    4    2    5    2332 4    2                                        9000     link queue processing to QueueName
+LINK 4    2    5    233  4    2    4    2    5    2333 4    2                                        8000     link queue processing to SerializationKey
+%%  start exclude dynamic parameters from spec for now
+LINK%4    2    5    23   4    2    4    2    5    234  4    2                                       10000     link message processing parameters to dynamic parameter set
+LINK%4    2    5    234  4    2    4    2    5    2341 4    2                                       10000     link dynamic parameter set to DynamicParameterZTIC
+LINK%4    2    5    234  4    2    4    2    5    2342 4    2                                        9000     link dynamic parameter set to DynamicParameterCode
+LINK%4    2    5    234  4    2    4    2    5    2343 4    2                                        8000     link dynamic parameter set to DynamicParameterValue
+%%   end exclude dynamic parameters from spec for now
+LINK 4    2    5    3    4    2    4    2    5    30   4    2                                       10000     link request to maintain set
+LINK 4    2    5    30   4    2    4    2    5    300  4    2                                       10000     link maintain set to maintain set member
+LINK 4    2    5    300  4    2    4    2    5    3000 4    2                                       10000     link maintain set member to ID
+LINK 4    2    5    300  4    2    4    2    5    3003 4    2                                        9000     link maintain set member to EffectiveTimeStamp
+LINK 4    2    5    300  4    2    4    2    5    3008 4    2                                        8001     to be DEPRECATED link maintain set member to Update Mode
+LINK 4    2    5    300  4    2    4    2    5    300804    2                                        8000     link maintain set member to Update Mode ZTIC
+LINK 4    2    5    300  4    2    4    2    5    300814    2                                        7999     link maintain set member to Update Mode Code
+LINK 4    2    5    300  4    2    4    2    5    3030 4    2                                        7000     link maintain set member to object set
+LINK 4    2    5    3030 4    2    4    2    5    3031 4    2                                       10000     link object set to object 
+LINK 4    2    5    3031 4    2    4    2    5    3032 4    2                                       10000     link object to ObjectKindZTICode
+LINK 4    2    5    3031 4    2    4    2    5    3033 4    2                                        9000     link object to ObjectKindCode
+LINK 4    2    5    3031 4    2    4    2    5    3034 4    2                                        8000     link object to ObjectZTICode
+LINK 4    2    5    3031 4    2    4    2    5    3035 4    2                                        7000     link object to ObjectCodeTemp
+LINK 4    2    5    3031 4    2    4    2    5    3036 4    2                                        6000     link object to NewCode (boolean)
+LINK 4    2    5    3031 4    2    4    2    5    3037 4    2                                        5000     link object to ID
+LINK 4    2    5    3031 4    2    4    2    5    3038 4    2                                        4000     link object to ParentID
+LINK 4    2    5    3031 4    2    4    2    5    303904    2                                        3000     link object to TemplateZTIC
+LINK 4    2    5    3031 4    2    4    2    5    303914    2                                        2000     link object to TemplateCode
+LINK 4    2    5    3031 4    2    4    2    5    303924    2                                        1500     link object to ObjectStatus
+LINK 4    2    5    3031 4    2    4    2    5    3040 4    2                                        1000     link object to ElementSet
+LINK 4    2    5    3040 4    2    4    2    5    3041 4    2                                       10000     link ElementSet to Element
+LINK 4    2    5    3041 4    2    4    2    5    3042 4    2                                       10000     link Element to ObjectElementZTICode
+LINK 4    2    5    3041 4    2    4    2    5    3043 4    2                                        9000     link Element to ObjectElementCode 
+LINK 4    2    5    3041 4    2    4    2    5    3044 4    2                                        8000     link Element to ObjectElementValue
+LINK 4    2    5    3041 4    2    4    2    5    3046 4    2                                        7000     link Element to ObjectElementStatus
+LINK 4    2    5    3041 4    2    4    2    5    3047 4    2                                        6000     link Element to EffectiveTimeStamp
+LINK 4    2    5    3031 4    2    4    2    5    3050 4    2                                         500     link object to TypeSet
+LINK 4    2    5    3050 4    2    4    2    5    3051 4    2                                       10000     link TypeSet to Type
+LINK 4    2    5    3051 4    2    4    2    5    3052 4    2                                       10000     link Type Value to TypeDefinitionZTICode
+LINK 4    2    5    3051 4    2    4    2    5    3053 4    2                                        9000     link Type Value to TypeDefinitionCode
+LINK 4    2    5    3051 4    2    4    2    5    3054 4    2                                        8000     link Type Value to TypeValueZTICode
+LINK 4    2    5    3051 4    2    4    2    5    3055 4    2                                        7000     link Type Value to TypeValueCode
+LINK 4    2    5    3051 4    2    4    2    5    3056 4    2                                        6000     link Type Value to TypeValueStatus
+LINK 4    2    5    3051 4    2    4    2    5    3057 4    2                                        5000     link Type Value to EffectiveTimeStamp
+LINK 4    2    5    3031 4    2    4    2    5    3060 4    2                                         400     link object to LinkSet
+LINK 4    2    5    3060 4    2    4    2    5    3061 4    2                                       10000     link LinkSet to Link
+LINK 4    2    5    3061 4    2    4    2    5    3062 4    2                                       10000     link Link to LinkTypeZTIC
+LINK 4    2    5    3061 4    2    4    2    5    3063 4    2                                        9000     link Link to LinkTypeCode
+LINK 4    2    5    3061 4    2    4    2    5    3064 4    2                                        8000     link Link to LinkToKindZTIC
+LINK 4    2    5    3061 4    2    4    2    5    3065 4    2                                        7000     link Link to LinkToKindCode
+LINK 4    2    5    3061 4    2    4    2    5    3066 4    2                                        6000     link Link to LinkToZTIC
+LINK 4    2    5    3061 4    2    4    2    5    3067 4    2                                        5000     link Link to LinkToCode
+LINK 4    2    5    3061 4    2    4    2    5    3068 4    2                                        4000     link Link to NewLinkTargetCode (boolean)
+LINK 4    2    5    3061 4    2    4    2    5    306914    2                                        3500     link Link to LinkStatus
+LINK 4    2    5    3061 4    2    4    2    5    306924    2                                        3400     link Link to EffectiveTimestamp
+LINK 4    2    5    3061 4    2    4    2    5    306934    2                                        3300     link Link to LinkValue
+LINK 4    2    5    3    4    2    4    2    5    31   4    2                                        9000     link request to query set
+LINK 4    2    5    31   4    2    4    2    5    310  4    2                                       10000     link query set to query set member 
+LINK 4    2    5    310  4    2    4    2    5    3100 4    2                                       10000     link query set member to id
+LINK 4    2    5    310  4    2    4    2    5    3101 4    2                                        9000     link query set member to ObjectTemplateZTICode
+LINK 4    2    5    310  4    2    4    2    5    3102 4    2                                        8000     link query set member to ObjectTemplateCode
+LINK%4    2    5    310  4    2    4    2    5    3103 4    2                                        7001     link query set member to selection mode TO BE DEPRECATED
+LINK 4    2    5    310  4    2    4    2    5    310304    2                                        7000     link query set member to selection mode ZTIC
+LINK 4    2    5    310  4    2    4    2    5    310314    2                                        6999     link query set member to selection mode Code
+LINK 4    2    5    310  4    2    4    2    5    310324    2                                        6998     link query set member to status exclusion set
+LINK 4    2    5    310324    2    4    2    5    310334    2                                        6997     link status exclusion set to excluded status
+LINK%4    2    5    310  4    2    4    2    5    3104 4    2                                        6000     link query set member to RespondInSummaryOnlyBoolean
+LINK 4    2    5    310  4    2    4    2    5    3104 4    2                                        5000     link query set member to timestamp set
+LINK 4    2    5    3104 4    2    4    2    5    310404    2                                       10000     link timestamp set to timestamp
+LINK 4    2    5    310404    2    4    2    5    310414    2                                       10000     link timestamp to timestamp operator
+LINK 4    2    5    310404    2    4    2    5    310424    2                                        9000     link tiemstamp to timestamp value
+LINK 4    2    5    310  4    2    4    2    5    3105 4    2                                        4000     link query set member to a query response control parameter set
+LINK 4    2    5    3105 4    2    4    2    5    310504    2                                       10000     link query response control parameter set to a query response control parameter
+LINK 4    2    5    310504    2    4    2    5    310514    2                                       10000     link query response control parameter to response type ZTIC
+LINK 4    2    5    310504    2    4    2    5    310524    2                                        9000     link query response control parameter to response type Code
+LINK 4    2    5    310504    2    4    2    5    310534    2                                        8000     link query response control parameter to object kind ZTIC of related object
+LINK 4    2    5    310504    2    4    2    5    310544    2                                        7000     link query response control parameter to object kind Code of related object 
+LINK 4    2    5    310504    2    4    2    5    310554    2                                        6000     link query response control parameter to object ZTIC of related object
+LINK 4    2    5    310504    2    4    2    5    310564    2                                        5000     link query response control parameter to object Code of related object
+LINK 4    2    5    310504    2    4    2    5    310604    2                                        4000     link query response control parameter to maximum number of objects returned
+LINK 4    2    5    310504    2    4    2    5    310614    2                                        3000     link query response control parameter to maximum number of hierarchy levels returned
+LINK 4    2    5    310504    2    4    2    5    310624    2                                        2000     link query response control parameter to offset from beginning object
+LINK 4    2    5    310504    2    4    2    5    310634    2                                        1000     link query response control parameter to sort object ZTIC
+LINK 4    2    5    310504    2    4    2    5    310644    2                                         900     link query response control parameter to sort object Code
+LINK 4    2    5    310504    2    4    2    5    310654    2                                         800     link query response control parameter to set member response mode, 1=min, 2=max
+LINK 4    2    5    310  4    2    4    2    5    3107 4    2                                        3000     query set member to selection parameter value set
+LINK 4    2    5    3107 4    2    4    2    5    310704    2                                       10000     link selection parameter value set to selection parameter value
+LINK 4    2    5    310704    2    4    2    5    310714    2                                       10000     link selection parameter value to parameter value group ZTIC
+LINK 4    2    5    310704    2    4    2    5    310724    2                                        9000     link selection parameter value to parameter value group Code
+LINK 4    2    5    310704    2    4    2    5    310734    2                                        8000     link selection parameter value to parameter ZTIC
+LINK 4    2    5    310704    2    4    2    5    310744    2                                        7000     link selection parameter value to parameter Code
+LINK 4    2    5    310704    2    4    2    5    310754    2                                        6000     link selection parameter value to row counter
+LINK 4    2    5    310704    2    4    2    5    310764    2                                        5000     link selection parameter value to parameter value
+
+LINK 4    2    5    310  4    2    4    2    5    3110 4    2                                        2000     link query set member to SelectionSet 
+LINK 4    2    5    3110 4    2    4    2    5    3111 4    2                                       10000     link SelectionSet to Selection  
+LINK 4    2    5    3111 4    2    4    2    5    3112 4    2                                       10000     link Selection to Selection Group Number 
+LINK 4    2    5    3111 4    2    4    2    5    3113 4    2                                        9000     link Selection to NumberOfSelectionGroupParent 
+LINK 4    2    5    3111 4    2    4    2    5    3114 4    2                                        8000     link Selection to SetOperator 
+LINK 4    2    5    3111 4    2    4    2    5    3120 4    2                                        7000     link Selection to ObjectSelectionSet
+LINK 4    2    5    3120 4    2    4    2    5    3121 4    2                                       10000     link ObjectSelectionSet to ObjectSelection
+LINK 4    2    5    3121 4    2    4    2    5    3122 4    2                                       10000     link ObjectSelection to Level
+LINK 4    2    5    3121 4    2    4    2    5    3123 4    2                                        9000     link ObjectSelection to Usage Type ZTIC
+LINK 4    2    5    3121 4    2    4    2    5    3124 4    2                                        8500     link ObjectSelection to Usage Type Code
+LINK 4    2    5    3121 4    2    4    2    5    3130 4    2                                        8000     link ObjectSelection to ObjectSet
+LINK 4    2    5    3130 4    2    4    2    5    3131 4    2                                       10000     link ObjectSet to Object
+LINK 4    2    5    3131 4    2    4    2    5    3134 4    2                                       10000     link Object to ObjectZTIC
+LINK 4    2    5    3131 4    2    4    2    5    3135 4    2                                        9000     link Object to ObjectCode
+LINK 4    2    5    3121 4    2    4    2    5    3140 4    2                                        7000     link ObjectSelection to ElementSet
+LINK 4    2    5    3140 4    2    4    2    5    3141 4    2                                       10000     link ElementSet to Element
+LINK 4    2    5    3141 4    2    4    2    5    3142 4    2                                       10000     link Element to ObjectElementZTIC
+LINK 4    2    5    3141 4    2    4    2    5    3143 4    2                                        9000     link Element to ObjectElementCode 
+LINK 4    2    5    3141 4    2    4    2    5    3144 4    2                                        8000     link Element to SelectionGroupNumber 
+LINK 4    2    5    3141 4    2    4    2    5    3145 4    2                                        7000     link Element to SetOperator
+LINK 4    2    5    3141 4    2    4    2    5    3146 4    2                                        6000     link Element to Operator
+LINK 4    2    5    3141 4    2    4    2    5    3147 4    2                                        5000     link Element to Qualifier
+LINK 4    2    5    3141 4    2    4    2    5    3148 4    2                                        4000     link Element to Value
+LINK 4    2    5    3121 4    2    4    2    5    3150 4    2                                        6000     link ObjectSelection to TypeSet
+LINK 4    2    5    3150 4    2    4    2    5    3151 4    2                                       10000     link TypeSet to Type
+LINK 4    2    5    3151 4    2    4    2    5    3152 4    2                                       10000     link Type to TypeDefinitionZTICode
+LINK 4    2    5    3151 4    2    4    2    5    3153 4    2                                        9000     link Type to TypeDefinitionCode
+LINK 4    2    5    3151 4    2    4    2    5    3154 4    2                                        8000     link Type to TypeValueZTICode
+LINK 4    2    5    3151 4    2    4    2    5    3155 4    2                                        7000     link Type to TypeValueCode
+LINK 4    2    5    3151 4    2    4    2    5    3156 4    2                                        6000     link Type to SelectionGroupNumber
+LINK 4    2    5    3151 4    2    4    2    5    3157 4    2                                        5000     link Type to SetOperator
+LINK 4    2    5    3121 4    2    4    2    5    3160 4    2                                        5000     link ObjectSelection to LinkSet
+LINK 4    2    5    3160 4    2    4    2    5    3161 4    2                                       10000     link ObjectSelection to Link
+LINK 4    2    5    3161 4    2    4    2    5    3162 4    2                                       10000     link Link to LinkTypeZTIC
+LINK 4    2    5    3161 4    2    4    2    5    3163 4    2                                        9000     link Link to LinkTypeCode
+LINK 4    2    5    3161 4    2    4    2    5    3164 4    2                                        8000     link Link to LinkToKindZTIC
+LINK 4    2    5    3161 4    2    4    2    5    3165 4    2                                        7000     link Link to LinkToKindCode
+LINK 4    2    5    3161 4    2    4    2    5    3166 4    2                                        6000     link Link to LinkToZTIC
+LINK 4    2    5    3161 4    2    4    2    5    3167 4    2                                        5000     link Link to LinkToCode
+LINK 4    2    5    3161 4    2    4    2    5    3168 4    2                                        4000     link Link to SelectionGroupNumber
+LINK 4    2    5    3161 4    2    4    2    5    3169 4    2                                        3000     link Link to SetOperator
+LINK 4    2    5    3161 4    2    4    2    5    316914    2                                        2900     link link to LinkStatus
+LINK 4    2    5    3161 4    2    4    2    5    316924    2                                        2800     link link to EffectiveTimeStamp of link
+LINK 4    2    5    3161 4    2    4    2    5    316934    2                                        2700     link link to link value
+LINK 4    2    5    3121 4    2    4    2    5    3170 4    2                                        4000     link ObjectSelection to AdditionalSelectionSet
+LINK 4    2    5    3170 4    2    4    2    5    3171 4    2                                       10000     link ObjectSelection to AdditionalSelection
+LINK 4    2    5    3171 4    2    4    2    5    3172 4    2                                       10000     link AdditionalSelection to UsageType
+LINK 4    2    5    3171 4    2    4    2    5    3173 4    2                                        9000     link AdditionalSelection to ObjectZTIC
+LINK 4    2    5    3171 4    2    4    2    5    3174 4    2                                        8000     link AdditionalSelection to ObjectCode
+LINK 4    2    5    3171 4    2    4    2    5    3175 4    2                                        7000     link AdditionalSelection to SelectionGroupNumber
+LINK 4    2    5    3171 4    2    4    2    5    3176 4    2                                        6000     link AdditionalSelection to SetOperator
+LINK 4    2    5    3171 4    2    4    2    5    3177 4    2                                        5000     link AdditionalSelection to selection mode for values
+LINK 4    2    5    3    4    2    4    2    5    32   4    2                                        8000     link request to RequestMessageStatusSet
+LINK 4    2    5    32   4    2    4    2    5    320  4    2                                       10000     link request to MessageStatus
+LINK 4    2    5    320  4    2    4    2    5    3201 4    2                                       10000     link MessageStatus to MessageStatusZTIC
+LINK 4    2    5    320  4    2    4    2    5    3202 4    2                                        9000     link MessageStatus to MessageStatusCode
+LINK 4    2    5    320  4    2    4    2    5    3203 4    2                                        8000     link MessageStatus to MessageStatusTimestamp
+LINK 4    2    5    320  4    2    4    2    5    3204 4    2                                        7000     link MessageStatus to MessageStatusText
+LINK 4    2    5    3    4    2    4    2    5    33   4    2                                        7000     link request to ClientLogMessageSet
+LINK 4    2    5    33   4    2    4    2    5    330  4    2                                       10000     link ClientLogMessageSet to ClientLogMessage
+LINK 4    2    5    330  4    2    4    2    5    3301 4    2                                       10000     link ClientLogMessage to LogMessageZTIC
+LINK 4    2    5    330  4    2    4    2    5    3302 4    2                                        9000     link ClientLogMessage to LogMessageCode
+LINK 4    2    5    330  4    2    4    2    5    3303 4    2                                        8000     link ClientLogMessage to LogMessageTimestamp
+LINK 4    2    5    330  4    2    4    2    5    3304 4    2                                        7000     link ClientLogMessage to LogMessageRelatedIndex
+LINK 4    2    5    330  4    2    4    2    5    3305 4    2                                        6000     link ClientLogMessage to LogMessageText
+LINK 4    2    5    4    4    2    4    2    5    40   4    2                                       10000     link response to MaintainResponseSet
+LINK 4    2    5    40   4    2    4    2    5    400  4    2                                       10000     link MaintainResponseSet to MaintainResponse 
+LINK 4    2    5    400  4    2    4    2    5    4000 4    2                                       10000     link MaintainResponse to ID
+LINK 4    2    5    400  4    2    4    2    5    4030 4    2                                        8000     link MaintainResponse to ObjectSet
+LINK 4    2    5    4030 4    2    4    2    5    4031 4    2                                       10000     link ObjectSet to Object
+LINK 4    2    5    4031 4    2    4    2    5    4032 4    2                                       10000     link Object to ObjectKindZTICode
+LINK 4    2    5    4031 4    2    4    2    5    4033 4    2                                        9000     link Object to ObjectKindCode
+LINK 4    2    5    4031 4    2    4    2    5    4034 4    2                                        8000     link Object to ObjectZTICode
+LINK 4    2    5    4031 4    2    4    2    5    4035 4    2                                        7000     link Object to ObjectCodeTemp
+LINK 4    2    5    4031 4    2    4    2    5    4036 4    2                                        6000     link Object to ObjectCodeAssigned
+LINK 4    2    5    4031 4    2    4    2    5    4037 4    2                                        5000     link Object to ID
+LINK 4    2    5    4031 4    2    4    2    5    4038 4    2                                        4000     link Object to ParentID
+
+   % start DELETE 20240510 not needed for maintain response
+LINK%4    2    5    4031 4    2    4    2    5    403904    2                                        3000     link Object to TemplateZTIC
+LINK%4    2    5    4031 4    2    4    2    5    403914    2                                        2000     link Object to TemplateCode
+LINK%4    2    5    4031 4    2    4    2    5    4040 4    2                                        1000     link Object to ElementSet
+LINK%4    2    5    4040 4    2    4    2    5    4041 4    2                                       10000     link ElementSet to Element
+LINK%4    2    5    4041 4    2    4    2    5    4042 4    2                                       10000     link Element to ObjectElementZTICode
+LINK%4    2    5    4041 4    2    4    2    5    4043 4    2                                        9000     link Element to ObjectElementCode 
+LINK%4    2    5    4041 4    2    4    2    5    4044 4    2                                        8000     link Element to ObjectElementValue
+LINK%4    2    5    4041 4    2    4    2    5    4046 4    2                                        7000     link Element to ObjectElementStatus
+LINK%4    2    5    4041 4    2    4    2    5    4047 4    2                                        6000     link Element to EffectiveTimeStamp
+LINK%4    2    5    4031 4    2    4    2    5    4050 4    2                                         500     link Object to TypeSet
+LINK%4    2    5    4050 4    2    4    2    5    4051 4    2                                       10000     link TypeSet to Type
+LINK%4    2    5    4051 4    2    4    2    5    4052 4    2                                       10000     link Type Value to TypeDefinitionZTICode 
+LINK%4    2    5    4051 4    2    4    2    5    4053 4    2                                        9000     link Type Value to TypeDefinitionCode
+LINK%4    2    5    4051 4    2    4    2    5    4054 4    2                                        8000     link Type Value to TypeValueZTICode
+LINK%4    2    5    4051 4    2    4    2    5    4055 4    2                                        7000     link Type Value to TypeValueCode
+LINK%4    2    5    4051 4    2    4    2    5    4056 4    2                                        6000     link Type Value to TypeValueStatus
+LINK%4    2    5    4051 4    2    4    2    5    4057 4    2                                        5000     link Type Value to EffectiveTimeStamp
+LINK%4    2    5    4031 4    2    4    2    5    4060 4    2                                         400     link Object to LinkSet
+LINK%4    2    5    4060 4    2    4    2    5    4061 4    2                                       10000     link LinkSet to Link
+LINK%4    2    5    4061 4    2    4    2    5    4062 4    2                                       10000     link Link to LinkTypeZTIC
+LINK%4    2    5    4061 4    2    4    2    5    4063 4    2                                        9000     link Link to LinkTypeCode
+LINK%4    2    5    4061 4    2    4    2    5    4064 4    2                                        8000     link Link to LinkToKindZTIC
+LINK%4    2    5    4061 4    2    4    2    5    4065 4    2                                        7000     link Link to LinkToKindCode
+LINK%4    2    5    4061 4    2    4    2    5    4066 4    2                                        6000     link Link to LinkToZTIC
+LINK%4    2    5    4061 4    2    4    2    5    4067 4    2                                        5000     link Link to LinkToCode
+  % end delete 20240510 
+LINK 4    2    5    4    4    2    4    2    5    41   4    2                                        9000     link response to QueryResponseSet
+LINK 4    2    5    41   4    2    4    2    5    410  4    2                                       10000     link QueryResponseSet to QueryResponse
+LINK 4    2    5    410  4    2    4    2    5    4100 4    2                                       10000     link QueryResponse to ID
+LINK 4    2    5    410  4    2    4    2    5    4101 4    2                                        9000     link QueryResponse to ObjectTemplateZTIcode
+LINK 4    2    5    410  4    2    4    2    5    4102 4    2                                        8000     link QueryResponse to ObjectTemplateCode
+LINK 4    2    5    410  4    2    4    2    5    4103 4    2                                        7000     link QueryResponse to EffectiveTimeStamp
+LINK 4    2    5    410  4    2    4    2    5    4104 4    2                                        6000     link QueryResponse to Response Type 1=standard, 2=template of linkable object
+LINK 4    2    5    410  4    2    4    2    5    4105 4    2                                        5000     link QueryResponse to linkableObjectLinkType_ztic (for response type 2)
+LINK 4    2    5    410  4    2    4    2    5    4106 4    2                                        4000     link QueryResponse to linkableObjectLinkType_code (for response type 2)
+LINK 4    2    5    410  4    2    4    2    5    410514    2                                        5000     link QueryResponse to response type ZTIC
+LINK 4    2    5    410  4    2    4    2    5    410524    2                                        4000     link QueryResponse to response type Code
+LINK 4    2    5    410  4    2    4    2    5    410534    2                                        3900     link QueryResponse to related object kind ZTIC
+LINK 4    2    5    410  4    2    4    2    5    410544    2                                        3800     link QueryResponse to related object kind Code
+LINK 4    2    5    410  4    2    4    2    5    410554    2                                        3700     link QueryResponse to related object ZTIC
+LINK 4    2    5    410  4    2    4    2    5    410564    2                                        3600     link QueryResponse to related object Code 
+LINK 4    2    5    410  4    2    4    2    5    4130 4    2                                        2000     link QueryResponse to ObjectSet
+LINK 4    2    5    410  4    2    4    2    5    4180 4    2                                        1500     link QueryResponse to Statistical Values object set
+LINK 4    2    5    4130 4    2    4    2    5    4131 4    2                                       10000     link ObjectSet to Object
+LINK 4    2    5    4131 4    2    4    2    5    4132 4    2                                       10000     link Object to ObjectKindZTICode
+LINK 4    2    5    4131 4    2    4    2    5    4133 4    2                                        9000     link Object to ObjectKindCode
+LINK 4    2    5    4131 4    2    4    2    5    4134 4    2                                        8000     link Object to ObjectZTICode
+LINK 4    2    5    4131 4    2    4    2    5    4135 4    2                                        7000     link Object to ObjectCode
+LINK 4    2    5    4131 4    2    4    2    5    4137 4    2                                        6000     link Object to ID
+LINK 4    2    5    4131 4    2    4    2    5    4138 4    2                                        5000     link Object to ParentID
+LINK 4    2    5    4131 4    2    4    2    5    4139 4    2                                        4000     link Object to LevelsDown
+LINK 4    2    5    4131 4    2    4    2    5    413904    2                                        3000     link Object to TemplateZTIC
+LINK 4    2    5    4131 4    2    4    2    5    413914    2                                        2000     link Object to TemplateCode
+LINK 4    2    5    4131 4    2    4    2    5    413924    2                                        1500     link Object to ObjectStatus
+LINK 4    2    5    4131 4    2    4    2    5    4140 4    2                                        1000     link Object to ElementSet
+LINK 4    2    5    4140 4    2    4    2    5    4141 4    2                                       10000     link Object to Element
+LINK 4    2    5    4141 4    2    4    2    5    4142 4    2                                       10000     link Element to ObjectElementZTICode
+LINK 4    2    5    4141 4    2    4    2    5    4143 4    2                                        9000     link Element to ObjectElementCode 
+LINK 4    2    5    4141 4    2    4    2    5    4144 4    2                                        8000     link Element to ObjectElementValue
+LINK 4    2    5    4141 4    2    4    2    5    4146 4    2                                        7000     link Element to ObjectElementStatus
+LINK 4    2    5    4141 4    2    4    2    5    4147 4    2                                        6000     link Element to EffectiveTimeStamp
+LINK 4    2    5    4131 4    2    4    2    5    4150 4    2                                         900     link Object to TypeSet
+LINK 4    2    5    4150 4    2    4    2    5    4151 4    2                                       10000     link TypeValueSet to Type
+LINK 4    2    5    4151 4    2    4    2    5    4152 4    2                                       10000     link TypeValue to TypeDefinitionZTICode
+LINK 4    2    5    4151 4    2    4    2    5    4153 4    2                                        9000     link TypeValue to TypeDefinitionCode
+LINK 4    2    5    4151 4    2    4    2    5    4154 4    2                                        8000     link TypeValue to TypeValueZTICode
+LINK 4    2    5    4151 4    2    4    2    5    4155 4    2                                        7000     link TypeValue to TypeValueCode
+LINK 4    2    5    4151 4    2    4    2    5    4156 4    2                                        6000     link TypeValue to TypeValueStatus
+LINK 4    2    5    4151 4    2    4    2    5    4157 4    2                                        5000     link TypeValue to EffectiveTimeStamp
+LINK 4    2    5    4131 4    2    4    2    5    4160 4    2                                         800     link Object to LinkSet
+LINK 4    2    5    4160 4    2    4    2    5    4161 4    2                                       10000     link LinkSet to Link
+LINK 4    2    5    4161 4    2    4    2    5    4162 4    2                                       10000     link Link to LinkTypeZTIC
+LINK 4    2    5    4161 4    2    4    2    5    4163 4    2                                        9000     link Link to LinkTypeCode
+LINK 4    2    5    4161 4    2    4    2    5    4164 4    2                                        8000     link Link to LinkToKindZTIC
+LINK 4    2    5    4161 4    2    4    2    5    4165 4    2                                        7000     link Link to LinkToKindCode
+LINK 4    2    5    4161 4    2    4    2    5    4166 4    2                                        6000     link Link to LinkToZTIC
+LINK 4    2    5    4161 4    2    4    2    5    4167 4    2                                        5000     link Link to LinkToCode
+LINK 4    2    5    4161 4    2    4    2    5    416914    2                                        4000     link Link to LinkStatus
+LINK 4    2    5    4161 4    2    4    2    5    416924    2                                        3000     link Link to EffectiveTimeStamp
+LINK 4    2    5    4161 4    2    4    2    5    416934    2                                        2000     link Link to LinkValue
+
+  start delete 20240513
+LINK%4    2    5    410  4    2    4    2    5    4180 4    2                                       10000     link QueryResponse to  StatisticalValueSet
+LINK%4    2    5    4180 4    2    4    2    5    4181 4    2                                       10000     link StatisticalValueSet to StatisticalValue
+LINK%4    2    5    4181 4    2    4    2    5    4182 4    2                                       10000     link StatisticalValue to StatisticalValueMemberID 
+LINK%4    2    5    4181 4    2    4    2    5    4183 4    2                                        9000     link StatisticalValue to StatisticalValueDimensionSet
+LINK%4    2    5    4183 4    2    4    2    5    4184 4    2                                       10000     link StatisticalValueDimensionSet to StatisticalValueDimenstion
+LINK%4    2    5    4184 4    2    4    2    5    4185 4    2                                       10000     link StatisticalValueDimenstion to DimensionOrder
+LINK%4    2    5    4184 4    2    4    2    5    4186 4    2                                       10000     link StatisticalValueDimenstion to DimensionTypeValueZTIC
+LINK%4    2    5    4184 4    2    4    2    5    4187 4    2                                       10000     link StatisticalValueDimenstion to DimensionTypeValueCode
+LINK%4    2    5    4181 4    2    4    2    5    4188 4    2                                        8000     link StatisticalValue to StatisticalValue
+   end delete 20240513
+  start 20240513 add links for statistical values, change ELEM to LINK
+LINK%4    2    5    410  4    2    4    2    5    4180 4    2  rem dup from above                   10000      link QueryResponse to StatisticalValueObjectSet      
+LINK 4    2    5    4180 4    2    4    2    5    4181 4    2                                       10000      link StatisticalValueObjectSet to StatisticalValuesObject
+LINK 4    2    5    4181 4    2    4    2    5    418104    2                                       10000      link StatisticalValuesObject to  StatisticalValuesObjectZTIC
+LINK 4    2    5    4181 4    2    4    2    5    418114    2                                        9000      link StatisticalValuesObject to  StatisticalValuesObjectCode
+LINK 4    2    5    4181 4    2    4    2    5    418124    2                                        8000      link StatisticalValuesObject to StatisticTypeZTIC
+LINK 4    2    5    4181 4    2    4    2    5    418134    2                                        7000      link StatisticalValuesObject to StatisticTypeCode
+LINK 4    2    5    4181 4    2    4    2    5    418144    2                                        6000      link StatisticalValuesObject to SourceSetZTIC
+LINK 4    2    5    4181 4    2    4    2    5    418154    2                                        5000      link StatisticalValuesObject to SourceSetCode
+LINK 4    2    5    4181 4    2    4    2    5    418164    2                                        4000      link StatisticalValuesObject to UomZTIC
+LINK 4    2    5    4181 4    2    4    2    5    418174    2                                        3000      link StatisticalValuesObject to UomCode
+LINK 4    2    5    4181 4    2    4    2    5    418204    2                                        2000      link StatisticalValuesObject to SourceObjectElementZTIC
+LINK 4    2    5    4181 4    2    4    2    5    418214    2                                        1000      link StatisticalValuesObject to SourceObjectElementCode
+LINK 4    2    5    4181 4    2    4    2    5    418224    2                                         500      link StatisticalValuesObject to StatisticalValuesObjectLabel
+LINK 4    2    5    4181 4    2    4    2    5    4183 4    2                                         400      link StatisticalValuesObject to DimensionSet 
+LINK 4    2    5    4183 4    2    4    2    5    418304    2                                       10000      link DimensionSet to Dimension
+LINK 4    2    5    418304    2    4    2    5    418314    2                                       10000      link Dimension to DimensionZTIC
+LINK 4    2    5    418304    2    4    2    5    418324    2                                        9000      link Dimension to DimensionCode 
+LINK 4    2    5    418304    2    4    2    5    418334    2                                        8000      link Dimension to DimensionLabel 
+LINK 4    2    5    418304    2    4    2    5    418344    2                                        7000      link Dimension to IndexInTypeDefinitionPathForDataSummarization
+LINK 4    2    5    418304    2    4    2    5    418354    2                                        6000      link Dimension to IndexInTypeDefinitionPathForGrouping1
+LINK 4    2    5    418304    2    4    2    5    418364    2                                        5000      link Dimension to IndexInTypeDefinitionPathForGrouping2
+LINK 4    2    5    418304    2    4    2    5    4184 4    2                                        4000      link Dimension to TypeDefinitionPath 
+LINK 4    2    5    4184 4    2    4    2    5    418404    2                                       10000      link TypeDefinitionPath to PathZTIC
+LINK 4    2    5    4184 4    2    4    2    5    418414    2                                        9000      link TypeDefinitionPath to PathCode
+LINK 4    2    5    4184 4    2    4    2    5    418424    2                                        8000      link TypeDefinitionPath to TypeDefinitionSet
+LINK 4    2    5    418424    2    4    2    5    418434    2                                       10000      link TypeDefinitionSet to TypeDefinition  
+LINK 4    2    5    418434    2    4    2    5    418444    2                                       10000      link TypeDefinitin to TypeDefinitionZTIC 
+LINK 4    2    5    418434    2    4    2    5    418454    2                                        9000      link TypeDefinition to TypeDefinitionCode 
+LINK 4    2    5    418434    2    4    2    5    418464    2                                        8000      link TypeDefinition to IndexInPath 
+LINK 4    2    5    4181 4    2    4    2    5    4185 4    2                                         300      link StatisticalValueObject to StatisticalValueSet 
+LINK 4    2    5    4185 4    2    4    2    5    418504    2                                       10000      link StatisticalValuesSet to StatisticalValue 
+LINK 4    2    5    418504    2    4    2    5    418514    2                                       10000      link StatisticalValue to StatisticalValueID 
+LINK 4    2    5    418504    2    4    2    5    418524    2                                        9000      link StatisticalValue to Value
+LINK 4    2    5    418504    2    4    2    5    4186 4    2                                        8000      link StatisticalValue to StatisticalValueTypeValueSet 
+LINK 4    2    5    4186 4    2    4    2    5    418604    2                                       10000      link StatisticalValueTypeValueSet to StatisticalValueTypeValue 
+LINK 4    2    5    418604    2    4    2    5    418614    2                                       10000      link StatisticalValueTypeValue to TypeDefinitionZTIC
+LINK 4    2    5    418604    2    4    2    5    418624    2                                        9000      link StatisticalValueTypeValue to TypeDefinitionCode
+LINK 4    2    5    418604    2    4    2    5    418634    2                                        8000      link StatisticalValueTypeValue to TypeValueZTIC 
+LINK 4    2    5    418604    2    4    2    5    418644    2                                        7000      link StatisticalValueTypeValue to TypeValueCode 
+LINK 4    2    5    418604    2    4    2    5    418654    2                                        6000      link StatisticalValueTypeValue to SortKey 
+LINK 4    2    5    418604    2    4    2    5    418664    2                                        5000      link StatisticalValueTypeValue to LabelForTypeValue
+LINK 4    2    5    418604    2    4    2    5    418674    2                                        4000      link StatisticalValueTypeValue to GroupID1
+LINK 4    2    5    418604    2    4    2    5    418684    2                                        3000      link StatisticalValueTypeValue to GroupID2
+LINK 4    2    5    418604    2    4    2    5    418694    2                                        2000      link StatisticalValueTypeValue to GroupID3
+LINK 4    2    5    4181 4    2    4    2    5    4188 4    2                                         200      link StatisticalValuesObject to GroupSet
+LINK 4    2    5    4188 4    2    4    2    5    418804    2                                       10000      link GroupSet to Group
+LINK 4    2    5    418804    2    4    2    5    418814    2                                       10000      link Group to GroupCode
+LINK 4    2    5    418804    2    4    2    5    418824    2                                        9000      link Group to GroupLabel 
+LINK 4    2    5    418804    2    4    2    5    418834    2                                        8000      link Group to DimensionZTIC
+LINK 4    2    5    418804    2    4    2    5    418844    2                                        7000      link Group to DimensionCode
+LINK 4    2    5    418804    2    4    2    5    418854    2                                        6000      link Group to IndexInTypeDefinitionPath
+LINK 4    2    5    418804    2    4    2    5    418864    2                                        5000      link Group to TypeValueZTIC
+LINK 4    2    5    418804    2    4    2    5    418874    2                                        4000      link Group to TypeValueCode
+  end 20240513
+
+LINK 4    2    5    4    4    2    4    2    5    42   4    2                                        8000     link response to ResponseMessageStatusSet
+LINK 4    2    5    42   4    2    4    2    5    420  4    2                                       10000     link ResponseMessageStatusSet to MessageStatus
+LINK 4    2    5    420  4    2    4    2    5    4201 4    2                                       10000     link MessageStatus to MessageStatusZTIC
+LINK 4    2    5    420  4    2    4    2    5    4202 4    2                                        9000     link MessageStatus to MessageStatusCode
+LINK 4    2    5    420  4    2    4    2    5    4203 4    2                                        8000     link MessageStatus to MessageStatusTimestamp
+LINK 4    2    5    420  4    2    4    2    5    4204 4    2                                        7000     link MessageStatus to MessageStatusText
+LINK 4    2    5    4    4    2    4    2    5    43   4    2                                        7000     link response to ServerLogSystemMessageSet
+LINK 4    2    5    43   4    2    4    2    5    430  4    2                                       10000     link ServerLogSystemMessageSet to ServerLogSystemMessage
+LINK 4    2    5    430  4    2    4    2    5    4300 4    2                                       10000     link ServerLogSystemMessage to ID
+LINK 4    2    5    430  4    2    4    2    5    4301 4    2                                        9000     link ServerLogSystemMessage to SystemMessageDefZTIC
+LINK 4    2    5    430  4    2    4    2    5    4302 4    2                                        8000     link ServerLogSystemMessage to SystemMessageDefCode
+LINK 4    2    5    430  4    2    4    2    5    4303 4    2                                        7000     link ServerLogSystemMessage to MessageCategory
+LINK 4    2    5    430  4    2    4    2    5    4304 4    2                                        6000     link ServerLogSystemMessage to Timestamp
+LINK 4    2    5    430  4    2    4    2    5    4311 4    2                                        5000     link ServerLogSystemMessage to RelatedSection
+LINK 4    2    5    430  4    2    4    2    5    4312 4    2                                        4000     link ServerLogSystemMessage to RelatedSectionID
+LINK 4    2    5    430  4    2    4    2    5    4313 4    2                                        3000     link ServerLogSystemMessage to SerialNumberOfRelatedMessageElement
+LINK 4    2    5    430  4    2    4    2    5    4321 4    2                                        2000     link ServerLogSystemMessage to ShortSystemMessage
+LINK 4    2    5    430  4    2    4    2    5    4322 4    2                                        1000     link ServerLogSystemMessage to LongSystemMessage
+LINK 4    2    5    430  4    2    4    2    5    4330 4    2                                         900     link ServerLogSystemMessage to ParameterSet
+LINK 4    2    5    4330 4    2    4    2    5    4331 4    2                                       10000     link ParameterSet to Parameter
+LINK 4    2    5    4331 4    2    4    2    5    4332 4    2                                       10000     link Parameter to ParameterZTIC
+LINK 4    2    5    4331 4    2    4    2    5    4333 4    2                                        9000     link Parameter to ParameterCode
+LINK 4    2    5    4331 4    2    4    2    5    4334 4    2                                        8000     link Parameter to ParameterValue
+
+

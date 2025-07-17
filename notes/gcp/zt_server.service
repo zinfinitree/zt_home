@@ -1,0 +1,14 @@
+[Unit]
+Description=Zinfinitree Server
+After=network.target
+
+[Service]
+Type=simple
+User=zinfinitree
+WorkingDirectory=/home/hwh711/zt_home/server
+ExecStart=/usr/bin/node /home/hwh711/zt_home/server/zt_server.js
+Restart=always
+EnvironmentFile=/home/hwh711/zt_home/server/.env
+
+[Install]
+WantedBy=multi-user.target

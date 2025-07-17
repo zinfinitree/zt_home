@@ -1,0 +1,83 @@
+ZTIC 2    131131/21
+ZTIC 3    zinfinitree.com/address
+ZTIC 1    abc.com/test1
+ZTIC 4    zinfinitree.com/server_config
+ZTIC 5    zinfinitree.com/address_app_data
+
+
+RZTI 1          receiver ztic
+ 
+
+  
+
+
+      mode 1 means create/update with no future timestamps 
+
+
+    message processing parameters--general
+     default timesmp     msg id-client       last idx  mode user                SWdsiSWcod           
+MPPG 5179248000.000      id123               1234      1    usr1                4    2    
+
+
+
+     ExtKeyDef ExtKeyVal     
+RecIdEKDdsEKDcoEKVdsEKVco
+EXTK 2    2    2    1
+
+     
+     Desc                                    Timestamp
+MSET MaintainSetId#1                         5179248000.000  
+
+CMNT TMPL                                        template for maintaing an object
+
+     ObjKind   Object    ObjElem   Template  
+RecIdKzticKcodeOzticOcodeEzticEcodeTzticTcodenewCdOEValue
+ELEM%2    1    3    1    2    1    2    1         Address (Object Kind)
+ELEM%2    2    3    1    2    1    2    2         Address (Base Template) 
+ELEM%2    12   3    1    2    12   2    12        Address (Technical Profile)
+ELEM%2    21   3    1    2    21   2    21        Code Range for Address (Code Range)
+ELEM%2    3    3    1    2    3    2    3         House Number (Object Element)
+ELEM%2    3    3    2    2    3    2    3         Street       (Object Element)
+ELEM%2    3    3    3    2    3    2    3         City         (Object Element)
+ELEM%2    3    3    4    2    3    2    3         State        (Object Element)
+ELEM%2    3    3    5    2    3    2    3         Postal Code  (Object Element)
+ELEM%2    3    3    6    2    3    2    3         Postal Code2  (Object Element)
+ELEM%2    31   3    1    2    31   2    31        City DE       (Data Element)
+ELEM%2    32   3    1    2    32   2    32        City DT       (Data Type)
+ELEM 3    1    1    3    3    1    3    1    +    99
+ELEM 3    1    1    3    3    2    3    1    +    Main St.
+ELEM 3    1    1    3    3    3    3    1    +    Anytown
+ELEM 3    1    1    3    3    4    3    1    +    Statex
+ELEM 3    1    1    3    3    5    3    1    +    99999
+ELEM 3    1    1    3    3    6    3    1    +    9999
+
+
+     ObjKind   Object    TypeDef   Type      Template  
+RecIdKdiscKcodeOzticOcodeTDdsiTDcodTzticTcodeTzticTcode
+TYPE%2    2    3    1    2    3    3    1               Object Kind for template for Address
+TYPE%2    1    3    1    2    5    3    1               Code Range for Address
+TYPE%2    21   3    1    2    6    2    1               Code Scheme for Address Code Range 
+TYPE%2    3    3    2    2    9    2    3               Data Element for City Object Element
+TYPE%2    31   3    1    2    10   2    31              Data Type for City Data Element
+
+     ObjKind   Object    LinkType   ToKind   ToObject  Template  
+RecIdKzticKcodeOzticOcodeLTdsiLTcodLKdsiLKcodLzticLcodeTzticTcode         
+LINK%2    2    3    1    2    1    2    12   3    1    2    2    link object template to technical profile
+LINK%2    12   3    1    2    3    2    3    3    1    2    12   link tech profile to obj elem for house num
+LINK%2    12   3    1    2    3    2    3    3    2    2    12   link tech profile to object element for street
+LINK%2    12   3    1    2    3    2    3    3    3    2    12   link tech profile to object element for city
+LINK%2    12   3    1    2    3    2    3    3    4    2    12   link tech profile to object element for state
+LINK%2    12   3    1    2    3    2    3    3    5    2    12   link tech profile to obj elem for postal code
+
+
+
+
+QSET%OTdsiOTcodSelMdRspSmQSMid                                           query set member format, not used for this message (excluded by %)
+QSLS%SSeGnSSePnOpera                                                     query selection set format, not used for this message (excluded by %)    
+QOSS%LevelUsage                                                          query object selection set member, not used for this message (excluded by %)
+QOBJ%KzticKcodeOzticOcode                                                query object, not used for this message (excluded by %)
+QELM%EzticEcodeSgrpnSetopOperaQualfValue                                 query element, not used for this message (excluded by %)
+
+
+
+

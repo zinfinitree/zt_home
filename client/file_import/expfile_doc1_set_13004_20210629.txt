@@ -1,0 +1,16 @@
+ZTIC 1    zinfinitree.com/doc1
+ZTIC 2    131131/21
+ZTIC 3    zinfinitree.com/address
+ZTIC 4    zinfinitree.com/document
+ZTIC 5    zinfinitree.com/spreadsheet
+ZTIC 6    zinfinitree.com/server_config
+ZTIC 7    zinfinitree.com/address_app_data
+ZTIC 8    zinfinitree.com/software
+RZTI 1
+MPPG 5179248000.000      abc123              123       99   user1     6    2    
+EXTK 2    2    2    1    
+MSET ObjectQset                              5179248000.000  
+ELEM 2    13   1    130042    13                  Set of Objects in Base NS
+LINK 2    13   1    130042    24   2    15   1    15001          
+ELEM 2    15   1    150012    215                 131131/21
+ELEM 2    15   1    150012    15                  Base Namespace

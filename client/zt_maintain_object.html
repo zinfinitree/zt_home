@@ -1,0 +1,195 @@
+<html>
+  <head>
+    <title>ZT Maintain Object</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">  </script>
+    <script>
+      $(document).ready(function(){
+        var file_name, obj_template;
+        var status_sel, dsi, file_num;
+        var test_AR = [];
+        var maint_mode;
+        var maint_format;
+        function test_val(html_idx, valuex) {
+              this.html_id  = html_idx;
+              this.value    = valuex;  }
+
+        $("#submit").click(function(){
+          TargetNS=$('.ddlTargetNS').val();
+          language=$('.ddlLanguage').val();
+          status_sel=$('.ddlStatusSelection').val();
+          obj_templ_ztic=$('.ddlTemplateZTIC').val();
+          //obj_templ_code=$('.ddlTemplateCode').val();
+          obj_templ_code=$("#obj_templ_code").val();
+          obj_kind_ztic=$('.ddlObjectKindZTIC').val();
+          obj_kind_code=$('.ddlObjectKindCode').val();
+          obj_ztic=$('.ddlObjectZTIC').val();
+          obj_code=$("#obj_code").val();
+          maint_mode = document.querySelector('input[name = "maint_mode"]:checked').value;
+          maint_format = document.querySelector('input[name = "maint_format"]:checked').value;
+          var tv1 = new test_val("VAL1",obj_templ_ztic);
+          var tv2 = new test_val("VAL2",obj_code);
+          //test_AR.push(obj_templ_ztic); test_AR.push(obj_code);
+          test_AR.length = 0;
+          test_AR.push(tv1); test_AR.push(tv2);
+          var test_ARs = JSON.stringify(test_AR);          
+
+//  console.log(data);
+
+          var jqxhr = $.post("http://localhost:3000/zt/client/maintain_object",{TargetNS: TargetNS, language: language, status_sel: status_sel, obj_templ_ztic: obj_templ_ztic, obj_templ_code: obj_templ_code, obj_ztic: obj_ztic, obj_code: obj_code, test_AR: test_ARs, maint_mode: maint_mode, maint_format: maint_format }, function(data){ 
+  //console.log(data);   (del) 20210324
+       //open a new window popup 
+
+       var id = "12345";
+       sessionStorage.setItem("sent", id);  // 20200417
+       var newWindow = window.open("http://localhost:3000/zt/maintain_object_submit", "_blank");                 //20200416
+       
+  //alert( "success" );
+})  
+
+
+ 
+
+
+
+        });
+      });
+    </script>
+
+
+  </head>
+  <body>
+    <h1>ZT Maintain Object</h1>
+    <br />
+
+    <H3>Select Namespace of Target ZT Instance/Language</H3>
+          <div>
+    <select class="ddlTargetNS">
+      <option value="amplabs.ai/test1">ALT1 amplabs.ai/test1</option>
+      <option value="abc.com/test1">TST1 abc.com/test1</option>
+      <option value="abc.com/test2">TST2 abc.com/test2</option>
+      <option value="zinfinitree.com/doc1">DOC1 zinfinitree.com/doc1</option>
+      <option value="zinfinitree.com/doc2">DOC2 zinfinitree.com/doc2</option>
+      <option value="zinfinitree.com/zin1">ZIN1 zinfinitree.com/zin1</option>  
+      <option value="zinfinitree.com/zin2">ZIN2 zinfinitree.com/zin2</option>                  
+      <option value="abc.com/ztst">ZTST abc.com/ztst</option>
+      <option value="zinfinitree.com/dev">DS Dev zinfinitree.com/dev</option>
+      <option value="zinfinitree.com/prod">DS Prod zinfinitree.com/prod</option>
+    </select>
+    
+  <!--  <input type="button" class="btnClick Button" value="Process" />  -->
+  </div>
+          <div>
+    <select class="ddlLanguage">
+      <option value="1">English</option>
+      <option value="2">Spanish</option>
+     </select>
+    
+  <!--  <input type="button" class="btnClick Button" value="Process" />  -->
+  </div>
+
+   <br />
+
+    <H3>Status/Maintenance Mode/Format</H3>
+          <div>
+    <select class="ddlStatusSelection">
+      <option value="StatusActiveOnly">Active Status Only</option>
+      <option value="StatusAll">All Status Values</option>
+ <!--     <option value="InitAll">Initialize DS Instance (import starting objects)</option>  -->      
+ <!--     <option value="Clear">Clear DS Instance</option>  -->
+    </select>
+   </div>
+     <div>
+   
+        <input type="radio" id="mode_create" name="maint_mode" value="create">Create
+        <input type="radio" id="mode_update" name="maint_mode" value="update">Update
+        <input type="radio" id="mode_display" name="maint_mode" value="display" checked>Display<br>
+    </div>
+    <div>
+        <input type="radio" id="maint_format_default" name="maint_format" value="default" checked>Default
+        <input type="radio" id="maint_format_generic" name="maint_format" value="generic">Generic<br>
+    </div>
+
+   <br /> <br />
+        <H3>Select Object Template ZTIC/Code</H3>
+          <div>
+    <select class="ddlTemplateZTIC">
+      <option value="amplabs.ai/test1">amplabs.ai/test1</option>
+      <option value="abc.com/test1">abc.com/test1</option>
+      <option value="abc.com/test2">abc.com/test2</option>
+      <option value="zinfinitree.com/address">zinfinitree.com/address</option>
+      <option value="zinfinitree.com/document">zinfinitree.com/document</option>
+      <option value="zinfinitree.com/spreadsheet">zinfinitree.com/spreadsheet</option>
+      <option value="zinfinitree.com/multimedia_object">zinfinitree.com/multimedia_object</option>
+      <option value="131131/22">131131/22</option>
+      <option value="zinfinitree.com/person">zinfinitree.com/person</option>
+      <option value="zinfinitree.com/general_ledger">zinfinitree.com/general_ledger</option>
+      <option value="zinfinitree.com/storage">zinfinitree.com/storage</option>
+      <option value="zinfinitree.com/dev_agile">zinfinitree.com/dev_agile</option>
+      <option value="zinfinitree.com/app">zinfinitree.com/app</option>
+      <option value="zinfinitree.com/workflow">zinfinitree.com/workflow</option>
+      <option value="zinfinitree.com/messaging">zinfinitree.com/messaging</option>
+      <option value="zinfinitree.com/map">zinfinitree.com/map</option>
+      <option value="zinfinitree.com/legal_entity">zinfinitree.com/legal_entity</option>
+      <option value="zinfinitree.com/legal_entity_example">zinfinitree.com/legal_entity_example</option>
+      <option value="zinfinitem.com/zin1">zinfinitem.com/zin1</option>
+
+      <option value="131131/21">DS Core 131131/21</option>
+    </select>
+    
+ 
+  </div>
+
+     <table>
+     <tr><td>Code:</td><td> <input type="TEXT" id="obj_templ_code" size="40"><td></tr>
+     
+     </table>
+
+
+
+
+
+
+    <H3>Select Object ZTIC/Code</H3>
+          <div>
+    <select class="ddlObjectZTIC">
+   <!--      <option value="All">All ZTICs</option> -->
+      <option value="amplabs.ai/test1">amplabs.ai/test1</option>
+      <option value="abc.com/test1">abc.com/test1</option>
+      <option value="abc.com/test2">abc.com/test2</option>
+      <option value="zinfinitree.com/doc1">zinfinitree.com/doc1</option>
+      <option value="zinfinitree.com/doc2">zinfinitree.com/doc2</option>
+      <option value="zinfinitree.com/address">zinfinitree.com/address</option>
+      <option value="zinfinitree.com/document">zinfinitree.com/document</option>
+      <option value="zinfinitree.com/spreadsheet">zinfinitree.com/spreadsheet</option>
+      <option value="zinfinitree.com/multimedia_object">zinfinitree.com/multimedia_object</option> 
+      <option value="131131/22">131131/22</option>
+      <option value="zinfinitree.com/person">zinfinitree.com/person</option>
+      <option value="zinfinitree.com/general_ledger">zinfinitree.com/general_ledger</option>
+      <option value="zinfinitree.com/storage">zinfinitree.com/storage</option> 
+      <option value="zinfinitree.com/dev_agile">zinfinitree.com/dev_agile</option>
+      <option value="zinfinitree.com/app">zinfinitree.com/app</option>
+      <option value="zinfinitree.com/workflow">zinfinitree.com/workflow</option>
+      <option value="zinfinitree.com/messaging">zinfinitree.com/messaging</option>
+      <option value="zinfinitree.com/map">zinfinitree.com/map</option>
+
+      <option value="zinfinitree.com/legal_entity">zinfinitree.com/legal_entity</option>
+      <option value="zinfinitree.com/legal_entity_example">zinfinitree.com/legal_entity_example</option>
+      <option value="zinfinitem.com/zin1">zinfinitem.com/zin1</option>
+
+      <option value="131131/21">DS Core 131131/21</option>
+     </select>
+       </div>
+  <!--  <input type="button" class="btnClick Button" value="Process" />  -->
+
+
+     <table>
+     <tr><td>Code:</td><td> <input type="TEXT" id="obj_code" size="40"><td></tr>
+     
+     </table>
+
+    <br /> <br /><br />
+    <input type="button" id="submit" value="Submit">
+    <br /><br /> <br /><br />
+  
+  </body>
+</html>

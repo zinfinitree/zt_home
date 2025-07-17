@@ -1,0 +1,72 @@
+ZTIC 2    131131/21
+ZTIC 3    zinfinitree.com/address
+ZTIC 1    abc.com/test1
+ZTIC 4    zinfinitree.com/server_config
+ZTIC 6    zinfinitree.com/software
+
+
+RZTI 1          receiver ztic
+ 
+
+  
+
+
+      mode 1 means create/update with no future timestamps 
+
+
+    message processing parameters--general
+     default timesmp     msg id-client       last idx  mode user                SWdsiSWcod           
+MPPG 5179248000.000      id123               1234      98   usr1                4    1    
+
+
+
+     ExtKeyDef ExtKeyVal     
+RecIdEKDdsEKDcoEKVdsEKVco
+EXTK 2    3    6    00003
+
+     
+     Desc                                    Timestamp
+MSET MaintainSetId#1                         5179248000.000  
+
+CMNT TMPL                                        template for maintaing an object
+
+
+           patch-level dependent resource name
+     ObjKind   Object    ObjElem   Template  
+RecIdKzticKcodeOzticOcodeEzticEcodeTzticTcodenewCdOEValue
+ELEM%3    1    1    3    3    1    3    1    +    23-3
+ELEM%3    1    1    3    3    2    3    1    +    Water's Edge Drive-3
+ELEM%3    1    1    3    3    3    3    1    +    Delran-3
+ELEM 2    39   6    1    2    211  2    39   -    ./zt_server_patch_00003/zt_server_patch_00003_server_code_increment_class                                    
+
+
+
+     ObjKind   Object    TypeDef   Type      Template  
+RecIdKdiscKcodeOzticOcodeTDdsiTDcodTzticTcodeTzticTcode
+TYPE%2    2    3    1    2    3    3    1               Object Kind for template for Address
+TYPE%2    1    3    1    2    5    3    1               Code Range for Address
+TYPE%2    21   3    1    2    6    2    1               Code Scheme for Address Code Range 
+TYPE%2    3    3    2    2    9    2    3               Data Element for City Object Element
+TYPE%2    31   3    1    2    10   2    31              Data Type for City Data Element
+
+     ObjKind   Object    LinkType   ToKind   ToObject  Template  
+RecIdKzticKcodeOzticOcodeLTdsiLTcodLKdsiLKcodLzticLcodeTzticTcode         
+LINK%2    2    3    1    2    1    2    12   3    1    2    2    link object template to technical profile
+LINK%2    12   3    1    2    3    2    3    3    1    2    12   link tech profile to obj elem for house num
+LINK%2    12   3    1    2    3    2    3    3    2    2    12   link tech profile to object element for street
+LINK%2    12   3    1    2    3    2    3    3    3    2    12   link tech profile to object element for city
+LINK%2    12   3    1    2    3    2    3    3    4    2    12   link tech profile to object element for state
+LINK%2    12   3    1    2    3    2    3    3    5    2    12   link tech profile to obj elem for postal code
+
+
+
+
+QSET%OTdsiOTcodSelMdRspSmQSMid                                           query set member format, not used for this message (excluded by %)
+QSLS%SSeGnSSePnOpera                                                     query selection set format, not used for this message (excluded by %)    
+QOSS%LevelUsage                                                          query object selection set member, not used for this message (excluded by %)
+QOBJ%KzticKcodeOzticOcode                                                query object, not used for this message (excluded by %)
+QELM%EzticEcodeSgrpnSetopOperaQualfValue                                 query element, not used for this message (excluded by %)
+
+
+
+

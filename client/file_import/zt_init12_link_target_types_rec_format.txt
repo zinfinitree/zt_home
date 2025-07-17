@@ -1,0 +1,127 @@
+ZTIC 2    131131/21
+ZTIC 3    zinfinitree.com/address
+ZTIC 1    abc.com/test1
+
+RZTI 1          receiver ztic
+
+      mode 1 means create/update with no future timestamps [DEPRECATED]
+MODE%99                                                     [DEPRECATED replaced by MPPG]
+
+
+    message processing parameters--general
+     default timesmp     msg id-client       last idx  mode user                SWdsiSWcod           
+MPPG 5179248000.000      id123               1234      99   usr1                4    1    
+     
+     Desc                                    Timestamp
+MSET MaintainSetId#1                         5179248000.000  
+
+CMNT TMPL                                         template for maintaing a type definition
+
+     ObjKind   Object    ObjElem   Template  
+RecIdKzticKcodeOzticOcodeEzticEcodeTzticTcode     OEValue
+ELEM 2    11   2    1    2    11   2    11        Link Target Type: Object Template to Technical Profile
+ELEM 2    11   2    2    2    11   2    11        Link Target Type: Technical Profile to Technical Profile
+ELEM 2    11   2    3    2    11   2    11        Link Target Type: Technical Profile to Object Elements    
+ELEM 2    11   2    4    2    11   2    11        Link Target Type: Technical Profile to Type Definitions
+ELEM 2    11   2    5    2    11   2    11        Link Target Type: Technical Profile to LinkTypes
+ELEM 2    11   2    6    2    11   2    11        Link Target Type: Link Target Type to Object Template
+ELEM 2    11   2    7    2    11   2    11        Link Target Type: System Message to Parameter      
+ELEM 2    11   2    8    2    11   2    11        Link Target Type: Function to Parameter
+ELEM 2    11   2    9    2    11   2    11        Link Target Type: Function to Resource
+ELEM 2    11   2    10   2    11   2    11        Link Target Type: Server Software Runtime Profile to Server Software Runtime Component
+ELEM 2    11   2    11   2    11   2    11        Link Target Type: Server Software Runtime Component to Server Software Runtime Component
+ELEM 2    11   2    12   2    11   2    11        Link Target Type: Set Definition to an Object Kind to include all objects of that Kind as members
+ELEM 2    11   2    13   2    11   2    11        Link Target Type: Set Definition to individual objects to include as members
+ELEM 2    11   2    14   2    11   2    11        Link Target Type: Set Definition to Type Value Based Object Set, to include all objects with corresponding type values as members
+ELEM 2    11   2    15   2    11   2    11        Link Target Type: Set Definition to Template Set to include all objects using a Template in the Template Set as members
+ELEM 2    11   2    16   2    11   2    11        Link Target Type: Set Definition to Set Definition of Type, Link Target to include all objects linked to the targets as members
+ELEM 2    11   2    17   2    11   2    11        Link Target Type: Set Definition to Set Def. of Type Object Element Value to include objects with the object element value as members
+ELEM 2    11   2    18   2    11   2    11        Link Target Type: Set Definition to Set Definition to include target set members as members of source set (OR Condition)
+ELEM 2    11   2    19   2    11   2    11        Link Target Type: Set Definition to Set Def. to include target set members as members if also included in source set (AND Condition)
+ELEM 2    11   2    20   2    11   2    11        Link Target Type: Set Definition to Set Def. to remove target set members as members of the source set (NOT Condition) 
+ELEM 2    11   2    21   2    11   2    11        Link Target Type: Set Definition to Custom Function to determine which objects will be members
+ELEM 2    11   2    22   2    11   2    11        Link Target Type: Technical Profile to Data Elements
+ELEM 2    11   2    23   2    11   2    11        Link Target Type: Set Definition to Namespace where all objects that have an Object Kind with the ZTNS linked to are included as members
+ELEM 2    11   2    24   2    11   2    11        Link Target Type: Set Definition to Namespace where all objects that have an Object ZTNS linked to are included as members
+ELEM 2    11   2    25   2    11   2    11        Link Target Type: Technical Profile to Technical Profile to remove the attributes of the target from the Tech Profile of the source
+ELEM 2    11   2    26   2    11   2    11        Link Target Type: Statistical Values Object to Statistical Values Dimension
+ELEM 2    11   2    27   2    11   2    11        Link Target Type: Type Definition Path to Type Definition
+ELEM 2    11   2    28   2    11   2    11        Link Target Type: Data Element to a Function to determine the value of Object Elements that use the Data Element
+ELEM 2    11   2    29   2    11   2    11        Link Target Type: Type Definition to a Type Value Based Template Rule
+ELEM 2    11   2    30   2    11   2    11        Link Target Type: Set Definition to Generic Objects to include the object referred to by the generic object as a member
+ELEM 2    11   2    31   2    11   2    11        Link Target Type: Function Group to a System Message Definition
+ELEM 2    11   2    32   2    11   2    11        Link Target Type: Function Group to a Function
+ELEM 2    11   2    33   2    11   2    11        Link Target Type: Link Type to Link Based Template Rule
+ELEM 2    11   2    34   2    11   2    11        Link Target Type: Object Element to Object Element Value Based Template Rule
+ELEM%2    11   2    35   2    11   2    11        Link Target Type: Placeholder for code 35 Link Type
+ELEM%2    11   2    36   2    11   2    11        Link Target Type: Placeholder for code 36 Link Type
+ELEM%2    11   2    37   2    11   2    11        Link Target Type: Placeholder for code 37 Link Type
+ELEM%2    11   2    38   2    11   2    11        Link Target Type: Placeholder for code 38 Link Type
+ELEM%2    11   2    39   2    11   2    11        Link Target Type: Placeholder for code 39 Link Type
+ELEM%2    11   2    40   2    11   2    11        Link Target Type: Placeholder for code 40 Link Type
+ELEM%2    11   2    41   2    11   2    11        Link Target Type: Placeholder for code 41 Link Type
+ELEM%2    11   2    42   2    11   2    11        Link Target Type: Placeholder for code 42 Link Type
+ELEM%2    11   2    43   2    11   2    11        Link Target Type: Placeholder for code 43 Link Type
+ELEM%2    11   2    44   2    11   2    11        Link Target Type: Placeholder for code 44 Link Type
+ELEM%2    11   2    45   2    11   2    11        Link Target Type: Placeholder for code 45 Link Type
+ELEM%2    11   2    46   2    11   2    11        Link Target Type: Placeholder for code 46 Link Type
+ELEM%2    11   2    47   2    11   2    11        Link Target Type: Placeholder for code 47 Link Type
+ELEM%2    11   2    48   2    11   2    11        Link Target Type: Placeholder for code 48 Link Type
+ELEM%2    11   2    49   2    11   2    11        Link Target Type: Placeholder for code 49 Link Type
+ELEM%2    11   2    50   2    11   2    11        Link Target Type: Placeholder for code 50 Link Type
+
+
+
+
+     ObjKind   Object    TypeDef   Type      Template
+RecIdKdiscKcodeOzticOcodeTDdsiTDcodTzticTcodeTzticTcode
+TYPE%2    3    3    1    2    1    3    1               table element for object element house number2
+TYPE%2    3    3    2    2    1    3    2               table element for object element street2  (deactivated via % because
+TYPE%2    3    3    3    2    1    3    3               table element for object element city2    table element is not used)
+TYPE%2    3    3    4    2    1    3    4               table element for object element state2
+TYPE%2    3    3    5    2    1    3    5               table element for object element postal code2
+
+
+     ObjKind   Object    LinkType   ToKind   ToObject  Template
+RecIdKzticKcodeOzticOcodeLTdsiLTcodLKdsiLKcodLzticLcodeTzticTcode         
+
+LINK 2    11   2    1    2    6    2    2    2    12   2    11   Link "Link Target Type" for Object Template-->Technical Profile to base template for tech prof
+LINK 2    11   2    2    2    6    2    2    2    12   2    11   Link "Link Target Type" for Tech Profile-->Tech Profile to base template for tech profile
+LINK 2    11   2    3    2    6    2    2    2    3    2    11   Link "Link Target Type" for Tech Profile-->Object Element to base template for object element
+LINK 2    11   2    22   2    6    2    2    2    31   2    11   Link "Link Target Type" for Tech Profile-->Data Element to base template for data element
+LINK 2    11   2    4    2    6    2    2    2    9    2    11   Link "Link Target Type" for Tech Profile-->Type Definitions to base template for type definitions
+LINK 2    11   2    5    2    6    2    2    2    10   2    11   Link "Link Target Type" for Tech Profile-->Link Types to base template for link Types
+
+LINK 2    11   2    6    2    6    2    2    2    2    2    11   Link "Link Target Type" for Link Target Type-->Object Template to base template for object template
+LINK 2    11   2    7    2    6    2    2    2    26   2    11   Link "Link Target Type" for System Message-->Parameter to base template for paramter      
+LINK 2    11   2    8    2    6    2    2    2    26   2    11   Link "Link Target Type" for Function-->Parameter to base template for paramter
+LINK 2    11   2    9    2    6    2    2    2    39   2    11   Link "Link Target Type" for Function-->Resource to base template for resource
+LINK 2    11   2    10   2    6    2    2    2    43   2    11   Link "Link Target Type" for Server Software Runtime Profile-->Server Software Runtime Comp to base templ for ssrtc
+LINK 2    11   2    11   2    6    2    2    2    43   2    11   Link "Link Target Type" for Server Software Runtime Component-->Server Software Runtime Component to base templ for ssrtc
+LINK 2    11   2    12   2    6    2    2    2    1    2    11   Link "Link Target Type" for Set Definition-->Object Kind to incl all obj of that Kind as mbrs to base templ for obj kind
+LINK 2    11   2    13   2    6    2    2    2    47   2    11   ???Link "Link Target Type" for Set Definition-->Individual objects to include as members to base template for indv obj???
+LINK 2    11   2    14   2    6    2    2    2    9    2    11   Link "Link Target Type" for Set Definition-->Set Defintion of Type, Type Value to include all obj of the Type as members
+LINK 2    11   2    15   2    6    2    2    2    2    2    11   Link "Link target type" for link type for Set Defi-->Templ to inclu all objects using the Template as members
+LINK 2    11   2    16   2    6    2    2    2    13   2    11   Link "Link target type" for link type for Set Def to Set Def of Type, Link Targ to incl all obj linked to the targ as mbrs
+LINK 2    11   2    17   2    6    2    2    2    13   2    11   Link "Link target type" for link type for Set Def to Set Def. of Type Obj Elem Val to incl obj with the obj elem val as mbrs
+LINK 2    11   2    18   2    6    2    2    2    13   2    11   Link "Link target type" for link type for Set Def to Set Def to incl target set mbrs as mbrs of src set (OR Condition)
+LINK 2    11   2    19   2    6    2    2    2    13   2    11   Link "Link target type" for link type for Set Def to Set Def. to incl target set mbrs as mbrs if also included in src set (AND Condition)
+LINK 2    11   2    20   2    6    2    2    2    13   2    11   Link "Link target type" for link type for Set Def to Set Def. to remove target set members as members of the source set (NOT Condition) 
+LINK 2    11   2    21   2    6    2    2    2    36   2    11   Link "Link target type" for link type for Set Definition to Custom Function to determine which obj will be members
+LINK 2    11   2    23   2    6    2    2    2    15   2    11   Link "Link target type" for link type for Set Definition to Namespace of Object Kind to determine which obj will be members
+LINK 2    11   2    24   2    6    2    2    2    15   2    11   Link "Link target type" for link type for Set Definition to Namespace of Object to determine which obj will be members
+
+LINK 2    11   2    25   2    6    2    2    2    12   2    11   link "Link target type" for Technical Profile to Technical Profile to remove the attributes of the target from the Tech Profile of the source to base template for tech profile
+LINK 2    11   2    26   2    6    2    2    2    59   2    11   link "Link target type" for Statistical Values Object --> Statistical Values Dimension to base template for statistical values dimension
+LINK 2    11   2    27   2    6    2    2    2    9    2    11   link "Link target type" for Type Definition Path --> Type Definition to base template for type def
+
+LINK 2    11   2    28   2    6    2    2    2    36   2    11   link "Link target type" for Link Type for Data Element to a Function to determine the value of Object Elements that use the Data Element to base template for function
+LINK 2    11   2    29   2    6    2    2    2    5    2    11   link "Link target type" for Link Type for Type Definition to a Type Based Template Rule to base template for Type Based Template Rule
+LINK 2    11   2    30   2    6    2    2    2    50   2    11   link "Link target type" for Set Definition-->Generic Objects to base template for Generic Object
+
+LINK 2    11   2    31   2    6    2    2    2    24   2    11   link "Link target type" for Validation to System Message Definition to base template System Message Definition
+LINK 2    11   2    32   2    6    2    2    2    36   2    11   link "Link target type" for Validation to a Function to base template for a function
+
+
+
+

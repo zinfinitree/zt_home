@@ -1,0 +1,105 @@
+<html>
+  <head>
+    <title>ZT</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">  </script>
+    <script>
+      $(document).ready(function(){
+        var file_name, obj_template;
+        var op_num, dsi, file_num;
+        $("#submit").click(function(){
+          file_name=$("#file_name").val();
+          obj_template=$("#obj_template").val();
+          op_num=$('.ddlOperation').val();
+          TabNamePrfx=$('.ddlTabNamePrfx').val();
+          TargetNS=$('.ddlTargetNS').val();
+          file_num=$('.ddlFileNum').val();
+          obj_templ_num=$('.ddlTemplate').val();
+          $.post("http://localhost:3000/zt/client/process_file",{file_name: file_name, obj_template: obj_template, op_num: op_num, TargetNS: TargetNS, TabNamePrfx: TabNamePrfx, file_num: file_num, obj_templ_num: obj_templ_num}, function(data){
+            if(data==='done')
+              {
+                alert("login success");
+              }
+          });
+        });
+      });
+    </script>
+
+
+  </head>
+  <body>
+    <h1>DS2 Main</h1>
+    <br />
+
+    <H3>Select Namespace of Target ZT Instance</H3>
+          <div>
+    <select class="ddlTargetNS">
+      <option value="abc.com/test1">TST1 abc.com</option>
+      <option value="abc.com/test2">TST2 abc.com/test2</option>
+      <option value="abc.com/ztst">ZTST abc.com/ztst</option>
+      <option value="zinfinitree.com/dev">DS Dev zinfinitree.com/dev</option>
+      <option value="zinfinitree.com/prod">DS Prod zinfinitree.com/prod</option>
+    </select>
+    
+  <!--  <input type="button" class="btnClick Button" value="Process" />  -->
+  </div>
+   <br />
+
+    <H3>Select operation</H3>
+          <div>
+    <select class="ddlOperation">
+      <option value="Maintain">Maintain object with selected template</option>
+      <option value="Display">Display object with selected template</option>
+      <option value="Import">Import selected file</option>
+      <option value="ManualTempl">Enter template</option>
+      <option value="ManualFile">Enter filename</option>
+ <!--     <option value="InitAll">Initialize DS Instance (import starting objects)</option>  -->      
+ <!--     <option value="Clear">Clear DS Instance</option>  -->
+    </select>
+ <!--   <input type="button" class="btnProcess Button" value="Process" />  -->
+  </div>
+  
+
+    <br />
+    </div>
+    <br /><br /> <br />
+        <H3>Select Object Template</H3>
+          <div>
+    <select class="ddlTemplate">
+      <option value="1">Address</option>
+      <option value="2">Person Address</option>
+      <option value="3">Object Kind</option>
+     </select>
+  
+  <!--  <input type="button" class="btnClick Button" value="Process" />  -->
+  </div>
+    <br /><br />  
+    
+    <H3>Select import filename</H3>
+      <div>
+    <select class="ddlFileNum">
+    <!--  <option value="1">ds2_init01_local_namespace.txt</option>  -->
+      <option value="2">ds2_init02_table_elementsC.txt</option>
+      <option value="3">ds2_init03_object_kindsC.txt</option>
+      <option value="4">ds2_init04_object_templatesC.txt</option>
+      <option value="5">ds2_init05_tech_profilesC.txt</option>
+      <option value="6">ds2_init06_object_elementsC.txt</option>
+      <option value="7">ds2_init07_object_setsC.txt</option>
+      <option value="8">ds2_init08_type_defC.txt</option>
+      <option value="9">ds2_init09_type_valuesC.txt</option>
+      <option value="10">ds2_init10_link_typesC.txt</option>
+      <option value="11">ds2_init11_obj_templ_link_to_tech_profileC.txt</option>
+    </select>
+    <br /><br /><br />
+<!--    <input type="button" class="btnImportFile Button" value="Import File" />  -->
+  </div>
+  <H3>Manual entry</H3>
+     <table>
+     <tr><td>Template</td><td> <input type="TEXT" id="obj_template" size="40"><td></tr>
+     <tr><td>Filename</td><td> <input type="TEXT" id="file_name" size="40"></td></tr>
+     </table>
+    <br /> <br /><br />
+    <input type="button" id="submit" value="Submit">
+    <br /><br /> <br /><br />
+  
+  </body>
+</html>

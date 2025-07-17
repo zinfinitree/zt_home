@@ -1,0 +1,148 @@
+ZTIC 2    131131/21
+ZTIC 3    zinfinitree.com/address
+ZTIC 1    abc.com/test1
+
+RZTI 1          receiver ztic
+
+      mode 1 means create/update with no future timestamps [DEPRECATED]
+MODE%99                                                     [DEPRECATED replaced by MPPG]
+
+
+    message processing parameters--general
+     default timesmp     msg id-client       last idx  mode user                SWdsiSWcod           
+MPPG 5179248000.000      id123               1234      99   usr1                4    1    
+     
+     Desc                                    Timestamp
+MSET MaintainSetId#1                         5179248000.000  
+
+CMNT TMPL                                         template for maintaing an object element
+
+     ObjKind   Object    ObjElem   Template  
+RecIdKzticKcodeOzticOcodeEzticEcodeTzticTcode     OEValue
+ELEM 2    3    2    1    2    3    2    3         Object Kind Description
+ELEM 2    3    2    2    2    3    2    3         Object Template Description 
+ELEM 2    3    2    3    2    3    2    3         Object Element Description    
+ELEM 2    3    2    4    2    3    2    3         Table Element Description 
+ELEM 2    3    2    5    2    3    2    3         Type Value Based Template Rule Description
+ELEM 2    3    2    6    2    3    2    3         Link Based Template Rule Description
+ELEM 2    3    2    7    2    3    2    3         Object Element Value Based Template Rule Description      
+ELEM 2    3    2    8    2    3    2    3         Object Kind Type Description 
+ELEM 2    3    2    9    2    3    2    3         Object Type Definition Description
+ELEM 2    3    2    10   2    3    2    3         Link Type Description
+ELEM 2    3    2    11   2    3    2    3         Link Target Type Description
+ELEM 2    3    2    12   2    3    2    3         Technical Profile Description
+ELEM 2    3    2    13   2    3    2    3         Object Set Definition Description
+ELEM 2    3    2    14   2    3    2    3         ZT Instance Description
+ELEM 2    3    2    15   2    3    2    3         Namespace Description
+ELEM 2    3    2    16   2    3    2    3         Object Element Usage Type Description
+ELEM 2    3    2    17   2    3    2    3         Object Template Type Description
+ELEM 2    3    2    18   2    3    2    3         Language Description
+ELEM 2    3    2    19   2    3    2    3         User Description
+ELEM 2    3    2    20   2    3    2    3         User Type Description 
+ELEM 2    3    2    21   2    3    2    3         Code Range Description
+ELEM 2    3    2    22   2    3    2    3         Code Scheme Description
+ELEM 2    3    2    23   2    3    2    3         Code Scheme Type Description
+ELEM 2    3    2    24   2    3    2    3         System Message Definition Description
+ELEM 2    3    2    25   2    3    2    3         System Message Definition Type Description
+ELEM 2    3    2    26   2    3    2    3         Parameter Description
+ELEM 2    3    2    27   2    3    2    3         Parameter Type Description
+ELEM 2    3    2    28   2    3    2    3         System Message Definition Category Description
+ELEM 2    3    2    29   2    3    2    3         System Message Parameter Category Description
+ELEM 2    3    2    30   2    3    2    3         Table Description
+ELEM 2    3    2    31   2    3    2    3         Data Element Description
+ELEM 2    3    2    32   2    3    2    3         Data Type Description
+ELEM 2    3    2    33   2    3    2    3         Extended Key Definition Description
+ELEM 2    3    2    34   2    3    2    3         Extended Key Definition Type Description
+ELEM 2    3    2    35   2    3    2    3         Object Element Usage Type Description
+ELEM 2    3    2    36   2    3    2    3         Funtion Description
+ELEM 2    3    2    37   2    3    2    3         Class/Program Description
+ELEM 2    3    2    38   2    3    2    3         Class/Program Type Description
+ELEM 2    3    2    39   2    3    2    3         Resource Description
+ELEM 2    3    2    40   2    3    2    3         Resource Protocol Description
+ELEM 2    3    2    41   2    3    2    3         Resource Name Extension Description
+ELEM 2    3    2    42   2    3    2    3         Software Runtime Profile Description
+ELEM 2    3    2    43   2    3    2    3         Software Runtime Component Description
+ELEM 2    3    2    44   2    3    2    3         Patch Level Description
+ELEM 2    3    2    45   2    3    2    3         Language & Patch Level Composite Extended Key Description
+ELEM 2    3    2    46   2    3    2    3         Object Set Definition Type Description
+ELEM 2    3    2    47   2    3    2    3         Link Type Usage Type Description
+ELEM 2    3    2    48   2    3    2    3         Type Value Based Object Set Description
+ELEM 2    3    2    49   2    3    2    3         Template Set Description
+ELEM 2    3    2    50   2    3    2    3         Generic Object Description
+ELEM 2    3    2    51   2    3    2    3         Generic Object Element Value Description
+ELEM 2    3    2    52   2    3    2    3         Function Group Description
+ELEM 2    3    2    53   2    3    2    3         Function Group Type Description
+ELEM 2    3    2    54   2    3    2    3         Parameter Value Group Description
+ELEM 2    3    2    55   2    3    2    3         Object Template Path Description
+ELEM 2    3    2    56   2    3    2    3         Type Definition Path Description
+ELEM 2    3    2    57   2    3    2    3         Parameter Value Description
+ELEM 2    3    2    58   2    3    2    3         Statistical Values Object Description
+ELEM 2    3    2    59   2    3    2    3         Statistical Values Dimension Description
+ELEM 2    3    2    60   2    3    2    3         Statistic Type Description sum, count, mean, mode, median, std dev
+ELEM 2    3    2    61   2    3    2    3         Unit of Measure Description
+ELEM 2    3    2    62   2    3    2    3         Unit of Measure Dimension Description  length, weight, time, currency       
+ELEM 2    3    2    63   2    3    2    3         Type Definition Usage Type Description
+ELEM 2    3    2    64   2    3    2    3         System Message Element Definition Description
+ELEM 2    3    2    65   2    3    2    3         System Message Element Definition Type Description
+ELEM 2    3    2    66   2    3    2    3         Numeric Data Type Details Description
+ELEM 2    3    2    67   2    3    2    3         Function Group Set Launch Point Description
+
+
+ELEM 2    3    2    200  2    3    2    3         System Message--Short Boilerplate Text
+ELEM 2    3    2    201  2    3    2    3         System Message--Long Boilerplate Text
+ELEM 2    3    2    202  2    3    2    3         Minimum value for Code Range
+ELEM 2    3    2    203  2    3    2    3         Maximum value for Code Range
+ELEM 2    3    2    204  2    3    2    3         Next Code for Code Range
+ELEM 2    3    2    205  2    3    2    3         Code string for Code Scheme
+ELEM 2    3    2    206  2    3    2    3         Numeric Preferred for Code Range
+ELEM 2    3    2    207  2    3    2    3         Code Prefix
+ELEM 2    3    2    208  2    3    2    3         Leading Character for Code Range
+ELEM 2    3    2    209  2    3    2    3         Leading Character for Numeric Codes
+ELEM 2    3    2    210  2    3    2    3         Resource Path/Name
+ELEM 2    3    2    211  2    3    2    3         Resource Path/Name--Patch Level Dependent
+ELEM 2    3    2    212  2    3    2    3         Resource Path/Name--Language Dependent
+ELEM 2    3    2    213  2    3    2    3         Resource Path/Name--Patch Level and Language Dependent
+ELEM 2    3    2    214  2    3    2    3         Data Element--Maximum Length
+ELEM 2    3    2    215  2    3    2    3         Namespace
+ELEM 2    3    2    216  2    3    2    3         Dimension Label
+ELEM 2    3    2    217  2    3    2    3         Index for Type Definition for Summarization in Type Definition Path used by Dimension
+ELEM 2    3    2    218  2    3    2    3         Index for Type Definition for Grouping in Type Defiition Path used for Dimension
+ELEM 2    3    2    219  2    3    2    3         Index for Type Definition for Groupin2 in Type Definition Path used for Dimension
+ELEM 2    3    2    220  2    3    2    3         Namespace of Object Kind of Object Represented by a Generic Object
+ELEM 2    3    2    221  2    3    2    3         Code of Object Kind of Object Represented by a Generic Object
+ELEM 2    3    2    222  2    3    2    3         Namespace of Object Represented by a Generic Object
+ELEM 2    3    2    223  2    3    2    3         Code of Object Represented by a Generic Object
+ELEM 2    3    2    224  2    3    2    3         Start Index in a Type Definition Path for a Type Value Based Object Set
+ELEM 2    3    2    225  2    3    2    3         Stop Index in a Type Definition Path for a Type Value Based Object Set
+ELEM%2    3    2    226  2    3    2    3         User Interface Attribute Kind Namespace of related object i.e. font, size etc
+ELEM%2    3    2    227  2    3    2    3         User Interface Attribute Kind Code of related object
+ELEM%2    3    2    228  2    3    2    3         User Interface Attribute Namespace of related object
+ELEM%2    3    2    229  2    3    2    3         User Interface Attribute Code of related object
+ELEM%2    3    2    230  2    3    2    3         User Interface Attribute Value
+
+
+ELEM 2    31   2    211  2    31   2    31        Resource Path/Name--Patch Level Dependent  (Data Element)
+ELEM 2    32   2    211  2    32   2    32        Resource Path/Name--Patch Level Dependent  (Data Type)
+
+
+
+
+     ObjKind   Object    TypeDef   Type      Template
+RecIdKdiscKcodeOzticOcodeTDdsiTDcodTzticTcodeTzticTcode
+TYPE 2    3    2    211  2    9    2    211             Data Element for Resource Path/Name--Patch Level Dependent Object Element
+TYPE 2    31   2    211  2    11   2    3               Extended Key Definition (patch level) for Resource Path/Name--Patch Level Dependent Data Element
+
+
+     ObjKind   Object    LinkType   ToKind   ToObject  Template
+RecIdKzticKcodeOzticOcodeLTdsiLTcodLKdsiLKcodLzticLcodeTzticTcode         
+LINK%2    2    3    1    2    1    2    12   3    1    2    2    link object template to technical profile
+
+
+
+
+
+
+
+
+
+

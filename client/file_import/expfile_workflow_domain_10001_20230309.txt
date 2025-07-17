@@ -1,0 +1,112 @@
+ZTIC 1    abc.com/test1
+ZTIC 2    zinfinitree.com/workflow
+ZTIC 3    131131/21
+ZTIC 4    zinfinitree.com/server_config
+ZTIC 5    zinfinitree.com/messaging
+ZTIC 6    zinfinitree.com/map
+ZTIC 7    131131/22
+ZTIC 8    zinfinitree.com/spreadsheet
+RZTI 1
+MPPG 212440895685.000    abc123              123       99   user1     4    2    
+EXTK 3    2    3    1    
+MSET ObjectQset                              212440895685.000
+ELEM 2    10   1    100012    17                  Workflow Domain #1
+LINK 2    10   1    100012    14   2    1    1    1001                          212531107276.3104        
+ELEM 2    1    1    1001 2    1                   Workflow Definition #1
+LINK 2    1    1    1001 2    1    2    4    1    4001                          212531107435.5456        
+LINK 2    1    1    1001 2    12   2    3    1    3001                          212531107435.5456        
+ELEM 2    4    1    4001 2    4                   Workflow Step Series #1
+LINK 2    4    1    4001 2    2    2    5    1    5001                          212531107521.2544        
+LINK 2    4    1    4001 2    2    2    5    1    5002                          212532311372.45758       
+ELEM 2    3    1    3001 2    3                   Workflow #1
+ELEM 2    3    1    3001 2    9                   messageStr
+ELEM 2    3    1    3001 2    10                  
+ELEM 2    3    1    3001 2    11                  0
+ELEM 2    5    1    5001 2    5                   Workflow Step #1 in Step Series #1 - Query Spreadsheet
+LINK 2    5    1    5001 2    16   5    3    1    3001                          212531107618.9728        
+ELEM 2    5    1    5002 2    5                   Workflow Step #2 in Step Series #1 - Send Spreadsheet html
+LINK 2    5    1    5002 2    16   5    3    1    3002                          212532311651.8752        
+ELEM 5    3    1    3001 5    3                   Message Sender #1 from file with spreadsheet query
+ELEM 5    3    1    3001 5    9                   
+LINK 5    3    1    3001 5    3    5    4    1    4001                          212531107851.9072        
+LINK 5    3    1    3001 5    5    3    39   1    39050                         212531107851.9072        
+LINK 5    3    1    3001 5    15   3    37   1    37000                         212531107851.9072        
+LINK 5    3    1    3001 5    9    7    1    1    103                           212531107851.9072        
+LINK 5    3    1    3001 5    7    6    1    1    1001                          212531137312.4928        
+ELEM 5    3    1    3002 5    3                   Message Sender #2 from message container
+ELEM 5    3    1    3002 5    9                   
+LINK 5    3    1    3002 5    15   3    37   1    37003                         212532312553.45917       
+LINK 5    3    1    3002 5    7    6    1    1    1002                          212532312553.45917       
+LINK 5    3    1    3002 5    5    3    39   1    39055                         212532312553.45917       
+LINK 5    3    1    3002 5    9    7    1    1    104                           212532312553.45917       
+LINK 5    3    1    3002 5    3    5    4    1    4002                          212532312553.45917       
+ELEM 5    4    1    4001 5    4                   Message Receiver #1 server to query spreadsheet
+LINK 5    4    1    4001 5    6    3    39   1    39053                         212531275775.7504        
+LINK 5    4    1    4001 5    16   3    37   1    37002                         212531275775.7504        
+ELEM 3    39   1    390503    213                 
+ELEM 3    39   1    390503    212                 
+ELEM 3    39   1    390503    211                 
+ELEM 3    39   1    390503    210                 /workflow/sender/message/test_query_spreadsheet.txt
+ELEM 3    39   1    390503    39                  Resource for message sender #1
+ELEM 3    37   1    370003    37                  class for message sender from file
+LINK 3    37   1    370003    9    3    39   1    39051                         212531107982.6304        
+ELEM 7    1    1    103  7    3                   
+ELEM 7    1    1    103  7    2                   
+ELEM 7    1    1    103  7    1                   Sender Message Definition
+ELEM 6    1    1    1001 6    1                   Sender Map #1
+LINK 6    1    1    1001 6    6    3    37   1    37001                         212531138118.5184        
+ELEM 3    37   1    370033    37                  class for message sender from message container
+LINK 3    37   1    370033    9    3    39   1    39056                         212532391293.84003       
+ELEM 6    1    1    1002 6    1                   Sender Map #2
+ELEM 3    39   1    390553    212                 
+ELEM 3    39   1    390553    213                 
+ELEM 3    39   1    390553    210                 [,zinfinitree.com/workflow,1,abc.com/test1][,zinfinitree.com/workflow,2,3001][,zinfinitree.com/workflow,3,4]
+ELEM 3    39   1    390553    211                 
+ELEM 3    39   1    390553    39                  Resource for message sender #2 from message container
+ELEM 7    1    1    104  7    3                   
+ELEM 7    1    1    104  7    2                   
+ELEM 7    1    1    104  7    1                   Sender Message Definition #2
+ELEM 5    4    1    4002 5    4                   Message Receiver #2 email of spreadsheet html
+LINK 5    4    1    4002 5    6    3    39   1    39057                         212532652711.12317       
+LINK 5    4    1    4002 5    16   3    37   1    37004                         212532652711.12317       
+ELEM 3    39   1    390533    213                 
+ELEM 3    39   1    390533    211                 
+ELEM 3    39   1    390533    212                 
+ELEM 3    39   1    390533    210                 http://localhost:3000/ds2/process_record_format_message
+ELEM 3    39   1    390533    39                  client target to process record format message
+ELEM 3    37   1    370023    37                  Program to deliver rec format msg
+LINK 3    37   1    370023    9    3    39   1    39054                         212531276199.11038       
+ELEM 3    39   1    390513    213                 
+ELEM 3    39   1    390513    212                 
+ELEM 3    39   1    390513    210                 file_sender_class1.js
+ELEM 3    39   1    390513    39                  program for message sender
+ELEM 3    39   1    390513    211                 
+ELEM 3    37   1    370013    37                  Sender Mapping program #1
+LINK 3    37   1    370013    9    3    39   1    39052                         212531138273.3472        
+ELEM 3    39   1    390563    213                 
+ELEM 3    39   1    390563    212                 
+ELEM 3    39   1    390563    211                 
+ELEM 3    39   1    390563    210                 message_container_sender_class1.js
+ELEM 3    39   1    390563    39                  resource for program for message sender from message container
+ELEM 3    39   1    390573    213                 
+ELEM 3    39   1    390573    212                 
+ELEM 3    39   1    390573    210                 email_of_receiver@example.com
+ELEM 3    39   1    390573    39                  email address of receiver
+ELEM 3    39   1    390573    211                 
+ELEM 3    37   1    370043    37                  Program to deliver email to receiver
+LINK 3    37   1    370043    9    3    39   1    39058                         212532652890.2304        
+ELEM 3    39   1    390543    213                 
+ELEM 3    39   1    390543    212                 
+ELEM 3    39   1    390543    211                 
+ELEM 3    39   1    390543    210                 client_record_format_message_receiver.js
+ELEM 3    39   1    390543    39                  program to pass record format message to client
+ELEM 3    39   1    390523    213                 
+ELEM 3    39   1    390523    212                 
+ELEM 3    39   1    390523    211                 
+ELEM 3    39   1    390523    210                 workflow_message_sender_mapper.js
+ELEM 3    39   1    390523    39                  Sender mapping program resource #1
+ELEM 3    39   1    390583    213                 
+ELEM 3    39   1    390583    212                 
+ELEM 3    39   1    390583    211                 
+ELEM 3    39   1    390583    210                 email_message_receiver.js
+ELEM 3    39   1    390583    39                  program to pass email to receiver

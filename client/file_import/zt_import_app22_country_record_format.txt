@@ -1,0 +1,136 @@
+ZTIC 2    131131/21
+ZTIC 3    zinfinitree.com/country
+ZTIC 1    abc.com/test1
+ZTIC 4    zinfinitree.com/server_config
+
+
+RZTI 1          receiver ztic
+ 
+
+  
+
+
+      mode 1 means create/update with no future timestamps [DEPRECATED]
+MODE%1                                                     [DEPRECATED replaced by MPPG]
+
+
+    message processing parameters--general
+     default timesmp     msg id-client       last idx  mode user                SWdsiSWcod           
+MPPG 5179248000.000      id123               1234      99   usr1                4    1    
+
+
+
+     ExtKeyDef ExtKeyVal     
+RecIdEKDdsEKDcoEKVdsEKVco
+EXTK 2    2    2    1
+
+     
+     Desc                                    Timestamp
+MSET MaintainSetId#1                         5179248000.000  
+
+CMNT TMPL                                        template for maintaing an object
+
+     ObjKind   Object    ObjElem   Template  
+RecIdKzticKcodeOzticOcodeEzticEcodeTzticTcode     OEValue
+ELEM 2    1    3    1    2    1    2    1         Country (Object Kind)
+ELEM 2    2    3    1    2    2    2    2         Country (Base Template)
+ELEM 2    2    3    2    2    2    2    2         Address Template extension for extended postal code (Postal Code2)
+ELEM 2    12   3    1    2    12   2    12        Country (Technical Profile)
+ELEM 2    12   3    2    2    12   2    12        Address (Extended Technical Profile)
+ELEM 2    21   3    1    2    21   2    21        Code Range for Address (Code Range)
+ELEM 2    21   3    1    2    204  2    21        1001
+ELEM 2    2    3    2    2    1    2    2         Code Range for Country (Base Template)
+ELEM 2    12   3    2    2    12   2    12        Code Range for Country (Technical Profile)
+ELEM 2    3    3    1    2    3    2    3         House Number (Object Element)
+ELEM 2    3    3    2    2    3    2    3         Street       (Object Element)
+ELEM 2    3    3    3    2    3    2    3         City         (Object Element)
+ELEM 2    3    3    4    2    3    2    3         State        (Object Element)
+ELEM 2    3    3    5    2    3    2    3         Postal Code  (Object Element)
+ELEM 2    3    3    6    2    3    2    3         Postal Code2  (Object Element)
+ELEM%2    3    3    7    2    3    2    3         Current Code for Address Code Range (Object Element)
+ELEM 2    31   3    1    2    31   2    31        House Number DE  (Data Element)
+ELEM 2    31   3    2    2    31   2    31        Street DE        (Data Element)
+ELEM 2    31   3    3    2    31   2    31        City DE          (Data Element)
+ELEM 2    31   3    4    2    31   2    31        State DE         (Data Element)
+ELEM 2    31   3    5    2    31   2    31        Postal Code      (Data Element)
+ELEM 2    31   3    6    2    31   2    31        Postal Code2     (Data Element)
+ELEM 2    31   3    7    2    31   2    31        Current Code     (Data Element)
+ELEM 2    32   3    1    2    32   2    32        House Number DT  (Data Type)
+ELEM 2    32   3    2    2    32   2    32        Street DT        (Data Type)
+ELEM 2    32   3    3    2    32   2    32        City DT          (Data Type)
+ELEM 2    32   3    4    2    32   2    32        State DT         (Data Type)
+ELEM 2    32   3    5    2    32   2    32        Postal Code DT   (Data Type)
+ELEM 2    32   3    6    2    32   2    32        Postal Code2 DT  (Data Type)
+ELEM%2    32   3    7    2    32   2    32        Current Code for address DT  (Data Type)
+
+  max length for data elements used for address
+ELEM 2    31   3    1    2    214  2    31        6
+ELEM 2    31   3    2    2    214  2    31        40
+ELEM 2    31   3    3    2    214  2    31        30
+ELEM 2    31   3    4    2    214  2    31        5
+ELEM 2    31   3    5    2    214  2    31        10
+ELEM 2    31   3    6    2    214  2    31        5
+
+
+
+     ObjKind   Object    TypeDef   Type      Template  
+RecIdKdiscKcodeOzticOcodeTDdsiTDcodTzticTcodeTzticTcode
+  
+TYPE 2    2    3    1    2    3    3    1               Object Kind for template for Country
+TYPE 2    2    3    2    2    3    3    1               Object Kind for extended template for Address (for Postal Code2)
+TYPE 2    1    3    1    2    5    3    1               Code Range for Country
+TYPE 2    21   3    1    2    6    2    1               Code Scheme for Country Code Range
+TYPE%2    3    3    1    2    9    3    1               Data Element for Country Name Object Element
+TYPE%2    3    3    2    2    9    3    2               Data Element for Street Object Element
+TYPE%2    3    3    3    2    9    3    3               Data Element for City Object Element
+TYPE%2    3    3    4    2    9    3    4               Data Element for State Object Element
+TYPE%2    3    3    5    2    9    3    5               Data Element for Postal Code Object Element
+TYPE%2    3    3    6    2    9    3    6               Data Element for Postal Code2 Object Element
+
+TYPE%2    2    3    2    2    30   3    1               Reference template (Address) for extension template for extended postal code (Postal Code2)
+
+TYPE 2    31   3    1    2    10   3    1               Data Type for Country Name Data Element
+TYPE%2    31   3    2    2    10   3    2               Data Type for Street Data Element
+TYPE%2    31   3    3    2    10   3    3               Data Type for City Data Element
+TYPE%%2    31   3    4    2    10   3    4               Data Type for State Data Element
+TYPE%%2    31   3    5    2    10   3    5               Data Type for Postal Code Data Element
+TYPE%%2    31   3    6    2    10   3    6               Data Type for Postal Code Data Element
+TYPE 2    31   3    1    2    11   2    2               Extended Key Definition (language) for Country Name Element
+TYPE 2    21   3    1    2    14   2    1               Code Scheme for Country Code Range
+
+
+     ObjKind   Object    LinkType   ToKind   ToObject  Template  
+RecIdKzticKcodeOzticOcodeLTdsiLTcodLKdsiLKcodLzticLcodeTzticTcode         
+LINK 2    2    3    1    2    1    2    12   3    1    2    2    link object template to technical profile
+LINK 2    2    3    2    2    1    2    12   3    2    2    2    link object template for extension to technical profile for extension
+LINK 2    12   3    1    2    3    2    3    3    1    2    12   link tech profile to obj elem for country
+LINK%2    12   3    1    2    3    2    3    3    2    2    12   link tech profile to object element for street
+LINK%2    12   3    1    2    3    2    3    3    3    2    12   link tech profile to object element for city
+LINK%2    12   3    1    2    3    2    3    3    4    2    12   link tech profile to object element for state
+LINK%2    12   3    1    2    3    2    3    3    5    2    12   link tech profile to obj elem for postal code
+LINK%2    12   3    2    2    3    2    3    3    6    2    12   link extended tech profile to obj elem for postal code 2
+
+LINK%%2    12   3    1    2    4    2    9    2    9    2    12   link tech profile to type def for data elem for obj elem (20200514) (del) 20200821
+
+LINK 2    12   3    1    2    22   2    31   3    1    2    12   link tech profile to data elem for country name
+LINK%2    12   3    1    2    22   2    31   3    2    2    12   link tech profile to data element for street
+LINK%2    12   3    1    2    22   2    31   3    3    2    12   link tech profile to data element for city
+LINK%2    12   3    1    2    22   2    31   3    4    2    12   link tech profile to data element for state
+LINK%2    12   3    1    2    22   2    31   3    5    2    12   link tech profile to data element for postal code
+LINK%2    12   3    2    2    22   2    31   3    6    2    12   link extended tech profile to data element for postal code2
+
+
+LINK%2    2    3    2    2    1    2    12   3    2    2    2    link object template for code range to technical profile for code range
+LINK%2    12   3    2    2    3    2    3    3    7    2    12   link tech profile for address code range to obj elem for current code of address code range 
+
+
+
+QSET%OTdsiOTcodSelMdRspSmQSMid                                           query set member format, not used for this message (excluded by %)
+QSLS%SSeGnSSePnOpera                                                     query selection set format, not used for this message (excluded by %)    
+QOSS%LevelUsage                                                          query object selection set member, not used for this message (excluded by %)
+QOBJ%KzticKcodeOzticOcode                                                query object, not used for this message (excluded by %)
+QELM%EzticEcodeSgrpnSetopOperaQualfValue                                 query element, not used for this message (excluded by %)
+
+
+
+

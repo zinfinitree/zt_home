@@ -1,0 +1,120 @@
+<html>
+  <head>
+    <title>ZT File Import</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">  </script>
+    <script>
+      $(document).ready(function(){
+        var file_name, file_directory;
+        var op_num, dsi, file_num;
+        $("#submit").click(function(){
+          file_name=$("#file_name").val();
+          file_directory=$("#file_directory").val();
+          op_num=$('.ddlOperation').val();
+          dbZtI_id=$('.ddldbZtI_id').val();
+          TargetNS=$('.ddlTargetNS').val();
+          file_num=$('.ddlFileNum').val();
+          file_format=$('.ddFileFormat').val();
+           $.post("http://localhost:3000/zt/client/process_file",{file_name: file_name, file_directory: file_directory, op_num: op_num, TargetNS: TargetNS, dbZtI_id: dbZtI_id, file_num: file_num, file_format: file_format}, function(data){ 
+            if(data==='done')
+              {
+                alert("login success");
+              }
+          });
+        });
+      });
+    </script>
+
+
+  </head>
+  <body>
+    <h1>ZT File Import</h1>
+    <br />
+<!--        <H3>Select DS instance</H3>
+          <div>
+    <select class="ddldbZtI_id">
+      <option value="TST1">Test1</option>
+      <option value="TST2">Test2</option>
+      <option value="DEV">Dev</option>
+      <option value="PRD">Prod</option>
+    </select>   -->
+    <H3>Select Namespace of Target ZT Instance</H3>
+          <div>
+    <select class="ddlTargetNS">
+      <option value="amplabs.ai/test1">ALT1 amplabs.ai/test1</option>
+      <option value="abc.com/test1">TST1 abc.com/test1</option>
+      <option value="abc.com/test2">TST2 abc.com/test2</option>
+      <option value="zinfinitree.com/doc1">DOC1 zinfinitree.com/doc1</option>
+      <option value="zinfinitree.com/doc2">DOC2 zinfinitree.com/doc2</option>
+      <option value="zinfinitree.com/zin1">ZIN1 zinfinitree.com/zin1</option>
+      <option value="zinfinitree.com/zin2">ZIN2 zinfinitree.com/zin2</option>
+      <option value="abc.com/ztst">ZTST abc.com/ztst</option>
+      <option value="zinfinitree.com/dev">DS Dev zinfinitree.com/dev</option>
+      <option value="zinfinitree.com/prod">DS Prod zinfinitree.com/prod</option>
+
+    </select>
+    
+  <!--  <input type="button" class="btnClick Button" value="Process" />  -->
+  </div>
+   <br />
+
+    <H3>Select operation</H3>
+          <div>
+    <select class="ddlOperation">
+      <option value="Import">Import selected file</option>
+      <option value="ManualFile">Import manually entered filename</option>
+      <option value="ImportSelectedFileList">Import selected list of files</option>        
+      <option value="ImportManualFileList">Import manually entered file list</option>  
+    </select>
+ <!--   <input type="button" class="btnProcess Button" value="Process" />  -->
+  </div>
+  
+
+    <br />
+    </div>
+    <br />
+        <H3>Select File Format</H3>
+          <div>
+    <select class="ddFileFormat">
+      <option value="1">Message format</option>
+      <option value="2">Record format</option>
+     </select>
+  
+  <!--  <input type="button" class="btnClick Button" value="Process" />  -->
+  </div>
+    <br /><br />  
+    
+    <H3>Select import filename</H3>
+      <div>
+    <select class="ddlFileNum">
+    <!--  <option value="1">ds2_init01_local_namespace.txt</option>  -->
+      <option value="2">zt_init02_table_elementsC.txt</option>
+      <option value="3">zt_init03_object_kinds_rec_format.txt</option>
+      <option value="4">zt_init04_object_templates_rec_format.txt</option>
+      <option value="5">zt_init05_tech_profiles_rec_format.txt</option>
+      <option value="6">zt_init06_object_elements_rec_format.txt</option>
+      <option value="7">zt_init07_object_sets_rec_format.txt</option>
+      <option value="8">zt_init08_type_def_rec_format.txt</option>
+      <option value="9">zt_init09_type_valuesC DO NOT USE.txt</option>
+      <option value="10">zt_init10_link_type_rec_format.txt</option>
+      <option value="11">zt_init11_obj_templ_link_to_tech_profileC DO NOT USE.txt</option>
+      <option value="12">zt_init12_link_target_types_rec_format.txt</option>
+      <option value="13">zt_init13_system_message_rec_format.txt</option>
+      <option value="14">zt_init14_system_message_parameter_rec_format.txt</option>
+      <option value="30">RecFormatFileList--zt_file_list_init_base_objects_rec_format.txt</option>
+      <option value="31">RecFormatFileList--zt_file_list_software_rec_format.txt</option>
+      <option value="32">RecFormatFileList--zt_file_list_apps_rec_format.txt</option>
+    </select>
+    <br /><br /><br />
+<!--    <input type="button" class="btnImportFile Button" value="Import File" />  -->
+  </div>
+  <H3>Manual entry</H3>
+     <table>
+     <tr><td>Directory</td><td> <input type="TEXT" id="file_directory" size="40" ><td></tr>
+     <tr><td>Filename</td><td> <input type="TEXT" id="file_name" size="40"></td></tr>
+     </table>
+    <br /> <br /><br />
+    <input type="button" id="submit" value="Submit">
+    <br /><br /> <br /><br />
+  
+  </body>
+</html>

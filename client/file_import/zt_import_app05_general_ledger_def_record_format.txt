@@ -1,0 +1,965 @@
+ZTIC 2    131131/21
+ZTIC 3    zinfinitree.com/general_ledger
+ZTIC 1    abc.com/test1
+ZTIC 4    zinfinitree.com/server_config
+ZTIC 5    zinfinitree.com/spreadsheet
+ZTIC 6    zinfinitree.com/multimedia_object
+ZTIC 7    131131/22
+ZTIC 8    zinfinitree.com/time
+ZTIC 9    zinfinitree.com/time_tz_est
+ZTIC 10   zinfinitree.com/person
+ZTIC 11   zinfinitree.com/time_gregorian_2020s_tz_est
+
+RZTI 1          receiver ztic
+ 
+
+    copied from storage app 20241216
+
+
+      mode 1 means create/update with no future timestamps [DEPRECATED]
+MODE%1                                                     [DEPRECATED replaced by MPPG]
+
+
+    message processing parameters--general
+     default timesmp     msg id-client       last idx  mode user                SWdsiSWcod           
+MPPG 5179248000.000      id123               1234      99   usr1                4    2    
+
+
+
+     ExtKeyDef ExtKeyVal     
+RecIdEKDdsEKDcoEKVdsEKVco
+EXTK 2    2    2    1
+
+     
+     Desc                                    Timestamp
+MSET MaintainSetId#1                         5179248000.000  
+
+CMNT TMPL                                        template for maintaing an object
+
+     ObjKind   Object    ObjElem   Template  
+RecIdKzticKcodeOzticOcodeEzticEcodeTzticTcode     OEValue
+ELEM 2    1    3    1    2    1    2    1         Storage Domain (Object Kind)
+ELEM 2    1    3    2    2    1    2    1         Storage Location (Object Kind)
+ELEM 2    1    3    3    2    1    2    1         Thing (Object Kind)
+ELEM 2    1    3    4    2    1    2    1         Storage Location Type (Object Kind)
+ELEM 2    1    3    5    2    1    2    1         Thing Type (Object Kind)
+ELEM 2    1    3    6    2    1    2    1         Thing Transaction Line Item (Object Kind)
+ELEM 2    1    3    7    2    1    2    1         Thing Transaction Line Item Type (Object Kind)
+ELEM 2    2    3    1    2    2    2    2         Storage Domain (Base Template)              
+ELEM 2    2    3    2    2    2    2    2         Storage Location (Base Template)
+ELEM 2    2    3    3    2    2    2    2         Thing (Base Template)
+ELEM 2    2    3    4    2    2    2    2         Storage Location Type (Base Template)
+ELEM 2    2    3    5    2    2    2    2         Thing Type (Base Template)
+ELEM 2    2    3    6    2    2    2    2         Thing Transaction Line Item (Base Template)
+ELEM 2    2    3    7    2    2    2    2         Thing Transaction Line Item Type (Base Template)
+ELEM 2    12   3    1    2    12   2    12        Storage Domain (Technical Profile)
+ELEM 2    12   3    2    2    12   2    12        Storage Location (Technical Profile)
+ELEM 2    12   3    3    2    12   2    12        Thing (Technical Profile)
+ELEM 2    12   3    4    2    12   2    12        Storage Location Type (Technical Profile)
+ELEM 2    12   3    5    2    12   2    12        Thing Type (Technical Profile)
+ELEM 2    12   3    6    2    12   2    12        Thing Transaction Line Item (Technical Profile)
+ELEM 2    12   3    7    2    12   2    12        Thing Transaction Line Item Type (Technical Profile)
+ELEM 2    21   3    1    2    21   2    21        Code Range for Storage Domain (Code Range)
+ELEM 2    21   3    2    2    21   2    21        Code Range for Storage Location (Code Range)
+ELEM 2    21   3    3    2    21   2    21        Code Range for Thing (Code Range)
+ELEM 2    21   3    4    2    21   2    21        Code Range for Storage Location Type (Code Range)
+ELEM 2    21   3    5    2    21   2    21        Code Range for Thing Type (Code Range)
+ELEM 2    21   3    6    2    21   2    21        Code Range for Thing Transaction Line Item (Code Range)
+ELEM 2    21   3    7    2    21   2    21        Code Range for Thing Transaction Line Item Type (Code Range)
+ELEM 2    21   3    1    2    204  2    21        1501
+ELEM 2    21   3    2    2    204  2    21        2501
+ELEM 2    21   3    3    2    204  2    21        3501
+ELEM 2    21   3    4    2    204  2    21        4501
+ELEM 2    21   3    5    2    204  2    21        5501
+ELEM 2    21   3    6    2    204  2    21        6501
+ELEM 2    21   3    7    2    204  2    21        7501
+ELEM 2    2    3    6    2    2    2    1         Code Range for Storage Domain (Base Template) 
+ELEM 2    2    3    7    2    2    2    1         Code Range for Storage Location (Base Template)
+ELEM 2    2    3    8    2    2    2    1         Code Range for Thing (Base Template)
+ELEM 2    2    3    9    2    2    2    1         Code Range for Storage Location Type (Base Template)
+ELEM 2    2    3    10   2    2    2    1         Code Range for Thing Type (Base Template)
+ELEM 2    2    3    11   2    2    2    1         Code Range for Thing Transaction Line Item (Base Template)
+ELEM 2    2    3    12   2    2    2    1         Code Range for Thing Transaction Line Item Type (Base Template)
+ELEM 2    12   3    6    2    12   2    12        Code Range for Storage Domain (Technical Profile)
+ELEM 2    12   3    7    2    12   2    12        Code Range for Storage Location (Technical Profile)
+ELEM 2    12   3    8    2    12   2    12        Code Range for Thing (Technical Profile)
+ELEM 2    12   3    9    2    12   2    12        Code Range for Storage Location Type (Technical Profile)
+ELEM 2    12   3    10   2    12   2    12        Code Range for Thing Type (Technical Profile)
+ELEM 2    12   3    11   2    12   2    12        Code Range for Thing Transaction Line Item (Technical Profile)
+ELEM 2    12   3    12   2    12   2    12        Code Range for Thing Transaction Line Item Type (Technical Profile)
+ELEM 2    3    3    1    2    3    2    3         Storage Domain Description         (Object Element)
+ELEM 2    3    3    2    2    3    2    3         Storage Domain Long Description    (Object Element)
+ELEM 2    3    3    3    2    3    2    3         Storage Domain Title               (Object Element)
+ELEM 2    3    3    4    2    3    2    3         Storage Location Description (Object Element)
+ELEM 2    3    3    5    2    3    2    3         Storage Location QR Code Link      (Object Element)
+ELEM 2    3    3    6    2    3    2    3         Thing Description    (Object Element)
+ELEM 2    3    3    7    2    3    2    3         Storage Location Type Description (Object Element)
+ELEM 2    3    3    8    2    3    2    3         Thing Type Description (Object Element)
+ELEM 2    3    3    9    2    3    2    3         Thing Transaction Line Item Description (Object Element)
+ELEM 2    3    3    10   2    3    2    3         Thing Transaction Line Item Quantity (Object Element)
+ELEM 2    3    3    11   2    3    2    3         Thing Transaction Line Item Long Description (Object Element)
+ELEM 2    3    3    12   2    3    2    3         Thing Transaction Line Item Type Description (Object Element)
+ELEM 2    31   3    1    2    31   2    31        Storage Domain Description DE (Data Element)
+ELEM 2    31   3    2    2    31   2    31        Storage Domain Long Description DE    (Data Element)
+ELEM 2    31   3    3    2    31   2    31        Storage Domain Title DE               (Data Element)
+ELEM 2    31   3    4    2    31   2    31        Storage Location Description DE (Data Element)
+ELEM 2    31   3    5    2    31   2    31        Storage Location QR Code Link DE        (Data Element)
+ELEM 2    31   3    6    2    31   2    31        Thing Description       (Data Element)
+ELEM 2    31   3    7    2    31   2    31        Storage Location Type Description (Data Element)
+ELEM 2    31   3    8    2    31   2    31        Thing Type Description          (Data Element)
+ELEM 2    31   3    9    2    31   2    31        Thing Transaction Line Item Description (Data Element)
+ELEM 2    31   3    10   2    31   2    31        Thing Transaction Line Item Quantity (Data Element)
+ELEM 2    31   3    11   2    31   2    31        Thing Transaction Line Item Long Description (Data Element)
+ELEM 2    31   3    12   2    31   2    31        Thing Transaction Line Item Type Description (Data Element)
+ELEM 2    31   3    100  2    31   2    31        Current Code                    (Data Element)
+ELEM 2    32   3    1    2    32   2    32        Storage Domain Description DT           (Data Type)
+ELEM 2    32   3    2    2    32   2    32        Storage Domain Long Description DT      (Data Type)
+ELEM 2    32   3    3    2    32   2    32        Storage Domain Title DT                 (Data Type)
+ELEM 2    32   3    4    2    32   2    32        Storage Location Description DT         (Data Type)
+ELEM 2    32   3    5    2    32   2    32        Storage Location QR Code Link DT        (Data Type)
+ELEM 2    32   3    6    2    32   2    32        Thing Description               DT      (Data Type)
+ELEM 2    32   3    7    2    32   2    32        Storage Location Type Description (Data Type)
+ELEM 2    32   3    8    2    32   2    32        Thing Type Description    DT      (Data Type)
+ELEM 2    32   3    9    2    32   2    32        Thing Transaction Line Item Description (Data Type)
+ELEM 2    32   3    10   2    32   2    32        Thing Transaction Line Item Quantity (Data Type)
+ELEM 2    32   3    11   2    32   2    32        Thing Transaction Line Item Long Description (Data Type)
+ELEM 2    32   3    12   2    32   2    32        Thing Transaction Line Item Type Description (Data Type)
+ELEM 2    32   3    100  2    32   2    32        Current Code for Document DT      (Data Type)
+ELEM 2    10   3    1    2    10   2    10        Link Type: Storage Domain to Storage Location                
+ELEM 2    10   3    2    2    10   2    10        Link Type: Storage Location to Storage Location  
+ELEM 2    10   3    3    2    10   2    10        Link Type: Storage Location to Thing
+ELEM 2    10   3    4    2    10   2    10        Link Type: Thing to Thing Transaction Line Item (server generated link)       
+ELEM 2    11   3    1    2    11   2    11        Link Target Type: Storage Domain to Storage Location 
+ELEM 2    11   3    2    2    11   2    11        Link Target Type: Storage Location to Storage Location 
+ELEM 2    11   3    3    2    11   2    11        Link Target Type: Storage Location to Thing
+ELEM 2    11   3    4    2    11   2    11        Link Target Type: Thing to Thing Transaction Line Item
+ELEM 2    9    3    1    2    9    2    9         Type Definition: Storage Location Type for Storage Location
+ELEM 2    9    3    2    2    9    2    9         Type Definition: Thing Type for Thing
+ELEM 2    9    3    3    2    9    2    9         Type Definition: Storage Location for a Thing
+ELEM 2    9    3    4    2    9    2    9         Type Definition: Thing for a Thing Transaction Line Item
+ELEM 2    9    3    5    2    9    2    9         Type Definition: Thing Transaction Line Item Type for a Thing Transaction Line Item
+ELEM 2    9    3    6    2    9    2    9         Type Definition: Date for a Thing Transaction Line Item
+ELEM 2    9    3    7    2    9    2    9         Type Definition: Person for a Thing Transaction Line Item
+
+
+ELEM 3    4    3    1    3    7    3    4         Shelf (Storage Location Type)
+ELEM 3    4    3    2    3    7    3    4         Shelving Unit (Storage Location Type)
+ELEM 3    4    3    3    3    7    3    4         Bag (Storage Location Type)
+
+
+
+  max length for data elements used for document
+ELEM 2    31   3    1    2    214  2    31        45
+ELEM 2    31   3    2    2    214  2    31        85
+ELEM 2    31   3    3    2    214  2    31        45
+ELEM 2    31   3    4    2    214  2    31        45
+ELEM 2    31   3    5    2    214  2    31        70
+ELEM 2    31   3    6    2    214  2    31        60
+ELEM 2    31   3    7    2    214  2    31        60
+ELEM 2    31   3    8    2    214  2    31        60
+ELEM 2    31   3    9    2    214  2    31        60
+ELEM 2    31   3    10   2    214  2    31        10
+ELEM 2    31   3    11   2    214  2    31        85
+ELEM 2    31   3    12   2    214  2    31        60     
+ELEM 2    31   3    100  2    214  2    31        10
+
+
+
+
+Lead
+     ObjKind   Object    TypeDef   Type      Template  
+RecIdKdiscKcodeOzticOcodeTDdsiTDcodTzticTcodeTzticTcode
+TYPE 2    2    3    1    2    3    3    1               Object Kind for template for Storage Domain
+TYPE 2    2    3    2    2    3    3    2               Object Kind for template for Storage Location
+TYPE 2    2    3    3    2    3    3    3               Object Kind for template for Thing
+TYPE 2    2    3    4    2    3    3    4               Object Kind for template for Storage Location Type
+TYPE 2    2    3    5    2    3    3    5               Object Kind for template for Thing Type
+TYPE 2    2    3    6    2    3    3    6               Object Kind for template for Thing Transaction Line Item
+TYPE 2    2    3    7    2    3    3    7               Object Kind for template for Thing Transaction Line Item Type 
+TYPE 2    1    3    1    2    5    3    1               Code Range for Storage Domain
+TYPE 2    1    3    2    2    5    3    2               Code Range for Storage Location
+TYPE 2    1    3    3    2    5    3    3               Code Range for Thing
+TYPE 2    1    3    4    2    5    3    4               Code Range for Storage Location Type
+TYPE 2    1    3    5    2    5    3    5               Code Range for Thing Type
+TYPE 2    1    3    6    2    5    3    6               Code Range for Thing Transaction Line Item
+TYPE 2    1    3    7    2    5    3    7               Code Range for Thing Transaction Line Item Type
+TYPE 2    21   3    1    2    6    2    1               Code Scheme for Storage Domain Code Range
+TYPE 2    21   3    2    2    6    2    1               Code Scheme for Storage Location Code Range
+TYPE 2    21   3    3    2    6    2    1               Code Scheme for Thing Code Range
+TYPE 2    21   3    4    2    6    2    1               Code Scheme for Storage Location Type Code Range
+TYPE 2    21   3    5    2    6    2    1               Code Scheme for Thing Type Code Range
+TYPE 2    21   3    6    2    6    2    1               Code Scheme for Thing Transaction Line Item
+TYPE 2    21   3    7    2    6    2    1               Code Scheme for Thing Transaction Line Item Type
+TYPE 2    3    3    1    2    9    3    1               Data Element for Storage Domain Description Object Element
+TYPE 2    3    3    2    2    9    3    2               Data Element for Storage Domain Long Description Object Element
+TYPE 2    3    3    3    2    9    3    3               Data Element for Storage Domain Title Object Element
+TYPE 2    3    3    4    2    9    3    4               Data Element for Storage Location Description Object Element
+TYPE 2    3    3    5    2    9    3    5               Data Element for Storage Location QR Code Link Object Element
+TYPE 2    3    3    6    2    9    3    6               Data Element for Thing Description Object Element
+TYPE 2    3    3    7    2    9    3    7               Data Element for Storage Location Type Description Object Element 
+TYPE 2    3    3    8    2    9    3    8               Data Element for Thing Type Description Object Element
+TYPE 2    3    3    9    2    9    3    9               Data Element for Thing Transaction Line Item Description Object Element
+TYPE 2    3    3    10   2    9    3    10              Data Element for Thing Transaction Line Item Quantity Object Element
+TYPE 2    3    3    11   2    9    3    11              Data Element for Thing Transaction Line Item Long Description Object Element
+TYPE 2    3    3    12   2    9    3    12              Data Element for Thing Transaction Line Item Type Description Object Element
+
+
+TYPE 2    31   3    1    2    10   3    1               Data Type for Storage Domain Description Data Element
+TYPE 2    31   3    2    2    10   3    2               Data Type for Storage Domain Long Description Data Element
+TYPE 2    31   3    3    2    10   3    3               Data Type for Storage Domain Title Data Element
+TYPE 2    31   3    4    2    10   3    4               Data Type for Storage Location Description Data Element
+TYPE 2    31   3    5    2    10   3    5               Data Type for Storage Location QR Code Link Data Element
+TYPE 2    31   3    6    2    10   3    6               Data Type for Thing Description Data Element
+TYPE 2    31   3    7    2    10   3    7               Data Type for Storage Location Type Description Data Element
+TYPE 2    31   3    8    2    10   3    8               Data Type for Thing Type Description Data Element
+TYPE 2    31   3    9    2    10   3    9               Data Type for Thing Transaction Line Item Description
+TYPE 2    31   3    10   2    10   3    10              Data Type for Thing Transaction Line Item Quantity
+TYPE 2    31   3    11   2    10   3    11              Data Type for Thing Transaction Line Item Long Description
+TYPE 2    31   3    12   2    10   3    12              Data Type for Thing Transaction Line Item Type Description
+
+
+TYPE 2    31   3    1    2    11   2    2               Extended Key Definition (language) for Storage Domain Description Data Element
+TYPE 2    31   3    2    2    11   2    2               Extended Key Definition (language) for Storage Domain Long Description Data Element
+TYPE 2    31   3    3    2    11   2    2               Extended Key Definition (language) for Storage Domain Title Data Element
+TYPE 2    31   3    4    2    11   2    2               Extended Key Definition (language) for Storage Location Description Data Element
+TYPE 2    31   3    6    2    11   2    2               Extended Key Definition (language) for Thing Description Data Element
+TYPE 2    31   3    7    2    11   2    2               Extended Key Definition (language) for Storage Location Type Description Data Element
+TYPE 2    31   3    8    2    11   2    2               Extended Key Definition (language) for Thing Type Description Data Element
+TYPE 2    31   3    9    2    11   2    2               Extended Key Definition (language) for Thing Transaction Line Item Description
+TYPE 2    31   3    11   2    11   2    2               Extended Key Definition (language) for Thing Transaction Line Item Long Description
+TYPE 2    31   3    12   2    11   2    2               Extended Key Definition (language) for Thing Transaction Line Item Type Description
+
+TYPE 2    10   3    1    2    2    3    1               link target type for link type for storage domain to storage location 
+TYPE 2    10   3    2    2    2    3    2               link target type for link type for storage location to storage location
+TYPE 2    10   3    3    2    2    3    3               link target type for link type for storage location to thing
+TYPE 2    10   3    4    2    2    3    4               link target type for link type for Thing to Thing Transaction Line Item
+
+TYPE 2    9    3    1    2    4    3    4               Object Kind for Type Def Storage Location Type for Storage Location: Object Kind for Storage Location Type 
+TYPE 2    9    3    2    2    4    3    5               Object Kind for Type Def Thing Type for Thing: Object Kind for Thing Type
+TYPE 2    9    3    3    2    4    3    2               Object Kind for Type Def Storage Location for a Thing: Object Kind for Storage Location
+TYPE 2    9    3    4    2    4    3    3               Object Kind for Type Def Thing for a Thing Transaction Line Item: Object Kind for Thing
+TYPE 2    9    3    5    2    4    3    7               Object Kind for Type Def Thing Transaction Line Item Type for a Thing Trans Line Item: Object Kind for Thing Trans Line Item Type
+TYPE 2    9    3    6    2    4    8    2               Object Kind for Type Def Date for a Thing Transaction Line Item: Date for a Thing Transaction Line Item
+TYPE 2    9    3    7    2    4    10   1               Object Kind for Type Def Person for a Thing Transaction Line Item: Person for a Thing Transaction Line Item
+
+
+
+
+     ObjKind   Object    TypeDef   Type      Template
+RecIdKdiscKcodeOzticOcodeTDdsiTDcodTzticTcodeTzticTcode
+TYPE 2    1    3    1    2    22   3    1    2    1     Default Object Template--Minimal Data for Storage Domain (Object Kind)
+TYPE 2    1    3    2    2    22   3    2    2    1     Default Object Template--Minimal Data for Storage Location (Object Kind)
+TYPE 2    1    3    3    2    22   3    3    2    1     Default Object Template--Minimal Data for Thing (Object Kind)
+TYPE 2    1    3    4    2    22   3    4    2    1     Default Object Template--Minimal Data for Storage Location Type (Object Kind)
+TYPE 2    1    3    5    2    22   3    5    2    1     Default Object Template--Minimal Data for Thing Type (Object Kind)
+TYPE 2    1    3    6    2    22   3    6    2    1     Default Object Template--Minimal Data for Thing Transaction Line Item (Object Kind)
+TYPE 2    1    3    7    2    22   3    7    2    1     Default Object Template--Minimal Data for Thing Transaction Line Item Type (Object Kind)
+
+
+  to specifiy that links from thing to thing transaction line item are server generated
+TYPE 2    9    3    4    2    24   3    4    2    9     Link Type for Type Definition: Thing for Thing Transaction Line Item (for bi-directional connection) CAUSES ERROr 20211023
+
+TYPE 2    10   3    4    2    26   2    2    2    10    Link Type Usage Type for Link Type: Thing to Thing Transaction Line Item (server generated link) ACTIVATE WHEN CORRECTED
+
+
+     ObjKind   Object    LinkType   ToKind   ToObject  Template  
+RecIdKzticKcodeOzticOcodeLTdsiLTcodLKdsiLKcodLzticLcodeTzticTcode         
+LINK 2    2    3    1    2    1    2    12   3    1    2    2    link object template for storage domain to technical profile for storage domain
+LINK 2    2    3    2    2    1    2    12   3    2    2    2    link object template for storage location to technical profile for storage location
+LINK 2    2    3    3    2    1    2    12   3    3    2    2    link object template for thing to technical profile for thing
+LINK 2    2    3    4    2    1    2    12   3    4    2    2    link object template for storage location type to technical profile for storage location type
+LINK 2    2    3    5    2    1    2    12   3    5    2    2    link object template for thing type to technical profile for thing type
+LINK 2    2    3    6    2    1    2    12   3    6    2    2    link object template for thing transaction line item to technical profile for thing transaction line item
+LINK 2    2    3    7    2    1    2    12   3    7    2    2    link object template for thing transaction line item type to tech profile for thing trans line item type
+
+LINK 2    12   3    1    2    3    2    3    3    1    2    12   link tech profile to object element for Storage Domain Description
+LINK 2    12   3    1    2    3    2    3    3    2    2    12   link tech profile to object element for Storage Domain Long Description
+LINK 2    12   3    1    2    3    2    3    3    3    2    12   link tech profile to object element for Storage Domain Title
+LINK 2    12   3    2    2    3    2    3    3    4    2    12   link tech profile to object element for Storage Location Description
+LINK 2    12   3    2    2    3    2    3    3    5    2    12   link tech profile to object element for Storage Location QR Code Link
+LINK 2    12   3    3    2    3    2    3    3    6    2    12   link tech profile to object element for Thing Description
+LINK 2    12   3    4    2    3    2    3    3    7    2    12   link tech profile to object element for Storage Location Type Description
+LINK 2    12   3    5    2    3    2    3    3    8    2    12   link tech profile to object element for Thing Type Description
+LINK 2    12   3    6    2    3    2    3    3    9    2    12   link tech profile to object element for Thing Transaction Line Item Description
+LINK 2    12   3    6    2    3    2    3    3    10   2    12   link tech profile to object element for Thing Transaction Line Item Quantity
+LINK 2    12   3    6    2    3    2    3    3    11   2    12   link tech profile to object element for Thing Transaction Line Item Long Description
+LINK 2    12   3    7    2    3    2    3    3    12   2    12   link tech profile to object element for Thing Transaction Line Item Type Description
+
+
+
+LINK 2    12   3    1    2    22   2    31   3    1    2    12   link tech profile to data element for storage domain description
+LINK 2    12   3    1    2    22   2    31   3    2    2    12   link tech profile to data element for storage domain long description
+LINK 2    12   3    1    2    22   2    31   3    3    2    12   link tech profile to data element for storage domain title
+LINK 2    12   3    2    2    22   2    31   3    4    2    12   link tech profile to data element for storage location description
+LINK 2    12   3    2    2    22   2    31   3    5    2    12   link tech profile to data element for storage location QR Code link
+LINK 2    12   3    3    2    22   2    31   3    6    2    12   link tech profile to data element for thing description
+LINK 2    12   3    4    2    22   2    31   3    7    2    12   link tech profile to data element for storage location type description
+LINK 2    12   3    5    2    22   2    31   3    8    2    12   link tech profile to data element for thing type description
+LINK 2    12   3    6    2    22   2    31   3    9    2    12   link tech profile to data element for thing transaction line item description
+LINK 2    12   3    6    2    22   2    31   3    10   2    12   link tech profile to data element for thing transaction line item quantity
+LINK 2    12   3    6    2    22   2    31   3    11   2    12   link tech profile to data element for thing transaction line item long description
+LINK 2    12   3    7    2    22   2    31   3    12   2    12   link tech profile to data element for thing transaction line item type description
+
+
+LINK 2    12   3    2    2    4    2    9    3    1    2    12   link tech profile for storage location to type definition for storage location type for sloc
+LINK%2    12   3    3    2    4    2    9    3    2    2    12   link tech profile for thing to type definition for thing type for thing  ACTIVATE LATER IF NEEDED 
+LINK 2    12   3    3    2    4    2    9    3    3    2    12   link tech profile for thing to type definition for storage location for a thing
+LINK 2    12   3    6    2    4    2    9    3    4    2    12   link tech profile for thing transaction line item to type definition for thing for a thing transaction line item
+LINK 2    12   3    6    2    4    2    9    3    5    2    12   link tech profile for thing trans line item to type def for thing trans line item type for a thing trans line item
+LINK 2    12   3    6    2    4    2    9    3    6    2    12   link tech profile for thing trans line item to type def for date for a thing trans line item
+LINK 2    12   3    6    2    4    2    9    3    7    2    12   link tech profile for thing trans line item to type def for person for a thing trans line item
+
+
+
+
+LINK 2    12   3    1    2    5    2    10   3    1    2    12   link tech profile to link type for storage domain to storage location               
+LINK 2    12   3    2    2    5    2    10   3    2    2    12   link tech profile to link type for storage location to storage location
+LINK 2    12   3    2    2    5    2    10   3    3    2    12   link tech profile to link type for storage location to thing  
+LINK 2    12   3    3    2    5    2    10   3    4    2    12   link tech profile to link type for thing to thing transaction line item (virtual link)    
+
+
+LINK 2    11   3    1    2    6    2    2    3    2    2    11   Link "Link Target Type" for Storage Domain-->Storage Location to base template for Storage Location          
+LINK 2    11   3    2    2    6    2    2    3    2    2    11   Link "Link Target Type" for Storage Location-->Storage Location to base template for Storage Location
+LINK 2    11   3    3    2    6    2    2    3    3    2    11   Link "Link Target Type" for Storage Location-->Thing to base template for Thing
+LINK 2    11   3    4    2    6    2    2    3    6    2    11   link "Link Target Type" for Thing-->Thing Transaction Line Item to base template for Thing Transaction Line Item
+
+
+
+   test data for testing statistical values objects with thing transaction data 
+
+
+  copied for example
+ELEM%2    1    2    56   2    1    2    1         Type Definition Path (Object Kind)  
+ELEM%2    1    2    58   2    1    2    1         Statistical Values Object (Object Kind)
+ELEM%2    1    2    59   2    1    2    1         Statistical Values Dimension (Object Kind)
+ELEM%2    1    2    60   2    1    2    1         Statistic Type (Object Kind) sum, count, mean, mode, median, min, max, std dev
+ELEM%2    1    2    61   2    1    2    1         Unit of Measure (Object Kind)
+ELEM%2    1    2    62   2    1    2    1         Unit of Measure Dimension (Object Kind)  length, weight, time, currency 
+
+   copied for example from spreadsheet def
+ELEM%2    1    3    1    2    1    2    1         Workbook (Object Kind)
+ELEM%2    1    3    2    2    1    2    1         Spreadsheet (Object Kind)
+ELEM%2    1    3    3    2    1    2    1         Column (Object Kind)
+ELEM%2    1    3    4    2    1    2    1         Row (Object Kind)
+ELEM%2    1    3    5    2    1    2    1         Spreadsheet Cell (Object Kind)   
+
+   elem for statistical values object for thing transaction data summary
+     ObjKind   Object    ObjElem   Template  
+RecIdKzticKcodeOzticOcodeEzticEcodeTzticTcode     OEValue   
+ELEM 2    58   3    1    2    58   2    58        Thing Transactions Summary (Statistical Values Object) 
+ELEM 2    13   3    1    2    13   2    13        Set of all Thing Transactions
+
+ELEM 2    59   3    2    2    59   2    59        Month Dimension (SV Dimension)
+ELEM 2    59   3    3    2    59   2    59        Year Dimension (SV Dimension)
+ELEM%2    59   3    1    2    59   2    59        Thing Dimension (SV Dimension)
+ELEM 2    59   3    4    2    59   2    59        Thing Dimension (SV Dimension)
+
+ELEM 2    61   3    1    2    61   2    61        Unit of Measure for Unit (EA)
+
+ELEM 2    56   3    1    2    56   2    56        Type Definition Path for Thing from Thing Transaction
+ELEM 2    56   3    2    2    56   2    56        Type Definition Path for Month from Thing Transaction
+ELEM 2    56   3    3    2    56   2    56        Type Definition Path for Year from Thing Transaction
+
+
+    set up spreadsheet to display transaction summary
+ELEM 5    1    3    1    5    2    5    1         Thing Transaction Summary (Spreadsheet Workbook Label)
+ELEM 5    2    3    1    5    4    5    2         Years for Thing Transaction Summary (Spreadsheet Label)
+ELEM 5    3    3    1    5    7    5    3         Months for Thing Transaction Summary (Spreadsheet Column Label)
+ELEM 5    4    3    1    5    9    5    4         Thing for Thing Transaction Summary (Spreadsheet Row Label)
+
+     ObjKind   Object    TypeDef   Type      Template  
+RecIdKdiscKcodeOzticOcodeTDdsiTDcodTzticTcodeTzticTcode
+TYPE 5    2    3    1    5    15   3    2    5    2          SV Dimension for Thing Transaction Summary Spreadsheet (Years)
+TYPE 5    3    3    1    5    16   3    3    5    3          SV Dimension for Thing Transaction Summary Column (Months)
+TYPE 5    4    3    1    5    17   3    4    5    4          SV Dimension for Thing Transaction Summary Row (Things)
+
+
+     ObjKind   Object    LinkType   ToKind   ToObject  Template  
+RecIdKzticKcodeOzticOcodeLTdsiLTcodLKdsiLKcodLzticLcodeTzticTcode
+LINK 5    1    3    1    5    1    5    2    3    1    5    1              1    5179248000.000      9000      Link Thing Transaction Summary Workbook to (generated) spreadsheets with years
+LINK 5    1    3    1    5    2    5    3    3    1    5    1              1    5179248000.000      9000      Link Thing Transaction Summary Workbook to (generated) columns for Months
+LINK 5    1    3    1    5    3    5    4    3    1    5    1              1    5179248000.000      9000      Link Thing Transaction Summary Workbook to (generated) row with Things 
+LINK 5    1    3    1    5    9    2    58   3    1    5    1              1    5179248000.000      9000      Link Thing Transaction Summary Workbook to Thing Transaction Summary Statistical Values Object
+
+   end of set up spreadsheet to display transaction summary
+
+
+ELEM 2    59   3    2    2    216  2    59        Month (Dimension Label)
+      Index for Type Definition for Summarization in Type Definition Path used by Dimension
+ELEM 2    59   3    2    2    217  2    59        3    
+      Index for Type Definition for Grouping in Type Defiition Path used for Dimension
+ELEM 2    59   3    2    2    218  2    59        0
+      Index for Type Definition for Groupin2 in Type Definition Path used for Dimension
+ELEM 2    59   3    2    2    219  2    59        0   
+
+
+ELEM 2    59   3    3    2    216  2    59        Year (Dimension Label)
+      Index for Type Definition for Summarization in Type Definition Path used by Dimension
+ELEM 2    59   3    3    2    217  2    59        3    
+      Index for Type Definition for Grouping in Type Defiition Path used for Dimension
+ELEM 2    59   3    3    2    218  2    59        0
+      Index for Type Definition for Groupin2 in Type Definition Path used for Dimension
+ELEM 2    59   3    3    2    219  2    59        0
+
+
+ELEM 2    59   3    4    2    216  2    59        Thing (Dimension Label)
+      Index for Type Definition for Summarization in Type Definition Path used by Dimension
+ELEM 2    59   3    4    2    217  2    59        0    
+      Index for Type Definition for Grouping in Type Defiition Path used for Dimension
+ELEM 2    59   3    4    2    218  2    59        0
+      Index for Type Definition for Groupin2 in Type Definition Path used for Dimension
+ELEM 2    59   3    4    2    219  2    59        0
+
+
+
+
+     ObjKind   Object    TypeDef   Type      Template  
+RecIdKdiscKcodeOzticOcodeTDdsiTDcodTzticTcodeTzticTcode
+TYPE 2    58   3    1    2    33   3    1    2    58         Object set for statistical values object for thing transaction summary
+TYPE 2    58   3    1    2    35   3    1    2    58         Unit of measure (EA) for statistical values object for thing transaction summary
+TYPE 2    59   3    4    2    34   3    1    2    59         type def path for dimension thing for thing transaction summary
+TYPE 2    59   3    2    2    34   3    2    2    59         type def path for dimentsion month for thing transaction summary
+TYPE 2    59   3    3    2    34   3    3    2    59         type def path for dimension year for thing transaction summary
+TYPE 2    58   3    1    2    37   3    10   2    59         object element for statistical values object for source of data
+
+TYPE 5    2    3    1    5    2    5    10   5    2          sheet type for sheet Years for Thing Transaction Summary (Sheet)
+TYPE 5    3    3    1    5    3    5    10   5    3          column type for column Months for Thing Transaction Summary (Column)
+TYPE 5    4    3    1    5    4    5    10   5    4          row type for row Thing for Thing Transaction Summary (Row)
+
+
+  links for statistical values object for thing transaction data summary
+     ObjKind   Object    LinkType   ToKind   ToObject  Template  
+RecIdKzticKcodeOzticOcodeLTdsiLTcodLKdsiLKcodLzticLcodeTzticTcode 
+LINK 2    13   3    1    2    12   2    1    3    6    2    13   link set of all thing transactions to object kind for thing transactions to include all in set
+LINK 2    58   3    1    2    26   2    59   3    2    2    58   link statistical values object for thing trans summary to dimension for month
+LINK 2    58   3    1    2    26   2    59   3    3    2    58   link statistical values object for thing trans summary to dimension for year
+LINK%2    58   3    1    2    26   2    59   3    1    2    58   link statistical values object for thing trans summary to dimension for thing
+LINK 2    58   3    1    2    26   2    59   3    4    2    58   link statistical values object for thing trans summary to dimension for thing
+
+LINK 2    56   3    1    2    27   2    9    3    4    2    56             1    5179248000.000      9000      link type def path for thing to type def thing for thing transaction line item
+
+LINK 2    56   3    2    2    27   2    9    3    6    2    56             1    5179248000.000      9000      link type def path for month to type def date for a thing transaction line item
+LINK 2    56   3    2    2    27   2    9    8    1    2    56             1    5179248000.000      8000      link type def path for month to type def day for a date
+LINK 2    56   3    2    2    27   2    9    8    2    2    56             1    5179248000.000      7000      link type def path for month to type def month and year for a day
+LINK 2    56   3    2    2    27   2    9    8    3    2    56             1    5179248000.000      6000      link type def path for month to type def month for a month and year
+
+LINK 2    56   3    3    2    27   2    9    3    6    2    56             1    5179248000.000      9000      link type def path for year to type def date for a thing transaction line item
+LINK 2    56   3    3    2    27   2    9    8    1    2    56             1    5179248000.000      8000      link type def path for year to type def day for a date
+LINK 2    56   3    3    2    27   2    9    8    2    2    56             1    5179248000.000      7000      link type def path for year to type def month and year for a day
+LINK 2    56   3    3    2    27   2    9    8    4    2    56             1    5179248000.000      6000      link type def path for year to type def for year for a month and year
+
+   
+
+   type definition path for dimension1
+   type definition path for dimension2
+   type definition path for dimension3
+
+   type definition path1 to type def1
+   type definition path2 to type def2
+   type definition path3 to type def3 
+
+   list a set of thing transactions
+   type value of thing for each thing transaction
+   type value of date for each thing transaction
+   make sure each date has a month
+   make sure each month has a year
+
+   set up a grouping of things by thing type
+
+
+
+   elem for source thing transactions
+
+     ObjKind   Object    ObjElem   Template  
+RecIdKzticKcodeOzticOcodeEzticEcodeTzticTcode     OEValue   
+ELEM 3    3    1    3001 3    6    3    3        Thing #1
+ELEM 3    3    1    3002 3    6    3    3        Thing #2
+ELEM 3    3    1    3003 3    6    3    3        Thing #3
+
+
+     ObjKind   Object    ObjElem   Template  
+RecIdKzticKcodeOzticOcodeEzticEcodeTzticTcode     OEValue   
+ELEM 3    6    1    6001 3    9    3    6         Thing Transaction #1
+ELEM 3    6    1    6001 3    10   3    6         1
+ELEM 3    6    1    6002 3    9    3    6         Thing Transaction #2
+ELEM 3    6    1    6002 3    10   3    6         10
+ELEM 3    6    1    6003 3    9    3    6         Thing Transaction #3
+ELEM 3    6    1    6003 3    10   3    6         100
+ELEM 3    6    1    6004 3    9    3    6         Thing Transaction #4
+ELEM 3    6    1    6004 3    10   3    6         1000
+ELEM 3    6    1    6005 3    9    3    6         Thing Transaction #5
+ELEM 3    6    1    6005 3    10   3    6         10000
+ELEM 3    6    1    6006 3    9    3    6         Thing Transaction #6
+ELEM 3    6    1    6006 3    10   3    6         100000
+ELEM 3    6    1    6007 3    9    3    6         Thing Transaction #7
+ELEM 3    6    1    6007 3    10   3    6         1000000
+ELEM 3    6    1    6008 3    9    3    6         Thing Transaction #8
+ELEM 3    6    1    6008 3    10   3    6         10000000
+ELEM 3    6    1    6009 3    9    3    6         Thing Transaction #9
+ELEM 3    6    1    6009 3    10   3    6         100000000
+ELEM 3    6    1    6010 3    9    3    6         Thing Transaction #10
+ELEM 3    6    1    6010 3    10   3    6         1000000000
+ELEM 3    6    1    6011 3    9    3    6         Thing Transaction #11
+ELEM 3    6    1    6011 3    10   3    6         10000000000
+ELEM 3    6    1    6012 3    9    3    6         Thing Transaction #12
+ELEM 3    6    1    6012 3    10   3    6         100000000000
+ELEM 3    6    1    6013 3    9    3    6         Thing Transaction #13
+ELEM 3    6    1    6013 3    10   3    6         2
+ELEM 3    6    1    6014 3    9    3    6         Thing Transaction #14
+ELEM 3    6    1    6014 3    10   3    6         20
+ELEM 3    6    1    6015 3    9    3    6         Thing Transaction #15
+ELEM 3    6    1    6015 3    10   3    6         200
+ELEM 3    6    1    6016 3    9    3    6         Thing Transaction #16
+ELEM 3    6    1    6016 3    10   3    6         2000
+ELEM 3    6    1    6017 3    9    3    6         Thing Transaction #17
+ELEM 3    6    1    6017 3    10   3    6         20000
+ELEM 3    6    1    6018 3    9    3    6         Thing Transaction #18
+ELEM 3    6    1    6018 3    10   3    6         200000
+ELEM 3    6    1    6019 3    9    3    6         Thing Transaction #19
+ELEM 3    6    1    6019 3    10   3    6         2000000
+ELEM 3    6    1    6020 3    9    3    6         Thing Transaction #20
+ELEM 3    6    1    6020 3    10   3    6         20000000
+ELEM 3    6    1    6021 3    9    3    6         Thing Transaction #21
+ELEM 3    6    1    6021 3    10   3    6         200000000
+ELEM 3    6    1    6022 3    9    3    6         Thing Transaction #22
+ELEM 3    6    1    6022 3    10   3    6         2000000000
+ELEM 3    6    1    6023 3    9    3    6         Thing Transaction #23
+ELEM 3    6    1    6023 3    10   3    6         20000000000
+ELEM 3    6    1    6024 3    9    3    6         Thing Transaction #24
+ELEM 3    6    1    6024 3    10   3    6         200000000000
+ELEM 3    6    1    6025 3    9    3    6         Thing Transaction #25
+ELEM 3    6    1    6025 3    10   3    6         3
+ELEM 3    6    1    6026 3    9    3    6         Thing Transaction #26
+ELEM 3    6    1    6026 3    10   3    6         30
+ELEM 3    6    1    6027 3    9    3    6         Thing Transaction #27
+ELEM 3    6    1    6027 3    10   3    6         300
+ELEM 3    6    1    6028 3    9    3    6         Thing Transaction #28
+ELEM 3    6    1    6028 3    10   3    6         3000
+ELEM 3    6    1    6029 3    9    3    6         Thing Transaction #29
+ELEM 3    6    1    6029 3    10   3    6         30000
+ELEM 3    6    1    6030 3    9    3    6         Thing Transaction #30
+ELEM 3    6    1    6030 3    10   3    6         300000
+ELEM 3    6    1    6031 3    9    3    6         Thing Transaction #31
+ELEM 3    6    1    6031 3    10   3    6         3000000
+ELEM 3    6    1    6032 3    9    3    6         Thing Transaction #32
+ELEM 3    6    1    6032 3    10   3    6         30000000
+ELEM 3    6    1    6033 3    9    3    6         Thing Transaction #33
+ELEM 3    6    1    6033 3    10   3    6         300000000
+ELEM 3    6    1    6034 3    9    3    6         Thing Transaction #34
+ELEM 3    6    1    6034 3    10   3    6         3000000000
+ELEM 3    6    1    6035 3    9    3    6         Thing Transaction #35
+ELEM 3    6    1    6035 3    10   3    6         30000000000
+ELEM 3    6    1    6036 3    9    3    6         Thing Transaction #36
+ELEM 3    6    1    6036 3    10   3    6         300000000000
+
+     ObjKind   Object    ObjElem   Template  
+RecIdKzticKcodeOzticOcodeEzticEcodeTzticTcode     OEValue   
+ELEM 3    6    1    6037 3    9    3    6         Thing Transaction #37
+ELEM 3    6    1    6037 3    10   3    6         4
+ELEM 3    6    1    6038 3    9    3    6         Thing Transaction #38
+ELEM 3    6    1    6038 3    10   3    6         40
+ELEM 3    6    1    6039 3    9    3    6         Thing Transaction #39
+ELEM 3    6    1    6039 3    10   3    6         400
+ELEM 3    6    1    6040 3    9    3    6         Thing Transaction #40
+ELEM 3    6    1    6040 3    10   3    6         4000
+ELEM 3    6    1    6041 3    9    3    6         Thing Transaction #41
+ELEM 3    6    1    6041 3    10   3    6         40000
+ELEM 3    6    1    6042 3    9    3    6         Thing Transaction #42
+ELEM 3    6    1    6042 3    10   3    6         400000
+ELEM 3    6    1    6043 3    9    3    6         Thing Transaction #43
+ELEM 3    6    1    6043 3    10   3    6         4000000
+ELEM 3    6    1    6044 3    9    3    6         Thing Transaction #44
+ELEM 3    6    1    6044 3    10   3    6         40000000
+ELEM 3    6    1    6045 3    9    3    6         Thing Transaction #45
+ELEM 3    6    1    6045 3    10   3    6         400000000
+ELEM 3    6    1    6046 3    9    3    6         Thing Transaction #46
+ELEM 3    6    1    6046 3    10   3    6         4000000000
+ELEM 3    6    1    6047 3    9    3    6         Thing Transaction #47
+ELEM 3    6    1    6047 3    10   3    6         40000000000
+ELEM 3    6    1    6048 3    9    3    6         Thing Transaction #48
+ELEM 3    6    1    6048 3    10   3    6         400000000000
+ELEM 3    6    1    6049 3    9    3    6         Thing Transaction #49
+ELEM 3    6    1    6049 3    10   3    6         5
+ELEM 3    6    1    6050 3    9    3    6         Thing Transaction #50
+ELEM 3    6    1    6050 3    10   3    6         50
+ELEM 3    6    1    6051 3    9    3    6         Thing Transaction #51
+ELEM 3    6    1    6051 3    10   3    6         500
+ELEM 3    6    1    6052 3    9    3    6         Thing Transaction #52
+ELEM 3    6    1    6052 3    10   3    6         5000
+ELEM 3    6    1    6053 3    9    3    6         Thing Transaction #53
+ELEM 3    6    1    6053 3    10   3    6         50000
+ELEM 3    6    1    6054 3    9    3    6         Thing Transaction #54
+ELEM 3    6    1    6054 3    10   3    6         500000
+ELEM 3    6    1    6055 3    9    3    6         Thing Transaction #55
+ELEM 3    6    1    6055 3    10   3    6         5000000
+ELEM 3    6    1    6056 3    9    3    6         Thing Transaction #56
+ELEM 3    6    1    6056 3    10   3    6         50000000
+ELEM 3    6    1    6057 3    9    3    6         Thing Transaction #57
+ELEM 3    6    1    6057 3    10   3    6         500000000
+ELEM 3    6    1    6058 3    9    3    6         Thing Transaction #58
+ELEM 3    6    1    6058 3    10   3    6         5000000000
+ELEM 3    6    1    6059 3    9    3    6         Thing Transaction #59
+ELEM 3    6    1    6059 3    10   3    6         50000000000
+ELEM 3    6    1    6060 3    9    3    6         Thing Transaction #60
+ELEM 3    6    1    6060 3    10   3    6         500000000000
+ELEM 3    6    1    6061 3    9    3    6         Thing Transaction #61
+ELEM 3    6    1    6061 3    10   3    6         6
+ELEM 3    6    1    6062 3    9    3    6         Thing Transaction #62
+ELEM 3    6    1    6062 3    10   3    6         60
+ELEM 3    6    1    6063 3    9    3    6         Thing Transaction #63
+ELEM 3    6    1    6063 3    10   3    6         600
+ELEM 3    6    1    6064 3    9    3    6         Thing Transaction #64
+ELEM 3    6    1    6064 3    10   3    6         6000
+ELEM 3    6    1    6065 3    9    3    6         Thing Transaction #65
+ELEM 3    6    1    6065 3    10   3    6         60000
+ELEM 3    6    1    6066 3    9    3    6         Thing Transaction #66
+ELEM 3    6    1    6066 3    10   3    6         600000
+ELEM 3    6    1    6067 3    9    3    6         Thing Transaction #67
+ELEM 3    6    1    6067 3    10   3    6         6000000
+ELEM 3    6    1    6068 3    9    3    6         Thing Transaction #68
+ELEM 3    6    1    6068 3    10   3    6         60000000
+ELEM 3    6    1    6069 3    9    3    6         Thing Transaction #69
+ELEM 3    6    1    6069 3    10   3    6         600000000
+ELEM 3    6    1    6070 3    9    3    6         Thing Transaction #70
+ELEM 3    6    1    6070 3    10   3    6         6000000000
+ELEM 3    6    1    6071 3    9    3    6         Thing Transaction #71
+ELEM 3    6    1    6071 3    10   3    6         60000000000
+ELEM 3    6    1    6072 3    9    3    6         Thing Transaction #72
+ELEM 3    6    1    6072 3    10   3    6         600000000000
+
+     ObjKind   Object    ObjElem   Template  
+RecIdKzticKcodeOzticOcodeEzticEcodeTzticTcode     OEValue   
+ELEM 3    6    1    6073 3    9    3    6         Thing Transaction #73
+ELEM 3    6    1    6073 3    10   3    6         7
+ELEM 3    6    1    6074 3    9    3    6         Thing Transaction #74
+ELEM 3    6    1    6074 3    10   3    6         70
+ELEM 3    6    1    6075 3    9    3    6         Thing Transaction #75
+ELEM 3    6    1    6075 3    10   3    6         700
+ELEM 3    6    1    6076 3    9    3    6         Thing Transaction #76
+ELEM 3    6    1    6076 3    10   3    6         7000
+ELEM 3    6    1    6077 3    9    3    6         Thing Transaction #77
+ELEM 3    6    1    6077 3    10   3    6         70000
+ELEM 3    6    1    6078 3    9    3    6         Thing Transaction #78
+ELEM 3    6    1    6078 3    10   3    6         700000
+ELEM 3    6    1    6079 3    9    3    6         Thing Transaction #79
+ELEM 3    6    1    6079 3    10   3    6         7000000
+ELEM 3    6    1    6080 3    9    3    6         Thing Transaction #80
+ELEM 3    6    1    6080 3    10   3    6         70000000
+ELEM 3    6    1    6081 3    9    3    6         Thing Transaction #81
+ELEM 3    6    1    6081 3    10   3    6         700000000
+ELEM 3    6    1    6082 3    9    3    6         Thing Transaction #82
+ELEM 3    6    1    6082 3    10   3    6         7000000000
+ELEM 3    6    1    6083 3    9    3    6         Thing Transaction #83
+ELEM 3    6    1    6083 3    10   3    6         70000000000
+ELEM 3    6    1    6084 3    9    3    6         Thing Transaction #84
+ELEM 3    6    1    6084 3    10   3    6         700000000000
+ELEM 3    6    1    6085 3    9    3    6         Thing Transaction #85
+ELEM 3    6    1    6085 3    10   3    6         8
+ELEM 3    6    1    6086 3    9    3    6         Thing Transaction #86
+ELEM 3    6    1    6086 3    10   3    6         80
+ELEM 3    6    1    6087 3    9    3    6         Thing Transaction #87
+ELEM 3    6    1    6087 3    10   3    6         800
+ELEM 3    6    1    6088 3    9    3    6         Thing Transaction #88
+ELEM 3    6    1    6088 3    10   3    6         8000
+ELEM 3    6    1    6089 3    9    3    6         Thing Transaction #89
+ELEM 3    6    1    6089 3    10   3    6         80000
+ELEM 3    6    1    6090 3    9    3    6         Thing Transaction #90
+ELEM 3    6    1    6090 3    10   3    6         800000
+ELEM 3    6    1    6091 3    9    3    6         Thing Transaction #91
+ELEM 3    6    1    6091 3    10   3    6         8000000
+ELEM 3    6    1    6092 3    9    3    6         Thing Transaction #92
+ELEM 3    6    1    6092 3    10   3    6         80000000
+ELEM 3    6    1    6093 3    9    3    6         Thing Transaction #93
+ELEM 3    6    1    6093 3    10   3    6         800000000
+ELEM 3    6    1    6094 3    9    3    6         Thing Transaction #94
+ELEM 3    6    1    6094 3    10   3    6         8000000000
+ELEM 3    6    1    6095 3    9    3    6         Thing Transaction #95
+ELEM 3    6    1    6095 3    10   3    6         80000000000
+ELEM 3    6    1    6096 3    9    3    6         Thing Transaction #96
+ELEM 3    6    1    6096 3    10   3    6         800000000000
+ELEM 3    6    1    6097 3    9    3    6         Thing Transaction #97
+ELEM 3    6    1    6097 3    10   3    6         9
+ELEM 3    6    1    6098 3    9    3    6         Thing Transaction #98
+ELEM 3    6    1    6098 3    10   3    6         90
+ELEM 3    6    1    6099 3    9    3    6         Thing Transaction #99
+ELEM 3    6    1    6099 3    10   3    6         900
+ELEM 3    6    1    6100 3    9    3    6         Thing Transaction #100
+ELEM 3    6    1    6100 3    10   3    6         9000
+ELEM 3    6    1    6101 3    9    3    6         Thing Transaction #101
+ELEM 3    6    1    6101 3    10   3    6         90000
+ELEM 3    6    1    6102 3    9    3    6         Thing Transaction #102
+ELEM 3    6    1    6102 3    10   3    6         900000
+ELEM 3    6    1    6103 3    9    3    6         Thing Transaction #103
+ELEM 3    6    1    6103 3    10   3    6         9000000
+ELEM 3    6    1    6104 3    9    3    6         Thing Transaction #104
+ELEM 3    6    1    6104 3    10   3    6         90000000
+ELEM 3    6    1    6105 3    9    3    6         Thing Transaction #105
+ELEM 3    6    1    6105 3    10   3    6         900000000
+ELEM 3    6    1    6106 3    9    3    6         Thing Transaction #106
+ELEM 3    6    1    6106 3    10   3    6         9000000000
+ELEM 3    6    1    6107 3    9    3    6         Thing Transaction #107
+ELEM 3    6    1    6107 3    10   3    6         90000000000
+ELEM 3    6    1    6108 3    9    3    6         Thing Transaction #108
+ELEM 3    6    1    6108 3    10   3    6         900000000000
+
+
+
+
+
+
+   type defs for thing transactions
+     ObjKind   Object    TypeDef   Type      Template  
+RecIdKdiscKcodeOzticOcodeTDdsiTDcodTzticTcodeTzticTcode
+TYPE 3    6    1    6001 3    4    1    3001 3    6         thing for thing transaction #1
+TYPE 3    6    1    6002 3    4    1    3001 3    6         thing for thing transaction #2
+TYPE 3    6    1    6003 3    4    1    3001 3    6         thing for thing transaction #3
+TYPE 3    6    1    6004 3    4    1    3001 3    6         thing for thing transaction #4
+TYPE 3    6    1    6005 3    4    1    3001 3    6         thing for thing transaction #5
+TYPE 3    6    1    6006 3    4    1    3001 3    6         thing for thing transaction #6
+TYPE 3    6    1    6007 3    4    1    3001 3    6         thing for thing transaction #7
+TYPE 3    6    1    6008 3    4    1    3001 3    6         thing for thing transaction #8
+TYPE 3    6    1    6009 3    4    1    3001 3    6         thing for thing transaction #9
+TYPE 3    6    1    6010 3    4    1    3001 3    6         thing for thing transaction #10
+TYPE 3    6    1    6011 3    4    1    3001 3    6         thing for thing transaction #11
+TYPE 3    6    1    6012 3    4    1    3001 3    6         thing for thing transaction #12
+TYPE 3    6    1    6013 3    4    1    3001 3    6         thing for thing transaction #13
+TYPE 3    6    1    6014 3    4    1    3001 3    6         thing for thing transaction #14
+TYPE 3    6    1    6015 3    4    1    3001 3    6         thing for thing transaction #15
+TYPE 3    6    1    6016 3    4    1    3001 3    6         thing for thing transaction #16
+TYPE 3    6    1    6017 3    4    1    3001 3    6         thing for thing transaction #17
+TYPE 3    6    1    6018 3    4    1    3001 3    6         thing for thing transaction #18
+TYPE 3    6    1    6019 3    4    1    3001 3    6         thing for thing transaction #19
+TYPE 3    6    1    6020 3    4    1    3001 3    6         thing for thing transaction #20
+TYPE 3    6    1    6021 3    4    1    3001 3    6         thing for thing transaction #21
+TYPE 3    6    1    6022 3    4    1    3001 3    6         thing for thing transaction #22
+TYPE 3    6    1    6023 3    4    1    3001 3    6         thing for thing transaction #23
+TYPE 3    6    1    6024 3    4    1    3001 3    6         thing for thing transaction #24
+TYPE 3    6    1    6025 3    4    1    3001 3    6         thing for thing transaction #25
+TYPE 3    6    1    6026 3    4    1    3001 3    6         thing for thing transaction #26
+TYPE 3    6    1    6027 3    4    1    3001 3    6         thing for thing transaction #27
+TYPE 3    6    1    6028 3    4    1    3001 3    6         thing for thing transaction #28
+TYPE 3    6    1    6029 3    4    1    3001 3    6         thing for thing transaction #29
+TYPE 3    6    1    6030 3    4    1    3001 3    6         thing for thing transaction #30
+TYPE 3    6    1    6031 3    4    1    3001 3    6         thing for thing transaction #31
+TYPE 3    6    1    6032 3    4    1    3001 3    6         thing for thing transaction #32
+TYPE 3    6    1    6033 3    4    1    3001 3    6         thing for thing transaction #33
+TYPE 3    6    1    6034 3    4    1    3001 3    6         thing for thing transaction #34
+TYPE 3    6    1    6035 3    4    1    3001 3    6         thing for thing transaction #35
+TYPE 3    6    1    6036 3    4    1    3001 3    6         thing for thing transaction #36
+
+TYPE 3    6    1    6037 3    4    1    3002 3    6         thing for thing transaction #37
+TYPE 3    6    1    6038 3    4    1    3002 3    6         thing for thing transaction #38
+TYPE 3    6    1    6039 3    4    1    3002 3    6         thing for thing transaction #39
+TYPE 3    6    1    6040 3    4    1    3002 3    6         thing for thing transaction #40
+TYPE 3    6    1    6041 3    4    1    3002 3    6         thing for thing transaction #41
+TYPE 3    6    1    6042 3    4    1    3002 3    6         thing for thing transaction #42
+TYPE 3    6    1    6043 3    4    1    3002 3    6         thing for thing transaction #43
+TYPE 3    6    1    6044 3    4    1    3002 3    6         thing for thing transaction #44
+TYPE 3    6    1    6045 3    4    1    3002 3    6         thing for thing transaction #45
+TYPE 3    6    1    6046 3    4    1    3002 3    6         thing for thing transaction #46
+TYPE 3    6    1    6047 3    4    1    3002 3    6         thing for thing transaction #47
+TYPE 3    6    1    6048 3    4    1    3002 3    6         thing for thing transaction #48
+TYPE 3    6    1    6049 3    4    1    3002 3    6         thing for thing transaction #49
+TYPE 3    6    1    6050 3    4    1    3002 3    6         thing for thing transaction #50
+TYPE 3    6    1    6051 3    4    1    3002 3    6         thing for thing transaction #51
+TYPE 3    6    1    6052 3    4    1    3002 3    6         thing for thing transaction #52
+TYPE 3    6    1    6053 3    4    1    3002 3    6         thing for thing transaction #53
+TYPE 3    6    1    6054 3    4    1    3002 3    6         thing for thing transaction #54
+TYPE 3    6    1    6055 3    4    1    3002 3    6         thing for thing transaction #55
+TYPE 3    6    1    6056 3    4    1    3002 3    6         thing for thing transaction #56
+TYPE 3    6    1    6057 3    4    1    3002 3    6         thing for thing transaction #57
+TYPE 3    6    1    6058 3    4    1    3002 3    6         thing for thing transaction #58
+TYPE 3    6    1    6059 3    4    1    3002 3    6         thing for thing transaction #59
+TYPE 3    6    1    6060 3    4    1    3002 3    6         thing for thing transaction #60
+TYPE 3    6    1    6061 3    4    1    3002 3    6         thing for thing transaction #61
+TYPE 3    6    1    6062 3    4    1    3002 3    6         thing for thing transaction #62
+TYPE 3    6    1    6063 3    4    1    3002 3    6         thing for thing transaction #63
+TYPE 3    6    1    6064 3    4    1    3002 3    6         thing for thing transaction #64
+TYPE 3    6    1    6065 3    4    1    3002 3    6         thing for thing transaction #65
+TYPE 3    6    1    6066 3    4    1    3002 3    6         thing for thing transaction #66
+TYPE 3    6    1    6067 3    4    1    3002 3    6         thing for thing transaction #67
+TYPE 3    6    1    6068 3    4    1    3002 3    6         thing for thing transaction #68
+TYPE 3    6    1    6069 3    4    1    3002 3    6         thing for thing transaction #69
+TYPE 3    6    1    6070 3    4    1    3002 3    6         thing for thing transaction #70
+TYPE 3    6    1    6071 3    4    1    3002 3    6         thing for thing transaction #71
+TYPE 3    6    1    6072 3    4    1    3002 3    6         thing for thing transaction #72
+
+TYPE 3    6    1    6073 3    4    1    3003 3    6         thing for thing transaction #73
+TYPE 3    6    1    6074 3    4    1    3003 3    6         thing for thing transaction #74
+TYPE 3    6    1    6075 3    4    1    3003 3    6         thing for thing transaction #75
+TYPE 3    6    1    6076 3    4    1    3003 3    6         thing for thing transaction #76
+TYPE 3    6    1    6077 3    4    1    3003 3    6         thing for thing transaction #77
+TYPE 3    6    1    6078 3    4    1    3003 3    6         thing for thing transaction #78
+TYPE 3    6    1    6079 3    4    1    3003 3    6         thing for thing transaction #79
+TYPE 3    6    1    6080 3    4    1    3003 3    6         thing for thing transaction #80
+TYPE 3    6    1    6081 3    4    1    3003 3    6         thing for thing transaction #81
+TYPE 3    6    1    6082 3    4    1    3003 3    6         thing for thing transaction #82
+TYPE 3    6    1    6083 3    4    1    3003 3    6         thing for thing transaction #83
+TYPE 3    6    1    6084 3    4    1    3003 3    6         thing for thing transaction #84
+TYPE 3    6    1    6085 3    4    1    3003 3    6         thing for thing transaction #85
+TYPE 3    6    1    6086 3    4    1    3003 3    6         thing for thing transaction #86
+TYPE 3    6    1    6087 3    4    1    3003 3    6         thing for thing transaction #87
+TYPE 3    6    1    6088 3    4    1    3003 3    6         thing for thing transaction #88
+TYPE 3    6    1    6089 3    4    1    3003 3    6         thing for thing transaction #89
+TYPE 3    6    1    6090 3    4    1    3003 3    6         thing for thing transaction #90
+TYPE 3    6    1    6091 3    4    1    3003 3    6         thing for thing transaction #91
+TYPE 3    6    1    6092 3    4    1    3003 3    6         thing for thing transaction #92
+TYPE 3    6    1    6093 3    4    1    3003 3    6         thing for thing transaction #93
+TYPE 3    6    1    6094 3    4    1    3003 3    6         thing for thing transaction #94
+TYPE 3    6    1    6095 3    4    1    3003 3    6         thing for thing transaction #95
+TYPE 3    6    1    6096 3    4    1    3003 3    6         thing for thing transaction #96
+TYPE 3    6    1    6097 3    4    1    3003 3    6         thing for thing transaction #97
+TYPE 3    6    1    6098 3    4    1    3003 3    6         thing for thing transaction #98
+TYPE 3    6    1    6099 3    4    1    3003 3    6         thing for thing transaction #99
+TYPE 3    6    1    6100 3    4    1    3003 3    6         thing for thing transaction #100
+TYPE 3    6    1    6101 3    4    1    3003 3    6         thing for thing transaction #101
+TYPE 3    6    1    6102 3    4    1    3003 3    6         thing for thing transaction #102
+TYPE 3    6    1    6103 3    4    1    3003 3    6         thing for thing transaction #103
+TYPE 3    6    1    6104 3    4    1    3003 3    6         thing for thing transaction #104
+TYPE 3    6    1    6105 3    4    1    3003 3    6         thing for thing transaction #105
+TYPE 3    6    1    6106 3    4    1    3003 3    6         thing for thing transaction #106
+TYPE 3    6    1    6107 3    4    1    3003 3    6         thing for thing transaction #107
+TYPE 3    6    1    6108 3    4    1    3003 3    6         thing for thing transaction #108
+
+
+
+     type defs for thing transactions
+     ObjKind   Object    TypeDef   Type      Template  
+RecIdKdiscKcodeOzticOcodeTDdsiTDcodTzticTcodeTzticTcode
+TYPE 3    6    1    6001 3    6    11   110013    6         date 10/01/21 for thing transaction #1
+TYPE 3    6    1    6002 3    6    11   110053    6         date 10/05/21 for thing transaction #2
+TYPE 3    6    1    6003 3    6    11   110103    6         date 10/10/21 for thing transaction #3
+TYPE 3    6    1    6004 3    6    11   110153    6         date 10/15/21 for thing transaction #4
+TYPE 3    6    1    6005 3    6    11   110203    6         date 10/20/21 for thing transaction #5
+TYPE 3    6    1    6006 3    6    11   110253    6         date 10/25/21 for thing transaction #6
+
+TYPE 3    6    1    6007 3    6    11   111013    6         date 11/01/21 for thing transaction #7
+TYPE 3    6    1    6008 3    6    11   111053    6         date 11/05/21 for thing transaction #8
+TYPE 3    6    1    6009 3    6    11   111103    6         date 11/10/21 for thing transaction #9
+TYPE 3    6    1    6010 3    6    11   111153    6         date 11/15/21 for thing transaction #10
+TYPE 3    6    1    6011 3    6    11   111203    6         date 11/20/21 for thing transaction #11
+TYPE 3    6    1    6012 3    6    11   111253    6         date 11/25/21 for thing transaction #12
+
+TYPE 3    6    1    6013 3    6    11   112013    6         date 12/01/21 for thing transaction #13
+TYPE 3    6    1    6014 3    6    11   112053    6         date 12/05/21 for thing transaction #14
+TYPE 3    6    1    6015 3    6    11   112103    6         date 12/10/21 for thing transaction #15
+TYPE 3    6    1    6016 3    6    11   112153    6         date 12/15/21 for thing transaction #16
+TYPE 3    6    1    6017 3    6    11   112203    6         date 12/20/21 for thing transaction #17
+TYPE 3    6    1    6018 3    6    11   112253    6         date 12/25/21 for thing transaction #18
+
+TYPE 3    6    1    6019 3    6    11   210013    6         date 10/01/22 for thing transaction #19
+TYPE 3    6    1    6020 3    6    11   210053    6         date 10/05/22 for thing transaction #20
+TYPE 3    6    1    6021 3    6    11   210103    6         date 10/10/22 for thing transaction #21
+TYPE 3    6    1    6022 3    6    11   210153    6         date 10/15/22 for thing transaction #22
+TYPE 3    6    1    6023 3    6    11   210203    6         date 10/20/22 for thing transaction #23
+TYPE 3    6    1    6024 3    6    11   210253    6         date 10/25/22 for thing transaction #24
+
+TYPE 3    6    1    6025 3    6    11   211013    6         date 11/01/22 for thing transaction #25
+TYPE 3    6    1    6026 3    6    11   211053    6         date 11/05/22 for thing transaction #26
+TYPE 3    6    1    6027 3    6    11   211103    6         date 11/10/22 for thing transaction #27
+TYPE 3    6    1    6028 3    6    11   211153    6         date 11/15/22 for thing transaction #28
+TYPE 3    6    1    6029 3    6    11   211203    6         date 11/20/22 for thing transaction #29
+TYPE 3    6    1    6030 3    6    11   211253    6         date 11/25/22 for thing transaction #30
+
+TYPE 3    6    1    6031 3    6    11   212013    6         date 12/01/22 for thing transaction #31
+TYPE 3    6    1    6032 3    6    11   212053    6         date 12/05/22 for thing transaction #32
+TYPE 3    6    1    6033 3    6    11   212103    6         date 12/10/22 for thing transaction #33
+TYPE 3    6    1    6034 3    6    11   212153    6         date 12/15/22 for thing transaction #34
+TYPE 3    6    1    6035 3    6    11   212203    6         date 12/20/22 for thing transaction #35
+TYPE 3    6    1    6036 3    6    11   212253    6         date 12/25/22 for thing transaction #36
+
+
+     type defs for thing transactions
+     ObjKind   Object    TypeDef   Type      Template  
+RecIdKdiscKcodeOzticOcodeTDdsiTDcodTzticTcodeTzticTcode
+TYPE 3    6    1    6037 3    6    11   110013    6         date 10/01/21 for thing transaction #37
+TYPE 3    6    1    6038 3    6    11   110053    6         date 10/05/21 for thing transaction #38
+TYPE 3    6    1    6039 3    6    11   110103    6         date 10/10/21 for thing transaction #39
+TYPE 3    6    1    6040 3    6    11   110153    6         date 10/15/21 for thing transaction #40
+TYPE 3    6    1    6041 3    6    11   110203    6         date 10/20/21 for thing transaction #41
+TYPE 3    6    1    6042 3    6    11   110253    6         date 10/25/21 for thing transaction #42
+
+TYPE 3    6    1    6043 3    6    11   111013    6         date 11/01/21 for thing transaction #43
+TYPE 3    6    1    6044 3    6    11   111053    6         date 11/05/21 for thing transaction #44
+TYPE 3    6    1    6045 3    6    11   111103    6         date 11/10/21 for thing transaction #45
+TYPE 3    6    1    6046 3    6    11   111153    6         date 11/15/21 for thing transaction #46
+TYPE 3    6    1    6047 3    6    11   111203    6         date 11/20/21 for thing transaction #47
+TYPE 3    6    1    6048 3    6    11   111253    6         date 11/25/21 for thing transaction #48
+
+TYPE 3    6    1    6049 3    6    11   112013    6         date 12/01/21 for thing transaction #49
+TYPE 3    6    1    6050 3    6    11   112053    6         date 12/05/21 for thing transaction #50
+TYPE 3    6    1    6051 3    6    11   112103    6         date 12/10/21 for thing transaction #51
+TYPE 3    6    1    6052 3    6    11   112153    6         date 12/15/21 for thing transaction #52
+TYPE 3    6    1    6053 3    6    11   112203    6         date 12/20/21 for thing transaction #53
+TYPE 3    6    1    6054 3    6    11   112253    6         date 12/25/21 for thing transaction #54
+
+TYPE 3    6    1    6055 3    6    11   210013    6         date 10/01/22 for thing transaction #55
+TYPE 3    6    1    6056 3    6    11   210053    6         date 10/05/22 for thing transaction #56
+TYPE 3    6    1    6057 3    6    11   210103    6         date 10/10/22 for thing transaction #57
+TYPE 3    6    1    6058 3    6    11   210153    6         date 10/15/22 for thing transaction #58
+TYPE 3    6    1    6059 3    6    11   210203    6         date 10/20/22 for thing transaction #59
+TYPE 3    6    1    6060 3    6    11   210253    6         date 10/25/22 for thing transaction #60
+
+TYPE 3    6    1    6061 3    6    11   211013    6         date 11/01/22 for thing transaction #61
+TYPE 3    6    1    6062 3    6    11   211053    6         date 11/05/22 for thing transaction #62
+TYPE 3    6    1    6063 3    6    11   211103    6         date 11/10/22 for thing transaction #63
+TYPE 3    6    1    6064 3    6    11   211153    6         date 11/15/22 for thing transaction #64
+TYPE 3    6    1    6065 3    6    11   211203    6         date 11/20/22 for thing transaction #65
+TYPE 3    6    1    6066 3    6    11   211253    6         date 11/25/22 for thing transaction #66
+
+TYPE 3    6    1    6067 3    6    11   212013    6         date 12/01/22 for thing transaction #67
+TYPE 3    6    1    6068 3    6    11   212053    6         date 12/05/22 for thing transaction #68
+TYPE 3    6    1    6069 3    6    11   212103    6         date 12/10/22 for thing transaction #69
+TYPE 3    6    1    6070 3    6    11   212153    6         date 12/15/22 for thing transaction #70
+TYPE 3    6    1    6071 3    6    11   212203    6         date 12/20/22 for thing transaction #71
+TYPE 3    6    1    6072 3    6    11   212253    6         date 12/25/22 for thing transaction #72
+
+
+
+     type defs for thing transactions
+     ObjKind   Object    TypeDef   Type      Template  
+RecIdKdiscKcodeOzticOcodeTDdsiTDcodTzticTcodeTzticTcode
+TYPE 3    6    1    6073 3    6    11   110013    6         date 10/01/21 for thing transaction #73
+TYPE 3    6    1    6074 3    6    11   110053    6         date 10/05/21 for thing transaction #74
+TYPE 3    6    1    6075 3    6    11   110103    6         date 10/10/21 for thing transaction #75
+TYPE 3    6    1    6076 3    6    11   110153    6         date 10/15/21 for thing transaction #76
+TYPE 3    6    1    6077 3    6    11   110203    6         date 10/20/21 for thing transaction #77
+TYPE 3    6    1    6078 3    6    11   110253    6         date 10/25/21 for thing transaction #78
+
+TYPE 3    6    1    6079 3    6    11   111013    6         date 11/01/21 for thing transaction #79
+TYPE 3    6    1    6080 3    6    11   111053    6         date 11/05/21 for thing transaction #80
+TYPE 3    6    1    6081 3    6    11   111103    6         date 11/10/21 for thing transaction #81
+TYPE 3    6    1    6082 3    6    11   111153    6         date 11/15/21 for thing transaction #82
+TYPE 3    6    1    6083 3    6    11   111203    6         date 11/20/21 for thing transaction #83
+TYPE 3    6    1    6084 3    6    11   111253    6         date 11/25/21 for thing transaction #84
+
+TYPE 3    6    1    6085 3    6    11   112013    6         date 12/01/21 for thing transaction #85
+TYPE 3    6    1    6086 3    6    11   112053    6         date 12/05/21 for thing transaction #86
+TYPE 3    6    1    6087 3    6    11   112103    6         date 12/10/21 for thing transaction #87
+TYPE 3    6    1    6088 3    6    11   112153    6         date 12/15/21 for thing transaction #88
+TYPE 3    6    1    6089 3    6    11   112203    6         date 12/20/21 for thing transaction #89
+TYPE 3    6    1    6090 3    6    11   112253    6         date 12/25/21 for thing transaction #90
+
+TYPE 3    6    1    6091 3    6    11   210013    6         date 10/01/22 for thing transaction #91
+TYPE 3    6    1    6092 3    6    11   210053    6         date 10/05/22 for thing transaction #92
+TYPE 3    6    1    6093 3    6    11   210103    6         date 10/10/22 for thing transaction #93
+TYPE 3    6    1    6094 3    6    11   210153    6         date 10/15/22 for thing transaction #94
+TYPE 3    6    1    6095 3    6    11   210203    6         date 10/20/22 for thing transaction #95
+TYPE 3    6    1    6096 3    6    11   210253    6         date 10/25/22 for thing transaction #96
+
+TYPE 3    6    1    6097 3    6    11   211013    6         date 11/01/22 for thing transaction #97
+TYPE 3    6    1    6098 3    6    11   211053    6         date 11/05/22 for thing transaction #98
+TYPE 3    6    1    6099 3    6    11   211103    6         date 11/10/22 for thing transaction #99
+TYPE 3    6    1    6100 3    6    11   211153    6         date 11/15/22 for thing transaction #100
+TYPE 3    6    1    6101 3    6    11   211203    6         date 11/20/22 for thing transaction #101
+TYPE 3    6    1    6102 3    6    11   211253    6         date 11/25/22 for thing transaction #102
+
+TYPE 3    6    1    6103 3    6    11   212013    6         date 12/01/22 for thing transaction #103
+TYPE 3    6    1    6104 3    6    11   212053    6         date 12/05/22 for thing transaction #104
+TYPE 3    6    1    6105 3    6    11   212103    6         date 12/10/22 for thing transaction #105
+TYPE 3    6    1    6106 3    6    11   212153    6         date 12/15/22 for thing transaction #106
+TYPE 3    6    1    6107 3    6    11   212203    6         date 12/20/22 for thing transaction #107
+TYPE 3    6    1    6108 3    6    11   212253    6         date 12/25/22 for thing transaction #108
+
+
+

@@ -1,0 +1,97 @@
+ZTIC 1    amplabs.ai/test1
+ZTIC 2    zinfinitree.com/dev_agile
+ZTIC 3    131131/21
+ZTIC 4    zinfinitree.com/server_config
+ZTIC 5    zinfinitree.com/time
+ZTIC 6    zinfinitree.com/time_gregorian_2020s_tz_est
+RZTI 1
+MPPG 5179248000.000      abc123              123       99   user1     4    2    
+EXTK 3    2    3    1    
+MSET ObjectQset                              5179248000.000
+ELEM 2    1    1    1001 2    1                   Zinfinitree Ticket Tracker Project
+LINK 2    1    1    1001 2    1    2    3    1    3001                          5179248000.000           
+LINK 2    1    1    1001 2    1    2    3    1    3002                          5179248000.000           
+ELEM 2    3    1    3001 2    12                  ZT Bug Fix
+ELEM 2    3    1    3001 2    3                   Zinfinitree Ticket Tracker--Bug Fix
+LINK 2    3    1    3001 2    2    2    5    1    5006                          5179248000.000           
+LINK 2    3    1    3001 2    2    2    5    1    5007                          5179248000.000           
+LINK 2    3    1    3001 2    2    2    5    1    5008                          5179248000.000           
+LINK 2    3    1    3001 2    2    2    5    1    5009                          5179248000.000           
+LINK 2    3    1    3001 2    2    2    5    1    5010                          5179248000.000           
+LINK 2    3    1    3001 2    2    2    5    1    5011                          5257799511.782397        
+LINK 2    3    1    3001 2    2    2    5    1    5013                          5257828910.332815        
+LINK 2    3    1    3001 2    2    2    5    1    5014                          5257828989.734396        
+ELEM 2    3    1    3002 2    12                  ZT New Features
+ELEM 2    3    1    3002 2    3                   Zinfinitree Ticket Tracker--New Features
+LINK 2    3    1    3002 2    2    2    5    1    5001                          5179248000.000           
+LINK 2    3    1    3002 2    2    2    5    1    5002                          5179248000.000           
+LINK 2    3    1    3002 2    2    2    5    1    5004                          5179248000.000           
+LINK 2    3    1    3002 2    2    2    5    1    5003                          5179248000.000           
+LINK 2    3    1    3002 2    2    2    5    1    5005                          5179248000.000           
+LINK 2    3    1    3002 2    2    2    5    1    5012                          5257828561.8815975       
+ELEM 2    5    1    5006 2    5                   Improve subject line for email task list
+TYPE 2    5    1    5006 2    2    1    3001           
+TYPE 2    5    1    5006 2    7    2    3              
+TYPE 2    5    1    5006 2    13   6    31030          
+TYPE 2    5    1    5006 2    8    2    2              
+ELEM 2    5    1    5007 2    5                   Remove test attachment from Task List email
+TYPE 2    5    1    5007 2    8    2    1              
+TYPE 2    5    1    5007 2    2    1    3001           
+TYPE 2    5    1    5007 2    13   6    31101          
+TYPE 2    5    1    5007 2    7    2    1              
+ELEM 2    5    1    5008 2    5                   Correct column headings on email task list
+TYPE 2    5    1    5008 2    13   6    31101          
+TYPE 2    5    1    5008 2    2    1    3001           
+TYPE 2    5    1    5008 2    8    2    2              
+TYPE 2    5    1    5008 2    7    2    1              
+ELEM 2    5    1    5009 2    5                   Suppress HTML Warnings
+TYPE 2    5    1    5009 2    13   6    31221          
+TYPE 2    5    1    5009 2    2    1    3001           
+TYPE 2    5    1    5009 2    7    2    1              
+ELEM 2    5    1    5010 2    5                   App is slow. Please fix Client and/or Server.
+TYPE 2    5    1    5010 2    13   6    31221          
+TYPE 2    5    1    5010 2    2    1    3001           
+TYPE 2    5    1    5010 2    7    2    1              
+ELEM 2    5    1    5011 2    5                   Return message when non existent object is queried
+TYPE 2    5    1    5011 2    2    1    3001           
+TYPE 2    5    1    5011 2    7    2    1              
+TYPE 2    5    1    5011 2    8    2    2              
+TYPE 2    5    1    5011 2    13   6    50106          
+ELEM 2    5    1    5013 2    5                   App Menu: sort menu options based on link priority.
+TYPE 2    5    1    5013 2    2    1    3001           
+TYPE 2    5    1    5013 2    7    2    1              
+TYPE 2    5    1    5013 2    13   6    50213          
+ELEM 2    5    1    5014 2    5                   zinfinitree website menu option for address list does not work
+TYPE 2    5    1    5014 2    2    1    3001           
+TYPE 2    5    1    5014 2    7    2    1              
+TYPE 2    5    1    5014 2    8    2    2              
+TYPE 2    5    1    5014 2    13   6    50402          
+ELEM 2    5    1    5001 2    5                   Drop-down for type values
+TYPE 2    5    1    5001 2    2    1    3002           
+TYPE 2    5    1    5001 2    7    2    3              
+TYPE 2    5    1    5001 2    8    2    3              
+ELEM 2    5    1    5002 2    5                   Gabe's Description 05/06/23
+TYPE 2    5    1    5002 2    16   1    5001           
+TYPE 2    5    1    5002 2    8    2    1              
+TYPE 2    5    1    5002 2    7    2    1              
+TYPE 2    5    1    5002 2    2    1    3002           
+TYPE 2    5    1    5002 2    3    1    5001           
+ELEM 2    5    1    5004 2    5                   Add start date to task list
+TYPE 2    5    1    5004 2    2    1    3002           
+TYPE 2    5    1    5004 2    8    2    3              
+TYPE 2    5    1    5004 2    7    2    3              
+ELEM 2    5    1    5003 2    5                   Add task code and task status to task list
+TYPE 2    5    1    5003 2    2    1    3002           
+TYPE 2    5    1    5003 2    7    2    3              
+TYPE 2    5    1    5003 2    8    2    2              
+ELEM 2    5    1    5005 2    5                   Add date selector to task maintenance
+TYPE 2    5    1    5005 2    13   6    31024          
+TYPE 2    5    1    5005 2    7    2    3              
+TYPE 2    5    1    5005 2    2    1    3002           
+TYPE 2    5    1    5005 2    8    2    2              
+TYPE 2    5    1    5005 2    14   6    31231          
+ELEM 2    5    1    5012 2    5                   Add env variable to specify target namespace for website
+TYPE 2    5    1    5012 2    2    1    3002           
+TYPE 2    5    1    5012 2    7    2    2              
+TYPE 2    5    1    5012 2    8    2    2              
+TYPE 2    5    1    5012 2    13   6    50213          

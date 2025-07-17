@@ -1,0 +1,219 @@
+ZTIC 2    131131/21
+ZTIC 3    zinfinitree.com/address
+ZTIC 1    abc.com/test1
+ZTIC 4    zinfinitree.com/server_config
+ZTIC 5    zinfinitree.com/software
+
+RZTI 1          receiver ztic
+
+      mode 1 means create/update with no future timestamps [DEPRECATED]
+MODE%99                                                     [DEPRECATED replaced by MPPG]
+
+
+    message processing parameters--general
+     default timesmp     msg id-client       last idx  mode user                SWdsiSWcod           
+MPPG 5179248000.000      id123               1234      99   usr1                4    1    
+     
+     Desc                                    Timestamp
+MSET MaintainSetId#1                         5179248000.000  
+
+CMNT TMPL                                         template for maintaing a type definition
+
+     ObjKind   Object    ObjElem   Template  NewCd
+RecIdKzticKcodeOzticOcodeEzticEcodeTzticTcodeNewCdOEValue
+ELEM 2    9    2    1    2    9    2    9         Type Definition: Object Element Usage Type for a Object Element
+ELEM 2    9    2    2    2    9    2    9         Type Definition: Link Target Type for Link Type
+ELEM 2    9    2    3    2    9    2    9         Type Definition: Object Kind for Object Template    
+ELEM 2    9    2    4    2    9    2    9         Type Definition: Object Kind for Type Definition 
+ELEM 2    9    2    5    2    9    2    9         Type Definition: Code Range for Object Kind
+ELEM 2    9    2    6    2    9    2    9         Type Definition: Code Scheme for Code Range
+ELEM 2    9    2    7    2    9    2    9         Type Definition: Set of Functions for Software Runtime Component      
+ELEM 2    9    2    8    2    9    2    9         Type Definition: Patch Level for Software Runtime Component
+ELEM 2    9    2    9    2    9    2    9         Type Definition: Data Element for Object Element
+ELEM 2    9    2    10   2    9    2    9         Type Definition: Data Type for Data Element
+ELEM 2    9    2    11   2    9    2    9         Type Definition: Extended Key Definition for Data Element
+ELEM 2    9    2    12   2    9    2    9         Type Definition: Extended Key Definition Type for Extended Key Definition
+ELEM 2    9    2    13   2    9    2    9         Type Definition: Type Definition for Extended Key Definition
+ELEM 2    9    2    14   2    9    2    9         Type Definition: Object Set for a Type Definition for allowed Type Values
+ELEM 2    9    2    15   2    9    2    9         Type Definition: Increment Function for Code Scheme
+ELEM 2    9    2    16   2    9    2    9         Type Definition: Class/Program for Function
+ELEM 2    9    2    17   2    9    2    9         Type Definition: Patch Level for a Runtime Profile Component
+ELEM 2    9    2    18   2    9    2    9         Type Definition: Set of Classses/Programs for a Runtime Profile Component
+ELEM 2    9    2    19   2    9    2    9         Type Definition: Set Type for a Set
+ELEM 2    9    2    20   2    9    2    9         Type Definition: Object Template for Extended Key Definition using Composite Key 
+ELEM 2    9    2    21   2    9    2    9         Type Definition: Object Kind Type for Object Kind (standard, composite key etc)
+ELEM 2    9    2    22   2    9    2    9         Type Definition: Default Object Template for a Object Kind--Minimal Data (to return values)
+ELEM 2    9    2    23   2    9    2    9         Type Definition: Default Object Template for a Object Kind--Full Data (to return values)
+ELEM 2    9    2    24   2    9    2    9         Type Definition: Link Type for a Type Definition to create a bi-directional link (1 server generated + 1 type def) 
+ELEM 2    9    2    25   2    9    2    9         Type Definition: Object Template for a Type Definition (to select values of a type value)
+ELEM 2    9    2    26   2    9    2    9         Type Definition: Link Type Usage Type for a Link Type
+ELEM 2    9    2    27   2    9    2    9         Type Definition: Function Group Type for a Function Group
+ELEM 2    9    2    28   2    9    2    9         Type Definition: Template Type for a Template
+ELEM 2    9    2    29   2    9    2    9         Type Definition: Type Definition Usage Type for a Type Definition
+ELEM 2    9    2    30   2    9    2    9         Type Definition: Reference Template for a Template
+ELEM 2    9    2    31   2    9    2    9         Type Definition: Parameter for a Parameter Value
+ELEM 2    9    2    32   2    9    2    9         Type Definition: Statistic Type for a Statistical Values Object (sum, count, mode, mean, std deviation)
+ELEM 2    9    2    33   2    9    2    9         Type Definition: Object Set for a Statistical Values Object
+ELEM 2    9    2    34   2    9    2    9         Type Definition: Type Definition Path for a Statistical Values Dimension
+ELEM 2    9    2    35   2    9    2    9         Type Definition: Unit of Measure for a Statistical Values Object
+ELEM 2    9    2    36   2    9    2    9         Type Definition: Unit of Measure Dimension for a Unit of Measure
+ELEM 2    9    2    37   2    9    2    9         Type Definition: Object Element for a Statistical Values Object for source of data
+ELEM 2    9    2    38   2    9    2    9         Type Definition: Object Template for a Type Based Template Rule
+ELEM 2    9    2    39   2    9    2    9         Type Definition: Object Set for a Type Value Based Template Rule 
+ELEM 2    9    2    40   2    9    2    9         Type Definition: Object Set for Input Objects for a Type Values Based Object Set
+ELEM 2    9    2    41   2    9    2    9         Type Definition: Object Set for Type Values for a Type Value Based Object Set
+ELEM 2    9    2    42   2    9    2    9         Type Definition: Type Defininition Path for a Type Value Based Object Set
+ELEM 2    9    2    43   2    9    2    9         Type Definition: Object Template for a Link Based Template Rule
+ELEM 2    9    2    44   2    9    2    9         Type Definition: Object Set for a Link Based Template Rule
+ELEM 2    9    2    45   2    9    2    9         Type Definition: Object Template for an Object Element Value Based Template Rule
+ELEM 2    9    2    46   2    9    2    9         Type Definition: Object Set for an Object Element Value Based Template Rule
+ELEM 2    9    2    47   2    9    2    9         Type Definition: Object Element for an Object Element Value Based Template Rule
+ELEM 2    9    2    48   2    9    2    9         Type Definition: Object Set for a Data Element for validation of character values
+ELEM 2    9    2    49   2    9    2    9         Type Definition: Object Element for a Data Element for validation of character values
+ELEM 2    9    2    50   2    9    2    9         Type Definition: Set of Function Groups for a Function Group Set Launch Point
+ELEM 2    9    2    51   2    9    2    9         Type Definition: Function Group Set Launch Point for Function Group
+ELEM%2    9    2    52   2    9    2    9         Type Definition: User Interface Attribute Type for a User Interface Attribute
+ELEM%2    9    2    53   2    9    2    9         Type Definition: User Interface Attribute Category for a User Interface Attribute Type
+ELEM%2    9    2    54   2    9    2    9         Type Definition: Object Set of support objects for a User Interface Attribute 
+
+
+
+
+     ObjKind   Object    TypeDef   Type      Template
+RecIdKdiscKcodeOzticOcodeTDdsiTDcodTzticTcodeTzticTcode
+TYPE 2    9    2    1    2    4    2    1               Object Kind for Type Definition: Object Kind for Object Element
+TYPE 2    9    2    2    2    4    2    11              Object Kind for Type Definition: Link Target Type for Link Type
+TYPE 2    9    2    3    2    4    2    1               Object Kind for Type Definition: Object Kind for Object Template
+TYPE 2    9    2    4    2    4    2    1               Object Kind for Type Definition: Object Kind for Type Definition
+TYPE 2    9    2    5    2    4    2    21              Object Kind for Type Definition: Code Range for Object Kind
+TYPE%2    9    2    5    2    4    2    22              Object Kind for Type Definition: Code Scheme for Object Kind
+TYPE 2    9    2    6    2    4    2    22              Object Kind for Type Definition: Code Scheme for Code Range
+TYPE 2    9    2    7    2    4    2    13              Object Kind for Type Definition: Set of Functions for Server Software Runtime Component      
+TYPE 2    9    2    8    2    4    5    9               Object Kind for Type Definition: Patch Level for Server Software Runtime Component
+TYPE 2    9    2    9    2    4    2    31              Object Kind for Type Definition: Data Element for Object Element
+TYPE 2    9    2    10   2    4    2    32              Object Kind for Type Definition: Data Type for Data Element
+TYPE 2    9    2    11   2    4    2    33              Object Kind for Type Definition: Extended Key Definition for Data Element
+TYPE 2    9    2    12   2    4    2    34              Object Kind for Type Definition: Extended Key Category for Extended Key Definition
+TYPE 2    9    2    13   2    4    2    9               Object Kind for Type Definition: Type Definition for Extended Key Definition
+TYPE 2    9    2    14   2    4    2    13              Object Kind for Type Definition: Object Set for Type Definition for allowed type values
+TYPE 2    9    2    15   2    4    2    36              Object Kind for Type Definition: Increment Function for Code Scheme
+TYPE 2    9    2    16   2    4    2    37              Object Kind for Type Definition: Class/Program for a Function
+TYPE 2    9    2    17   2    4    2    44              Object Kind for Type Definition: Patch Level for a Runtime Profile Component
+TYPE 2    9    2    18   2    4    2    13              Object Kind for Type Definition: Set of Classses/Programs for a Runtime Profile Component
+TYPE 2    9    2    19   2    4    2    14              Object Kind for Type Definition: Set Type for a Set 
+TYPE 2    9    2    20   2    4    2    2               Object Kind for Type Definition: Object Template for Extended Key Definition using Composite Key   20201014
+TYPE 2    9    2    21   2    4    2    8               Object Kind for Type Definition: Object Kind Type for Object Kind (standard, composite key etc) 20201014
+TYPE 2    9    2    22   2    4    2    2               Object Kind for Type Definition: Default Object Template for a Object Kind--Minimal Data (to return values)
+TYPE 2    9    2    23   2    4    2    2               Object Kind for Type Definition: Default Object Template for a Object Kind--Full Data (to return values)
+
+TYPE 2    9    2    24   2    4    2    10              Object Kind for Type Definition: Link Type for a Type Definition to create a bi-directional link (1 server generated + 1 type def) 
+TYPE 2    9    2    25   2    4    2    2               Object Kind for Type Definition: Object Template for a Type Definition (to select values of a type value)
+TYPE 2    9    2    26   2    4    2    58              Object Kind for Type Definition: Link Type Usage Type for a Link Type  (NOTE check this, should be 47 not 58 ???)
+
+TYPE 2    9    2    27   2    4    2    54              Object Kind for Type Definition: Calculated Value Scenario for a Data Element
+TYPE 2    9    2    28   2    4    2    36              Object Kind for Type Definition: Function for a Calculated Value Scenario
+TYPE%2    9    2    29   2    4    2    9               Object Kind for Type Definition: Type Definition Type for a Type Definition
+TYPE 2    9    2    30   2    4    2    2               Object Kind for Type Definition: Reference Template for a Template
+TYPE 2    9    2    31   2    4    2    26              Object Kind for Type Definition: Parameter for a Parameter Value
+
+TYPE 2    9    2    32   2    4    2    60              Object Kind for Type Definition: Statistic Type for a Statistical Values Object (sum, count, mode, mean, std deviation)
+TYPE 2    9    2    33   2    4    2    13              Object Kind for Type Definition: Object Set for a Statistical Values Object
+TYPE 2    9    2    34   2    4    2    56              Object Kind for Type Definition: Type Definition Path for a Statistical Values Dimension
+TYPE 2    9    2    35   2    4    2    61              Object Kind for Type Definition: Unit of Measure for a Statistical Values Object
+TYPE 2    9    2    36   2    4    2    62              Object Kind for Type Definition: Unit of Measure Dimension for a Unit of Measure
+TYPE 2    9    2    37   2    4    2    3               Object Kind for Type Definition: Object Element for a Statistical Values Object for source of data
+
+TYPE 2    9    2    38   2    4    2    2               Object Kind for Type Definition: Object Template for a Type Based Template Rule
+TYPE 2    9    2    39   2    4    2    13              Object Kind for Type Definition: Object Set for a Type Based Template Rule
+
+TYPE 2    9    2    40   2    4    2    13              Object Kind for Type Definition: Object Set for Input Objects for a Type Values Based Object Set
+TYPE 2    9    2    41   2    4    2    13              Object Kind for Type Definition: Object Set for Type Values for a Type Value Based Object Set
+TYPE 2    9    2    42   2    4    2    56              Object Kind for Type Definition: Type Defininition Path for a Type Value Based Object Set
+
+TYPE 2    9    2    43   2    4    2    2               Object Kind for Type Definition: Object Template for a Link Based Template Rule
+TYPE 2    9    2    44   2    4    2    13              Object Kind for Type Definition: Object Set for a Link Based Template Rule
+TYPE 2    9    2    45   2    4    2    2               Object Kind for Type Definition: Object Template for an Object Element Value Based Template Rule
+TYPE 2    9    2    46   2    4    2    13              Object Kind for Type Definition: Object Set for an Object Element Value Based Template Rule
+TYPE 2    9    2    47   2    4    2    3               Object Kind for Type Definition: Object Element for an Object Element Value Based Template Rule
+TYPE 2    9    2    48   2    4    2    13              Object Kind for Type Definition: Object Set for a Data Element for validation of character values
+TYPE 2    9    2    49   2    4    2    3               Object Kind for Type Definition: Object Element for a Data Element for validation of character values
+TYPE 2    9    2    50   2    4    2    13              Object Kind for Type Definition: Object Set for a Function Group Set Launch Point
+TYPE 2    9    2    51   2    4    2    67              Object Kind for Type Definition: Function Group Set Launch Point for Function Group
+
+   object sets for type defs
+TYPE%2    9    2    1    2    14   2    16              Object Set for Type Def Object Element Usage Type for a Object Element: Set of all Object Element Usage Types   
+TYPE%2    9    2    21   2    14   2    8               Object Set for Type Def Object Kind Type for Object Kind: Object Set of all Object Kind Types
+
+
+   object sets for type defs
+TYPE 2    9    2    1    2    14   2    1               Object Set for Type Definition: Object Kind for Object Element: set of all Object Kinds
+TYPE 2    9    2    2    2    14   2    11              Object Set for Type Definition: Link Target Type for Link Type: set of all Link Target Types
+TYPE 2    9    2    3    2    14   2    1               Object Set for Type Definition: Object Kind for Object Template: set of all Object Kinds 
+TYPE 2    9    2    4    2    14   2    1               Object Set for Type Definition: Object Kind for Type Definition: set of all Object Kinds
+TYPE 2    9    2    5    2    14   2    21              Object Set for Type Definition: Code Range for Object Kind: set of all Code Ranges
+TYPE%2    9    2    5    2    14   2    22              Object Set for Type Definition: Code Scheme for Object Kind: set of all Code Schemes
+TYPE 2    9    2    6    2    14   2    22              Object Set for Type Definition: Code Scheme for Code Range: set of all Code Schemes
+TYPE 2    9    2    7    2    14   2    13              Object Set for Type Definition: Set of Functions for Server Software Runtime Component: set of all Sets     
+TYPE%2    9    2    8    2    14   5    9               Object Set for Type Definition: Patch Level for Server Software Runtime Component: set of all Patch Levels (del) 20241217
+TYPE 2    9    2    8    2    14   2    44              Object Set for Type Definition: Patch Level for Server Software Runtime Component: set of all Patch Levels
+TYPE 2    9    2    9    2    14   2    31              Object Set for Type Definition: Data Element for Object Element: set of all Data Elements
+TYPE 2    9    2    10   2    14   2    32              Object Set for Type Definition: Data Type for Data Element: set of all Data Types
+TYPE 2    9    2    11   2    14   2    33              Object Set for Type Definition: Extended Key Definition for Data Element: set of all Extended Key Definitions
+TYPE 2    9    2    12   2    14   2    34              Object Set for Type Definition: Extended Key Category for Extended Key Definition: set of all Extended Key Categories
+TYPE 2    9    2    13   2    14   2    9               Object Set for Type Definition: Type Definition for Extended Key Definition: set of all Type Definitions
+TYPE 2    9    2    14   2    14   2    13              Object Set for Type Definition: Object Set for Type Definition for allowed type values: set of all Sets
+TYPE 2    9    2    15   2    14   2    36              Object Set for Type Definition: Increment Function for Code Scheme: set of all Functions
+TYPE 2    9    2    16   2    14   2    37              Object Set for Type Definition: Class/Program for a Function: set of all Class/Programs
+TYPE 2    9    2    17   2    14   2    44              Object Set for Type Definition: Patch Level for a Runtime Profile Component: set of all Patch Levels
+TYPE 2    9    2    18   2    14   2    13              Object Set for Type Definition: Set of Classses/Programs for a Runtime Profile Component: set of all Classes/Programs
+TYPE 2    9    2    19   2    14   2    14              Object Set for Type Definition: Set Type for a Set: set of all Set Types
+TYPE 2    9    2    20   2    14   2    2               Object Set for Type Definition: Object Template for Extended Key Definition using Composite Key   20201014: set of all Object Templates
+TYPE 2    9    2    21   2    14   2    8               Object Set for Type Definition: Object Kind Type for Object Kind (standard, composite key etc) 20201014: set of all Object Kind Types
+TYPE 2    9    2    22   2    14   2    2               Object Set for Type Definition: Default Object Template for a Object Kind--Minimal Data (to return values): set of all Templates
+TYPE 2    9    2    23   2    14   2    2               Object Set for Type Definition: Default Object Template for a Object Kind--Full Data (to return values): set of all Templates
+
+TYPE 2    9    2    24   2    14   2    10              Object Set for Type Definition: Link Type for a Type Definition to create a bi-directional link (1 server generated + 1 type def): set of all Link Types
+TYPE 2    9    2    25   2    14   2    2               Object Set for Type Definition: Object Template for a Type Definition (to select values of a type value): set of all Templates
+TYPE 2    9    2    26   2    14   2    58              Object Set for Type Definition: Link Type Usage Type for a Link Type  (NOTE check this, should be 47 not 58 ???): set of all Link Type Usage Types
+
+TYPE 2    9    2    27   2    14   2    54              Object Set for Type Definition: Calculated Value Scenario for a Data Element: set of all Calculated Value Scenarios
+TYPE 2    9    2    28   2    14   2    36              Object Set for Type Definition: Function for a Calculated Value Scenario: set of all Functions
+TYPE%2    9    2    29   2    14   2    9               Object Set for Type Definition: Type Definition Type for a Type Definition: set of all Type Definitions Types
+TYPE 2    9    2    30   2    14   2    2               Object Set for Type Definition: Reference Template for a Template: set of all Templates
+TYPE 2    9    2    31   2    14   2    26              Object Set for Type Definition: Parameter for a Parameter Value: set of all Parameters
+
+TYPE 2    9    2    32   2    14   2    60              Object Set for Type Definition: Statistic Type for a Statistical Values Object (sum, count, mode, mean, std deviation): set of all Statistic Types
+TYPE 2    9    2    33   2    14   2    13              Object Set for Type Definition: Object Set for a Statistical Values Object: set of all Object Sets
+TYPE 2    9    2    34   2    14   2    56              Object Set for Type Definition: Type Definition Path for a Statistical Values Dimension: set of all Type Definition Paths
+TYPE 2    9    2    35   2    14   2    61              Object Set for Type Definition: Unit of Measure for a Statistical Values Object: set of all Units of Measure
+TYPE 2    9    2    36   2    14   2    62              Object Set for Type Definition: Unit of Measure Dimension for a Unit of Measure: set of all Unit of Measure Dimensions
+TYPE 2    9    2    37   2    14   2    3               Object Set for Type Definition: Object Element for a Statistical Values Object for source of data: set of all Object Elements
+
+TYPE 2    9    2    38   2    14   2    2               Object Set for Type Definition: Object Template for a Type Based Template Rule: set of all Templates
+TYPE 2    9    2    39   2    14   2    13              Object Set for Type Definition: Object Set for a Type Based Template Rule: set of all Sets
+
+TYPE 2    9    2    40   2    14   2    13              Object Set for Type Definition: Object Set for Input Objects for a Type Values Based Object Set: set of all Sets
+TYPE 2    9    2    41   2    14   2    13              Object Set for Type Definition: Object Set for Type Values for a Type Value Based Object Set: set of all Sets
+TYPE 2    9    2    42   2    14   2    56              Object Set for Type Definition: Type Defininition Path for a Type Value Based Object Set: set of all Type Definition Paths
+
+TYPE 2    9    2    43   2    14   2    2               Object Set for Type Definition: Object Template for a Link Based Template Rule: set of all Templates
+TYPE 2    9    2    44   2    14   2    13              Object Set for Type Definition: Object Set for a Link Based Template Rule: set of all Sets
+TYPE 2    9    2    45   2    14   2    2               Object Set for Type Definition: Object Template for an Object Element Value Based Template Rule: set of all Templates
+TYPE 2    9    2    46   2    14   2    13              Object Set for Type Definition: Object Set for an Object Element Value Based Template Rule: set of all Sets
+TYPE 2    9    2    47   2    14   2    3               Object Set for Type Definition: Object Element for an Object Element Value Based Template Rule: set of all Object Elements
+TYPE 2    9    2    48   2    14   2    13              Object Set for Type Definition: Object Set for a Data Element for validation of character values: set of all Sets
+TYPE 2    9    2    49   2    14   2    3               Object Set for Type Definition: Object Element for a Data Element for validation of character values: set of all Object Elements
+TYPE 2    9    2    50   2    14   2    13              Object Set for Type Definition: Object Set for a Function Group Set Launch Point
+TYPE 2    9    2    51   2    14   2    67              Object Set for Type Definition: Function Group Set Launch Point for a Function Group
+
+
+
+
+     ObjKind   Object    LinkType   ToKind   ToObject  Template
+RecIdKzticKcodeOzticOcodeLTdsiLTcodLKdsiLKcodLzticLcodeTzticTcode         
+LINK%2    2    3    1    2    1    2    12   3    1    2    2    link object template to technical profile
+
+
+
+
+

@@ -1,0 +1,390 @@
+ZTIC 2    131131/21
+ZTIC 3    zinfinitree.com/math
+ZTIC 1    abc.com/test1
+ZTIC 4    zinfinitree.com/server_config
+ZTIC 5    zinfinitree.com/spreadsheet
+ZTIC 6    zinfinitree.com/multimedia_object
+ZTIC 7    131131/22
+ZTIC 8    zinfinitree.com/time
+ZTIC 9    zinfinitree.com/time_tz_est
+ZTIC 10   zinfinitree.com/person
+
+
+RZTI 1          receiver ztic
+ 
+
+  
+
+
+      mode 1 means create/update with no future timestamps [DEPRECATED]
+MODE%1                                                     [DEPRECATED replaced by MPPG]
+
+
+    message processing parameters--general
+     default timesmp     msg id-client       last idx  mode user                SWdsiSWcod           
+MPPG 5179248000.000      id123               1234      99   usr1                4    2    
+
+
+
+     ExtKeyDef ExtKeyVal     
+RecIdEKDdsEKDcoEKVdsEKVco
+EXTK 2    2    2    1
+
+     
+     Desc                                    Timestamp
+MSET MaintainSetId#1                         5179248000.000  
+
+CMNT TMPL                                        template for maintaing an object
+
+     ObjKind   Object    ObjElem   Template  
+RecIdKzticKcodeOzticOcodeEzticEcodeTzticTcode     OEValue
+ELEM 2    1    3    1    2    1    2    1         Math Term (Object Kind)
+ELEM 2    1    3    2    2    1    2    1         Math Term Type (Object Kind)
+ELEM 2    1    3    3    2    1    2    1         ? (Object Kind)
+
+ELEM 2    1    3    4    2    1    2    1         Workflow Action Step (Object Kind)
+ELEM 2    1    3    5    2    1    2    1         Workflow Action Step Type (Object Kind)
+ELEM 2    1    3    6    2    1    2    1         Workflow Step Series (Object Kind)
+ELEM 2    1    3    7    2    1    2    1         Conditional Branch Step (Object Kind)
+ELEM 2    1    3    8    2    1    2    1         Workflow Loop Step (Object Kind)
+
+   
+ELEM 2    2    3    1    2    2    2    2         Application (Base Template)     
+ELEM 2    2    3    2    2    2    2    2         Application Page (Base Template)
+ELEM 2    2    3    3    2    2    2    2         Menu (Base Template)
+ELEM 2    2    3    4    2    2    2    2         Menu Option (Base Template)
+ELEM 2    2    3    5    2    2    2    2         Menu Type (Base Template)
+ELEM 2    2    3    6    2    2    2    2         Application Action (Base Template)
+ELEM 2    2    3    7    2    2    2    2         Application Action Type (Base Template)
+
+ELEM 2    12   3    1    2    12   2    12        Application (Technical Profile)
+ELEM 2    12   3    2    2    12   2    12        Application Page (Technical Profile)
+ELEM 2    12   3    3    2    12   2    12        Menu (Technical Profile)
+ELEM 2    12   3    4    2    12   2    12        Menu Option (Technical Profile)
+ELEM 2    12   3    5    2    12   2    12        Menu Type (Technical Profile)
+ELEM 2    12   3    6    2    12   2    12        Application Action (Technical Profile)
+ELEM 2    12   3    7    2    12   2    12        Application Action Type (Technical Profile)
+ELEM 2    21   3    1    2    21   2    21        Code Range for Application (Code Range)
+ELEM 2    21   3    2    2    21   2    21        Code Range for Application Page (Code Range)
+ELEM 2    21   3    3    2    21   2    21        Code Range for Menu (Code Range)
+ELEM 2    21   3    4    2    21   2    21        Code Range for Menu Option (Code Range)
+ELEM 2    21   3    5    2    21   2    21        Code Range for Menu Type (Code Range)
+ELEM 2    21   3    6    2    21   2    21        Code Range for Application Action (Code Range)
+ELEM 2    21   3    7    2    21   2    21        Code Range for Application Action Type (Code Range)
+ELEM 2    21   3    1    2    204  2    21        1001
+ELEM 2    21   3    2    2    204  2    21        2001
+ELEM 2    21   3    3    2    204  2    21        3001
+ELEM 2    21   3    4    2    204  2    21        4001
+ELEM 2    21   3    5    2    204  2    21        5001
+ELEM 2    21   3    6    2    204  2    21        6001
+ELEM 2    21   3    7    2    204  2    21        7001
+ELEM 2    2    3    6    2    2    2    1         Code Range for Application (Base Template) 
+ELEM 2    2    3    7    2    2    2    1         Code Range for Application Page (Base Template)
+ELEM 2    2    3    8    2    2    2    1         Code Range for Menu (Base Template)
+ELEM 2    2    3    9    2    2    2    1         Code Range for Menu Option (Base Template)
+ELEM 2    2    3    10   2    2    2    1         Code Range for Menu Type (Base Template)
+ELEM 2    2    3    11   2    2    2    1         Code Range for Application Action (Base Template)
+ELEM 2    2    3    12   2    2    2    1         Code Range for Application Action Type (Base Template)
+ELEM 2    12   3    6    2    12   2    12        Code Range for Application (Technical Profile)
+ELEM 2    12   3    7    2    12   2    12        Code Range for Application Page (Technical Profile)
+ELEM 2    12   3    8    2    12   2    12        Code Range for Menu (Technical Profile)
+ELEM 2    12   3    9    2    12   2    12        Code Range for Menu Option (Technical Profile)
+ELEM 2    12   3    10   2    12   2    12        Code Range for Menu Type (Technical Profile)
+ELEM 2    12   3    11   2    12   2    12        Code Range for Application Action (Technical Profile)
+ELEM 2    12   3    12   2    12   2    12        Code Range for Application Action Type (Technical Profile)
+
+ELEM 2    3    3    1    2    3    2    3         Application Description         (Object Element)
+ELEM 2    3    3    2    2    3    2    3         Application Long Description    (Object Element)
+ELEM 2    3    3    3    2    3    2    3         Application Title               (Object Element)
+ELEM 2    3    3    4    2    3    2    3         Application Page Description (Object Element)
+ELEM 2    3    3    5    2    3    2    3         Application Page Title       (Object Element)
+ELEM 2    3    3    6    2    3    2    3         Menu Description    (Object Element)
+ELEM 2    3    3    7    2    3    2    3         Menu Label (Object Element)
+ELEM 2    3    3    8    2    3    2    3         Menu Option Description (Object Element)
+ELEM 2    3    3    9    2    3    2    3         Menu Option Label (Object Element)
+ELEM 2    3    3    10   2    3    2    3         Menu Type Description (Object Element)
+ELEM 2    3    3    11   2    3    2    3         Application Action Description (Object Element)
+
+ELEM 2    3    3    12   2    3    2    3         Workflow Step Type Description (Object Element)
+
+ELEM 2    3    3    13   2    3    2    3         Application Action Object Template Namespace (Object Element)
+ELEM 2    3    3    14   2    3    2    3         Application Action Object Template Code (Object Element)
+ELEM 2    3    3    15   2    3    2    3         Application Action Maintenance Mode (Object Element)
+ELEM 2    3    3    16   2    3    2    3         Application Action Maintenance Format (Object Element)
+
+ELEM 2    31   3    1    2    31   2    31        Application Description DE (Data Element)
+ELEM 2    31   3    2    2    31   2    31        Application Long Description DE    (Data Element)
+ELEM 2    31   3    3    2    31   2    31        Application Title DE               (Data Element)
+ELEM 2    31   3    4    2    31   2    31        Application Page Description DE (Data Element)
+ELEM 2    31   3    5    2    31   2    31        Application Page Title DE        (Data Element)
+ELEM 2    31   3    6    2    31   2    31        Menu Description       (Data Element)
+ELEM 2    31   3    7    2    31   2    31        Menu Label (Data Element)
+ELEM 2    31   3    8    2    31   2    31        Menu Option Description          (Data Element)
+ELEM 2    31   3    9    2    31   2    31        Menu Option Label (Data Element)
+ELEM 2    31   3    10   2    31   2    31        Menu Type Description (Data Element)
+ELEM 2    31   3    11   2    31   2    31        Application Action Description (Data Element)
+ELEM 2    31   3    12   2    31   2    31        Application Action Type Description (Data Element)
+ELEM 2    31   3    13   2    31   2    31        Application Action Object Template Namespace DE (Data Element)
+ELEM 2    31   3    14   2    31   2    31        Application Action Object Template Code DE (Data Element)
+ELEM 2    31   3    15   2    31   2    31        Application Action Maintenance Mode DE (Data Element)
+ELEM 2    31   3    16   2    31   2    31        Application Action Maintenance Format DE (Data Element)
+
+ELEM 2    31   3    100  2    31   2    31        Current Code                    (Data Element)
+ELEM 2    32   3    1    2    32   2    32        Application Description  DT           (Data Type)
+ELEM 2    32   3    2    2    32   2    32        Application Long Description  DT      (Data Type)
+ELEM 2    32   3    3    2    32   2    32        Application Title DT                  (Data Type)
+ELEM 2    32   3    4    2    32   2    32        Application Page Description  DT      (Data Type)
+ELEM 2    32   3    5    2    32   2    32        Application Page Title        DT      (Data Type)
+ELEM 2    32   3    6    2    32   2    32        Menu Description              DT      (Data Type)
+ELEM 2    32   3    7    2    32   2    32        Menu Label                    DT      (Data Type)
+ELEM 2    32   3    8    2    32   2    32        Menu Option Description    DT      (Data Type)
+ELEM 2    32   3    9    2    32   2    32        Menu Option Label          DT      (Data Type)
+ELEM 2    32   3    10   2    32   2    32        Menu Type Description      DT      (Data Type)
+ELEM 2    32   3    11   2    32   2    32        Application Action Description (Data Type)
+ELEM 2    32   3    12   2    32   2    32        Application Action Type Description (Data Type)
+ELEM 2    32   3    13   2    32   2    32        Application Action Object Template Namespace (Data Type)
+ELEM 2    32   3    14   2    32   2    32        Application Action Object Template Code (Data Type)
+ELEM 2    32   3    15   2    32   2    32        Application Action Maintenance Mode (Data Type)
+ELEM 2    32   3    16   2    32   2    32        Application Action Maintenance Format (Data Type)
+
+ELEM 2    32   3    100  2    32   2    32        Current Code for Document DT      (Data Type)
+ELEM 2    10   3    1    2    10   2    10        Link Type: Lock Definition to Template to be locked
+              
+ELEM 2    10   3    2    2    10   2    10        Link Type: Workflow Step Series to Workflow Step
+ELEM 2    10   3    3    2    10   2    10        Link Type: Workflow Step Series to Conditional Branch
+ELEM 2    10   3    4    2    10   2    10        Link Type: Workflow Step Series to Workflow Loop
+ELEM 2    10   3    5    2    10   2    10        Link Type: Conditional Branch to Workflow Step Series
+ELEM 2    10   3    6    2    10   2    10        Link Type: Workflow Loop to Workflow Step Series
+ELEM 2    10   3    7    2    10   2    10        Link Type: 
+ELEM 2    11   3    1    2    11   2    11        Link Target Type: Application to Application Page 
+ELEM 2    11   3    2    2    11   2    11        Link Target Type: Application Page to Menu 
+ELEM 2    11   3    3    2    11   2    11        Link Target Type: Application Page to Spreadsheet
+ELEM 2    11   3    4    2    11   2    11        Link Target Type: Menu to Menu Option
+ELEM 2    11   3    5    2    11   2    11        Link Target Type: Menu Option to Application Action
+ELEM 2    11   3    6    2    11   2    11        Link Target Type: Menu Opiion to Menu Option
+ELEM 2    11   3    7    2    11   2    11        Link Target Type: Application Action to Resource
+
+ELEM 2    9    3    1    2    9    2    9         Type Definition: Lock Definition for Lock
+ELEM%2    9    3    2    2    9    2    9         Type Definition: Application Action Type for Application Action
+ELEM%2    9    3    3    2    9    2    9         Type Definition: Storage Location for a Thing
+ELEM%2    9    3    4    2    9    2    9         Type Definition: Thing for a Thing Transaction Line Item
+ELEM%2    9    3    5    2    9    2    9         Type Definition: Thing Transaction Line Item Type for a Thing Tr LI
+ELEM%2    9    3    6    2    9    2    9         Type Definition: Date for a Thing Transaction Line Item
+ELEM%2    9    3    7    2    9    2    9         Type Definition: Person for a Thing Transaction Line Item
+
+
+ELEM 3    8    3    1    3    12   3    8         Start (Workflow Step Type)
+ELEM 3    8    3    2    3    12   3    8         Loop (Workflow Step Type)
+ELEM 3    8    3    3    3    12   3    8         Branch (Workflow Step Type)
+ELEM 3    8    3    4    3    12   3    8         Get Object Values (Workflow Step Type)
+ELEM 3    8    3    5    3    12   3    8         Set Object Values (Workflow Step Type)
+ELEM 3    8    3    6    3    12   3    8         Maintain (Workflow Step Type)
+ELEM 3    8    3    7    3    12   3    8         Query (Workflow Step Type)
+ELEM 3    8    3    8    3    12   3    8         Decision (Workflow Step Type)
+ELEM 3    8    3    9    3    12   3    8         Timer (Workflow Step Type)
+ELEM 3    8    3    10   3    12   3    8         End (Workflow Step Type)
+
+
+
+  max length for data elements used for document
+ELEM 2    31   3    1    2    214  2    31        45             Application Description
+ELEM 2    31   3    2    2    214  2    31        85             Application Long Description
+ELEM 2    31   3    3    2    214  2    31        60             Application Title
+ELEM 2    31   3    4    2    214  2    31        45             Application Page Description
+ELEM 2    31   3    5    2    214  2    31        60             Application Page Title
+ELEM 2    31   3    6    2    214  2    31        45             Menu Description
+ELEM 2    31   3    7    2    214  2    31        60             Menu Label
+ELEM 2    31   3    8    2    214  2    31        45             Menu Option Description
+ELEM 2    31   3    9    2    214  2    31        60             Menu Option Label
+ELEM 2    31   3    10   2    214  2    31        45             Menu Type Description
+ELEM 2    31   3    11   2    214  2    31        45             Application Action Description
+ELEM 2    31   3    12   2    214  2    31        45             Application Action Type Description
+ELEM 2    31   3    13   2    214  2    31        75             Application Action Object Template Namespace
+ELEM 2    31   3    14   2    214  2    31        5              Application Action Object Template Code
+ELEM 2    31   3    15   2    214  2    31        5              Application Action Maintenance Mode
+ELEM 2    31   3    16   2    214  2    31        5              Application Action Maintenance Format
+ELEM 2    31   3    100  2    214  2    31        10             Current Code
+
+
+     ObjKind   Object    TypeDef   Type      Template  
+RecIdKdiscKcodeOzticOcodeTDdsiTDcodTzticTcodeTzticTcode
+TYPE 2    2    3    1    2    3    3    1               Object Kind for template for Application
+TYPE 2    2    3    2    2    3    3    2               Object Kind for template for Application Page
+TYPE 2    2    3    3    2    3    3    3               Object Kind for template for Menu
+TYPE 2    2    3    4    2    3    3    4               Object Kind for template for Menu Option
+TYPE 2    2    3    5    2    3    3    5               Object Kind for template for Menu Type
+TYPE 2    2    3    6    2    3    3    6               Object Kind for template for Application Action
+TYPE 2    2    3    7    2    3    3    7               Object Kind for template for Application Action Type
+ 
+TYPE 2    1    3    1    2    5    3    1               Code Range for Application
+TYPE 2    1    3    2    2    5    3    2               Code Range for Application Page
+TYPE 2    1    3    3    2    5    3    3               Code Range for Menu
+TYPE 2    1    3    4    2    5    3    4               Code Range for Menu Option
+TYPE 2    1    3    5    2    5    3    5               Code Range for Menu Type
+TYPE 2    1    3    6    2    5    3    6               Code Range for Application Action
+TYPE 2    1    3    7    2    5    3    7               Code Range for Application Action Type
+TYPE 2    21   3    1    2    6    2    1               Code Scheme for Application Code Range
+TYPE 2    21   3    2    2    6    2    1               Code Scheme for Application Page Code Range
+TYPE 2    21   3    3    2    6    2    1               Code Scheme for Menu Code Range
+TYPE 2    21   3    4    2    6    2    1               Code Scheme for Menu Option Code Range
+TYPE 2    21   3    5    2    6    2    1               Code Scheme for Menu Type Code Range
+TYPE 2    21   3    6    2    6    2    1               Code Scheme for Application Action
+TYPE 2    21   3    7    2    6    2    1               Code Scheme for Application Action Type
+TYPE 2    3    3    1    2    9    3    1               Data Element for Application Description Object Element
+TYPE 2    3    3    2    2    9    3    2               Data Element for Applicaton Long Description Object Element
+TYPE 2    3    3    3    2    9    3    3               Data Element for Application Title Object Element
+TYPE 2    3    3    4    2    9    3    4               Data Element for Application Page Description Object Element
+TYPE 2    3    3    5    2    9    3    5               Data Element for Application Page Title Object Element
+TYPE 2    3    3    6    2    9    3    6               Data Element for Menu Description Object Element
+TYPE 2    3    3    7    2    9    3    7               Data Element for Menu Label Object Element 
+TYPE 2    3    3    8    2    9    3    8               Data Element for Menu Option Description Object Element
+TYPE 2    3    3    9    2    9    3    9               Data Element for Menu Option Label Object Element
+TYPE 2    3    3    10   2    9    3    10              Data Element for Menu Type Description Object Element
+TYPE 2    3    3    11   2    9    3    11              Data Element for Application Action Description Object Element
+TYPE 2    3    3    12   2    9    3    12              Data Element for Application Action Type Description Object Element
+TYPE 2    3    3    13   2    9    3    13              Data Element for Application Action Object Template Namespace Object Element
+TYPE 2    3    3    14   2    9    3    14              Data Element for Application Action Object Template Code Object Element
+TYPE 2    3    3    15   2    9    3    15              Data Element for Application Action Maintenance Mode Object Element
+TYPE 2    3    3    16   2    9    3    16              Data Element for Application Action Format Object Element
+
+
+TYPE 2    31   3    1    2    10   3    1               Data Type for Application Description Data Element
+TYPE 2    31   3    2    2    10   3    2               Data Type for Application Long Description Data Element
+TYPE 2    31   3    3    2    10   3    3               Data Type for Application Title Data Element
+TYPE 2    31   3    4    2    10   3    4               Data Type for Application Page Description Data Element
+TYPE 2    31   3    5    2    10   3    5               Data Type for Application Page Title Data Element
+TYPE 2    31   3    6    2    10   3    6               Data Type for Menu Description Data Element
+TYPE 2    31   3    7    2    10   3    7               Data Type for Menu Label Data Element
+TYPE 2    31   3    8    2    10   3    8               Data Type for Menu Option Description Data Element
+TYPE 2    31   3    9    2    10   3    9               Data Type for Menu Option Label Data Element
+TYPE 2    31   3    10   2    10   3    10              Data Type for Menu Type Description Data Element
+TYPE 2    31   3    11   2    10   3    11              Data Type for Application Action Description Data Element 
+TYPE 2    31   3    12   2    10   3    12              Data Type for Application Action Type Description Data Element
+TYPE 2    31   3    13   2    10   3    13              Data Type for Application Action Object Template Namespace Data Element
+TYPE 2    31   3    14   2    10   3    14              Data Type for Application Action Object Template Code Data Element
+TYPE 2    31   3    15   2    10   3    15              Data Type for Application Action Maintenance Mode Data Element
+TYPE 2    31   3    16   2    10   3    16              Data Type for Application Action Format Data Element
+
+
+TYPE 2    31   3    1    2    11   2    2               Extended Key Definition (language) for Application Description Data Element
+TYPE 2    31   3    2    2    11   2    2               Extended Key Definition (language) for Application Long Description Data Element
+TYPE 2    31   3    3    2    11   2    2               Extended Key Definition (language) for Application Title Data Element
+TYPE 2    31   3    4    2    11   2    2               Extended Key Definition (language) for Application Page Description Data Element
+TYPE 2    31   3    6    2    11   2    2               Extended Key Definition (language) for Application Page Title Data Element
+TYPE 2    31   3    7    2    11   2    2               Extended Key Definition (language) for Menu Description Data Element
+TYPE 2    31   3    8    2    11   2    2               Extended Key Definition (language) for Menu Label Data Element
+TYPE 2    31   3    9    2    11   2    2               Extended Key Definition (language) for Menu Type Description
+TYPE 2    31   3    11   2    11   2    2               Extended Key Definition (language) for Application Action Description
+TYPE 2    31   3    12   2    11   2    2               Extended Key Definition (language) for Application Action Type Description
+
+
+TYPE 2    10   3    1    2    2    3    1               link target type for link type for application to application  page 
+TYPE 2    10   3    2    2    2    3    2               link target type for link type for application page to menu
+TYPE 2    10   3    3    2    2    3    3               link target type for link type for application page to spreadsheet
+TYPE 2    10   3    4    2    2    3    4               link target type for link type for menu to menu option
+TYPE 2    10   3    5    2    2    3    5               link target type for link type for menu option to application action
+TYPE 2    10   3    6    2    2    3    6               link target type for link type for menu option to menu option
+
+
+
+
+TYPE 2    9    3    1    2    4    3    5               Object Kind for Type Def Menu Type for Menu: Object Kind for Menu Type 
+TYPE 2    9    3    2    2    4    3    7               Object Kind for Type Def Application Action Type for Application Action: Object Kind for Application Action Type
+
+
+
+
+
+
+     ObjKind   Object    TypeDef   Type      Template
+RecIdKdiscKcodeOzticOcodeTDdsiTDcodTzticTcodeTzticTcode
+TYPE 2    1    3    1    2    22   3    1    2    1     Default Object Template--Minimal Data for Application (Object Kind)
+TYPE 2    1    3    2    2    22   3    2    2    1     Default Object Template--Minimal Data for Application Page (Object Kind)
+TYPE 2    1    3    3    2    22   3    3    2    1     Default Object Template--Minimal Data for Menu (Object Kind)
+TYPE 2    1    3    4    2    22   3    4    2    1     Default Object Template--Minimal Data for Menu Option (Object Kind)
+TYPE 2    1    3    5    2    22   3    5    2    1     Default Object Template--Minimal Data for Menu Type (Object Kind)
+TYPE 2    1    3    6    2    22   3    6    2    1     Default Object Template--Minimal Data for Application Action (Object Kind)
+TYPE 2    1    3    7    2    22   3    7    2    1     Default Object Template--Minimal Data for Application Action Type (Object Kind)
+
+
+  to specifiy that links from thing to thing transaction line item are server generated
+TYPE%2    9    3    4    2    24   3    4    2    9     Link Type for Type Definition: Thing for Thing Transaction Line Item (for bi-directional connection) CAUSES ERROr 20211023
+
+TYPE%2    10   3    4    2    26   2    2    2    10    Link Type Usage Type for Link Type: Thing to Thing Transaction Line Item (server generated link) ACTIVATE WHEN CORRECTED
+
+
+     ObjKind   Object    LinkType   ToKind   ToObject  Template  
+RecIdKzticKcodeOzticOcodeLTdsiLTcodLKdsiLKcodLzticLcodeTzticTcode         
+LINK 2    2    3    1    2    1    2    12   3    1    2    2    link object template for application to technical profile for application
+LINK 2    2    3    2    2    1    2    12   3    2    2    2    link object template for application page to technical profile for application page
+LINK 2    2    3    3    2    1    2    12   3    3    2    2    link object template for menu to technical profile for menu
+LINK 2    2    3    4    2    1    2    12   3    4    2    2    link object template for menu option to technical profile for menu option
+LINK 2    2    3    5    2    1    2    12   3    5    2    2    link object template for menu type to technical profile for menu type
+LINK 2    2    3    6    2    1    2    12   3    6    2    2    link object template for application action to technical profile for application action
+LINK 2    2    3    7    2    1    2    12   3    7    2    2    link object template for application action type to tech profile for application action type
+
+LINK 2    12   3    1    2    3    2    3    3    1    2    12   link tech profile to object element for Application Description
+LINK 2    12   3    1    2    3    2    3    3    2    2    12   link tech profile to object element for Application Long Description
+LINK 2    12   3    1    2    3    2    3    3    3    2    12   link tech profile to object element for Application Title
+LINK 2    12   3    2    2    3    2    3    3    4    2    12   link tech profile to object element for Application Page Description
+LINK 2    12   3    2    2    3    2    3    3    5    2    12   link tech profile to object element for Application Page Title
+LINK 2    12   3    3    2    3    2    3    3    6    2    12   link tech profile to object element for Menu Description
+LINK 2    12   3    3    2    3    2    3    3    7    2    12   link tech profile to object element for Menu Label
+LINK 2    12   3    4    2    3    2    3    3    8    2    12   link tech profile to object element for Menu Option Description
+LINK 2    12   3    4    2    3    2    3    3    9    2    12   link tech profile to object element for Menu Option Label
+LINK 2    12   3    5    2    3    2    3    3    10   2    12   link tech profile to object element for Menu Type Description
+LINK 2    12   3    6    2    3    2    3    3    11   2    12   link tech profile to object element for Application Action Description
+LINK 2    12   3    7    2    3    2    3    3    12   2    12   link tech profile to object element for Application Action Type Description
+LINK 2    12   3    6    2    3    2    3    3    13   2    12   link tech profile to object element for Application Action Object Template Namespace
+LINK 2    12   3    6    2    3    2    3    3    14   2    12   link tech profile to object element for Application Action Object Template Code
+LINK 2    12   3    6    2    3    2    3    3    15   2    12   link tech profile to object element for Application Action Maintenance Mode
+LINK 2    12   3    6    2    3    2    3    3    16   2    12   link tech profile to object element for Application Action Maintenance Format
+
+
+LINK 2    12   3    1    2    22   2    31   3    1    2    12   link tech profile to data element for application description
+LINK 2    12   3    1    2    22   2    31   3    2    2    12   link tech profile to data element for application long description
+LINK 2    12   3    1    2    22   2    31   3    3    2    12   link tech profile to data element for application title
+LINK 2    12   3    2    2    22   2    31   3    4    2    12   link tech profile to data element for application page description
+LINK 2    12   3    2    2    22   2    31   3    5    2    12   link tech profile to data element for application page title
+LINK 2    12   3    3    2    22   2    31   3    6    2    12   link tech profile to data element for menu description
+LINK 2    12   3    3    2    22   2    31   3    7    2    12   link tech profile to data element for menu label
+LINK 2    12   3    4    2    22   2    31   3    8    2    12   link tech profile to data element for menu option description
+LINK 2    12   3    4    2    22   2    31   3    9    2    12   link tech profile to data element for menu option label
+LINK 2    12   3    5    2    22   2    31   3    10   2    12   link tech profile to data element for menu type description
+LINK 2    12   3    6    2    22   2    31   3    11   2    12   link tech profile to data element for application action description
+LINK 2    12   3    7    2    22   2    31   3    12   2    12   link tech profile to data element for application action type description
+LINK 2    12   3    6    2    22   2    31   3    13   2    12   link tech profile to data element for application action object template namespace
+LINK 2    12   3    6    2    22   2    31   3    14   2    12   link tech profile to data element for application action object template code
+LINK 2    12   3    6    2    22   2    31   3    15   2    12   link tech profile to data element for application action maintenance mode
+LINK 2    12   3    6    2    22   2    31   3    16   2    12   link tech profile to data element for application action maintenance format
+
+
+
+LINK 2    12   3    3    2    4    2    9    3    1    2    12   link tech profile for menu to type definition for menu type for a menu
+LINK 2    12   3    6    2    4    2    9    3    2    2    12   link tech profile for application action to type definition for application action type for a app action
+
+
+
+LINK 2    12   3    1    2    5    2    10   3    1    2    12   link tech profile to link type for application to application page
+LINK 2    12   3    2    2    5    2    10   3    2    2    12   link tech profile to link type for application page to menu
+LINK 2    12   3    2    2    5    2    10   3    3    2    12   link tech profile to link type for application page to spreadsheet  TEMP DEL 20220601 for test  
+LINK 2    12   3    3    2    5    2    10   3    4    2    12   link tech profile to link type for menu to menu option   
+LINK 2    12   3    4    2    5    2    10   3    5    2    12   link tech profile to link type for menu option to application action
+LINK 2    12   3    4    2    5    2    10   3    6    2    12   link tech profile to link type for menu option to menu option 
+
+
+
+
+LINK 2    11   3    1    2    6    2    2    3    2    2    11   Link "Link Target Type" for Application-->Application Page to base template for Application Page          
+LINK 2    11   3    2    2    6    2    2    3    3    2    11   Link "Link Target Type" for Application Page-->Menu to base template for Menu
+LINK 2    11   3    3    2    6    2    2    5    1    2    11   Link "Link Target Type" for Application Page-->Spreadsheet to base template for Spreadsheet
+LINK 2    11   3    4    2    6    2    2    3    4    2    11   link "Link Target Type" for Menu to Menu Option to base template for Menu Option
+LINK 2    11   3    5    2    6    2    2    3    6    2    11   Link "Link Target Type" for Menu Option-->Application Action to base template for Application Action
+LINK 2    11   3    6    2    6    2    2    3    4    2    11   Link "Link Target Type" for Menu Option-->Menu Option to base template for Menu Option
+
+
+
+
+
+
+

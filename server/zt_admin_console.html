@@ -1,0 +1,188 @@
+<html>
+  <head>
+    <title>ZT Admin Console</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">  </script>
+    <script>
+      $(document).ready(function(){
+        var dbZtI_id;
+        var op_num; 
+        var source_db, ds_instance, obj_kind;
+        var obj_code_from, obj_code_to, oe_value, max_recs, obj_idx, filename;
+        $("#submit").click(function(){
+           dbZtI_id=$('.ddldbZtI_id').val();
+           op_num=$('.ddlOperation').val();
+           source_db=$('.ddlSourceDB').val();
+           obj_kind   = $('.ddlObjectKind').val();
+           ds_instance=$('.ddlDsInstance').val();
+           obj_code_from=$("#obj_code_from").val();
+           obj_code_to=$("#obj_code_to").val();
+           oe_value=$("#oe_value").val();
+           max_recs=$("#max_recs").val();
+           obj_idx=$("#obj_idx").val();   
+           filename=$("#filenamex").val();                          
+         // $.post("http://localhost:5001/zt/devb/server/process_file",{dbZtI_id: dbZtI_id,  op_num: op_num, source_db: source_db, obj_kind: obj_kind, ds_instance: ds_instance, obj_code_from: obj_code_from, obj_code_to: obj_code_to, max_recs: max_recs }, function(data){  (del) 20191128
+          $.post("http://localhost:5001/zt/devb/server/process_admin_console_request",{dbZtI_id: dbZtI_id,  op_num: op_num, source_db: source_db, obj_kind: obj_kind, ds_instance: ds_instance, obj_code_from: obj_code_from, obj_code_to: obj_code_to, oe_value: oe_value, max_recs: max_recs, obj_idx: obj_idx, filename: filename }, function(data){
+            if(data==='done')
+              {
+                alert("success");
+              }
+          });
+        });
+      });
+    </script>
+<!--    <script src="http://code.jquery.com/jquery-1.9.1.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    $(function () {
+       var op_num;
+      $('.btnProcess').click(function () {
+        op_num=$('.ddlOperation').val();
+        $.post("http://localhost:3000/zt/process_file",{op_num: op_num}, function(data){
+           if(data==='done')
+              {
+                alert("success");
+              }
+          });
+        alert('Value = ' + $('.ddlOperation').val());
+        alert('Text = ' + $('.ddlOperation option:selected').text());
+      });
+
+      $('.ddlOperation').change(function () {
+        alert($(this).val());
+      });
+
+    });
+  </script>  -->
+  </head>
+  <body>
+    <h1>ZT Admin Console</h1>
+    <br />
+        <H3>Select Target ZT Instance ID</H3>
+          <div>
+    <select class="ddldbZtI_id">
+      <option value="ALT1">ALT1 (amplabs.ai/test1)</option>
+      <option value="TST1">TST1 (abc.com/test1)</option>
+      <option value="TST2">TST2 (abc.com/test2)</option>
+      <option value="DOC1">DOC1 (zinfinitree.com/doc1)</option>
+      <option value="DOC2">DOC2 (zinfinitree.com/doc2)</option>
+      <option value="ZIN1">ZIN1 (zinfinitree.com/zin1)</option>
+      <option value="ZIN2">ZIN2 (zinfinitree.com/zin2)</option>
+
+      <option value="ZTST">ZTST (abc.com/ztst)</option>
+      <option value="DEV">DS Dev (zinfinitree.com/dev)</option>
+      <option value="PROD">DS Prod (zinfinitree.com/prod)</option>
+    </select> 
+<!--    <H3>Select Namespace of Target DS Instance</H3>
+          <div>
+    <select class="ddlTargetNS">
+      <option value="abc.com/test1">TST1 abc.com</option>
+      <option value="abc.com/test2">TST2 abc.com/test2</option>
+      <option value="abc.com/ztst">ZTST abc.com/ztst</option>
+      <option value="zinfinitree.com/dev">DS Dev zinfinitree.com/dev</option>
+      <option value="zinfinitree.com/prod">DS Prod zinfinitree.com/prod</option>
+    </select> -->
+    
+  <!--  <input type="button" class="btnClick Button" value="Process" />  -->
+  </div>
+   <br />
+
+    <H3>Select operation</H3>
+          <div>
+    <select class="ddlOperation">
+<!--      <option value="Maintain">Maintain object with selected template</option>   -->
+<!--      <option value="Display">Display object with selected template</option>     -->
+<!--      <option value="Import">Import selected file</option>                       -->
+<!--      <option value="ManualTempl">Enter template</option>                        -->
+<!--      <option value="ManualFile">Enter filename</option>                         -->
+<!--      <option value="InitAll">Initialize DS Instance (import starting objects)</option>  --> 
+      <option value="ListDB">List DB Contents</option>     
+      <option value="Clear">Clear (Delete) DS Instance</option>
+
+      <option value="RecCount">Record Count</option>
+    </select>
+ <!--   <input type="button" class="btnProcess Button" value="Process" />  -->
+  </div>
+  
+
+   </div>
+    <br />
+        <H3>Select Source DB</H3>
+          <div>
+    <select class="ddlSourceDB">
+      <option value="1">MongoDB</option>
+      <option value="2">In-Memory DB</option>
+  <!--    <option value="3">Object Kind</option>  -->
+     </select>
+  
+  <!--  <input type="button" class="btnClick Button" value="Process" />   --> 
+  </div> 
+
+    <H3>Select Object Kind</H3>
+      <div>
+    <select class="ddlObjectKind">
+      <option value="*">*. All Kinds</option> 
+      <option value="1">1. Object Kind</option>  
+      <option value="2">2. Object Template</option>
+      <option value="3">3. Object Element</option>
+      <option value="4">4. Table Element</option>
+      <option value="5">5. Type Template Rule</option>
+      <option value="6">6. Link Template Rule</option>
+      <option value="7">7. Object Element Templ Rule</option>
+      <option value="8">8. Extended Key Definition</option>
+      <option value="9">9. Object Type Definition</option>
+      <option value="10">10. Link Type </option>
+      <option value="11">11. Link Target Type</option>
+      <option value="12">12. Technical Profile</option>
+      <option value="13">13. Object Set</option>
+      <option value="14">14. DS Instance</option>
+      <option value="15">15. Namespace </option>
+      <option value="20">20. Address </option>
+      <option value="56">56. Type Definition Path </option>
+      <option value="58">58. Statistical Values Object </option>
+    </select>
+    <br />
+    <!-- <input type="button" class="btnObjectKind Button" value="Object Kind" />  -->
+  </div> 
+    <br />
+
+    <H3>Select Object Source DS Instance</H3>
+      <div>
+    <select class="ddlDsInstance">
+      <option value="*">*. All Instances</option>
+      <option value="131131/21">1. 131131/21</option>  
+      <option value="amplabs.ai/test1">2. amplabs.ai/test1</option>
+      <option value="abc.com/test1">3. abc.com/test1</option>
+      <option value="zinfinitree.com/address">4. zinfinitree.com/address</option>
+      <option value="zinfinitree.com/server_config">5. zinfinitree.com/server_config</option>
+      <option value="zinfinitree.com/software">6. zinfinitree.com/software</option>
+      <option value="zinfinitree.com/doc2">7. zinfinitree.com/doc2 </option>
+      <option value="7">7. </option>
+      <option value="8">8. </option>
+      <option value="9">9. </option>
+      <option value="10">10. </option>
+      <option value="11">11. </option>
+      <option value="12">12. </option>
+      <option value="13">13. </option>
+      <option value="14">14. </option>
+      <option value="15">15. </option>
+    </select>
+    <br /><br />
+   <!--   <input type="button" class="btnDsInstance Button" value="DS Instance" />   -->
+  </div> 
+
+    
+  
+  <H3>Object Code Range/OE Value/Max Records/Filename</H3>
+     <table>
+     <tr><td>Code From:</td><td> <input type="TEXT" id="obj_code_from" size="10" value="*"><td></tr>
+     <tr><td>Code To:</td><td>   <input type="TEXT" id="obj_code_to" size="10"></td></tr> 
+     <tr><td>ObjElem Value:</td><td>   <input type="TEXT" id="oe_value" size="40" value="*"></td></tr>
+     <tr><td>Max Recs:</td><td>  <input type="TEXT" id="max_recs" size="10"  value="100"></td></tr>
+     <tr><td>Obj Index:</td><td>  <input type="number" id="obj_idx" size="6" ></td></tr>
+     <tr><td>Export Filename:</td><td>  <input type="TEXT" id="filenamex" size="20" ></td></tr>
+     </table> 
+    <br /> <br />
+    <input type="button" id="submit" value="Submit">
+    <br /><br /> <br /><br />  
+  
+  </body>
+</html>

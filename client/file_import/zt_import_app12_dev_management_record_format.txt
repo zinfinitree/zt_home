@@ -1,0 +1,790 @@
+    Record Structure Descriptions: 
+     
+     Structure for record type ZTIC for declaring ZT Instance Codes and related namespaces
+
+     Postition  Description
+     1-5        Record type (ZTIC)
+     6-10       ZT Instance Code
+     11-80      Namespace
+
+
+
+     Structure for record type RZTI for declaring ZT Instance Code of the Receiver system
+
+     Postition  Description
+     1-5        Record type (RZTI)
+     6-10       ZT Instance Code of Receiver system
+
+
+
+          Structure for record type MPPG for declaring Message Processing Parameters--General
+
+     Postition  Description
+     1-5        Record type (MPPG)
+     6-25       Default timestamp
+     26-45      Message ID assigned by Client
+     46-55      Last index of request message
+     56-60      Processing Mode
+     61-80      User
+     81-85      Software Profile ZT Instance Code
+     86-90      Software Profile Code
+
+
+               Structure for record type EXKT for declaring Extended Key Values
+
+     Postition  Description
+     1-5        Record type (EXKT)
+     6-10       Extended Key Definition ZT Instance Code
+     11-15      Extended Key Definition Code
+     16-20      Extended Key Value ZT Instance Code
+     21-25      Extended Key Value Code
+
+
+
+                    Structure for record type ELEM for Object Element Values
+
+     Postition  Description
+     1-5        Record type (ELEM)
+     6-10       Object Kind ZT Instance Code
+     11-15      Object Kind Code
+     16-20      Object ZT Instance Code
+     21-25      Object Code
+     26-30      Object Element ZT Instance Code
+     31-35      Object Element Code
+     36-40      Template ZT Instance Code
+     41-45      Template Code
+     51-150     Object Element Value
+
+
+
+                         Structure for record type TYPE for Type Values
+
+     Postition  Description
+     1-5        Record type (TYPE)
+     6-10       Object Kind ZT Instance Code
+     11-15      Object Kind Code
+     16-20      Object ZT Instance Code
+     21-25      Object Code
+     26-30      Type Definition ZT Instance Code
+     31-35      Type Definition Code
+     36-40      Type Value ZT Instance Code     
+     41-45      Type Value Code
+     46-50      Template ZT Instance Code
+     51-55      Template Code
+     56-156     Description
+
+
+
+                         Structure for record type LINK for Links
+
+     Postition  Description
+     1-5        Record type (LINK)
+     6-10       Object Kind ZT Instance Code
+     11-15      Object Kind Code
+     16-20      Object ZT Instance Code
+     21-25      Object Code
+     26-30      Link Type ZT Instance Code
+     31-35      Link Type Code
+     36-40      Link To Kind ZT Instance Code     
+     41-45      Link To Kind Code
+     46-50      Link To ZT Instance Code
+     51-55      Link To Code
+     56-60      Template ZT Instance Code
+     61-65      Template Code
+     66-166     Description
+
+  End of Record Structure Descriptions
+    
+
+ZTIC 2    131131/21
+ZTIC 3    zinfinitree.com/dev_agile
+ZTIC 1    abc.com/test1
+ZTIC 4    zinfinitree.com/server_config
+ZTIC 5    zinfinitree.com/spreadsheet
+ZTIC 6    zinfinitree.com/multimedia_object
+ZTIC 7    131131/22
+ZTIC 8    zinfinitree.com/time
+ZTIC 9    zinfinitree.com/time_tz_est
+ZTIC 10   zinfinitree.com/person
+
+
+RZTI 1          receiver ztic
+ 
+
+  
+
+
+      mode 1 means create/update with no future timestamps [DEPRECATED]
+MODE%1                                                     [DEPRECATED replaced by MPPG]
+
+
+    message processing parameters--general
+     default timesmp     msg id-client       last idx  mode user                SWdsiSWcod           
+MPPG 5179248000.000      id123               1234      99   usr1                4    2    
+
+
+
+     ExtKeyDef ExtKeyVal     
+RecIdEKDdsEKDcoEKVdsEKVco
+EXTK 2    2    2    1
+
+   copied from ds2_import_app11_storage_def_record_format.txt
+   Storage Domain-->Software Product
+   Storage Location-->Milestone
+   Thing-->Requirement/Epic
+   Thing Transaction-->Task
+                    -->Dev Element
+                    -->Requirement/Epic Type feature/change/bug
+                    -->story point size/scale of task hard/easy
+                    -->Task Status
+                    -->Sprint
+
+     
+     Desc                                    Timestamp
+MSET MaintainSetId#1                         5179248000.000  
+
+CMNT TMPL                                        template for maintaing an object
+
+     ObjKind   Object    ObjElem   Template  
+RecIdKzticKcodeOzticOcodeEzticEcodeTzticTcode     OEValue
+ELEM 2    1    3    1    2    1    2    1         Project (Object Kind)
+ELEM 2    1    3    2    2    1    2    1         Software Product (Object Kind)
+ELEM 2    1    3    3    2    1    2    1         Epic (Object Kind)
+ELEM 2    1    3    4    2    1    2    1         Epic Type feature/change/bug (Object Kind)
+ELEM 2    1    3    5    2    1    2    1         Task (Object Kind)
+ELEM 2    1    3    6    2    1    2    1         Task Type (Object Kind)
+ELEM 2    1    3    7    2    1    2    1         Epic Status (Object Kind)
+ELEM 2    1    3    8    2    1    2    1         Size/Scale of Task (Story Point) (Object Kind)
+ELEM 2    1    3    9    2    1    2    1         Task Status (Object Kind)
+ELEM 2    1    3    10   2    1    2    1         Sprint (Object Kind)
+ELEM 2    1    3    11   2    1    2    1         Functional Area (Object Kind)
+
+
+   base templates
+ELEM 2    2    3    1    2    2    2    2         Project               
+ELEM 2    2    3    2    2    2    2    2         Software Product 
+ELEM 2    2    3    3    2    2    2    2         Epic 
+ELEM 2    2    3    4    2    2    2    2         Epic Type 
+ELEM 2    2    3    5    2    2    2    2         Task 
+ELEM 2    2    3    6    2    2    2    2         Task Type 
+ELEM 2    2    3    7    2    2    2    2         Epic Status 
+ELEM 2    2    3    8    2    2    2    2         Size/Scale of Task (Story Point)
+ELEM 2    2    3    9    2    2    2    2         Task Status 
+ELEM 2    2    3    10   2    2    2    2         Sprint 
+ELEM 2    2    3    11   2    2    2    2         Functional Area 
+
+ELEM 2    12   3    1    2    12   2    12        Project (Technical Profile)
+ELEM 2    12   3    2    2    12   2    12        Software Product (Technical Profile)
+ELEM 2    12   3    3    2    12   2    12        Epic (Technical Profile)
+ELEM 2    12   3    4    2    12   2    12        Epic Type (Technical Profile)
+ELEM 2    12   3    5    2    12   2    12        Task (Technical Profile)
+ELEM 2    12   3    6    2    12   2    12        Task Type (Technical Profile)
+ELEM 2    12   3    7    2    12   2    12        Epic Status (Technical Profile)
+ELEM 2    12   3    8    2    12   2    12        Size/Scale of Task (Technical Profile)
+ELEM 2    12   3    9    2    12   2    12        Task Status (Technical Profile)
+ELEM 2    12   3    10   2    12   2    12        Sprint (Technical Profile)
+ELEM 2    12   3    11   2    12   2    12        Functional Area (Technical Profile)
+
+   copied for example
+ELEM%2    13   2    2    2    13   2    13        Set of all Object Templates 
+ELEM%2    13   2    3    2    13   2    13        Set of all Object Elements 
+LINK%2    13   2    2    2    12   2    1    2    2    2    13   link set of all Object Templates to object kind for object templates 
+LINK%2    13   2    3    2    12   2    1    2    3    2    13   link set of all Object Elements to object kind for object elements
+
+
+ELEM 2    13   3    1    2    13   2    13        Set of all Projects
+ELEM 2    13   3    2    2    13   2    13        Set of all Software Products
+ELEM 2    13   3    3    2    13   2    13        Set of all Epics
+ELEM 2    13   3    4    2    13   2    13        Set of all Epic Types 
+ELEM 2    13   3    5    2    13   2    13        Set of all Tasks 
+ELEM 2    13   3    6    2    13   2    13        Set of all Task Types
+ELEM 2    13   3    7    2    13   2    13        Set of all Epic Statuses
+ELEM 2    13   3    8    2    13   2    13        Set of all Size/Scales of Tasks
+ELEM 2    13   3    9    2    13   2    13        Set of all Task Statuses
+ELEM 2    13   3    10   2    13   2    13        Set of all Sprints
+ELEM 2    13   3    11   2    13   2    13        Set of all Functional Areas
+
+     ObjKind   Object    LinkType   ToKind   ToObject  Template  
+RecIdKzticKcodeOzticOcodeLTdsiLTcodLKdsiLKcodLzticLcodeTzticTcode
+LINK 2    13   3    1    2    12   2    1    3    1    2    13   link set of all Projects to object kind for Projects
+LINK 2    13   3    2    2    12   2    1    3    2    2    13   link set of all Software Products to object kind for Software Products
+LINK 2    13   3    3    2    12   2    1    3    3    2    13   link set of all Epics to object kind for Epics
+LINK 2    13   3    4    2    12   2    1    3    4    2    13   link set of all Epic Types to object kind for Epic Types
+LINK 2    13   3    5    2    12   2    1    3    5    2    13   link set of all Tasks to object kind for Tasks
+LINK 2    13   3    6    2    12   2    1    3    6    2    13   link set of all Task Types to object kind for Task Types
+LINK 2    13   3    7    2    12   2    1    3    7    2    13   link set of all Epic Statuses to object kind for Epic Status
+LINK 2    13   3    8    2    12   2    1    3    8    2    13   link set of all Size/Scales of Tasks to object kind for Size/Scales of Tasks
+LINK 2    13   3    9    2    12   2    1    3    9    2    13   link set of all Task Statuses to object kind for Task Statuses 
+LINK 2    13   3    10   2    12   2    1    3    10   2    13   link set of all Sprints to object kind for Sprints
+LINK 2    13   3    11   2    12   2    1    3    11   2    13   link set of all Functional Areas to object kind for Functional Areas
+
+
+     ObjKind   Object    ObjElem   Template  
+RecIdKzticKcodeOzticOcodeEzticEcodeTzticTcode
+ELEM 2    21   3    1    2    21   2    21        Code Range for Project (Code Range)
+ELEM 2    21   3    2    2    21   2    21        Code Range for Software Product (Code Range)
+ELEM 2    21   3    3    2    21   2    21        Code Range for Epic (Code Range)
+ELEM 2    21   3    4    2    21   2    21        Code Range for Epic Type (Code Range)
+ELEM 2    21   3    5    2    21   2    21        Code Range for Task (Code Range)
+ELEM 2    21   3    6    2    21   2    21        Code Range for Task Type (Code Range)
+ELEM 2    21   3    7    2    21   2    21        Code Range for Epic Status (Code Range)
+ELEM 2    21   3    8    2    21   2    21        Code Range for Size/Scale of Task (Code Range)
+ELEM 2    21   3    9    2    21   2    21        Code Range for Task Status (Code Range)
+ELEM 2    21   3    10   2    21   2    21        Code Range for Sprint (Code Range)
+ELEM 2    21   3    11   2    21   2    21        Code Range for Functional Area (Code Range)
+
+
+ELEM 2    21   3    1    2    204  2    21        1002
+ELEM 2    21   3    2    2    204  2    21        2001
+ELEM 2    21   3    3    2    204  2    21        3003
+ELEM 2    21   3    4    2    204  2    21        4001
+ELEM 2    21   3    5    2    204  2    21        5015
+ELEM 2    21   3    6    2    204  2    21        6001
+ELEM 2    21   3    7    2    204  2    21        7001
+ELEM 2    21   3    8    2    204  2    21        8001
+ELEM 2    21   3    9    2    204  2    21        9001
+ELEM 2    21   3    10   2    204  2    21        10001
+ELEM 2    21   3    11   2    204  2    21        11001
+
+ELEM%2    2    3    6    2    2    2    1         Code Range for Storage Domain (Base Template) 
+ELEM%2    2    3    7    2    2    2    1         Code Range for Storage Location (Base Template)
+ELEM%2    2    3    8    2    2    2    1         Code Range for Thing (Base Template)
+ELEM%2    2    3    9    2    2    2    1         Code Range for Storage Location Type (Base Template)
+ELEM%2    2    3    10   2    2    2    1         Code Range for Thing Type (Base Template)
+ELEM%2    2    3    11   2    2    2    1         Code Range for Thing Transaction Line Item (Base Template)
+
+
+ELEM%2    12   3    6    2    12   2    12        Code Range for Storage Domain (Technical Profile)
+ELEM%2    12   3    7    2    12   2    12        Code Range for Storage Location (Technical Profile)
+ELEM%2    12   3    8    2    12   2    12        Code Range for Thing (Technical Profile)
+ELEM%2    12   3    9    2    12   2    12        Code Range for Storage Location Type (Technical Profile)
+ELEM%2    12   3    10   2    12   2    12        Code Range for Thing Type (Technical Profile)
+ELEM%2    12   3    11   2    12   2    12        Code Range for Thing Transaction Line Item (Technical Profile)
+ELEM%2    12   3    12   2    12   2    12        Code Range for Thing Transaction Line Item Type (Technical Profile)
+
+
+  copied for example
+ELEM%2    1    3    1    2    1    2    1         Project (Object Kind)
+ELEM%2    1    3    2    2    1    2    1         Software Product (Object Kind)
+ELEM%2    1    3    3    2    1    2    1         Epic (Object Kind)
+ELEM%2    1    3    4    2    1    2    1         Epic Type feature/change/bug (Object Kind)
+ELEM%2    1    3    5    2    1    2    1         Task (Object Kind)
+ELEM%2    1    3    6    2    1    2    1         Task Type (Object Kind)
+ELEM%2    1    3    7    2    1    2    1         Epic Status (Object Kind)
+ELEM%2    1    3    8    2    1    2    1         Size/Scale of Task (Story Point) (Object Kind)
+ELEM%2    1    3    9    2    1    2    1         Task Status (Object Kind)
+ELEM%2    1    3    10   2    1    2    1         Sprint (Object Kind)
+ELEM%2    1    3    11   2    1    2    1         Functional Area (Object Kind)
+
+
+ELEM 2    3    3    1    2    3    2    3         Project Description                  (Object Element)
+ELEM 2    3    3    2    2    3    2    3         Software Product Description         (Object Element)
+ELEM 2    3    3    3    2    3    2    3         Epic Description                     (Object Element)
+ELEM 2    3    3    4    2    3    2    3         Epic Type Description                (Object Element)
+ELEM 2    3    3    5    2    3    2    3         Task Description                     (Object Element)
+ELEM 2    3    3    6    2    3    2    3         Task Type Description                (Object Element)
+ELEM 2    3    3    7    2    3    2    3         Epic Status Description              (Object Element)
+ELEM 2    3    3    8    2    3    2    3         Size/Scale of Task Description.      (Object Element)
+ELEM 2    3    3    9    2    3    2    3         Task Status Description              (Object Element)
+ELEM 2    3    3    10   2    3    2    3         Sprint Description                   (Object Element)
+ELEM 2    3    3    11   2    3    2    3         Functional Area Description          (Object Element)
+ELEM 2    3    3    12   2    3    2    3         Epic Title                           (Object Element)
+
+ELEM 2    31   3    1    2    31   2    31        Project Description               DE (Data Element)
+ELEM 2    31   3    2    2    31   2    31        Software Product Description      DE (Data Element)
+ELEM 2    31   3    3    2    31   2    31        Epic Description                  DE (Data Element)
+ELEM 2    31   3    4    2    31   2    31        Epic Type Description             DE (Data Element)
+ELEM 2    31   3    5    2    31   2    31        Task Description                  DE (Data Element)
+ELEM 2    31   3    6    2    31   2    31        Task Type Description             DE (Data Element)
+ELEM 2    31   3    7    2    31   2    31        Epic Status Description           DE (Data Element)
+ELEM 2    31   3    8    2    31   2    31        Size/Scale of Task Description    DE (Data Element)
+ELEM 2    31   3    9    2    31   2    31        Task Status Description           DE (Data Element)
+ELEM 2    31   3    10   2    31   2    31        Sprint Description                DE (Data Element)
+ELEM 2    31   3    11   2    31   2    31        Functional Area Description       DE (Data Element)
+ELEM 2    31   3    12   2    31   2    31        Epic Title                        DE (Data Element)
+ELEM 2    31   3    100  2    31   2    31        Current Code                      DE (Data Element)
+
+ELEM 2    32   3    1    2    32   2    32        Project Description                 DT (Data Type)
+ELEM 2    32   3    2    2    32   2    32        Software Product Description        DT (Data Type)
+ELEM 2    32   3    3    2    32   2    32        Epic Description                    DT (Data Type)
+ELEM 2    32   3    4    2    32   2    32        Epic Type Description               DT (Data Type)
+ELEM 2    32   3    5    2    32   2    32        Task Description                    DT (Data Type)
+ELEM 2    32   3    6    2    32   2    32        Task Type Description               DT (Data Type)
+ELEM 2    32   3    7    2    32   2    32        Epic Status Description             DT (Data Type)
+ELEM 2    32   3    8    2    32   2    32        Size/Scale of Task Description      DT (Data Type)
+ELEM 2    32   3    9    2    32   2    32        Task Status Description             DT (Data Type)
+ELEM 2    32   3    10   2    32   2    32        Sprint Description                  DT (Data Type)
+ELEM 2    32   3    11   2    32   2    32        Functional Area Description         DT (Data Type)
+ELEM 2    32   3    12   2    32   2    32        Epic Title                          DT (Data Type)
+ELEM 2    32   3    100  2    32   2    32        Current Code for Document           DT (Data Type)
+
+
+ELEM 2    10   3    1    2    10   2    10        Link Type: Project to Epic               
+ELEM 2    10   3    2    2    10   2    10        Link Type: Epic to Task (server generated)  
+ELEM 2    10   3    3    2    10   2    10        Link Type: Task to Task (server generated)
+ELEM 2    10   3    4    2    10   2    10        Link Type: Project to Sprint  
+ELEM 2    10   3    5    2    10   2    10        Link Type: Sprint to Task (server generated) 
+ELEM 2    10   3    6    2    10   2    10        Link Type: Task to Class/Program
+ELEM 2    10   3    7    2    10   2    10        Link Type: Task to Person (Assignee)
+ELEM 2    10   3    8    2    10   2    10        Link Type: Software Product to Functional Area
+ELEM 2    10   3    9    2    10   2    10        Link Type: Functional Area to Functional Area
+
+     
+ELEM 2    11   3    1    2    11   2    11        Link Target Type: Project to Epic
+ELEM 2    11   3    2    2    11   2    11        Link Target Type: Epic to Task 
+ELEM 2    11   3    3    2    11   2    11        Link Target Type: Task to Task
+ELEM 2    11   3    4    2    11   2    11        Link Target Type: Project to Sprint
+ELEM 2    11   3    5    2    11   2    11        Link Target Type: Sprint to Task
+ELEM 2    11   3    6    2    11   2    11        Link Target Type: Task to Class/Program
+ELEM 2    11   3    7    2    11   2    11        Link Target Type: Task to Person (Assignee)
+ELEM 2    11   3    8    2    11   2    11        Link Target Type: Software Product to Functional Area
+ELEM 2    11   3    9    2    11   2    11        Link Target Type: Functional Area to Functional Area
+
+
+ELEM 2    9    3    1    2    9    2    9         Type Definition: Epic Type for an Epic
+ELEM 2    9    3    2    2    9    2    9         Type Definition: Epic for a Task (also generates link from epic to task)
+ELEM 2    9    3    3    2    9    2    9         Type Definition: Task (parent) for a Task (also generates link from task to task) 
+ELEM 2    9    3    4    2    9    2    9         Type Definition: Epic Status for Epic
+ELEM 2    9    3    5    2    9    2    9         Type Definition: Due Date for a Epic
+ELEM 2    9    3    6    2    9    2    9         Type Definition: Task Type for a Task
+ELEM 2    9    3    7    2    9    2    9         Type Definition: Task Status for Task
+ELEM 2    9    3    8    2    9    2    9         Type Definition: Size/Scale (story point) for a Task
+ELEM 2    9    3    9    2    9    2    9         Type Definition: Sprint for a Task (also generates link from sprint to task)
+ELEM 2    9    3    10   2    9    2    9         Type Definition: Predecessor Sprint for a Sprint
+ELEM 2    9    3    11   2    9    2    9         Type Definition: Start Date for a Sprint
+ELEM 2    9    3    12   2    9    2    9         Type Definition: End Date for a Sprint
+ELEM 2    9    3    13   2    9    2    9         Type Definition: Creation Date for a Task
+ELEM 2    9    3    14   2    9    2    9         Type Definition: Projected Completion Date for Task
+ELEM 2    9    3    15   2    9    2    9         Type Definition: Completion Date for a Task
+ELEM 2    9    3    16   2    9    2    9         Type Definition: Predecessor Task for a Task
+ELEM 2    9    3    17   2    9    2    9         Type Definition: Functional Area for an Epic
+ELEM 2    9    3    18   2    9    2    9         Type Definition: Software Product for Class/Program
+
+
+ELEM 3    4    3    1    3    4    3    4         Feature (Epic Type)
+ELEM 3    4    3    2    3    4    3    4         Change (Epic Type)
+ELEM 3    4    3    3    3    4    3    4         Defect (Epic Type)
+
+ELEM 3    8    3    1    3    8    3    8         Easy (Story point)
+ELEM 3    8    3    2    3    8    3    8         Medium (Story point)
+ELEM 3    8    3    3    3    8    3    8         Difficult (Story point)
+
+ELEM 3    9    3    1    3    9    3    9         Opened (Task Status)
+ELEM 3    9    3    2    3    9    3    9         In Development (Task Status)
+ELEM 3    9    3    3    3    9    3    9         Development Complete (Task Status)
+ELEM 3    9    3    4    3    9    3    9         Unit Test (Task Status)
+ELEM 3    9    3    5    3    9    3    9         Integration Test 1 (Task Status)
+ELEM 3    9    3    6    3    9    3    9         Integration Test 2 (Task Status)
+ELEM 3    9    3    7    3    9    3    9         Acceptance Test 3 (Task Status)
+ELEM 3    9    3    8    3    9    3    9         Test Complete (Task Status)
+ELEM 3    9    3    9    3    9    3    9         Test Rejected (Task Status)
+ELEM 3    9    3    10   3    9    3    9         Closed (Task Status)
+
+
+
+
+  max length for data elements used for document
+ELEM 2    31   3    1    2    214  2    31        60
+ELEM 2    31   3    2    2    214  2    31        60
+ELEM 2    31   3    3    2    214  2    31        60
+ELEM 2    31   3    4    2    214  2    31        60
+ELEM 2    31   3    5    2    214  2    31        60
+ELEM 2    31   3    6    2    214  2    31        60
+ELEM 2    31   3    7    2    214  2    31        60
+ELEM 2    31   3    8    2    214  2    31        60
+ELEM 2    31   3    9    2    214  2    31        60
+ELEM 2    31   3    10   2    214  2    31        60
+ELEM 2    31   3    11   2    214  2    31        60
+ELEM 2    31   3    12   2    214  2    31        60     
+ELEM 2    31   3    100  2    214  2    31        10
+
+
+-- copied for example
+%ELEM 2    1    3    1    2    1    2    1         Project (Object Kind)
+%ELEM 2    1    3    2    2    1    2    1         Software Product (Object Kind)
+%ELEM 2    1    3    3    2    1    2    1         Epic (Object Kind)
+%ELEM 2    1    3    4    2    1    2    1         Epic Type feature/change/bug (Object Kind)
+%ELEM 2    1    3    5    2    1    2    1         Task (Object Kind)
+%ELEM 2    1    3    6    2    1    2    1         Task Type (Object Kind)
+%ELEM 2    1    3    7    2    1    2    1         Epic Status (Object Kind)
+%ELEM 2    1    3    8    2    1    2    1         Size/Scale of Task (Story Point) (Object Kind)
+%ELEM 2    1    3    9    2    1    2    1         Task Status (Object Kind)
+%ELEM 2    1    3    10   2    1    2    1         Sprint (Object Kind)
+%ELEM 2    1    3    11   2    1    2    1         Functional Area (Object Kind)
+
+
+Lead
+     ObjKind   Object    TypeDef   Type      Template  
+RecIdKdiscKcodeOzticOcodeTDdsiTDcodTzticTcodeTzticTcode
+TYPE 2    2    3    1    2    3    3    1               Object Kind for template for Project
+TYPE 2    2    3    2    2    3    3    2               Object Kind for template for Software Product
+TYPE 2    2    3    3    2    3    3    3               Object Kind for template for Epic
+TYPE 2    2    3    4    2    3    3    4               Object Kind for template for Epic Type
+TYPE 2    2    3    5    2    3    3    5               Object Kind for template for Task
+TYPE 2    2    3    6    2    3    3    6               Object Kind for template for Task Type
+TYPE 2    2    3    7    2    3    3    7               Object Kind for template for Epic Status
+TYPE 2    2    3    8    2    3    3    8               Object Kind for template for Size/Scale of Task
+TYPE 2    2    3    9    2    3    3    9               Object Kind for template for Task Status
+TYPE 2    2    3    10   2    3    3    10              Object Kind for template for Sprint
+TYPE 2    2    3    11   2    3    3    11              Object Kind for template for Functional Area
+
+TYPE 2    1    3    1    2    5    3    1               Code Range for Project
+TYPE 2    1    3    2    2    5    3    2               Code Range for Software Product
+TYPE 2    1    3    3    2    5    3    3               Code Range for Epic
+TYPE 2    1    3    4    2    5    3    4               Code Range for Epic Type
+TYPE 2    1    3    5    2    5    3    5               Code Range for Task
+TYPE 2    1    3    6    2    5    3    6               Code Range for Task Type
+TYPE 2    1    3    7    2    5    3    7               Code Range for Epic Status
+TYPE 2    1    3    8    2    5    3    8               Code Range for Size/Scale of Task
+TYPE 2    1    3    9    2    5    3    9               Code Range for Task Status
+TYPE 2    1    3    10   2    5    3    10              Code Range for Sprint
+TYPE 2    1    3    11   2    5    3    11              Code Range for Functional Area
+
+TYPE 2    21   3    1    2    6    2    1               Code Scheme for Project Code Range
+TYPE 2    21   3    2    2    6    2    1               Code Scheme for Software Product Code Range
+TYPE 2    21   3    3    2    6    2    1               Code Scheme for Epic Code Range
+TYPE 2    21   3    4    2    6    2    1               Code Scheme for Epic Type Code Range
+TYPE 2    21   3    5    2    6    2    1               Code Scheme for Task Code Range
+TYPE 2    21   3    6    2    6    2    1               Code Scheme for Task Type Code Range
+TYPE 2    21   3    7    2    6    2    1               Code Scheme for Epic Status Code Range
+TYPE 2    21   3    8    2    6    2    1               Code Scheme for Size/Scale of Task Code Range
+TYPE 2    21   3    9    2    6    2    1               Code Scheme for Task Status Code Range
+TYPE 2    21   3    10   2    6    2    1               Code Scheme for Sprint Code Range
+TYPE 2    21   3    11   2    6    2    1               Code Scheme for Functional Area Code Range
+
+
+  copied for example
+
+xELEM 2    3    3    1    2    3    2    3         Project Description                  (Object Element)
+xELEM 2    3    3    2    2    3    2    3         Software Product Description         (Object Element)
+xELEM 2    3    3    3    2    3    2    3         Epic Description                     (Object Element)
+xELEM 2    3    3    4    2    3    2    3         Epic Type Description                (Object Element)
+xELEM 2    3    3    5    2    3    2    3         Task Description                     (Object Element)
+xELEM 2    3    3    6    2    3    2    3         Task Type Description                (Object Element)
+xELEM 2    3    3    7    2    3    2    3         Epic Status Description              (Object Element)
+xELEM 2    3    3    8    2    3    2    3         Size/Scale of Task Description       (Object Element)
+xELEM 2    3    3    9    2    3    2    3         Task Status Description              (Object Element)
+xELEM 2    3    3    10   2    3    2    3         Sprint Description                   (Object Element)
+xELEM 2    3    3    11   2    3    2    3         Functional Area Description          (Object Element)
+xELEM 2    3    3    12   2    3    2    3         Epic Title                           (Object Element)
+
+
+
+TYPE 2    3    3    1    2    9    3    1               Data Element for Project Description Object Element
+TYPE 2    3    3    2    2    9    3    2               Data Element for Software Product Description Object Element
+TYPE 2    3    3    3    2    9    3    3               Data Element for Epic Description Object Element
+TYPE 2    3    3    4    2    9    3    4               Data Element for Epic Type Description Object Element
+TYPE 2    3    3    5    2    9    3    5               Data Element for Task Description Object Element
+TYPE 2    3    3    6    2    9    3    6               Data Element for Task Type Description Object Element
+TYPE 2    3    3    7    2    9    3    7               Data Element for Epic Status Description Object Element 
+TYPE 2    3    3    8    2    9    3    8               Data Element for Size/Scale of Task Description Object Element
+TYPE 2    3    3    9    2    9    3    9               Data Element for Task Status Description Object Element
+TYPE 2    3    3    10   2    9    3    10              Data Element for Sprint Description Object Element
+TYPE 2    3    3    11   2    9    3    11              Data Element for Functional Area Description Object Element
+TYPE 2    3    3    12   2    9    3    12              Data Element for Epic Title Object Element
+
+
+TYPE 2    31   3    1    2    10   3    1               Data Type for Project Description Data Element
+TYPE 2    31   3    2    2    10   3    2               Data Type for Software Product Description Data Element
+TYPE 2    31   3    3    2    10   3    3               Data Type for Epic Description Data Element
+TYPE 2    31   3    4    2    10   3    4               Data Type for Epic Type Description Data Element
+TYPE 2    31   3    5    2    10   3    5               Data Type for Task Description Data Element
+TYPE 2    31   3    6    2    10   3    6               Data Type for Task Type Description Data Element
+TYPE 2    31   3    7    2    10   3    7               Data Type for Epic Status Description Data Element
+TYPE 2    31   3    8    2    10   3    8               Data Type for Size/Scale of Task Description Data Element
+TYPE 2    31   3    9    2    10   3    9               Data Type for Task Status Description Data Element
+TYPE 2    31   3    10   2    10   3    10              Data Type for Sprint Description Data Element
+TYPE 2    31   3    11   2    10   3    11              Data Type for Functional Area Data Element
+TYPE 2    31   3    12   2    10   3    12              Data Type for Epic Title Data Element
+
+
+TYPE 2    31   3    1    2    11   2    2               Extended Key Definition (language) for Project Description Data Element
+TYPE 2    31   3    2    2    11   2    2               Extended Key Definition (language) for Software Product Description Data Element
+TYPE 2    31   3    3    2    11   2    2               Extended Key Definition (language) for Epic Description Data Element
+TYPE 2    31   3    4    2    11   2    2               Extended Key Definition (language) for Epic Type Description Data Element
+TYPE 2    31   3    5    2    11   2    2               Extended Key Definition (language) for Task Description Data Element
+TYPE 2    31   3    6    2    11   2    2               Extended Key Definition (language) for Task Type Description Data Element
+TYPE 2    31   3    7    2    11   2    2               Extended Key Definition (language) for Epic Status Description Data Element
+TYPE 2    31   3    8    2    11   2    2               Extended Key Definition (language) for Size/Scale of Task Description Data Element
+TYPE 2    31   3    9    2    11   2    2               Extended Key Definition (language) for Task Status Description Data Element
+TYPE 2    31   3    10   2    11   2    2               Extended Key Definition (language) for Sprint Description Data Element
+TYPE 2    31   3    11   2    11   2    2               Extended Key Definition (language) for Functional Area Data Element
+TYPE 2    31   3    12   2    11   2    2               Extended Key Definition (language) for Epic Title Data Element
+
+
+  copied for example
+xELEM 2    10   3    1    2    10   2    10        Link Type: Project to Epic               
+xELEM 2    10   3    2    2    10   2    10        Link Type: Epic to Task (server generated)  
+xELEM 2    10   3    3    2    10   2    10        Link Type: Task to Task (server generated)
+xELEM 2    10   3    4    2    10   2    10        Link Type: Project to Sprint  
+xELEM 2    10   3    5    2    10   2    10        Link Type: Sprint to Task (server generated) 
+xELEM 2    10   3    6    2    10   2    10        Link Type: Task to Class/Program
+xELEM 2    10   3    7    2    10   2    10        Link Type: Task to Person (Assignee)
+xELEM 2    10   3    8    2    10   2    10        Link Type: Software Product to Functional Area
+xELEM 2    10   3    9    2    10   2    10        Link Type: Functional Area to Functional Area
+
+TYPE 2    10   3    1    2    2    3    1               link target type for link type for project to epic
+TYPE 2    10   3    2    2    2    3    2               link target type for link type for epic to task
+TYPE 2    10   3    3    2    2    3    3               link target type for link type for task to task
+TYPE 2    10   3    4    2    2    3    4               link target type for link type for project to sprint
+TYPE 2    10   3    5    2    2    3    5               link target type for link type for sprint to task
+TYPE 2    10   3    6    2    2    3    6               link target type for link type for task to class/program
+TYPE 2    10   3    7    2    2    3    7               link target type for link type for task to person (assignee)
+TYPE 2    10   3    8    2    2    3    8               link target type for link type for software product to functional area
+TYPE 2    10   3    9    2    2    3    9               link target type for link type for functional area to functional area
+
+
+  copied for example
+xELEM 2    9    3    1    2    9    2    9         Type Definition: Epic Type for an Epic
+xELEM 2    9    3    2    2    9    2    9         Type Definition: Epic for a Task (also generates link from epic to task)
+xELEM 2    9    3    3    2    9    2    9         Type Definition: Task (parent) for a Task (also generates link from task to task) 
+xELEM 2    9    3    4    2    9    2    9         Type Definition: Epic Status for Epic
+xELEM 2    9    3    5    2    9    2    9         Type Definition: Due Date for a Epic
+xELEM 2    9    3    6    2    9    2    9         Type Definition: Task Type for a Task
+xELEM 2    9    3    7    2    9    2    9         Type Definition: Task Status for Task
+xELEM 2    9    3    8    2    9    2    9         Type Definition: Size/Scale (story point) for a Task
+xELEM 2    9    3    9    2    9    2    9         Type Definition: Sprint for a Task (also generates link from sprint to task)
+xELEM 2    9    3    10   2    9    2    9         Type Definition: Predecessor Sprint for a Sprint
+xELEM 2    9    3    11   2    9    2    9         Type Definition: Start Date for a Sprint
+xELEM 2    9    3    12   2    9    2    9         Type Definition: End Date for a Sprint
+xELEM 2    9    3    13   2    9    2    9         Type Definition: Creation Date for a Task
+xELEM 2    9    3    14   2    9    2    9         Type Definition: Projected Completion Date for Task
+xELEM 2    9    3    15   2    9    2    9         Type Definition: Completion Date for a Task
+xELEM 2    9    3    16   2    9    2    9         Type Definition: Predecessor Task for a Task
+xELEM 2    9    3    17   2    9    2    9         Type Definition: Functional Area for an Epic
+xELEM 2    9    3    18   2    9    2    9         Type Definition: Software Product for Class/Program
+
+TYPE 2    9    3    1    2    4    3    4               Object Kind for Type Def Epic Type for Epic: Object Kind for Epic Type 
+TYPE 2    9    3    2    2    4    3    3               Object Kind for Type Def Epic for a Task: Object Kind for Epic
+TYPE 2    9    3    3    2    4    3    5               Object Kind for Type Def Task (parent) for a Task: Object Kind for Task
+TYPE 2    9    3    4    2    4    3    7               Object Kind for Type Def Epic Status for Epic: Object Kind for Epic Status
+TYPE 2    9    3    5    2    4    8    2               Object Kind for Type Def Due Date for a Epic: Object Kind for Date
+TYPE 2    9    3    6    2    4    3    6               Object Kind for Type Def Task Type for Task: Object Kind for Task Type
+TYPE 2    9    3    7    2    4    3    9               Object Kind for Type Def Task Status for Task: Object Kind for Task Status
+TYPE 2    9    3    8    2    4    3    8               Object Kind for Type Def Size/Scale for Task: Object Kind for Size Scale
+TYPE 2    9    3    9    2    4    3    10              Object Kind for Type Def Sprint for a Task:  Object Kind for Sprint
+TYPE 2    9    3    10   2    4    3    10              Object Kind for Type Def Predecessor Sprint for a Sprint: Object Kind Sprint
+TYPE 2    9    3    11   2    4    8    2               Object Kind for Type Def Start Date for a Sprint: Object Kind for Date
+TYPE 2    9    3    12   2    4    8    2               Object Kind for Type Def End Date for a Sprint: Object Kind for Date
+TYPE 2    9    3    13   2    4    8    2               Object Kind for Type Def Creation Date for a Task: Object Kind for Date
+TYPE 2    9    3    14   2    4    8    2               Object Kind for Type Def Projected Completion Date for Task: Object Kind for Date
+TYPE 2    9    3    15   2    4    8    2               Object Kind for Type Def Completion Date for a Task: Object Kind for Date
+TYPE 2    9    3    16   2    4    3    5               Object Kind for Type Def Predecessor Task for a Task:  Object Kind for Task
+TYPE 2    9    3    17   2    4    3    11              Object Kind for Type Def Functional Area for an Epic: Object Kind for Functional Area
+TYPE 2    9    3    18   2    4    3    2               Object Kind for Type Def Software Product for Class/Program: Object Kind for Software Product
+
+TYPE 2    9    3    1    2    14   3    4               Object Set for Type Def Epic Type for Epic: Object Set of all Epic Types 
+TYPE 2    9    3    2    2    14   3    3               Object Set for Type Def Epic for a Task: Object Set of all Epics
+TYPE 2    9    3    3    2    14   3    5               Object Set for Type Def Task (parent) for a Task: Object Set of all Tasks
+TYPE 2    9    3    4    2    14   3    7               Object Set for Type Def Epic Status for Epic: Object Set of all Epic Statuses
+TYPE%2    9    3    5    2    14   8    2               Object Set for Type Def Due Date for a Epic: Object Set for all Dates  (inactive)
+TYPE 2    9    3    6    2    14   3    6               Object Set for Type Def Task Type for Task: Object Set of all Task Types
+TYPE 2    9    3    7    2    14   3    9               Object Set for Type Def Task Status for Task: Object Set of all Task Statuses
+TYPE 2    9    3    8    2    14   3    8               Object Set for Type Def Size/Scale for Task: Object Set of all Size Scales
+TYPE 2    9    3    9    2    14   3    10              Object Set for Type Def Sprint for a Task:  Object Set of all Sprints
+TYPE 2    9    3    10   2    14   3    10              Object Set for Type Def Predecessor Sprint for a Sprint: Object Set of all Sprints
+TYPE%2    9    3    11   2    14   8    2               Object Set for Type Def Start Date for a Sprint: Object Set of all Dates (inactive)
+TYPE%2    9    3    12   2    14   8    2               Object Set for Type Def End Date for a Sprint: Object Set of all Dates (inactive)
+TYPE%2    9    3    13   2    14   8    2               Object Set for Type Def Creation Date for a Task: Object Set of all Dates (inactive)
+TYPE%2    9    3    14   2    14   8    2               Object Set for Type Def Projected Completion Date for Task: Object Set of all Dates (inactive)
+TYPE%2    9    3    15   2    14   8    2               Object Set for Type Def Completion Date for a Task: Object Set of all Dates (inactive)
+TYPE 2    9    3    16   2    14   3    5               Object Set for Type Def Predecessor Task for a Task:  Object Set of all Tasks
+TYPE 2    9    3    17   2    14   3    11              Object Set for Type Def Functional Area for an Epic: Object Set of all Functional Areas
+TYPE 2    9    3    18   2    14   3    2               Object Set for Type Def Software Product for Class/Program: Object Set of all Software Products
+
+
+  copied for example 20230109
+xELEM 2    1    3    1    2    1    2    1         Project (Object Kind)
+xELEM 2    1    3    2    2    1    2    1         Software Product (Object Kind)
+xELEM 2    1    3    3    2    1    2    1         Epic (Object Kind)
+xELEM 2    1    3    4    2    1    2    1         Epic Type feature/change/bug (Object Kind)
+xELEM 2    1    3    5    2    1    2    1         Task (Object Kind)
+xELEM 2    1    3    6    2    1    2    1         Task Type (Object Kind)
+xELEM 2    1    3    7    2    1    2    1         Epic Status (Object Kind)
+xELEM 2    1    3    8    2    1    2    1         Size/Scale of Task (Story Point) (Object Kind)
+xELEM 2    1    3    9    2    1    2    1         Task Status (Object Kind)
+xELEM 2    1    3    10   2    1    2    1         Sprint (Object Kind)
+xELEM 2    1    3    11   2    1    2    1         Functional Area (Object Kind)
+
+
+     ObjKind   Object    TypeDef   Type      Template
+RecIdKdiscKcodeOzticOcodeTDdsiTDcodTzticTcodeTzticTcode
+TYPE 2    1    3    1    2    22   3    1    2    1     Default Object Template--Minimal Data for Project (Object Kind)
+TYPE 2    1    3    2    2    22   3    2    2    1     Default Object Template--Minimal Data for Software Product (Object Kind)
+TYPE 2    1    3    3    2    22   3    3    2    1     Default Object Template--Minimal Data for Epic (Object Kind)
+TYPE 2    1    3    4    2    22   3    4    2    1     Default Object Template--Minimal Data for Epic Type (Object Kind)
+TYPE 2    1    3    5    2    22   3    5    2    1     Default Object Template--Minimal Data for Task (Object Kind)
+TYPE 2    1    3    6    2    22   3    6    2    1     Default Object Template--Minimal Data for Task Type (Object Kind)
+TYPE 2    1    3    7    2    22   3    7    2    1     Default Object Template--Minimal Data for Epic Status (Object Kind)
+TYPE 2    1    3    8    2    22   3    8    2    1     Default Object Template--Minimal Data for Size/Scale of Task (Story Point) (Object Kind)
+TYPE 2    1    3    9    2    22   3    9    2    1     Default Object Template--Minimal Data for Task Status (Object Kind)
+TYPE 2    1    3    10   2    22   3    10   2    1     Default Object Template--Mininal Data for Sprint (Object Kind)
+TYPE 2    1    3    11   2    22   3    11   2    1     Default Object Template--Minimal Data for Functional Area (Object Kind)
+
+
+  to specifiy that links from epic to task are server generated
+TYPE 2    9    3    2    2    24   3    2    2    9     Link Type for Type Definition: Epic for Task (for bi-directional connection) 
+
+TYPE 2    10   3    2    2    26   2    2    2    10    Link Type Usage Type for Link Type: Epic to Task (server generated link) 
+
+
+     ObjKind   Object    LinkType   ToKind   ToObject  Template  
+RecIdKzticKcodeOzticOcodeLTdsiLTcodLKdsiLKcodLzticLcodeTzticTcode         
+LINK 2    2    3    1    2    1    2    12   3    1    2    2    link object template for project to technical profile for project
+LINK 2    2    3    2    2    1    2    12   3    2    2    2    link object template for software product to technical profile for software product
+LINK 2    2    3    3    2    1    2    12   3    3    2    2    link object template for epic to technical profile for epic
+LINK 2    2    3    4    2    1    2    12   3    4    2    2    link object template for epic type to technical profile for epic type
+LINK 2    2    3    5    2    1    2    12   3    5    2    2    link object template for task to technical profile for task
+LINK 2    2    3    6    2    1    2    12   3    6    2    2    link object template for task type to technical profile for task type
+LINK 2    2    3    7    2    1    2    12   3    7    2    2    link object template for epic status to tech profile for epic status
+LINK 2    2    3    8    2    1    2    12   3    8    2    2    link object template for size/scale to tech profile for size/scale
+LINK 2    2    3    9    2    1    2    12   3    9    2    2    link object template for task status to tech profile for task status
+LINK 2    2    3    10   2    1    2    12   3    10   2    2    link object template for sprint to tech profile for sprint
+LINK 2    2    3    11   2    1    2    12   3    11   2    2    link object template for functional are to tech profile for functional area
+
+
+   copied for example
+xTYPE 2    3    3    1    2    9    3    1               Data Element for Project Description Object Element
+xTYPE 2    3    3    2    2    9    3    2               Data Element for Software Product Description Object Element
+xTYPE 2    3    3    3    2    9    3    3               Data Element for Epic Description Object Element
+xTYPE 2    3    3    4    2    9    3    4               Data Element for Epic Type Description Object Element
+xTYPE 2    3    3    5    2    9    3    5               Data Element for Task Description Object Element
+xTYPE 2    3    3    6    2    9    3    6               Data Element for Task Type Description Object Element
+xTYPE 2    3    3    7    2    9    3    7               Data Element for Epic Status Description Object Element 
+xTYPE 2    3    3    8    2    9    3    8               Data Element for Size/Scale of Task Description Object Element
+xTYPE 2    3    3    9    2    9    3    9               Data Element for Task Status Description Object Element
+xTYPE 2    3    3    10   2    9    3    10              Data Element for Sprint Description Object Element
+xTYPE 2    3    3    11   2    9    3    11              Data Element for Functional Area Description Object Element
+xTYPE 2    3    3    12   2    9    3    12              Data Element for Epic Title Object Element   
+
+
+LINK 2    12   3    1    2    3    2    3    3    1    2    12   link tech profile to object element for Project Description
+LINK 2    12   3    2    2    3    2    3    3    2    2    12   link tech profile to object element for Software Product Description
+LINK 2    12   3    3    2    3    2    3    3    3    2    12   link tech profile to object element for Epic Description
+LINK 2    12   3    4    2    3    2    3    3    4    2    12   link tech profile to object element for Epic Type Description
+LINK 2    12   3    5    2    3    2    3    3    5    2    12   link tech profile to object element for Task Description
+LINK 2    12   3    6    2    3    2    3    3    6    2    12   link tech profile to object element for Task Type Description
+LINK 2    12   3    7    2    3    2    3    3    7    2    12   link tech profile to object element for Epic Status Description
+LINK 2    12   3    8    2    3    2    3    3    8    2    12   link tech profile to object element for Size/Scale of Task Description
+LINK 2    12   3    9    2    3    2    3    3    9    2    12   link tech profile to object element for Task Status Description
+LINK 2    12   3    10   2    3    2    3    3    10   2    12   link tech profile to object element for Sprint Description
+LINK 2    12   3    11   2    3    2    3    3    11   2    12   link tech profile to object element for Functional Area Description
+LINK 2    12   3    3    2    3    2    3    3    12   2    12   link tech profile to object element for Epic Title
+
+
+
+LINK 2    12   3    1    2    22   2    31   3    1    2    12   link tech profile to data element for project description
+LINK 2    12   3    2    2    22   2    31   3    2    2    12   link tech profile to data element for software product description
+LINK 2    12   3    3    2    22   2    31   3    3    2    12   link tech profile to data element for epic description
+LINK 2    12   3    4    2    22   2    31   3    4    2    12   link tech profile to data element for epic type description
+LINK 2    12   3    5    2    22   2    31   3    5    2    12   link tech profile to data element for task description
+LINK 2    12   3    6    2    22   2    31   3    6    2    12   link tech profile to data element for task type description
+LINK 2    12   3    7    2    22   2    31   3    7    2    12   link tech profile to data element for epic status description
+LINK 2    12   3    8    2    22   2    31   3    8    2    12   link tech profile to data element for size/scale of task description
+LINK 2    12   3    9    2    22   2    31   3    9    2    12   link tech profile to data element for task status description
+LINK 2    12   3    10   2    22   2    31   3    10   2    12   link tech profile to data element for sprint description
+LINK 2    12   3    11   2    22   2    31   3    11   2    12   link tech profile to data element for functional area description
+LINK 2    12   3    3    2    22   2    31   3    12   2    12   link tech profile to data element for epic title
+
+
+    copied for example
+xELEM 2    9    3    1    2    9    2    9         Type Definition: Epic Type for an Epic
+xELEM 2    9    3    2    2    9    2    9         Type Definition: Epic for a Task (also generates link from epic to task)
+xELEM 2    9    3    3    2    9    2    9         Type Definition: Task (parent) for a Task (also generates link from task to task) 
+xELEM 2    9    3    4    2    9    2    9         Type Definition: Epic Status for Epic
+xELEM 2    9    3    5    2    9    2    9         Type Definition: Due Date for a Epic
+xELEM 2    9    3    6    2    9    2    9         Type Definition: Task Type for a Task
+xELEM 2    9    3    7    2    9    2    9         Type Definition: Task Status for Task
+xELEM 2    9    3    8    2    9    2    9         Type Definition: Size/Scale (story point) for a Task
+xELEM 2    9    3    9    2    9    2    9         Type Definition: Sprint for a Task (also generates link from sprint to task)
+xELEM 2    9    3    10   2    9    2    9         Type Definition: Predecessor Sprint for a Sprint
+xELEM 2    9    3    11   2    9    2    9         Type Definition: Start Date for a Sprint
+xELEM 2    9    3    12   2    9    2    9         Type Definition: End Date for a Sprint
+xELEM 2    9    3    13   2    9    2    9         Type Definition: Creation Date for a Task
+xELEM 2    9    3    14   2    9    2    9         Type Definition: Projected Completion Date for Task
+xELEM 2    9    3    15   2    9    2    9         Type Definition: Completion Date for a Task
+xELEM 2    9    3    16   2    9    2    9         Type Definition: Predecessor Task for a Task
+xELEM 2    9    3    17   2    9    2    9         Type Definition: Functional Area for an Epic
+xELEM 2    9    3    18   2    9    2    9         Type Definition: Software Product for Class/Program
+
+   copied for example
+xELEM 2    12   3    1    2    12   2    12        Project (Technical Profile)
+xELEM 2    12   3    2    2    12   2    12        Software Product (Technical Profile)
+xELEM 2    12   3    3    2    12   2    12        Epic (Technical Profile)
+xELEM 2    12   3    4    2    12   2    12        Epic Type (Technical Profile)
+xELEM 2    12   3    5    2    12   2    12        Task (Technical Profile)
+xELEM 2    12   3    6    2    12   2    12        Task Type (Technical Profile)
+xELEM 2    12   3    7    2    12   2    12        Epic Status (Technical Profile)
+xELEM 2    12   3    8    2    12   2    12        Size/Scale of Task (Technical Profile)
+xELEM 2    12   3    9    2    12   2    12        Task Status (Technical Profile)
+xELEM 2    12   3    10   2    12   2    12        Sprint (Technical Profile)
+xELEM 2    12   3    11   2    12   2    12        Functional Area (Technical Profile)   
+
+
+
+LINK 2    12   3    3    2    4    2    9    3    1    2    12   link tech profile for epic to type definition for epic type for epic
+LINK 2    12   3    5    2    4    2    9    3    2    2    12   link tech profile for task to type definition for epic for a task  
+LINK 2    12   3    5    2    4    2    9    3    3    2    12   link tech profile for task to type definition for task (parent) for a task
+LINK 2    12   3    3    2    4    2    9    3    4    2    12   link tech profile for epic to type definition for epic status for a epic
+LINK 2    12   3    3    2    4    2    9    3    5    2    12   link tech profile for epic to type definition for due date for an epic
+LINK 2    12   3    5    2    4    2    9    3    6    2    12   link tech profile for task to type def for task type for a task
+LINK 2    12   3    5    2    4    2    9    3    7    2    12   link tech profile for task to type def for task status for a task
+LINK 2    12   3    5    2    4    2    9    3    8    2    12   link tech profile for task to type def for size/scale for a task
+LINK 2    12   3    5    2    4    2    9    3    9    2    12   link tech profile for task to type def to sprint for a task
+LINK 2    12   3    10   2    4    2    9    3    10   2    12   link tech profile for sprint to type def for Predecessor sprint for a sprint
+LINK 2    12   3    10   2    4    2    9    3    11   2    12   link tech profile for sprint to type def for start date for sprint
+LINK 2    12   3    10   2    4    2    9    3    12   2    12   link tech profile for sprint to type def for end date for sprint
+LINK 2    12   3    5    2    4    2    9    3    13   2    12   link tech profile for task to type def for creation date for task
+LINK 2    12   3    5    2    4    2    9    3    14   2    12   link tech profile for task to type def for projected completion date for task
+LINK 2    12   3    5    2    4    2    9    3    15   2    12   link tech profile for task to type def for completion date for task
+LINK 2    12   3    5    2    4    2    9    3    16   2    12   link tech profile for task to type def for predecessor task for a task
+LINK 2    12   3    3    2    4    2    9    3    17   2    12   link tech profile for epic to type def for functional area for epic
+LINK%2    12   3    2    2    4    2    9    3    18   2    12   link tech profile for class/program to type def for software product for class/program  ACTIVATE LATER
+
+   copied for example
+xELEM 2    12   3    1    2    12   2    12        Project (Technical Profile)
+xELEM 2    12   3    2    2    12   2    12        Software Product (Technical Profile)
+xELEM 2    12   3    3    2    12   2    12        Epic (Technical Profile)
+xELEM 2    12   3    4    2    12   2    12        Epic Type (Technical Profile)
+xELEM 2    12   3    5    2    12   2    12        Task (Technical Profile)
+xELEM 2    12   3    6    2    12   2    12        Task Type (Technical Profile)
+xELEM 2    12   3    7    2    12   2    12        Epic Status (Technical Profile)
+xELEM 2    12   3    8    2    12   2    12        Size/Scale of Task (Technical Profile)
+xELEM 2    12   3    9    2    12   2    12        Task Status (Technical Profile)
+xELEM 2    12   3    10   2    12   2    12        Sprint (Technical Profile)
+xELEM 2    12   3    11   2    12   2    12        Functional Area (Technical Profile)
+
+  copied for example
+xELEM 2    10   3    1    2    10   2    10        Link Type: Project to Epic               
+xELEM 2    10   3    2    2    10   2    10        Link Type: Epic to Task (server generated)  
+xELEM 2    10   3    3    2    10   2    10        Link Type: Task to Task (server generated)
+xELEM 2    10   3    4    2    10   2    10        Link Type: Project to Sprint  
+xELEM 2    10   3    5    2    10   2    10        Link Type: Sprint to Task (server generated) 
+xELEM 2    10   3    6    2    10   2    10        Link Type: Task to Class/Program
+xELEM 2    10   3    7    2    10   2    10        Link Type: Task to Person (Assignee)
+xELEM 2    10   3    8    2    10   2    10        Link Type: Software Product to Functional Area
+xELEM 2    10   3    9    2    10   2    10        Link Type: Functional Area to Functional Area
+
+
+LINK 2    12   3    1    2    5    2    10   3    1    2    12   link tech profile to link type for project to epic               
+LINK 2    12   3    3    2    5    2    10   3    2    2    12   link tech profile to link type for epic to task
+LINK 2    12   3    5    2    5    2    10   3    3    2    12   link tech profile to link type for task to task
+LINK 2    12   3    1    2    5    2    10   3    4    2    12   link tech profile to link type for project to sprint
+LINK 2    12   3    10   2    5    2    10   3    5    2    12   link tech profile to link type for sprint to task
+LINK 2    12   3    5    2    5    2    10   3    6    2    12   link tech profile to link type for task to class/program
+LINK%2    12   3    5    2    5    2    10   3    7    2    12   link tech profile to link type for task to person
+LINK 2    12   3    2    2    5    2    10   3    8    2    12   link tech profile to link type for software product to functional area
+LINK 2    12   3    11   2    5    2    10   3    9    2    12   link tech profile to link type for functional area to functional area   
+
+
+LINK 2    11   3    1    2    6    2    2    3    3    2    11   Link "Link Target Type" for Project-->Epic to base template for Epic          
+LINK 2    11   3    2    2    6    2    2    3    5    2    11   Link "Link Target Type" for Epic-->Task to base template for Task
+LINK 2    11   3    3    2    6    2    2    3    5    2    11   Link "Link Target Type" for Task-->Task to base template for Task
+LINK 2    11   3    4    2    6    2    2    3    10   2    11   Link "Link Target Type" for Project-->Sprint to base template for Sprint
+LINK 2    11   3    5    2    6    2    2    3    5    2    11   Link "Link Target Type" for Sprint-->Task to base template for Task
+LINK 2    11   3    6    2    6    2    2    2    37   2    11   Link "Link Target Type" for Task-->Class/Program to base template Class/Program
+LINK 2    11   3    7    2    6    2    2    10   1    2    11   Link "Link Target Type" for Task-->Person to base template for Person
+LINK 2    11   3    8    2    6    2    2    3    9    2    11   link "Link Target Type" for Software Product-->Functional Area to base template for Functional Area
+LINK 2    11   3    9    2    6    2    2    3    9    2    11   link "Link Target Type" for Functional Area-->Functional Area to base template for Functional Area
+
+

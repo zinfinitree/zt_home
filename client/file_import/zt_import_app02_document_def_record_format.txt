@@ -1,0 +1,214 @@
+ZTIC 2    131131/21
+ZTIC 3    zinfinitree.com/document
+ZTIC 1    abc.com/test1
+ZTIC 4    zinfinitree.com/server_config
+ZTIC 5    zinfinitree.com/spreadsheet
+ZTIC 6    zinfinitree.com/multimedia_object
+ZTIC 7    131131/22
+
+
+RZTI 1          receiver ztic
+ 
+
+  
+
+
+      mode 1 means create/update with no future timestamps [DEPRECATED]
+MODE%1                                                     [DEPRECATED replaced by MPPG]
+
+
+    message processing parameters--general
+     default timesmp     msg id-client       last idx  mode user                SWdsiSWcod           
+MPPG 5179248000.000      id123               1234      99   usr1                4    2    
+
+
+
+     ExtKeyDef ExtKeyVal     
+RecIdEKDdsEKDcoEKVdsEKVco
+EXTK 2    2    2    1
+
+     
+     Desc                                    Timestamp
+MSET MaintainSetId#1                         5179248000.000  
+
+CMNT TMPL                                        template for maintaing an object
+
+     ObjKind   Object    ObjElem   Template  
+RecIdKzticKcodeOzticOcodeEzticEcodeTzticTcode     OEValue
+ELEM 2    1    3    1    2    1    2    1         Document (Object Kind)
+ELEM 2    1    3    2    2    1    2    1         Document Element (Object Kind)
+ELEM 2    1    3    3    2    1    2    1         Document Type (Object Kind)
+ELEM 2    1    3    4    2    1    2    1         Document Element Type (Object Kind)
+ELEM 2    2    3    1    2    2    2    2         Document (Base Template)              
+ELEM 2    2    3    2    2    2    2    1         Document Element (Base Template)
+ELEM 2    2    3    3    2    2    2    1         Document Type (Base Template)
+ELEM 2    2    3    4    2    2    2    1         Document Element Type (Base Template)
+ELEM 2    12   3    1    2    12   2    12        Document (Technical Profile)
+ELEM 2    12   3    2    2    12   2    12        Document Element (Technical Profile)
+ELEM 2    12   3    3    2    12   2    12        Document Type (Technical Profile)
+ELEM 2    12   3    4    2    12   2    12        Document Element Type (Technical Profile)
+ELEM 2    21   3    1    2    21   2    21        Code Range for Document (Code Range)
+ELEM 2    21   3    2    2    21   2    21        Code Range for Document Element (Code Range)
+ELEM 2    21   3    3    2    21   2    21        Code Range for Document Type (Code Range)
+ELEM 2    21   3    4    2    21   2    21        Code Range for Document Element Type (Code Range)
+ELEM 2    21   3    1    2    204  2    21        110
+ELEM 2    21   3    2    2    204  2    21        580
+ELEM 2    21   3    3    2    204  2    21        301
+ELEM 2    21   3    4    2    204  2    21        401
+ELEM 2    2    3    5    2    1    2    2         Code Range for Document (Base Template) 
+ELEM 2    2    3    6    2    1    2    1         Code Range for Document Element (Base Template)
+ELEM 2    12   3    5    2    12   2    12        Code Range for Document (Technical Profile)
+ELEM 2    12   3    6    2    12   2    12        Code Range for Document Element (Technical Profile)
+ELEM 2    3    3    1    2    3    2    3         Document Description         (Object Element)
+ELEM 2    3    3    2    2    3    2    3         Document Long Description    (Object Element)
+ELEM 2    3    3    3    2    3    2    3         Document Title               (Object Element)
+ELEM 2    3    3    4    2    3    2    3         Document Element Description (Object Element)
+ELEM 2    3    3    5    2    3    2    3         Document Element Text        (Object Element)
+ELEM 2    3    3    6    2    3    2    3         Document Type Description    (Object Element)
+ELEM 2    3    3    7    2    3    2    3         Document Element Type Description (Object Element)
+ELEM 2    31   3    1    2    31   2    31        Document Description DE (Data Element)
+ELEM 2    31   3    2    2    31   2    31        Document Long Description DE    (Data Element)
+ELEM 2    31   3    3    2    31   2    31        Document Title DE               (Data Element)
+ELEM 2    31   3    4    2    31   2    31        Document Element Description DE (Data Element)
+ELEM 2    31   3    5    2    31   2    31        Document Element Text DE        (Data Element)
+ELEM 2    31   3    6    2    31   2    31        Document Type Description       (Data Element)
+ELEM 2    31   3    7    2    31   2    31        Document Element type Description (Data Element)
+ELEM 2    31   3    8    2    31   2    31        Current Code                    (Data Element)
+ELEM 2    32   3    1    2    32   2    32        Document Description DT         (Data Type)
+ELEM 2    32   3    2    2    32   2    32        Document Long Description DT    (Data Type)
+ELEM 2    32   3    3    2    32   2    32        Document Title DT               (Data Type)
+ELEM 2    32   3    4    2    32   2    32        Document Element Description DT (Data Type)
+ELEM 2    32   3    5    2    32   2    32        Document Element Text  DT       (Data Type)
+ELEM 2    32   3    6    2    32   2    32        Document Type Description DT    (Data Type)
+ELEM 2    32   3    7    2    32   2    32        Document Element Type Description (Data Type)
+ELEM%2    32   3    8    2    32   2    32        Current Code for Document DT    (Data Type)
+ELEM 2    10   3    1    2    10   2    10        Link Type: Document to Document Element                
+ELEM 2    10   3    2    2    10   2    10        Link Type: Document Element to Document Element  
+ELEM 2    10   3    3    2    10   2    10        Link Type: Document Element to Spreadsheet
+ELEM 2    10   3    4    2    10   2    10        Link Type: Document Element to Multi-Media Object
+ELEM 2    10   3    5    2    10   2    10        Link Type: Document Element to Message Definition
+ELEM 2    10   3    6    2    10   2    10        Link Type: Document Element to Document       
+ELEM 2    11   3    1    2    11   2    11        Link Target Type: Document to Document Element 
+ELEM 2    11   3    2    2    11   2    11        Link Target Type: Document Element to Document Element 
+ELEM 2    11   3    3    2    11   2    11        Link Target Type: Document Element to Spreadsheet
+ELEM 2    11   3    4    2    11   2    11        Link Target Type: Document Element to Multi-Media Object
+ELEM 2    11   3    5    2    11   2    11        Link Target Type: Document Element to Message
+ELEM 2    11   3    6    2    11   2    11        Link Target Type: Document Element to Document
+ELEM 2    9    3    1    2    9    2    9         Type Definition:  Document Type for Document
+ELEM 2    9    3    2    2    9    2    9         Type Definition:  Document Element Type for Document Element
+
+ELEM 3    4    3    1    3    7    3    4         Heading (Document Element Type)
+ELEM 3    4    3    2    3    7    3    4         Paragraph (Document Element Type)
+ELEM 3    4    3    3    3    7    3    4         Ordered List (Document Element Type)
+ELEM%3    4    3    4    3    7    3    4         Caption for External Object (Document Element Type)    20210317
+ELEM%3    4    3    5    3    7    3    4         Graphic (Document Element Type)            [deprecated 20210317]
+ELEM%3    4    3    6    3    7    3    4         Spreadsheet (Document Element Type)        [deprecated 20210317]
+ELEM%3    4    3    7    3    7    3    4         Message (Document Element Type)            [deprecated 20210317]
+
+
+  max length for data elements used for document
+ELEM 2    31   3    1    2    214  2    31        40
+ELEM 2    31   3    2    2    214  2    31        60
+ELEM 2    31   3    3    2    214  2    31        45
+ELEM 2    31   3    4    2    214  2    31        45
+ELEM 2    31   3    5    2    214  2    31        85
+
+
+Lead
+     ObjKind   Object    TypeDef   Type      Template  
+RecIdKdiscKcodeOzticOcodeTDdsiTDcodTzticTcodeTzticTcode
+TYPE 2    2    3    1    2    3    3    1               Object Kind for template for Document
+TYPE 2    2    3    2    2    3    3    2               Object Kind for template for Document Element
+TYPE 2    2    3    3    2    3    3    3               Object Kind for template for Document Type
+TYPE 2    2    3    4    2    3    3    4               Object Kind for template for Document Element Type
+TYPE 2    1    3    1    2    5    3    1               Code Range for Document
+TYPE 2    1    3    2    2    5    3    2               Code Range for Document Element
+TYPE 2    1    3    3    2    5    3    3               Code Range for Document Type
+TYPE 2    1    3    4    2    5    3    4               Code Range for Document Element Type
+TYPE 2    21   3    1    2    6    2    1               Code Scheme for Document Code Range
+TYPE 2    21   3    2    2    6    2    1               Code Scheme for Document Element Code Range
+TYPE 2    21   3    3    2    6    2    1               Code Scheme for Document Type Code Range
+TYPE 2    21   3    4    2    6    2    1               Code Scheme for Document Element Type Code Range
+TYPE 2    3    3    1    2    9    3    1               Data Element for Document Description Object Element
+TYPE 2    3    3    2    2    9    3    2               Data Element for Document Long Description Object Element
+TYPE 2    3    3    3    2    9    3    3               Data Element for Document Title Object Element
+TYPE 2    3    3    4    2    9    3    4               Data Element for Document Element Description Object Element
+TYPE 2    3    3    5    2    9    3    5               Data Element for Document Element Text Object Element
+TYPE 2    31   3    1    2    10   3    1               Data Type for Document Description Data Element
+TYPE 2    31   3    2    2    10   3    2               Data Type for Document Long Description Data Element
+TYPE 2    31   3    3    2    10   3    3               Data Type for Document Title Data Element
+TYPE 2    31   3    4    2    10   3    4               Data Type for Document Element Description Data Element
+TYPE 2    31   3    5    2    10   3    5               Data Type for Document Element Text Data Element
+TYPE 2    31   3    1    2    11   2    2               Extended Key Definition (language) for Document Description Data Element
+TYPE 2    31   3    2    2    11   2    2               Extended Key Definition (language) for Document Long Description Data Element
+TYPE 2    31   3    3    2    11   2    2               Extended Key Definition (language) for Document Title Data Element
+TYPE 2    31   3    4    2    11   2    2               Extended Key Definition (language) for Document Element Description Data Element
+TYPE 2    31   3    5    2    11   2    2               Extended Key Definition (language) for Document Element Text Data Element
+TYPE%2    21   3    1    2    14   2    1               Code Scheme for Document Code Range     [deprecated dup of type def 6]
+TYPE%2    21   3    2    2    14   2    1               Code Scheme for Document Element Code Range [deprecated dup of type def 6]
+TYPE%2    21   3    3    2    14   2    1               Code Scheme for Document Type Code Range    [deprecated dup of type def 6]
+TYPE%2    21   3    4    2    14   2    1               Code Scheme for Document Element Type Code Range [deprecated dup of type def 6]
+TYPE 2    10   3    1    2    2    3    1               link target type for link type for document to document element 
+TYPE 2    10   3    2    2    2    3    2               link target type for link type for document element to document element
+TYPE 2    10   3    3    2    2    3    3               link target type for link type for document element to spreadsheet
+TYPE 2    10   3    4    2    2    3    4               link target type for link type for document element to Multi-Media Object
+TYPE 2    10   3    5    2    2    3    5               link target type for link type for document element to message
+TYPE 2    10   3    6    2    2    3    6               link target type for link type for document element to document
+TYPE 2    9    3    1    2    4    3    3               Object Kind for Type Definition: Object Kind for Document Type  20200817
+TYPE 2    9    3    2    2    4    3    4               Object Kind for Type Definition: Object Kind for Document Element Type
+
+
+     ObjKind   Object    TypeDef   Type      Template
+RecIdKdiscKcodeOzticOcodeTDdsiTDcodTzticTcodeTzticTcode
+TYPE%2    1    3    1    2    22   2    1    2    1     Default Object Template--Minimal Data for Document (Object Kind)             (del) 20210712
+TYPE%2    1    3    2    2    22   2    2    2    1     Default Object Template--Minimal Data for Document Element (Object Kind)     (del) 20210712
+TYPE%2    1    3    3    2    22   2    3    2    1     Default Object Template--Minimal Data for Document Type (Object Kind)        (del) 20210712
+TYPE%2    1    3    4    2    22   2    4    2    1     Default Object Template--Minimal Data for Document Element Type (Object Kind)(del) 20210712
+TYPE 2    1    3    1    2    22   3    1    2    1     Default Object Template--Minimal Data for Document (Object Kind)              20210712
+TYPE 2    1    3    2    2    22   3    2    2    1     Default Object Template--Minimal Data for Document Element (Object Kind)      20210712
+TYPE 2    1    3    3    2    22   3    3    2    1     Default Object Template--Minimal Data for Document Type (Object Kind)         20210712
+TYPE 2    1    3    4    2    22   3    4    2    1     Default Object Template--Minimal Data for Document Element Type (Object Kind) 20210712
+
+
+
+     ObjKind   Object    LinkType   ToKind   ToObject  Template  
+RecIdKzticKcodeOzticOcodeLTdsiLTcodLKdsiLKcodLzticLcodeTzticTcode         
+LINK 2    2    3    1    2    1    2    12   3    1    2    2    link object template for document to technical profile for document
+LINK 2    2    3    2    2    1    2    12   3    2    2    2    link object template for document element to technical profile for document element
+LINK 2    2    3    3    2    1    2    12   3    3    2    2    link object template for document type to technical profile for document type
+LINK 2    2    3    4    2    1    2    12   3    4    2    2    link object template for document element type to technical profile for document element type
+LINK 2    12   3    1    2    3    2    3    3    1    2    12   link tech profile to object element for Document Description
+LINK 2    12   3    1    2    3    2    3    3    2    2    12   link tech profile to object element for Document Long Description
+LINK 2    12   3    1    2    3    2    3    3    3    2    12   link tech profile to object element for Document Title
+LINK 2    12   3    2    2    3    2    3    3    4    2    12   link tech profile to object element for Document Element Description
+LINK 2    12   3    2    2    3    2    3    3    5    2    12   link tech profile to object element for Document Element Text
+LINK 2    12   3    3    2    3    2    3    3    6    2    12   link tech profile to object element for Document Type Description
+LINK 2    12   3    4    2    3    2    3    3    7    2    12   link tech porfile to object element for Document Element Type Description
+
+LINK 2    12   3    1    2    22   2    31   3    1    2    12   link tech profile to data element for document description
+LINK 2    12   3    1    2    22   2    31   3    2    2    12   link tech profile to data element for document long description
+LINK 2    12   3    1    2    22   2    31   3    3    2    12   link tech profile to data element for document title
+LINK 2    12   3    2    2    22   2    31   3    4    2    12   link tech profile to data element for document element description
+LINK 2    12   3    2    2    22   2    31   3    5    2    12   link tech profile to data element for document element text
+
+LINK 2    12   3    1    2    4    2    9    3    1    2    12   link tech profile for document to type definition for document type for document 
+LINK 2    12   3    2    2    4    2    9    3    2    2    12   link tech profile for document element to type definition for document element type for document element
+LINK 2    12   3    1    2    5    2    10   3    1    2    12   link tech profile to link type for document to docuent element               
+LINK 2    12   3    2    2    5    2    10   3    2    2    12   link tech profile to link type for document element to document element
+LINK 2    12   3    2    2    5    2    10   3    3    2    12   link tech profile to link type for document element to spreadsheet
+LINK 2    12   3    2    2    5    2    10   3    4    2    12   link tech profile to link type for document element to Multi-Media Object
+LINK 2    12   3    2    2    5    2    10   3    5    2    12   link tech profile to link type for document element to message      
+LINK%2    12   3    2    2    5    2    10   3    6    2    12   link tech profile to link type for document element to document      [ACTIVATE WHEN READY]
+
+LINK 2    11   3    1    2    6    2    2    3    2    2    11   Link "Link Target Type" for Document-->Document Element to base template for Document Element          
+LINK 2    11   3    2    2    6    2    2    3    2    2    11   Link "Link Target Type" for Document Element-->Document Element to base template for Document Element
+LINK 2    11   3    3    2    6    2    2    5    1    2    11   Link "Link Target Type" for Document Element-->Spreadsheet to base template for Spreadsheet
+LINK 2    11   3    4    2    6    2    2    6    1    2    11   Link "Link Target Type" for Document Element-->Multi-Media Object to base template for Multi-Media Object
+LINK 2    11   3    5    2    6    2    2    7    1    2    11   Link "Link Target Type" for Document Element-->Message to base template for Message     
+LINK%2    11   3    6    2    6    2    2    3    1    2    11   Link "Link Target Type" for Document Element-->Document to basetemplate for Document      [ACTIVATE WHEN READY]
+
+
+
+
+
+

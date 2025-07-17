@@ -1,0 +1,5 @@
+FROM node:18-alpine
+WORKDIR /zt_home
+COPY . .
+RUN yarn install --production
+CMD ["node", "./server/zt_server.js"]

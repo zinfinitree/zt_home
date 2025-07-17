@@ -1,0 +1,65 @@
+ZTIC 2    131131/21
+ZTIC 3    zinfinitree.com/address
+ZTIC 1    abc.com/test1
+
+RZTI 1          receiver ztic
+
+      mode 1 means create/update with no future timestamps [DEPRECATED]
+MODE%99                                                     [DEPRECATED replaced by MPPG]
+
+
+    message processing parameters--general
+     default timesmp     msg id-client       last idx  mode user                SWdsiSWcod           
+MPPG 5179248000.000      id123               1234      99   usr1                4    1    
+     
+     Desc                                    Timestamp
+MSET MaintainSetId#1                         5179248000.000  
+
+CMNT TMPL                                         template for maintaing an object
+
+     ObjKind   Object    ObjElem   Template  
+RecIdKzticKcodeOzticOcodeEzticEcodeTzticTcode     OEValue
+ELEM 2    26   2    1    2    26   2    26        Class Name (System Message Parameter)
+ELEM 2    26   2    2    2    26   2    26        Class Method (System Message Parameter) 
+ELEM 2    26   2    3    2    26   2    26        Program source file name (System Message Parameter)
+ELEM 2    26   2    4    2    26   2    26        Variable System Message Text (System Message Parameter)
+ELEM 2    26   2    5    2    26   2    26        Object Code before increment
+ELEM 2    26   2    6    2    26   2    26        Object Code after increment
+ELEM 2    26   2    7    2    26   2    26        Code String used for incrementing code     
+ELEM%2    26   2    8    2    26   2    26        System Message Parameter Placeholder 8
+
+
+
+
+
+
+     ObjKind   Object    TypeDef   Type      Template
+RecIdKdiscKcodeOzticOcodeTDdsiTDcodTzticTcodeTzticTcode
+TYPE%2    3    3    1    2    1    3    1               table element for object element house number2
+TYPE%2    3    3    2    2    1    3    2               table element for object element street2  (deactivated via % because
+TYPE%2    3    3    3    2    1    3    3               table element for object element city2    table element is not used)
+TYPE%2    3    3    4    2    1    3    4               table element for object element state2
+TYPE%2    3    3    5    2    1    3    5               table element for object element postal code2
+
+
+     ObjKind   Object    LinkType   ToKind   ToObject  Template
+RecIdKzticKcodeOzticOcodeLTdsiLTcodLKdsiLKcodLzticLcodeTzticTcode         
+LINK%2    2    3    1    2    1    2    12   3    1    2    2    link object template to technical profile
+LINK%2    12   3    1    2    2    2    3    3    1    2    12   link tech profile to object element for house number4
+LINK%2    12   3    1    2    2    2    3    3    2    2    12   link tech profile to object element for street4
+LINK%2    12   3    1    2    2    2    3    3    3    2    12   link tech profile to object element for city4
+LINK%2    12   3    1    2    2    2    3    3    4    2    12   link tech profile to object element for state4
+LINK%2    12   3    1    2    2    2    3    3    5    2    12   link tech profile to object element for postal code4
+
+
+
+
+QSET%OTdsiOTcodSelMdRspSmQSMid                                           query set member format, not used for this message (excluded by %)
+QSLS%SSeGnSSePnOpera                                                     query selection set format, not used for this message (excluded by %)    
+QOSS%LevelUsage                                                          query object selection set member, not used for this message (excluded by %)
+QOBJ%KzticKcodeOzticOcode                                                query object, not used for this message (excluded by %)
+QELM%EzticEcodeSgrpnSetopOperaQualfValue                                 query element, not used for this message (excluded by %)
+
+
+
+

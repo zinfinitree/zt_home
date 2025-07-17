@@ -1,0 +1,195 @@
+ZTIC 2    131131/21
+ZTIC 3    131131/22
+ZTIC 1    abc.com/test1
+ZTIC 4    zinfinitree.com/server_config
+
+
+RZTI 1          receiver ztic
+ 
+
+  
+
+
+      mode 1 means create/update with no future timestamps [DEPRECATED]
+MODE%1                                                     [DEPRECATED replaced by MPPG]
+
+
+    message processing parameters--general
+     default timesmp     msg id-client       last idx  mode user                SWdsiSWcod           
+MPPG 5179248000.000      id123               1234      99   usr1                4    2    
+
+
+
+     ExtKeyDef ExtKeyVal     
+RecIdEKDdsEKDcoEKVdsEKVco
+EXTK 2    2    2    1
+
+     
+     Desc                                    Timestamp
+MSET MaintainSetId#1                         5179248000.000  
+
+CMNT TMPL                                        template for maintaing an object
+
+     ObjKind   Object    ObjElem   Template  
+RecIdKzticKcodeOzticOcodeEzticEcodeTzticTcode     OEValue
+ELEM 2    1    3    1    2    1    2    1         Message Definition (Object Kind)
+ELEM 2    1    3    2    2    1    2    1         Message Element (Object Kind)
+ELEM 2    1    3    3    2    1    2    1         Message Definition Type (Object Kind)
+ELEM 2    1    3    4    2    1    2    1         Message Element Type (Object Kind)
+ELEM 2    2    3    1    2    2    2    2         Message Definition (Base Template)              
+ELEM 2    2    3    2    2    2    2    1         Message Element (Base Template)
+ELEM 2    2    3    3    2    2    2    1         Message Definition Type (Base Template)
+ELEM 2    2    3    4    2    2    2    1         Message Element Type (Base Template)
+ELEM 2    12   3    1    2    12   2    12        Message Definition (Technical Profile)
+ELEM 2    12   3    2    2    12   2    12        Message Element (Technical Profile)
+ELEM 2    12   3    3    2    12   2    12        Message Definition Type (Technical Profile)
+ELEM 2    12   3    4    2    12   2    12        Message Element Type (Technical Profile)
+ELEM 2    21   3    1    2    21   2    21        Code Range for Message Definition (Code Range)
+ELEM 2    21   3    2    2    21   2    21        Code Range for Message Element (Code Range)
+ELEM 2    21   3    3    2    21   2    21        Code Range for Message Definition Type (Code Range)
+ELEM 2    21   3    4    2    21   2    21        Code Range for Message Element Type (Code Range)
+ELEM 2    21   3    1    2    204  2    21        103
+ELEM 2    21   3    2    2    204  2    21        201
+ELEM 2    21   3    3    2    204  2    21        301
+ELEM 2    21   3    4    2    204  2    21        401
+ELEM 2    2    3    5    2    1    2    2         Code Range for Message Definition (Base Template) 
+ELEM 2    2    3    6    2    1    2    1         Code Range for Message Element (Base Template)
+ELEM 2    12   3    5    2    12   2    12        Code Range for Message Definition (Technical Profile)
+ELEM 2    12   3    6    2    12   2    12        Code Range for Message Element (Technical Profile)
+ELEM 2    3    3    1    2    3    2    3         Message Definition Description         (Object Element)
+ELEM 2    3    3    2    2    3    2    3         Message Definition Long Description    (Object Element)
+ELEM 2    3    3    3    2    3    2    3         Message Definition Title               (Object Element)
+ELEM 2    3    3    4    2    3    2    3         Message Element Label (Object Element)
+ELEM 2    3    3    5    2    3    2    3         Message Element Description        (Object Element)
+ELEM 2    3    3    6    2    3    2    3         Message Definition Type Description    (Object Element)
+ELEM 2    3    3    7    2    3    2    3         Message Element Type Description (Object Element)
+ELEM 2    31   3    1    2    31   2    31        Message Definition Description DE (Data Element)
+ELEM 2    31   3    2    2    31   2    31        Message Definition Long Description DE    (Data Element)
+ELEM 2    31   3    3    2    31   2    31        Message Definition Title DE               (Data Element)
+ELEM 2    31   3    4    2    31   2    31        Message Element Label DE (Data Element)
+ELEM 2    31   3    5    2    31   2    31        Message Element Description DE        (Data Element)
+ELEM 2    31   3    6    2    31   2    31        Message Definition Type Description       (Data Element)
+ELEM 2    31   3    7    2    31   2    31        Message Element Type Description (Data Element)
+ELEM 2    31   3    8    2    31   2    31        Current Code                    (Data Element)
+ELEM 2    32   3    1    2    32   2    32        Message Definition Description DT         (Data Type)
+ELEM 2    32   3    2    2    32   2    32        Message Definition Long Description DT    (Data Type)
+ELEM 2    32   3    3    2    32   2    32        Message Definition Title DT               (Data Type)
+ELEM 2    32   3    4    2    32   2    32        Message Element Label DT (Data Type)
+ELEM 2    32   3    5    2    32   2    32        Message Element Description  DT       (Data Type)
+ELEM 2    32   3    6    2    32   2    32        Message Definition Type Description DT    (Data Type)
+ELEM 2    32   3    7    2    32   2    32        Message Element Type Description (Data Type)
+ELEM%2    32   3    8    2    32   2    32        Current Code for Message Definition DT    (Data Type)
+ELEM 2    10   3    1    2    10   2    10        Link Type: Message Definition to Message Element                
+ELEM 2    10   3    2    2    10   2    10        Link Type: Message Element to Message Element        
+ELEM 2    11   3    1    2    11   2    11        Link Target Type: Message Definition to Message Element         
+ELEM 2    11   3    2    2    11   2    11        Link Target Type: Message Element to Message Element 
+ELEM 2    9    3    1    2    9    2    9         Type Definition:  Message Definition Type for Message Definition
+
+ message validations
+ELEM 2    52   3    1    2    52   2    52        Validate Message Segment Numbering
+ELEM 2    52   3    2    2    52   2    52        Validate that Message Element in Message Segment has correct parent
+ELEM 2    52   3    3    2    52   2    52        Validate that Object Element in Message is allowed for Template
+ELEM 2    52   3    4    2    52   2    52        Validate that Object in Query exists
+
+
+
+  table elements for communication message
+
+     ObjKind   Object    ObjElem   Template  
+RecIdKzticKcodeOzticOcodeEzticEcodeTzticTcode     OEValue
+ELEM 2    4    3    1    2    4    2    4         Segment Number--Positive integer sequentially assigned, starting at 1
+ELEM 2    4    3    2    2    4    2    4         Segment Number of Parent Segment
+ELEM 2    4    3    3    2    4    2    4         Priority for child segments    
+ELEM 2    4    3    4    2    4    2    4         Message Element ZTIC from Message Definition   
+ELEM 2    4    3    5    2    4    2    4         Message Element Code from Message Definition
+ELEM 2    4    3    6    2    4    2    4         Message Element data
+
+
+  max length for data elements used for document
+ELEM 2    31   3    1    2    214  2    31        40
+ELEM 2    31   3    2    2    214  2    31        60
+ELEM 2    31   3    3    2    214  2    31        45
+ELEM 2    31   3    4    2    214  2    31        45
+ELEM 2    31   3    5    2    214  2    31        85
+
+
+Lead
+     ObjKind   Object    TypeDef   Type      Template  
+RecIdKdiscKcodeOzticOcodeTDdsiTDcodTzticTcodeTzticTcode
+TYPE 2    2    3    1    2    3    3    1               Object Kind for template for Message Definition
+TYPE 2    2    3    2    2    3    3    2               Object Kind for template for Message Element
+TYPE 2    2    3    3    2    3    3    3               Object Kind for template for Message Definition Type
+TYPE 2    2    3    4    2    3    3    4               Object Kind for template for Message Element Type
+TYPE 2    1    3    1    2    5    3    1               Code Range for Message Definition
+TYPE 2    1    3    2    2    5    3    2               Code Range for Message Element
+TYPE 2    1    3    3    2    5    3    3               Code Range for Message Definition Type
+TYPE 2    1    3    4    2    5    3    4               Code Range for Message Element Type
+TYPE 2    21   3    1    2    6    2    1               Code Scheme for Message Definition Code Range
+TYPE 2    21   3    2    2    6    2    1               Code Scheme for Message Element Code Range
+TYPE 2    21   3    3    2    6    2    1               Code Scheme for Message Definition Type Code Range
+TYPE 2    21   3    4    2    6    2    1               Code Scheme for Message Element Type Code Range
+TYPE 2    3    3    1    2    9    3    1               Data Element for Message Definition Description Object Element
+TYPE 2    3    3    2    2    9    3    2               Data Element for Message Definition Long Description Object Element
+TYPE 2    3    3    3    2    9    3    3               Data Element for Message Definition Title Object Element
+TYPE 2    3    3    4    2    9    3    4               Data Element for Message Element Label Object Element
+TYPE 2    3    3    5    2    9    3    5               Data Element for Message Element Description Object Element
+TYPE 2    31   3    1    2    10   3    1               Data Type for Message Definition Description Data Element
+TYPE 2    31   3    2    2    10   3    2               Data Type for Message Definition Long Description Data Element
+TYPE 2    31   3    3    2    10   3    3               Data Type for Message Definition Title Data Element
+TYPE 2    31   3    4    2    10   3    4               Data Type for Message Element Label Data Element
+TYPE 2    31   3    5    2    10   3    5               Data Type for Message Element Description Data Element
+TYPE 2    31   3    1    2    11   2    2               Extended Key Definition (language) for Message Definition Description Data Element
+TYPE 2    31   3    2    2    11   2    2               Extended Key Definition (language) for Message Definition Long Description Data Element
+TYPE 2    31   3    3    2    11   2    2               Extended Key Definition (language) for Message Definition Title Data Element
+TYPE 2    31   3    4    2    11   2    2               Extended Key Definition (language) for Message Element Description Data Element
+TYPE 2    31   3    5    2    11   2    2               Extended Key Definition (language) for Message Element Text Data Element
+TYPE 2    21   3    1    2    14   2    1               Code Scheme for Message Definition Code Range     [deprecated dup of type def 6]
+TYPE 2    21   3    2    2    14   2    1               Code Scheme for Message Element Code Range [deprecated dup of type def 6]
+TYPE 2    21   3    3    2    14   2    1               Code Scheme for Message Definition Type Code Range    [deprecated dup of type def 6]
+TYPE 2    21   3    4    2    14   2    1               Code Scheme for Message Element Type Code Range [deprecated dup of type def 6]
+TYPE 2    10   3    1    2    2    3    1               link target type for link type for message definition to message element 
+TYPE 2    10   3    2    2    2    3    2               link target type for link type for message definition to message element
+TYPE 2    9    3    1    2    4    3    3               Object Kind for Type Definition: Object Kind for Message Definition Type  20200817
+
+
+
+     ObjKind   Object    TypeDef   Type      Template
+RecIdKdiscKcodeOzticOcodeTDdsiTDcodTzticTcodeTzticTcode
+TYPE 2    1    3    1    2    22   3    1    2    1     Default Object Template--Minimal Data for Message (Object Kind)              20210919        
+TYPE 2    1    3    2    2    22   3    2    2    1     Default Object Template--Minimal Data for Message Element (Object Kind)      20210919  
+TYPE 2    1    3    3    2    22   3    3    2    1     Default Object Template--Minimal Data for Message Type (Object Kind)         20210919
+TYPE 2    1    3    4    2    22   3    4    2    1     Default Object Template--Minimal Data for Message Element Type (Object Kind) 20210919
+
+
+     ObjKind   Object    LinkType   ToKind   ToObject  Template  
+RecIdKzticKcodeOzticOcodeLTdsiLTcodLKdsiLKcodLzticLcodeTzticTcode         
+LINK 2    2    3    1    2    1    2    12   3    1    2    2    link object template for message definition to technical profile for message definition
+LINK 2    2    3    2    2    1    2    12   3    2    2    2    link object template for message element to technical profile for message element
+LINK 2    2    3    3    2    1    2    12   3    3    2    2    link object template for message definition type to technical profile for message definition type
+LINK 2    2    3    4    2    1    2    12   3    4    2    2    link object template for message element type to technical profile for message element type
+LINK 2    12   3    1    2    3    2    3    3    1    2    12   link tech profile to object element for Message Definition Description
+LINK 2    12   3    1    2    3    2    3    3    2    2    12   link tech profile to object element for Message Definition Long Description
+LINK 2    12   3    1    2    3    2    3    3    3    2    12   link tech profile to object element for Message Definition Title
+LINK 2    12   3    2    2    3    2    3    3    4    2    12   link tech profile to object element for Message Element Label
+LINK 2    12   3    2    2    3    2    3    3    5    2    12   link tech profile to object element for Message Element Description
+LINK 2    12   3    3    2    3    2    3    3    6    2    12   link tech profile to object element for Message Definition Type Description
+LINK 2    12   3    4    2    3    2    3    3    7    2    12   link tech porfile to object element for Message Element Type Description
+
+LINK 2    12   3    1    2    22   2    31   3    1    2    12   link tech profile to data element for message definition description
+LINK 2    12   3    1    2    22   2    31   3    2    2    12   link tech profile to data element for message definition long description
+LINK 2    12   3    1    2    22   2    31   3    3    2    12   link tech profile to data element for message definition title
+LINK 2    12   3    2    2    22   2    31   3    4    2    12   link tech profile to data element for message element label
+LINK 2    12   3    2    2    22   2    31   3    5    2    12   link tech profile to data element for message element description
+
+LINK 2    12   3    1    2    4    2    9    3    1    2    12   link tech profile for message definition to type definition for message definition type for message definition 
+LINK 2    12   3    1    2    5    2    10   3    1    2    12   link tech profile to link type for message definition to message element               
+LINK 2    12   3    2    2    5    2    10   3    2    2    12   link tech profile to link type for message element to message element 
+
+LINK 2    11   3    1    2    6    2    2    3    2    2    11   Link "Link Target Type" for Message Definition-->Message Element to base template for Message Element          
+LINK 2    11   3    2    2    6    2    2    3    2    2    11   Link "Link Target Type" for Message Element-->Message Element to base template for Message Element 
+ 
+
+
+
+
+

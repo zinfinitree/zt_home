@@ -1,0 +1,6 @@
+dev process
+
+1. create new code ranges for new object kinds if needed
+2. create new object kinds, selecting a code range as a type value
+3. create a template for each object kind and at the same time, create a technical profile as a linked object
+4. maintain the technical profile, creating object elements as linked objects

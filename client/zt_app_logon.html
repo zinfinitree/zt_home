@@ -1,0 +1,192 @@
+<html>
+  <head>
+    <title>ZT App Logon</title>
+    <!-- app longon, copied from maintain_object
+            include following fields:
+            target namespace
+            language
+            user
+            password 
+            namespace of application
+            code of application
+            namespace of initial app page
+            code of initial app page
+            post to i.e. http://localhost:3000/zt/client/app_logon
+            
+
+
+  -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">  </script>
+    <script>
+      $(document).ready(function(){
+        var file_name, obj_template;
+        var status_sel, dsi, file_num;
+        var test_AR = [];
+
+        var app_code;
+        var user_name;
+        var user_password;
+
+
+
+        function test_val(html_idx, valuex) {
+              this.html_id  = html_idx;
+              this.value    = valuex;  }
+
+        $("#submit").click(function(){
+          TargetNS=$('.ddlTargetNS').val();
+          language=$('.ddlLanguage').val();
+
+          user_name=$("#user_name").val();
+          user_password=$("#user_password").val();
+
+          AppNS=$('.ddlAppNS').val();
+          app_code=$("#app_code").val();
+      
+          InitPageNS=$('.ddlInitPageNS').val();
+          init_page_code=$("#app_code").val();
+
+
+         // var tv1 = new test_val("VAL1",obj_templ_ztic);
+         // var tv2 = new test_val("VAL2",obj_code);
+          //test_AR.push(obj_templ_ztic); test_AR.push(obj_code);
+          test_AR.length = 0;
+        //  test_AR.push(tv1); test_AR.push(tv2);
+        //  var test_ARs = JSON.stringify(test_AR);          
+
+//  console.log(data);
+
+  //console.log(data);   (del) 20210324
+
+          var jqxhr = $.post("http://localhost:3000/zt/client/app_page_display",{TargetNS: TargetNS, language: language, user_name: user_name, user_password: user_password, AppNS: AppNS, app_code: app_code, InitPageNS: InitPageNS, init_page_code: init_page_code }, function(data){
+
+
+
+       //var newWindow = window.open("", "new window", "width=200, height=100");
+       //  var newWindow = window.open("", "_self");    (del) temp 20200416
+
+       var id = "12345";
+       sessionStorage.setItem("sent", id);  // 20200417
+       var newWindow = window.open("http://localhost:3000/zt/maintain_object_submit", "_blank");                 //20200416
+       //write the data to the document of the newWindow
+       //newWindow.document.write(data);    (del) temp 20200416
+       
+  //alert( "success" );
+})  
+
+ 
+
+
+
+        });
+      });
+    </script>
+
+ <!--    $.post("http://35.193.29.111:3000  -->
+
+  </head>
+  <body>
+    <h1>ZT Logon</h1>
+    <br />
+
+    <H3>Select Namespace of Target DS Instance/Language</H3>
+          <div>
+    <select class="ddlTargetNS">
+      <option value="amplabs.ai/test1">ALT1 amplabs.ai/test1</option>
+      <option value="abc.com/test1">TST1 abc.com/test1</option>
+      <option value="abc.com/test2">TST2 abc.com/test2</option>
+      <option value="zinfinitree.com/doc1">DOC1 zinfinitree.com/doc1</option>
+      <option value="zinfinitree.com/doc2">DOC2 zinfinitree.com/doc2</option>
+      <option value="zinfinitree.com/zin1">ZIN1 zinfinitree.com/zin1</option>  
+      <option value="zinfinitree.com/zin2">ZIN2 zinfinitree.com/zin2</option>                  
+      <option value="abc.com/ztst">ZTST abc.com/ztst</option>
+      <option value="zinfinitree.com/dev">DS Dev zinfinitree.com/dev</option>
+      <option value="zinfinitree.com/prod">DS Prod zinfinitree.com/prod</option>
+    </select>
+    
+  <!--  <input type="button" class="btnClick Button" value="Process" />  -->
+  </div>
+          <div>
+    <select class="ddlLanguage">
+      <option value="1">English</option>
+      <option value="2">Spanish</option>
+     </select>
+
+<br />
+   <br />
+    
+  <!--  <input type="button" class="btnClick Button" value="Process" />  -->
+  </div>
+
+    <H3>Login</H3>
+
+     <table>
+     <tr><td>User:</td><td> <input type="TEXT" id="user_name" size="20"><td></tr>
+     <tr><td>Password:</td><td> <input type="TEXT" id="user_password" size="30"><td></tr>
+     </table>
+
+<br />
+   <br />
+
+    <H3>Select App Namespace/Code</H3>
+          <div>
+    <select class="ddlAppNS">
+      <option value="zinfinitree.com/dev_agile">zinfinitree.com/dev_agile</option> 
+      <option value="amplabs.ai/test1">amplabs.ai/test1</option>
+      <option value="abc.com/test1">abc.com/test1</option>
+      <option value="abc.com/test2">abc.com/test2</option>
+      <option value="zinfinitree.com/doc1">zinfinitree.com/doc1</option>
+      <option value="zinfinitree.com/doc2">zinfinitree.com/doc2</option>
+      <option value="my_email@example.com/hom1">my_email@example.com/hom1</option>
+      <option value="zinfinitem.com/zin1">zinfinitem.com/zin1</option>                    
+      <option value="abc.com/ztst">abc.com/ztst</option>
+      <option value="zinfinitree.com/dev">zinfinitree.com/dev</option>
+      <option value="zinfinitree.com/prod">zinfinitree.com/prod</option>
+    </select>
+    
+  <!--  <input type="button" class="btnClick Button" value="Process" />  -->
+  </div>
+     <table>
+     <tr><td>App Code:</td><td> <input type="TEXT" id="app_code" size="5"><td></tr>
+     
+     </table>
+
+   <br />
+   <br />
+
+         
+ 
+    <H3>Select Initial Page Namespace/Code (Optional)</H3>
+          <div>
+    <select class="ddlInitPageNS">
+      <option value="amplabs.ai/test1">amplabs.ai/test1</option>
+      <option value="abc.com/test1">abc.com/test1</option>
+      <option value="abc.com/test2">abc.com/test2</option>
+      <option value="zinfinitree.com/doc1">zinfinitree.com/doc1</option>
+      <option value="zinfinitree.com/doc2">zinfinitree.com/doc2</option>
+      <option value="my_email@example.com/hom1">my_email@example.com/hom1</option>
+      <option value="zinfinitem.com/zin1">zinfinitem.com/zin1</option>                    
+      <option value="abc.com/ztst">abc.com/ztst</option>
+      <option value="zinfinitree.com/dev">zinfinitree.com/dev</option>
+      <option value="zinfinitree.com/prod">zinfinitree.com/prod</option>
+    </select>
+    
+  <!--  <input type="button" class="btnClick Button" value="Process" />  -->
+  </div>
+     <table>
+     <tr><td>Initial Page Code:</td><td> <input type="TEXT" id="init_page_code" size="5"><td></tr>
+     
+     </table>
+
+   <br />
+
+
+
+   
+
+    <br /> <br /><br />
+    <input type="button" id="submit" value="Submit">
+    <br /><br /> <br /><br />
+  
+  </body>
+</html>

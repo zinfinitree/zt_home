@@ -1,0 +1,486 @@
+         copied from document rec format 20200524
+ZTIC 2    131131/21
+ZTIC 3    zinfinitree.com/spreadsheet
+ZTIC 1    abc.com/test1
+ZTIC 4    zinfinitree.com/server_config
+
+
+RZTI 1          receiver ztic
+ 
+
+  
+
+
+      mode 1 means create/update with no future timestamps 
+
+
+    message processing parameters--general
+     default timesmp     msg id-client       last idx  mode user                SWdsiSWcod           
+MPPG 5179248000.000      id123               1234      99   usr1                4    2    
+
+
+
+     ExtKeyDef ExtKeyVal     
+RecIdEKDdsEKDcoEKVdsEKVco
+EXTK 2    2    2    1
+
+     
+     Desc                                    Timestamp
+MSET MaintainSetId#1                         5179248000.000  
+
+CMNT TMPL                                        template for maintaing an object
+
+     ObjKind   Object    ObjElem   Template  
+RecIdKzticKcodeOzticOcodeEzticEcodeTzticTcode     OEValue
+ELEM 2    1    3    1    2    1    2    1         Workbook (Object Kind)
+ELEM 2    1    3    2    2    1    2    1         Spreadsheet (Object Kind)
+ELEM 2    1    3    3    2    1    2    1         Column (Object Kind)
+ELEM 2    1    3    4    2    1    2    1         Row (Object Kind)
+ELEM 2    1    3    5    2    1    2    1         Spreadsheet Cell (Object Kind)
+ELEM 2    1    3    6    2    1    2    1         Workbook Column Type (Object Kind)
+ELEM 2    1    3    7    2    1    2    1         Workbook Row Type (Object Kind)
+ELEM 2    1    3    8    2    1    2    1         Cell Type (Object Kind)
+ELEM 2    1    3    9    2    1    2    1         Sort Level for Column (Object Kind)
+ELEM 2    1    3    10   2    1    2    1         Spreadsheet Book (Object Kind)
+ELEM 2    1    3    11   2    1    2    1         Workbook Sheet Type (Object Kind)
+ELEM 2    2    3    1    2    2    2    2         Workbook (Base Template)              
+ELEM 2    2    3    2    2    2    2    2         Spreadsheet (Base Template)
+ELEM 2    2    3    3    2    2    2    2         Column (Base Template)
+ELEM 2    2    3    4    2    2    2    2         Row (Base Template)
+ELEM 2    2    3    5    2    2    2    2         Spreadsheet Cell (Base Template)
+ELEM 2    2    3    6    2    2    2    2         Workbook Column Type (Base Template)
+ELEM 2    2    3    7    2    2    2    2         Workbook Row Type (Base Template)
+ELEM 2    2    3    8    2    2    2    2         Cell Type (Base Template)
+ELEM 2    2    3    9    2    2    2    2         Sort Level for Column (Base Template)
+ELEM 2    2    3    10   2    2    2    2         Spreadsheet Book (Base Template)
+ELEM 2    2    3    11   2    2    2    2         Workbook Sheet Type (Base Template)
+ELEM 2    12   3    1    2    12   2    12        Workbook (Technical Profile)
+ELEM 2    12   3    2    2    12   2    12        Spreadsheet (Technical Profile)
+ELEM 2    12   3    3    2    12   2    12        Column (Technical Profile)
+ELEM 2    12   3    4    2    12   2    12        Row (Technical Profile)
+ELEM 2    12   3    5    2    12   2    12        Spreadsheet Cell (Technical Profile)
+ELEM 2    12   3    6    2    12   2    12        Workbook Column Type (Technical  Profile)
+ELEM 2    12   3    7    2    12   2    12        Workbook Row Type (Technical Profile)
+ELEM 2    12   3    8    2    12   2    12        Cell Type (Technical Profile)
+ELEM 2    12   3    9    2    12   2    12        Sort Level for Column (Technical Profile)
+ELEM 2    12   3    10   2    12   2    12        Spreadsheet Book (Technical Profile)
+ELEM 2    12   3    11   2    12   2    12        Workbook Sheet Type (Technical Profile)
+ELEM 2    21   3    1    2    21   2    21        Code Range for Workbook (Code Range)
+ELEM 2    21   3    2    2    21   2    21        Code Range for Spreadsheet (Code Range)
+ELEM 2    21   3    3    2    21   2    21        Code Range for Column (Code Range)
+ELEM 2    21   3    4    2    21   2    21        Code Range for Row (Code Range)
+ELEM 2    21   3    5    2    21   2    21        Code Range for Spreadsheet Cell (Code Range)
+ELEM 2    21   3    6    2    21   2    21        Code Range for Workbook Column Type (Code Range)
+ELEM 2    21   3    7    2    21   2    21        Code Range for Workbook Row Type (Code Range)
+ELEM 2    21   3    8    2    21   2    21        Code Range for Cell Type (Code Range)
+ELEM 2    21   3    9    2    21   2    21        Code Range for Sort Level for Column (Code Range)
+ELEM 2    21   3    1    2    204  2    21        1050
+ELEM 2    21   3    2    2    204  2    21        2050
+ELEM 2    21   3    3    2    204  2    21        3050
+ELEM 2    21   3    4    2    204  2    21        4050
+ELEM 2    21   3    5    2    204  2    21        5050
+ELEM 2    21   3    6    2    204  2    21        6050
+ELEM 2    21   3    7    2    204  2    21        7050
+ELEM 2    21   3    8    2    204  2    21        8050
+ELEM 2    21   3    9    2    204  2    21        9050
+ELEM 2    2    3    9    2    1    2    2         Code Range for Workbook (Base Template) 
+ELEM 2    2    3    10   2    1    2    2         Code Range for Spreadsheet (Base Template)
+ELEM 2    2    3    11   2    1    2    2         Code Range for Column (Base Template)
+ELEM 2    2    3    12   2    1    2    2         Code Range for Row (Base Template)
+ELEM 2    2    3    13   2    1    2    2         Code Range for Spreadsheet Cell  (Base Template)
+ELEM 2    2    3    14   2    1    2    2         Code Range for Workbook Column Type  (Base Template)
+ELEM 2    2    3    15   2    1    2    2         Code Range for Workbook Row Type  (Base Template)
+ELEM 2    2    3    16   2    1    2    2         Code Range for Cell Type  (Base Template)
+ELEM 2    2    3    17   2    1    2    2         Code Range for Sort Level for Column (Base Template)
+ELEM 2    12   3    9    2    12   2    12        Code Range for Workbook (Technical Profile)
+ELEM 2    12   3    10   2    12   2    12        Code Range for Spreadsheet (Technical Profile)
+ELEM 2    12   3    11   2    12   2    12        Code Range for Column (Technical Profile)
+ELEM 2    12   3    12   2    12   2    12        Code Range for Row (Technical Profile)
+ELEM 2    12   3    13   2    12   2    12        Code Range for Spreadsheet Cell (Technical Profile)
+ELEM 2    12   3    14   2    12   2    12        Code Range for Workbook Column Type (Technical Profile)
+ELEM 2    12   3    15   2    12   2    12        Code Range for Workook Row Type (Technical Profile)
+ELEM 2    12   3    16   2    12   2    12        Code Range for Cell Type (Technical Profile)
+ELEM 2    12   3    17   2    12   2    12        Code Range for Sort Level for Column (Technical Profile)
+ELEM 2    3    3    1    2    3    2    3         Workbook Description         (Object Element)
+ELEM 2    3    3    2    2    3    2    3         Workbook Label               (Object Element)
+ELEM 2    3    3    3    2    3    2    3         Workbook Dimension Count     (Object Element)
+ELEM 2    3    3    4    2    3    2    3         Spreadsheet Description      (Object Element)
+ELEM 2    3    3    5    2    3    2    3         Spreadsheet Label            (Object Element)
+ELEM 2    3    3    6    2    3    2    3         Column Description           (Object Element)
+ELEM 2    3    3    7    2    3    2    3         Column Label                 (Object Element)
+ELEM 2    3    3    8    2    3    2    3         Row Description              (Object Element)
+ELEM 2    3    3    9    2    3    2    3         Row Label                    (Object Element)
+ELEM 2    3    3    10   2    3    2    3         Spreadsheet Cell Description (Object Element)
+ELEM 2    3    3    11   2    3    2    3         Spreadsheet Cell Label       (Object Element)
+ELEM 2    3    3    12   2    3    2    3         Spreadsheet Cell Value       (Object Element)
+ELEM 2    3    3    13   2    3    2    3         Column Type Description      (Object Element)
+ELEM 2    3    3    14   2    3    2    3         Row Type Description         (Object Element)
+ELEM 2    3    3    16   2    3    2    3         Sort Level for Column Description (Object Element)
+ELEM 2    3    3    17   2    3    2    3         Sheet Type Description (Object Element)
+ELEM 2    3    3    18   2    3    2    3         Workbook Default HTML Column width    (Object Element)
+ELEM 2    3    3    19   2    3    2    3         Workbook Default HTML Row Height      (Object Element)
+ELEM 2    3    3    20   2    3    2    3         Cell Type Description (Object Element)
+ELEM 2    31   3    1    2    31   2    31        Workbook Description DE      (Data Element)
+ELEM 2    31   3    2    2    31   2    31        Workbook Label DE            (Data Element)
+ELEM 2    31   3    3    2    31   2    31        Workbook Dimension Count  DE (Data Element)
+ELEM 2    31   3    4    2    31   2    31        Spreadsheet Description      DE (Data Element)
+ELEM 2    31   3    5    2    31   2    31        Spreadsheet Label       DE      (Data Element)
+ELEM 2    31   3    6    2    31   2    31        Column Description              (Data Element)
+ELEM 2    31   3    7    2    31   2    31        Column Label                    (Data Element)
+ELEM 2    31   3    8    2    31   2    31        Row Description                (Data Element)
+ELEM 2    31   3    9    2    31   2    31        Row Label                      (Data Element)
+ELEM 2    31   3    10   2    31   2    31        Spreadsheet Cell Description    (Data Element)
+ELEM 2    31   3    11   2    31   2    31        Spreadsheet Cell Label          (Data Element)
+ELEM 2    31   3    12   2    31   2    31        Spreadsheet Cell Value          (Data Element)
+ELEM 2    31   3    13   2    31   2    31        Column Type Description         (Data Element)
+ELEM 2    31   3    14   2    31   2    31        Row Type Description            (Data Element)
+ELEM 2    31   3    15   2    31   2    31        Current Code                    (Data Element)
+ELEM 2    31   3    16   2    31   2    31        Sort Level for Column Description (Data Element)
+ELEM 2    31   3    17   2    31   2    31        Sheet Type Description          (Data Element)
+ELEM 2    31   3    18   2    31   2    31        Workbook Default HTML Column width (Data Element)
+ELEM 2    31   3    19   2    31   2    31        Workbook Default HTML Row height (Data Element)
+ELEM 2    31   3    20   2    31   2    31        Cell Type Description (Data Element)
+ELEM 2    32   3    1    2    32   2    32        Workbook Description DT         (Data Type)
+ELEM 2    32   3    2    2    32   2    32        Workbook Label       DT         (Data Type)
+ELEM 2    32   3    3    2    32   2    32        Workbook Dimension Count    DT  (Data Type)
+ELEM 2    32   3    4    2    32   2    32        Spreadsheet Description  DT     (Data Type)
+ELEM 2    32   3    5    2    32   2    32        Spreadsheet Label        DT     (Data Type)
+ELEM 2    32   3    6    2    32   2    32        Column Description        DT    (Data Type)
+ELEM 2    32   3    7    2    32   2    32        Column Label              DT    (Data Type)
+ELEM 2    32   3    8    2    32   2    32        Row Description DT              (Data Type)
+ELEM 2    32   3    9    2    32   2    32        Row Label                 DT    (Data Type)
+ELEM 2    32   3    10   2    32   2    32        Spreadsheet Cell Description DT (Data Type)
+ELEM 2    32   3    11   2    32   2    32        Spreadsheet Cell Label    DT    (Data Type)
+ELEM 2    32   3    12   2    32   2    32        Spreadsheet Cell Value    DT    (Data Type)
+ELEM 2    32   3    13   2    32   2    32        Column Type Description   DT    (Data Type)
+ELEM 2    32   3    14   2    32   2    32        Row Type Description      DT    (Data Type)
+ELEM 2    32   3    16   2    32   2    32        Sort Level for Column Description DT (Data Type)
+ELEM 2    10   3    1    2    10   2    10        Link Type: Workbook to Spreadsheet
+ELEM 2    10   3    2    2    10   2    10        Link Type: Workbook to Column
+ELEM 2    10   3    3    2    10   2    10        Link Type: Workbook to Row
+ELEM 2    10   3    4    2    10   2    10        Link Type: Workbook to Cell
+ELEM%2    10   3    5    2    10   2    10        Link Type: Column to Object Element
+ELEM%2    10   3    6    2    10   2    10        Link Type: Row to Object Element
+ELEM%2    10   3    7    2    10   2    10        Link Type: Column to Set for Column Generation
+ELEM%2    10   3    8    2    10   2    10        Link Type: Row to Set for Row Generation
+ELEM 2    10   3    9    2    10   2    10        Link Type: Workbook to Statistical Values Object   20230527
+ELEM 2    11   3    1    2    11   2    11        Link Target Type: Workbook to Spreadsheet
+ELEM 2    11   3    2    2    11   2    11        Link Target Type: Workbook to Column
+ELEM 2    11   3    3    2    11   2    11        Link Target Type: Workbook to Row
+ELEM 2    11   3    4    2    11   2    11        Link Target Type: Workbook to Cell
+ELEM%2    11   3    5    2    11   2    11        Link Target Type: Column to Object Element
+ELEM%2    11   3    6    2    11   2    11        Link Target Type: Row to Object Element
+ELEM%2    11   3    7    2    11   2    11        Link Target Type: Column to Set for Column Generation
+ELEM%2    11   3    8    2    11   2    11        Link Target Type: Row to Set for Row Generation
+ELEM 2    11   3    9    2    11   2    11        Link Target Type: Workbook to Statistical Values Object 20230527
+ELEM 2    9    3    1    2    9    2    9         Type Definition: Workbook Type for Workbook
+ELEM 2    9    3    2    2    9    2    9         Type Definition: Sheet Type for Sheet
+ELEM 2    9    3    3    2    9    2    9         Type Definition: Column Type for Column
+ELEM 2    9    3    4    2    9    2    9         Type Definition: Row Type for Row
+ELEM 2    9    3    5    2    9    2    9         Type Definition: Cell Type for Cell
+ELEM 2    9    3    6    2    9    2    9         Type Definition: Object Element for a Column
+ELEM 2    9    3    7    2    9    2    9         Type Definition: Set for Column Generation or Type Values for a Column
+ELEM 2    9    3    8    2    9    2    9         Type Definition: Object Element for a Row
+ELEM 2    9    3    9    2    9    2    9         Type Definition: Set for Row Generation or Type Values for a Row
+ELEM 2    9    3    10   2    9    2    9         Type Definition: Sort Level for a Column  20210328
+ELEM 2    9    3    11   2    9    2    9         Type Definition: Column for a Cell        20210502
+ELEM 2    9    3    12   2    9    2    9         Type Definition: Row for a Cell           20210502
+ELEM 2    9    3    13   2    9    2    9         Type Definition: Spreadsheet for a Cell   20210502
+ELEM 2    9    3    14   2    9    2    9         Type Definition: Spreadsheet Book for a Cell  20210502
+ELEM 2    9    3    15   2    9    2    9         Type Definition: Statistical Values Dimension for a Spreadsheet  20230527
+ELEM 2    9    3    16   2    9    2    9         Type Definition: Statistical Values Dimension for a Column       20230527
+ELEM 2    9    3    17   2    9    2    9         Type Definition: Statistical Values Dimension for a Row          20230527
+ELEM 2    9    3    18   2    9    2    9         Type Definition: Row Object Type Definition for a Column         20230928
+ELEM 3    6    3    1    3    13   3    6         Standard Column
+ELEM 3    6    3    2    3    13   3    6         Column with Object Element Values
+ELEM 3    6    3    3    3    13   3    6         Columns Generated by Set Members
+ELEM 3    6    3    4    3    13   3    6         Column with Object Kind DSI Namespace
+ELEM 3    6    3    5    3    13   3    6         Column with Object Kind ZTIC
+ELEM 3    6    3    6    3    13   3    6         Column with Object Kind Code
+ELEM 3    6    3    7    3    13   3    6         Column with Object DSI Namespace
+ELEM 3    6    3    8    3    13   3    6         Column with Object ZTIC
+ELEM 3    6    3    9    3    13   3    6         Column with Object Code
+ELEM 3    6    3    10   3    13   3    6         Column for Statistical Values Dimension
+ELEM 3    6    3    11   3    13   3    6         Column with Object Element Value from a Type Value of a Row
+ELEM 3    6    3    12   3    13   3    6         Column with Object ZTIC of a Type Value
+ELEM 3    6    3    13   3    13   3    6         Column with Object Code of a Type Value
+ELEM 3    6    3    14   3    13   3    6         Column with Date based on a Date Type Value
+ELEM 3    7    3    1    3    14   3    7         Standard Row
+ELEM 3    7    3    2    3    14   3    7         Row with Object Element Values
+ELEM 3    7    3    3    3    14   3    7         Rows Generated by Set Members
+ELEM 3    7    3    10   3    14   3    7         Row for Statistical Values Dimension
+ELEM 3    11   3    10   3    17   3    11        Sheet for Statistical Values Dimension
+ELEM 3    9    3    1    3    9    3    9         No Sort for Column
+ELEM 3    9    3    2    3    9    3    9         Column is Primary Sort Key
+ELEM 3    9    3    3    3    9    3    9         Column is Secondary Sort Key
+ELEM 3    9    3    4    3    9    3    9         Column is Tertiary Sort Key
+
+
+  html size for data elements used for spreadsheet
+ELEM 2    31   3    1    2    214  2    31        60
+ELEM 2    31   3    2    2    214  2    31        40
+ELEM 2    31   3    3    2    214  2    31        5
+ELEM 2    31   3    4    2    214  2    31        60
+ELEM 2    31   3    5    2    214  2    31        40
+ELEM 2    31   3    6    2    214  2    31        60
+ELEM 2    31   3    7    2    214  2    31        40
+ELEM 2    31   3    8    2    214  2    31        60
+ELEM 2    31   3    9    2    214  2    31        40
+ELEM 2    31   3    10   2    214  2    31        60
+ELEM 2    31   3    11   2    214  2    31        40
+ELEM 2    31   3    12   2    214  2    31        50
+ELEM 2    31   3    13   2    214  2    31        50
+ELEM 2    31   3    14   2    214  2    31        50
+ELEM 2    31   3    16   2    214  2    31        50
+
+
+
+Lead
+     ObjKind   Object    TypeDef   Type      Template  
+RecIdKdiscKcodeOzticOcodeTDdsiTDcodTzticTcodeTzticTcode
+TYPE 2    2    3    1    2    3    3    1               Object Kind for template for Workbook
+TYPE 2    2    3    2    2    3    3    2               Object Kind for template for Spreadsheet
+TYPE 2    2    3    3    2    3    3    3               Object Kind for template for Column
+TYPE 2    2    3    4    2    3    3    4               Object Kind for template for Row
+TYPE 2    2    3    5    2    3    3    5               Object Kind for template for Spreadsheet Cell
+TYPE 2    2    3    6    2    3    3    6               Object Kind for template for Workbook Column Type
+TYPE 2    2    3    7    2    3    3    7               Object Kind for template for Workbook Row Type
+TYPE 2    2    3    8    2    3    3    8               Object Kind for template for Cell Type
+TYPE 2    2    3    9    2    3    3    9               Object Kind for template for Sort Level for Column
+TYPE 2    1    3    1    2    5    3    1               Code Range for Workbook
+TYPE 2    1    3    2    2    5    3    2               Code Range for Spreadsheet
+TYPE 2    1    3    3    2    5    3    3               Code Range for Column
+TYPE 2    1    3    4    2    5    3    4               Code Range for Row
+TYPE 2    1    3    5    2    5    3    5               Code Range for Spreadsheet Cell
+TYPE 2    1    3    6    2    5    3    6               Code Range for Workbook Column Type
+TYPE 2    1    3    7    2    5    3    7               Code Range for Workbook Row Type
+TYPE 2    1    3    8    2    5    3    8               Code Range for Cell Type
+TYPE 2    1    3    9    2    5    3    9               Code Range for Sort Level for Column
+TYPE 2    21   3    1    2    6    2    1               Code Scheme for Workbook Code Range
+TYPE 2    21   3    2    2    6    2    1               Code Scheme for Spreadsheet Code Range
+TYPE 2    21   3    3    2    6    2    1               Code Scheme for Column Code Range
+TYPE 2    21   3    4    2    6    2    1               Code Scheme for Row Code Range
+TYPE 2    21   3    5    2    6    2    1               Code Scheme for Cell Code Range
+TYPE 2    21   3    6    2    6    2    1               Code Scheme for Workbook Column Type Code Range
+TYPE 2    21   3    7    2    6    2    1               Code Scheme for Workbook Row Type Code Range
+TYPE 2    21   3    8    2    6    2    1               Code Scheme for Cell Type Code Range
+TYPE 2    21   3    9    2    6    2    1               Code Scheme for Sort Level for Column
+TYPE 2    3    3    1    2    9    3    1               Data Element for Workbook Description Object Element
+TYPE 2    3    3    2    2    9    3    2               Data Element for Workbook Label Object Element
+TYPE 2    3    3    3    2    9    3    3               Data Element for Workbook Dimension Count Object Element
+TYPE 2    3    3    4    2    9    3    4               Data Element for Spreadsheet Description Object Element
+TYPE 2    3    3    5    2    9    3    5               Data Element for Spreadsheet Label Object Element
+TYPE 2    3    3    6    2    9    3    6               Data Element for Column Description Object Element
+TYPE 2    3    3    7    2    9    3    7               Data Element for Column Label Object Element
+TYPE 2    3    3    8    2    9    3    8               Data Element for Row Description Object Element
+TYPE 2    3    3    9    2    9    3    9               Data Element for Row Label Object Element
+TYPE 2    3    3    10   2    9    3    10              Data Element for Spreadsheet Cell Description Object Element
+TYPE 2    3    3    11   2    9    3    11              Data Element for Spreadsheet Cell Label Object Element
+TYPE 2    3    3    12   2    9    3    12              Data Element for Spreadsheet Cell Value Object Element
+TYPE 2    3    3    13   2    9    3    13              Data Element for Column Type Description Object Element
+TYPE 2    3    3    14   2    2    3    14              Data Element for Row Type Description Object Element
+TYPE 2    3    3    16   2    2    3    16              Data Element for Sort Level for Column Object Element
+TYPE 2    31   3    1    2    10   3    1               Data Type for Workbook Description Data Element
+TYPE 2    31   3    2    2    10   3    2               Data Type for Workbook Label Data Element
+TYPE 2    31   3    3    2    10   3    3               Data Type for Workbook Dimension Count Data Element
+TYPE 2    31   3    4    2    10   3    4               Data Type for Spreadsheet Description Data Element
+TYPE 2    31   3    5    2    10   3    5               Data Type for Spreadsheet Label Data Element
+TYPE 2    31   3    6    2    10   3    6               Data Type for Column Description Data Element
+TYPE 2    31   3    7    2    10   3    7               Data Type for Column Label Data Element
+TYPE 2    31   3    8    2    10   3    8               Data Type for Row Description Data Element
+TYPE 2    31   3    9    2    10   3    9               Data Type for Row Label Data Element
+TYPE 2    31   3    10   2    10   3    10              Data Type for Spreadsheet Cell Description Data Element
+TYPE 2    31   3    11   2    10   3    11              Data Type for Spreadsheet Cell Label Data Element
+TYPE 2    31   3    12   2    10   3    12              Data Type for Spreadsheet Cell Value Data Element
+TYPE 2    31   3    13   2    10   3    13              Data Type for Column Type Description Data Element
+TYPE 2    31   3    14   2    10   3    14              Data Type for Row Type Description Data Element
+TYPE 2    31   3    16   2    10   3    16              Data Type for Sort Level for Column Description Data Element
+TYPE 2    31   3    1    2    11   2    2               Extended Key Definition (language) for Workbook Description Data Element
+TYPE 2    31   3    2    2    11   2    2               Extended Key Definition (language) for Workbook Label Data Element
+TYPE 2    31   3    4    2    11   2    2               Extended Key Definition (language) for Spreadsheet Description Data Element
+TYPE 2    31   3    5    2    11   2    2               Extended Key Definition (language) for Spreadsheet Label Data Element
+TYPE 2    31   3    6    2    11   2    2               Extended Key Definition (language) for Column Description Data Element
+TYPE 2    31   3    7    2    11   2    2               Extended Key Definition (language) for Column Label Data Element
+TYPE 2    31   3    8    2    11   2    2               Extended Key Definition (language) for Row Description Data Element
+TYPE 2    31   3    9    2    11   2    2               Extended Key Definition (language) for Row Label Data Element
+TYPE 2    31   3    10   2    11   2    2               Extended Key Definition (language) for Spreadsheet Cell Description Data Element
+TYPE 2    31   3    11   2    11   2    2               Extended Key Definition (language) for Spreadsheet Cell Label Data Element
+TYPE 2    31   3    13   2    11   2    2               Extended Key Definition (language) for Column Type Description
+TYPE 2    31   3    14   2    11   2    2               Extended Key Definition (language) for Row Type Description
+TYPE 2    31   3    16   2    11   2    2               Extended Key Definition (language) for Sort Level for Column
+TYPE 2    10   3    1    2    2    3    1               link target type for link type for Workbook to Spreadsheet 
+TYPE 2    10   3    2    2    2    3    2               link target type for link type for Workbook to Column
+TYPE 2    10   3    3    2    2    3    3               link target type for link type for Workbook to Row 
+TYPE 2    10   3    4    2    2    3    4               link target type for link type for Workbook to Cell
+TYPE%2    10   3    5    2    2    3    5               link target type for link type Column to Object Element
+TYPE%2    10   3    6    2    2    3    6               link target type for link type Row to Object Element
+TYPE%2    10   3    7    2    2    3    7               link target type for link type Column to Set for Column Generation
+TYPE%2    10   3    8    2    2    3    8               link target type for link type Row to Set for Row Generation
+TYPE 2    10   3    9    2    2    3    9               link target type for link type Workbook to Statistical Values Object
+
+TYPE%2    21   3    1    2    14   2    1               Code Scheme for Workbook Code Range     [deprecated dup of type def 6??]
+TYPE%2    21   3    2    2    14   2    1               Code Scheme for Spreadsheet Code Range [deprecated dup of type def 6??]
+TYPE%2    21   3    3    2    14   2    1               Code Scheme for Column Code Range    [deprecated dup of type def 6??]
+TYPE%2    21   3    4    2    14   2    1               Code Scheme for Row Code Range [deprecated dup of type def 6??]
+TYPE%2    21   3    5    2    14   2    1               Code Scheme for Spreadsheet Cell Code Range [deprecated dup of type def 6??]
+TYPE%2    21   3    6    2    14   2    1               Code Scheme for Workbook Column Type Code Range [deprecated dup of type def 6??]
+TYPE%2    21   3    7    2    14   2    1               Code Scheme for Workbook Row Type Code Range [deprecated dup of type def 6??]
+TYPE%2    21   3    8    2    14   2    1               Code Scheme for Workbook Cell Type Code Range [deprecated dup of type def 6??]
+
+TYPE 2    9    3    2    2    4    3    11              Object Kind for Type Definition: Sheet Type for Sheet  20230901
+TYPE 2    9    3    3    2    4    3    6               Object Kind for Type Definition: Column Type for Column                 
+TYPE 2    9    3    4    2    4    3    7               Object Kind for Type Definition: Row Type for a Row                     
+TYPE 2    9    3    6    2    4    2    3               Object Kind for Type Definition: Object Element for a Column   
+TYPE 2    9    3    7    2    4    2    13              Object Kind for Type Definition: Set for Column Generation for a Column 
+TYPE 2    9    3    8    2    4    2    3               Object Kind for Type Definition: Object Element for a Row               
+TYPE 2    9    3    9    2    4    2    13              Object Kind for Type Definition: Set for Row Generation for a Row       
+TYPE 2    9    3    10   2    4    3    9               Object Kind for Type Definition: Sort Level for a Column                
+
+TYPE 2    9    3    5    2    4    3    8               Object Kind for Type Definition: Cell Type for a Cell                   
+TYPE 2    9    3    11   2    4    3    3               Object Kind for Type Definition: Column for a Cell                      
+TYPE 2    9    3    12   2    4    3    4               Object Kind for Type Definition: Row for a Cell                         
+TYPE 2    9    3    13   2    4    3    2               Object Kind for Type Definition: Spreadsheet for a Cell                 
+TYPE 2    9    3    14   2    4    3    10              Object Kind for Type Definition: Spreadsheet Book for a Cell
+
+TYPE 2    9    3    15   2    4    2    59              Object Kind for Type Definition: Statistical Values Dimension for a Spreadsheet  20230527
+TYPE 2    9    3    16   2    4    2    59              Object Kind for Type Definition: Statistical Values Dimension for a Column       20230527
+TYPE 2    9    3    17   2    4    2    59              Object Kind for Type Definition: Statistical Values Dimension for a Row          20230527
+
+TYPE 2    9    3    18   2    4    2    9               Object Kind for Type Definition: Row Object Type Definition for a Column         20230928
+
+
+
+
+TYPE%2    1    2    50   2    22   2    50   2    1     Default Object Template--Minimal Data for Placeholder for code 50 (Object Kind) -- copied as example
+
+TYPE 2    1    3    1    2    22   3    1               Default Object Template--Minimal Data for Workbook (Object Kind)
+TYPE 2    1    3    2    2    22   3    2               Default Object Template--Minimal Data for Spreadsheet (Object Kind)
+TYPE 2    1    3    3    2    22   3    3               Default Object Template--Minimal Data for Column (Object Kind)
+TYPE 2    1    3    4    2    22   3    4               Default Object Template--Minimal Data for Row (Object Kind)
+TYPE 2    1    3    5    2    22   3    5               Default Object Template--Minimal Data for Spreadsheet Cell (Object Kind)
+TYPE 2    1    3    6    2    22   3    6               Default Object Template--Minimal Data for Workbook Column Type (Object Kind)
+TYPE 2    1    3    7    2    22   3    7               Default Object Template--Minimal Data for Workbook Row Type (Object Kind)
+TYPE 2    1    3    8    2    22   3    8               Default Object Template--Minimal Data for Cell Type (Object Kind)
+TYPE 2    1    3    9    2    22   3    9               Default Object Template--Minimal Data for Sort Level for Column (Object Kind)
+TYPE 2    1    3    10   2    22   3    10              Default Object Template--Minimal Data for Spreadsheet Book 
+TYPE 2    1    3    11   2    22   3    11              Default Object Template--Minimal Data for Spreadsheet Type          
+
+
+
+     ObjKind   Object    LinkType   ToKind   ToObject  Template  
+RecIdKzticKcodeOzticOcodeLTdsiLTcodLKdsiLKcodLzticLcodeTzticTcode         
+LINK 2    2    3    1    2    1    2    12   3    1    2    2    link object template for Workbook to technical profile for Workbook
+LINK 2    2    3    2    2    1    2    12   3    2    2    2    link object template for Spreadsheet to technical profile for Spreadsheet
+LINK 2    2    3    3    2    1    2    12   3    3    2    2    link object template for Column to technical profile for Column
+LINK 2    2    3    4    2    1    2    12   3    4    2    2    link object template for Row to technical profile for Row
+LINK 2    2    3    5    2    1    2    12   3    5    2    2    link object template for Spreadsheet Cell to technical profile for Spreadsheet Cell
+LINK 2    2    3    6    2    1    2    12   3    6    2    2    link object template for Workbook Column Type to technical profile for Workbook Column Type 
+LINK 2    2    3    7    2    1    2    12   3    7    2    2    link object template for Workbook Row Type to technical profile for Workbook Row Type
+LINK 2    2    3    8    2    1    2    12   3    8    2    2    link object template for Cell Type to technical profile for Cell Type
+LINK 2    2    3    9    2    1    2    12   3    9    2    2    link object template for Sort Level for Column to technical profile for Sort Level for Column
+LINK 2    2    3    10   2    1    2    12   3    10   2    2    link object template for Spreadsheet Book to technical profile for Spreadsheet Book
+LINK 2    2    3    11   2    1    2    12   3    11   2    2    link object template for Workbook Sheet Type to technical profile for Workbook Sheet Type
+
+LINK 2    12   3    1    2    3    2    3    3    1    2    12   link tech profile to object element for Workbook Description
+LINK 2    12   3    1    2    3    2    3    3    2    2    12   link tech profile to object element for Workbook Label
+LINK 2    12   3    1    2    3    2    3    3    3    2    12   link tech profile to object element for Workbook Dimension Count
+LINK 2    12   3    2    2    3    2    3    3    4    2    12   link tech profile to object element for Spreadsheet Description
+LINK 2    12   3    2    2    3    2    3    3    5    2    12   link tech profile to object element for Spreadsheet Label
+LINK 2    12   3    3    2    3    2    3    3    6    2    12   link tech profile to object element for Column Description
+LINK 2    12   3    3    2    3    2    3    3    7    2    12   link tech profile to object element for Column Label
+LINK 2    12   3    4    2    3    2    3    3    8    2    12   link tech profile to object element for Row Description
+LINK 2    12   3    4    2    3    2    3    3    9    2    12   link tech profile to object element for Row Label
+LINK 2    12   3    5    2    3    2    3    3    10   2    12   link tech profile to object element for Cell Description
+LINK 2    12   3    5    2    3    2    3    3    11   2    12   link tech profile to object element for Cell Label
+LINK 2    12   3    5    2    3    2    3    3    12   2    12   link tech profile to object element for Cell Value
+LINK 2    12   3    6    2    3    2    3    3    13   2    12   link tech profile to object element for Column Type Description
+LINK 2    12   3    7    2    3    2    3    3    14   2    12   link tech profile to object element for Row Type Description
+LINK 2    12   3    8    2    3    2    3    3    20   2    12   link tech profile to object element for Cell Type Description
+LINK 2    12   3    9    2    3    2    3    3    16   2    12   link tech profile to object element for Sort Level for Column
+LINK 2    12   3    1    2    22   2    31   3    1    2    12   link tech profile to data element for Workbook Description
+LINK 2    12   3    1    2    22   2    31   3    2    2    12   link tech profile to data element for Workbook Label
+LINK 2    12   3    1    2    22   2    31   3    3    2    12   link tech profile to data element for Workbook Dimension Count
+LINK 2    12   3    2    2    22   2    31   3    4    2    12   link tech profile to data element for Spreadsheet Description
+LINK 2    12   3    2    2    22   2    31   3    5    2    12   link tech profile to data element for Spreadsheet Label
+LINK 2    12   3    3    2    22   2    31   3    6    2    12   link tech profile to data element for Column Description
+LINK 2    12   3    3    2    22   2    31   3    7    2    12   link tech profile to data element for Column Label
+LINK 2    12   3    4    2    22   2    31   3    8    2    12   link tech profile to data element for Row Description
+LINK 2    12   3    4    2    22   2    31   3    9    2    12   link tech profile to data element for Row Label
+LINK 2    12   3    5    2    22   2    31   3    10   2    12   link tech profile to data element for Cell Description
+LINK 2    12   3    5    2    22   2    31   3    11   2    12   link tech profile to data element for Cell Label
+LINK 2    12   3    5    2    22   2    31   3    12   2    12   link tech profile to data element for Cell Value
+LINK 2    12   3    6    2    22   2    31   3    13   2    12   link tech profile to data element for Column Type Description
+LINK 2    12   3    7    2    22   2    31   3    14   2    12   link tech profile to data element for Row Type Description
+LINK 2    12   3    9    2    22   2    31   3    16   2    12   link tech profile to data element for Sort Level for Column
+
+
+    tech profiles: 1-workbook 2-spreadsheet 3-column 4-row 5-spreadsheet cell 6-workbook column type 7-workbook row type 8-cell type  9-sort level for column
+                   10- spreadhseet book  11-statistical value result for row  12-statistical
+    link types:    1-workbook-->spreadsheet  2- workbook-->column  3-workbook-->row  4-spreadsheet-->cell 5-column-->cell 6-row-->cell
+
+ copied for example   
+%ELEM 2    1    3    1    2    1    2    1         Workbook (Object Kind)
+%ELEM 2    1    3    2    2    1    2    1         Spreadsheet (Object Kind)
+%ELEM 2    1    3    3    2    1    2    1         Column (Object Kind)
+%ELEM 2    1    3    4    2    1    2    1         Row (Object Kind)
+%ELEM 2    1    3    5    2    1    2    1         Spreadsheet Cell (Object Kind)
+%ELEM 2    1    3    6    2    1    2    1         Workbook Column Type (Object Kind)
+%ELEM 2    1    3    7    2    1    2    1         Workbook Row Type (Object Kind)
+%ELEM 2    1    3    8    2    1    2    1         Cell Type (Object Kind)
+%ELEM 2    1    3    9    2    1    2    1         Sort Level for Column (Object Kind)
+%ELEM 2    1    3    10   2    1    2    1         Spreadsheet Book (Object Kind)
+%ELEM 2    1    3    11   2    1    2    1         Statistical Value Result for Row (Object Kind)     20230522
+%ELEM 2    1    3    12   2    1    2    1         Statistical Value Result for Column (Object Kind)  20230522
+%ELEM 2    1    3    13   2    1    2    1         Statistical Value Result for Sheet (Object Kind)   20230522
+
+
+LINK 2    12   3    1    2    5    2    10   3    1    2    12   link tech profile to link type for Workbook to Spreadsheet 
+LINK 2    12   3    1    2    5    2    10   3    2    2    12   link tech profile to link type for Workbook to Column  
+LINK 2    12   3    1    2    5    2    10   3    3    2    12   link tech profile to link type for Workbook to Row
+LINK 2    12   3    1    2    5    2    10   3    4    2    12   link tech profile to link type for Workbook to Cell 
+LINK 2    12   3    1    2    5    2    10   3    9    2    12   link tech profile to link type for Workbook to Statistical Values Object
+
+LINK 2    12   3    3    2    4    2    9    3    3    2    12   link tech profile for column to type definition column type
+LINK 2    12   3    3    2    4    2    9    3    6    2    12   link tech profile for column to type definition object element for column            
+LINK 2    12   3    3    2    4    2    9    3    7    2    12   link tech profile for column to type definition set for column generation for column 
+LINK 2    12   3    3    2    4    2    9    3    10   2    12   link tech profile for column to type definition sort level for column                
+LINK 2    12   3    3    2    4    2    9    3    16   2    12   link tech profile for column to type definition for statistical values dimension for a column
+LINK 2    12   3    3    2    4    2    9    3    18   2    12   link tech profile for column to type definition for row object type definition for a column
+
+LINK%2    12   3    3    2    5    2    10   3    5    2    12   link tech profile for column to link type for column to OE
+LINK%2    12   3    3    2    5    2    10   3    7    2    12   link tech profile for column to link type for column to set for column generation
+
+LINK 2    12   3    4    2    4    2    9    3    4    2    12   link tech profile for row to type definition for row type
+LINK 2    12   3    4    2    4    2    9    3    8    2    12   link tech profile for row to type definition object element for row                  
+LINK 2    12   3    4    2    4    2    9    3    9    2    12   link tech profile for row to type definition set for row generation for row 
+LINK 2    12   3    4    2    4    2    9    3    17   2    12   link tech profile for row to type definition for statistical values dimension for a row
+
+LINK%2    12   3    4    2    5    2    10   3    6    2    12   link tech profile for row to link type for row to OE
+LINK%2    12   3    4    2    5    2    10   3    8    2    12   link tech profile for row to link type for column to set for row generation
+
+LINK 2    12   3    2    2    4    2    9    3    15   2    12   link tech profile for spreadsheet to type definition for statistical values dimension for a spreadsheet   
+LINK 2    12   3    2    2    4    2    9    3    2    2    12   link tech profile for spreadhseet to type definition for spreadsheet type for a spreadsheet  
+
+LINK 2    12   3    5    2    4    2    9    3    5    2    12   link tech profile for cell to type definition for cell type                          
+LINK 2    12   3    5    2    4    2    9    3    11   2    12   link tech profile for cell to type definition for Column of a Cell                   
+LINK 2    12   3    5    2    4    2    9    3    12   2    12   link tech profile for cell to type definition for Row of a Cell                      
+LINK 2    12   3    5    2    4    2    9    3    13   2    12   link tech profile for cell to type definition for Spreadsheet of a Cell              
+LINK 2    12   3    5    2    4    2    9    3    14   2    12   link tech profile for cell to type definition for Book of a Cell                     
+
+
+LINK 2    11   3    1    2    6    2    2    3    2    2    11   Link "Link Target Type" for Workbook-->Spreadsheet to base template for Spreadsheet     
+LINK 2    11   3    2    2    6    2    2    3    3    2    11   Link "Link Target Type" for Workbook-->Column to base template for Workbook Column
+LINK 2    11   3    3    2    6    2    2    3    4    2    11   Link "Link Target Type" for Workbook-->Row to base template for Workbook Row 
+LINK 2    11   3    4    2    6    2    2    3    5    2    11   Link "Link Target Type" for Workbook-->Cell to base template for Spreadsheet Cell
+LINK 2    11   3    9    2    6    2    2    2    58   2    11   Link "Link Target Type" for Workbook-->Statistical Values Object to base template for Statistical Values Object
+
+
+LINK%2    11   3    5    2    6    2    2    2    3    2    11   Link "Link Target Type" for Column-->OE to base template for Object Element
+LINK%2    11   3    6    2    6    2    2    2    3    2    11   Link "Link Target Type" for Row-->OE to base template for Object Element
+LINK%2    11   3    7    2    6    2    2    2    13   2    11   Link "Link Target Type" for Column-->Set for Column Generation to base template for Set
+LINK%2    11   3    8    2    6    2    2    2    13   2    11   Link "Link Target Type" for Row-->Set for Row Generation to base template for Set 
+
+
+
+
+

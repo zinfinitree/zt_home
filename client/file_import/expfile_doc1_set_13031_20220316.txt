@@ -1,0 +1,21 @@
+ZTIC 1    zinfinitree.com/doc1
+ZTIC 2    131131/21
+ZTIC 3    zinfinitree.com/server_config
+ZTIC 4    zinfinitree.com/software
+RZTI 1
+MPPG 5179248000.000      abc123              123       99   user1     3    2    
+EXTK 2    2    2    1    
+MSET ObjectQset                              5179248000.000  
+ELEM 2    13   1    130312    13                  Set of Link Types in Base Namespace
+LINK 2    13   1    130312    12   2    1    2    10                            5179248000.000           
+LINK 2    13   1    130312    12   2    1    1    10                            5179248000.000           
+LINK 2    13   1    130312    19   2    13   1    13004                         5179248000.000         
+ELEM 2    1    2    10   2    1                   Link Type (Object Kind)
+TYPE 2    1    2    10   2    22   2    10              
+TYPE 2    1    2    10   2    5    2    10             
+ELEM 2    1    1    10   2    1                   Link Type (Object Kind)
+ELEM 2    13   1    130042    13                  Set of Objects in Base NS
+LINK 2    13   1    130042    24   2    15   1    15001                         5179248000.000           
+ELEM 2    15   1    150012    215                 131131/21
+ELEM 2    15   1    150012    15                  Base Namespace
+

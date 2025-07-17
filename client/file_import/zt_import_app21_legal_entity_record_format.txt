@@ -1,0 +1,356 @@
+ZTIC 2    131131/21
+ZTIC 3    zinfinitree.com/legal_entity
+ZTIC 1    abc.com/test1
+ZTIC 4    zinfinitree.com/server_config
+ZTIC 5    zinfinitree.com/legal_entity_example
+
+
+RZTI 1          receiver ztic
+ 
+
+  
+
+
+      mode 1 means create/update with no future timestamps [DEPRECATED]
+MODE%1                                                     [DEPRECATED replaced by MPPG]
+
+
+    message processing parameters--general
+     default timesmp     msg id-client       last idx  mode user                SWdsiSWcod           
+MPPG 5179248000.000      id123               1234      99   usr1                4    1    
+
+
+
+     ExtKeyDef ExtKeyVal     
+RecIdEKDdsEKDcoEKVdsEKVco
+EXTK 2    2    2    1
+
+     
+     Desc                                    Timestamp
+MSET MaintainSetId#1                         5179248000.000  
+
+CMNT TMPL                                        template for maintaing an object
+
+     ObjKind   Object    ObjElem   Template  
+RecIdKzticKcodeOzticOcodeEzticEcodeTzticTcode     OEValue
+ELEM 2    1    3    1    2    1    2    1         Legal Entity (Object Kind)
+ELEM 2    1    3    2    2    1    2    1         Legal Entity Type (Object Kind)
+ELEM 2    1    3    3    2    1    2    1         Legal Entity Category (Object Kind)
+ELEM 2    1    3    4    2    1    2    1         Registering Jurisdiction (Object Kind)
+
+ELEM 2    2    3    1    2    2    2    2         Legal Entity (Base Template)
+ELEM 2    2    3    2    2    2    2    2         Legal Entity Type (Template)
+ELEM 2    2    3    3    2    2    2    2         Legal Entity Category (Template)
+ELEM 2    2    3    4    2    2    2    2         Registering Jurisdiction (Template)
+
+ELEM 2    2    5    1    2    2    2    2         US Based Company (Template for Type Value Based Template Rule)
+ELEM 2    2    5    2    2    2    2    2         US Based Non-Profit Organization (Template Value for Type Based Template Rule)
+ELEM 2    2    5    3    2    2    2    2         US Based Government Agency (Template for Type Value Based Template Rule)
+ELEM 2    2    5    4    2    2    2    2         US Based Individual Person (Template for Type Value Based Template Rule)
+ELEM 2    2    5    5    2    2    2    2         US Based Married Couple (Template for Type Value Based Template Rule)
+
+ELEM 2    12   3    1    2    12   2    12        Legal Entity Base (Technical Profile)
+ELEM 2    12   3    2    2    12   2    12        Legal Entity Type (Technical Profile)
+ELEM 2    12   3    3    2    12   2    12        Legal Entity Category (Technical Profile)
+ELEM 2    12   3    4    2    12   2    12        Registering Jurisdiction (Technical Profile)
+
+ELEM 2    12   5    1    2    12   2    12        US Based Company (Technical Profile)
+ELEM 2    12   5    2    2    12   2    12        US Based Non-Profit Organization (Technical Profile)
+ELEM 2    12   5    3    2    12   2    12        US Based Government Agency (Technical Profile)
+ELEM 2    12   5    4    2    12   2    12        US Based Individual Person (Technical Profile)
+ELEM 2    12   5    5    2    12   2    12        US Based Married Couple (Technical)
+
+ELEM 2    5    5    1    2    5    2    5         Type Value Based Template Rule for US Based Companies
+ELEM 2    5    5    2    2    5    2    5         Type Value Based Template Rule for US Based Non-Profit Organizations
+ELEM 2    5    5    3    2    5    2    5         Type Value Based Template Rule for US Based Government Agencies
+ELEM 2    5    5    4    2    5    2    5         Type Value Based Template Rule for US Based Individual Persons
+ELEM 2    5    5    5    2    5    2    5         Type Value Based Template Rule for US Based Married Couples
+
+
+ELEM 2    13   5    1    2    13   2    13        Set of All Legal Entity Types
+ELEM 2    13   5    2    2    13   2    13        Set of US Based Company, Legal Entity Types (identfied by Legal Entity Category)
+ELEM 2    13   5    3    2    13   2    13        Set of US Based Non-Profit Organization, Legal Entity Types (identfied by Legal Entity Category)
+ELEM 2    13   5    4    2    13   2    13        Set of US Based Government Agency, Legal Entity Types (identfied by Legal Entity Category)
+ELEM 2    13   5    5    2    13   2    13        Set of US Based Individual Person and Single Proprietorship, Legal Entity Types (identfied by Legal Entity Category)
+ELEM 2    13   5    6    2    13   2    13        Set of US Based Married Couple, Legal Entity Types (identfied by Legal Entity Category)
+ELEM 2    13   5    7    2    13   2    13        Set of US Based Company, Legal Entity Types (identified individually)
+ELEM 2    13   5    8    2    13   2    13        Set of US Based Non-Profit Organizaion, Legal Entity Types (identified individually)
+ELEM 2    13   5    9    2    13   2    13        Set of US Based Government Agency, Legal Entity Types (identified individually)
+ELEM 2    13   5    10   2    13   2    13        Set of US Based Individual Person and Single Proprietorship, Legal Entity Types (identified individually)
+ELEM 2    13   5    11   2    13   2    13        Set of US Based Married Couple, Legal Entity Types (identified individually)
+
+ELEM 2    13   5    12   2    13   2    13        Set of Legal Entity Categories including only US Based Companies (Legal Entity Category)
+ELEM 2    13   5    13   2    13   2    13        Set of Legal Entity Categories including only US Based Non-Profit Organizations (Legal Entity Category)
+ELEM 2    13   5    14   2    13   2    13        Set of Legal Entity Categories including only US Based Government Agencies (Legal Entity Category)
+ELEM 2    13   5    15   2    13   2    13        Set of Legal Entity Categories including only US Based Individual Persons and Single Proprietorship Companies (Legal Entity Category)
+ELEM 2    13   5    16   2    13   2    13        Set of Legal Entity Categories including only US Based Married Couples (Legal Entity Category)
+
+
+ELEM 2    48   5    1    2    48   2    48        Type Value Based Object Set of US Based Legal Entity Types using Legal Entity Category for US Based Individual Persons and Single Proprietorships
+ELEM 2    56   5    1    2    48   2    48        Type Definition Path Legal Entity Type-->Legal Entity Category
+
+
+ELEM 2    21   3    1    2    21   2    21        Code Range for Legal Entity (Code Range)
+ELEM 2    21   3    2    2    21   2    21        Code Range for Legal Entity Type (Code Range)
+ELEM 2    21   3    3    2    21   2    21        Code Range for Legal Entity Category (Code Range)
+ELEM 2    21   3    4    2    21   2    21        Code Range for Registering Jurisdiction (Code Range)
+ELEM 2    21   3    1    2    204  2    21        1001
+ELEM 2    21   3    2    2    204  2    21        2001
+ELEM 2    21   3    3    2    204  2    21        3001
+ELEM 2    21   3    4    2    204  2    21        4001
+
+ELEM 2    2    3    2    2    1    2    2         Code Range for Legal Entity (Base Template)
+ELEM 2    12   3    2    2    12   2    12        Code Range for Legal Entity (Technical Profile)
+
+ELEM 2    3    3    1    2    3    2    3         Legal Entity Legal Name (Object Element)
+ELEM 2    3    3    2    2    3    2    3         Legal Entity Type Description (Object Element)
+ELEM 2    3    3    3    2    3    2    3         Legal Entity Category Description (Object Element)
+ELEM 2    3    3    4    2    3    2    3         Registering Jurisdiction Description (Object Element)
+ELEM 2    3    3    5    2    3    2    3         Legal Entity Common Name (Object Element)   
+ELEM 2    3    5    1    2    3    2    3         Employer Identification Number (EIN)  (Object Element)
+ELEM 2    3    5    2    2    3    2    3         Social Security Number of primary (Object Element) 
+
+ELEM 2    31   3    1    2    31   2    31        Legal Entity Legal Name (Data Element)
+ELEM 2    31   3    2    2    31   2    31        Legal Entity Type Description   (Data Element)
+ELEM 2    31   3    3    2    31   2    31        Legal Entity Category Description               (Data Element)
+ELEM 2    31   3    4    2    31   2    31        Registering Jurisdiction Description (Data Element)
+ELEM 2    31   3    5    2    31   2    31        Legal Entity Common Name       (Data Element)
+ELEM 2    31   5    1    2    31   2    31        Employer Identification Number (EIN)     (Data Element)
+ELEM 2    31   5    2    2    31   2    31        Social Security Number (Data Element)
+ELEM 2    31   3    100  2    31   2    31        Current Code                    (Data Element)
+
+
+ELEM 2    32   3    1    2    32   2    32        Legal Entity Legal Name          (Data Type)
+ELEM 2    32   3    2    2    32   2    32        Legal Entity Type Description      (Data Type)
+ELEM 2    32   3    3    2    32   2    32        Legal Entity Category Description                 (Data Type)
+ELEM 2    32   3    4    2    32   2    32        Registering Jurisdiction Description         (Data Type)
+ELEM 2    32   3    5    2    32   2    32        Legal Entity Common Name        (Data Type)
+ELEM 2    32   5    1    2    32   2    32        Employer Identification Nuber      (Data Type)
+ELEM 2    32   5    2    2    32   2    32        Social Security Number (Data Type)
+ELEM 2    32   3    100  2    32   2    32        Current Code for Document DT      (Data Type)
+
+ELEM 2    9    3    1    2    9    2    9         Type Definition: Legal Entity Type for a Legal Entity
+ELEM 2    9    3    2    2    9    2    9         Type Definition: Registering Jurisdiction for Legal Entity
+ELEM 2    9    3    3    2    9    2    9         Type Definition: Country for a Legal Entity Type
+ELEM 2    9    3    4    2    9    2    9         Type Definition: Legal Entity Category for a Legal Entity Type
+
+ELEM 3    2    5    1    3    2    3    2         US Based C Corporation (Legal Entity Type)
+ELEM 3    2    5    2    3    2    3    2         US Based S Corporation (Legal Entity Type)
+ELEM 3    2    5    3    3    2    3    2         US Based Limited Liability Company (Legal Entity Type)
+ELEM 3    2    5    4    3    2    3    2         US Based Partnership (Legal Entity Type)
+ELEM 3    2    5    5    3    2    3    2         US Based Single Proprieter Company (Legal Entity Type)
+ELEM 3    2    5    6    3    2    3    2         US Based Non-Profit Charity Organization (Legal Entity Type)
+ELEM 3    2    5    7    3    2    3    2         US Based Non-Profit Educational Organization (Legal Entity Type)
+ELEM 3    2    5    8    3    2    3    2         US Based Non-Profit Trade Group Organization (Legal Entity Type)
+ELEM 3    2    5    9    3    2    3    2         US Based Federal Government Agency Non Military (Legal Entity Type)
+ELEM 3    2    5    10   3    2    3    2         US Based Federal Government Military Organization (Legal Entity Type)
+ELEM 3    2    5    11   3    2    3    2         US Based Individual Person (Legal Entity Type)
+ELEM 3    2    5    12   3    2    3    2         US Based Married Couple (Legal Entity Type)
+
+ELEM 2    50   5    1    2    50   2    50        Generic Object for US Based C Corporation
+ELEM 2    50   5    1    2    220  2    50        zinfinitree.com/legal_entity
+ELEM 2    50   5    1    2    221  2    50        2
+ELEM 2    50   5    1    2    222  2    50        zinfinitree.com/legal_entity_example
+ELEM 2    50   5    1    2    223  2    50        1
+
+ELEM 2    50   5    2    2    50   2    50        Generic Object for US Based S Corporation
+ELEM 2    50   5    2    2    220  2    50        zinfinitree.com/legal_entity
+ELEM 2    50   5    2    2    221  2    50        2
+ELEM 2    50   5    2    2    222  2    50        zinfinitree.com/legal_entity_example
+ELEM 2    50   5    2    2    223  2    50        2
+
+ELEM 2    50   5    3    2    50   2    50        Generic Object for US Based Limited Liability Company
+ELEM 2    50   5    3    2    220  2    50        zinfinitree.com/legal_entity
+ELEM 2    50   5    3    2    221  2    50        2
+ELEM 2    50   5    3    2    222  2    50        zinfinitree.com/legal_entity_example
+ELEM 2    50   5    3    2    223  2    50        3
+
+ELEM 2    50   5    4    2    50   2    50        Generic Object for US Based Partnership Company
+ELEM 2    50   5    4    2    220  2    50        zinfinitree.com/legal_entity
+ELEM 2    50   5    4    2    221  2    50        2
+ELEM 2    50   5    4    2    222  2    50        zinfinitree.com/legal_entity_example
+ELEM 2    50   5    4    2    223  2    50        4
+
+
+ELEM 2    50   5    5    2    50   2    50        Generic Object for Legal Entity Category for US Based Companies (Legal Entity Category)
+ELEM 2    50   5    5    2    220  2    50        zinfinitree.com/legal_entity
+ELEM 2    50   5    5    2    221  2    50        3
+ELEM 2    50   5    5    2    222  2    50        zinfinitree.com/legal_entity_example
+ELEM 2    50   5    5    2    223  2    50        1
+
+ELEM 2    50   5    6    2    50   2    50        Generic Object for Legal Entity Category for US Based Non Profit Organizations (Legal Entity Category)
+ELEM 2    50   5    6    2    220  2    50        zinfinitree.com/legal_entity
+ELEM 2    50   5    6    2    221  2    50        3
+ELEM 2    50   5    6    2    222  2    50        zinfinitree.com/legal_entity_example
+ELEM 2    50   5    6    2    223  2    50        2
+
+ELEM 2    50   5    7    2    50   2    50        Generic Object for Legal Entity Category for US Based Government Agencies (Legal Entity Category)
+ELEM 2    50   5    7    2    220  2    50        zinfinitree.com/legal_entity
+ELEM 2    50   5    7    2    221  2    50        3
+ELEM 2    50   5    7    2    222  2    50        zinfinitree.com/legal_entity_example
+ELEM 2    50   5    7    2    223  2    50        3
+
+ELEM 2    50   5    8    2    50   2    50        Generic Object for Legal Entity Category for US Based Individual Persons and Single Proprietorship Companies (Legal Entity Category)
+ELEM 2    50   5    8    2    220  2    50        zinfinitree.com/legal_entity
+ELEM 2    50   5    8    2    221  2    50        3
+ELEM 2    50   5    8    2    222  2    50        zinfinitree.com/legal_entity_example
+ELEM 2    50   5    8    2    223  2    50        4
+
+ELEM 2    50   5    9    2    50   2    50        Generic Object for Legal Entity Category for US Based Married Couples (Legal Entity Category)
+ELEM 2    50   5    9    2    220  2    50        zinfinitree.com/legal_entity
+ELEM 2    50   5    9    2    221  2    50        3
+ELEM 2    50   5    9    2    222  2    50        zinfinitree.com/legal_entity_example
+ELEM 2    50   5    9    2    223  2    50        5
+
+
+ELEM 3    3    5    1    3    3    3    3         US Based Companies (Legal Entity Category)
+ELEM 3    3    5    2    3    3    3    3         US Based Non-Profit Organizations (Legal Entity Category)
+ELEM 3    3    5    3    3    3    3    3         US Based Government Agencies (Legal Entity Category)
+ELEM 3    3    5    4    3    3    3    3         US Based Individual Persons and Single Proprietorship Companies (Legal Entity Category)
+ELEM 3    3    5    5    3    3    3    3         US Based Married Couples (Legal Entity Category)
+
+
+
+  max length for data elements used for address
+ELEM%2    31   3    1    2    214  2    31        6
+ELEM%2    31   3    2    2    214  2    31        40
+ELEM%2    31   3    3    2    214  2    31        30
+ELEM%2    31   3    4    2    214  2    31        5
+ELEM%2    31   3    5    2    214  2    31        10
+ELEM%2    31   3    6    2    214  2    31        5
+
+
+
+     ObjKind   Object    TypeDef   Type      Template  
+RecIdKdiscKcodeOzticOcodeTDdsiTDcodTzticTcodeTzticTcode
+
+TYPE 2    2    3    1    2    3    3    1               Object Kind for template for Legal Entity
+TYPE 2    2    3    2    2    3    3    2               Object Kind for template for Legal Entity Type
+TYPE 2    2    3    3    2    3    3    3               Object Kind for template for Legal Entity Category
+TYPE 2    2    3    4    2    3    3    4               Object Kind for template for Registering Jurisdiction
+
+TYPE 2    2    5    1    2    3    3    1               Object Kind for US Based Company (template for type based template rule)
+TYPE 2    2    5    2    2    3    3    1               Object Kind for US Based Non-Profilt (template for type based template rule)
+TYPE 2    2    5    3    2    3    3    1               Object Kind for US Based Government Agency (template for type based template rule)
+TYPE 2    2    5    4    2    3    3    1               Object Kind for US Based Individual Person (template for type based template rule)
+TYPE 2    2    5    5    2    3    3    1               Object Kind for US Based Married Couple (template for type based template rule)
+
+TYPE 2    1    3    1    2    5    3    1               Code Range for Legal Entity
+TYPE 2    1    3    2    2    5    3    2               Code Range for Legal Entity Type
+TYPE 2    1    3    3    2    5    3    3               Code Range for Legal Entity Category
+TYPE 2    1    3    4    2    5    3    4               Code Range for Registering Jurisdiction
+
+TYPE 2    21   3    1    2    6    2    1               Code Scheme for Legal Entity
+TYPE 2    21   3    2    2    6    2    1               Code Scheme for Legal Entity Type
+TYPE 2    21   3    3    2    6    2    1               Code Scheme for Legal Entity Category
+TYPE 2    21   3    4    2    6    2    1               Code Scheme for Registering Jurisdiction 
+
+TYPE 2    3    3    1    2    9    3    1               Data Element for Legal Entity Legal Name Object Element
+TYPE 2    3    3    2    2    9    3    2               Data Element for Legal Entity Type Description Object Element
+TYPE 2    3    3    3    2    9    3    3               Data Element for Legal Entity Category Description Object Element
+TYPE 2    3    3    4    2    9    3    4               Data Element for Registering Jurisdiction Description Object Element
+TYPE 2    3    3    5    2    9    3    5               Data Element for Legal Entity Common Name Object Element
+TYPE 2    3    5    1    2    9    5    1               Data Element for Employer Identification Number Object Element
+TYPE 2    3    5    2    2    9    5    2               Data Element for Social Security Number Object Element 
+
+TYPE 2    31   3    1    2    10   3    1               Data Type for Legal Entity Legal Name Data Element
+TYPE 2    31   3    2    2    10   3    2               Data Type for Legal Entity Type Description Data Element
+TYPE 2    31   3    3    2    10   3    3               Data Type for Legal Entity Category Description Data Element
+TYPE 2    31   3    4    2    10   3    4               Data Type for Registering Jurisdiction Description Data Element
+TYPE 2    31   3    5    2    10   3    5               Data Type for Legal Entity Common Name Data Element
+TYPE 2    31   5    1    2    10   3    6               Data Type for Employer Identification Number Data Element
+TYPE 2    31   5    2    2    10   3    7               Data Type for Social Security Number Data Element
+
+
+TYPE 2    31   3    1    2    11   2    2               Extended Key Definition (language) for Legal Entity Legal Name Data Element
+TYPE 2    31   3    2    2    11   2    2               Extended Key Definition (language) for Legal Entity Type Description Data Element
+TYPE 2    31   3    3    2    11   2    2               Extended Key Definition (language) for Legal Entity Category Description Data Element
+TYPE 2    31   3    4    2    11   2    2               Extended Key Definition (language) for Registering Jurisdiction Description Data Element
+TYPE 2    31   3    5    2    11   2    2               Extended Key Definition (language) for Legal Entity Common Name Data Element
+
+
+TYPE 2    9    3    1    2    4    3    2               Object Kind for Type Definition: Legal Entity Type for a Legal Entity
+TYPE 2    9    3    2    2    4    3    4               Object Kind for Type Definition: Registering Jurisdiction for Legal Entity
+ELEM%2    9    3    3    2    4    2    9               Object Kind for Type Definition: Country for a Legal Entity Type
+TYPE 2    9    3    4    2    4    3    3               Object Kind for Type Definition: Legal Entity Category for a Legal Entity Type
+
+TYPE 3    2    5    1    3    4    5    1               Legal Entity Category, US Based Companies for US Based C Corporation (Legal Entity Type)
+TYPE 3    2    5    2    3    4    5    1               Legal Entity Category, US Based Companies for US Based S Corporation (Legal Entity Type)
+TYPE 3    2    5    3    3    4    5    1               Legal Entity Category, US Based Companies for US Based Limited Liability Company (Legal Entity Type)
+TYPE 3    2    5    4    3    4    5    1               Legal Entity Category, US Based Companies for US Based Partnership (Legal Entity Type)
+TYPE 3    2    5    5    3    4    5    4               Legal Entity Category, US Based Individuals for US Based Single Proprieter Company (Legal Entity Type)
+TYPE 3    2    5    6    3    4    5    2               Legal Entity Category, US Based Non-Profits for US Based Non-Profit Charity Organization (Legal Entity Type)
+TYPE 3    2    5    7    3    4    5    2               Legal Entity Category, US Based Non-Profits for US Based Non-Profit Educational Organization (Legal Entity Type)
+TYPE 3    2    5    8    3    4    5    2               Legal Entity Category, US Based Non-Profits for US Based Non-Profit Trade Group Organization (Legal Entity Type)
+TYPE 3    2    5    9    3    4    5    3               Legal Entity Category, US Based Government Agencies for US Based Federal Government Agency Non Military (Legal Entity Type)
+TYPE 3    2    5    10   3    4    5    3               Legal Entity Category, US Based Government Agencies for US Based Federal Government Military Organization (Legal Entity Type)
+TYPE 3    2    5    11   3    4    5    4               Legal Entity Category, US Based Individuals for US Based Individual Person (Legal Entity Type)
+TYPE 3    2    5    12   3    4    5    5               Legal Entity Category, US Based Married Couples for US Based Married Couple (Legal Entity Type)
+
+
+TYPE 2    5    5    1    2    38   5    1               Object Template for Type Value Based Template Rule for US Based Companies
+TYPE 2    5    5    2    2    38   5    2               Object Template for Type Value Based Template Rule for US Based Non-Profit Organizations 
+TYPE 2    5    5    3    2    38   5    3               Object Template for Type Value Based Template Rule for US Based Government Agency
+TYPE 2    5    5    4    2    38   5    4               Object Template for Type Value Based Template Rule for US Based Persons
+TYPE 2    5    5    5    2    38   5    5               Object Template for Type Value Based Template Rule for US Based Married Couples
+
+TYPE 2    5    5    1    2    39   5    7               Object Set for Type Value Based Template Rule for US Based Companies (identified indiviually)
+TYPE 2    5    5    2    2    39   5    8               Object Set for Type Value Based Template Rule for US Based Non-Profit Organizations 
+TYPE 2    5    5    3    2    39   5    9               Object Set for Type Value Based Template Rule for US Based Government Agency
+TYPE 2    5    5    4    2    39   5    5               Object Set for Type Value Based Template Rule for US Based Persons (identified by legal entity category)
+TYPE 2    5    5    5    2    39   5    11              Object Set for Type Value Based Template Rule for US Based Married Couples
+
+
+     ObjKind   Object    TypeDef   Type      Template  
+RecIdKdiscKcodeOzticOcodeTDdsiTDcodTzticTcodeTzticTcode
+TYPE 2    48   5    1    2    40   5    1    2    48    Set of Input Objects (all legal entities types) for Type Value Based Object Set of US Based Legal Entities using SSN (Type Value Based Object Set)
+TYPE 2    48   5    1    2    41   5    15   2    48    Set of Type Values (US Based Legal Entity Types using category for individuals) for Type Value Based Object Set of US Based Legal Entities using SSN (Type Value Based Object Set)
+TYPE 2    48   5    1    2    42   5    1    2    48    Type Definition Path for Type Value Based Object Set of US Based Legal Entities using SSN (Type Value Based Object Set)
+
+
+
+     ObjKind   Object    TypeDef   Type      Template
+RecIdKdiscKcodeOzticOcodeTDdsiTDcodTzticTcodeTzticTcode
+TYPE 2    1    3    1    2    22   3    1    2    1     Default Object Template--Minimal Data for Legal Entity (Object Kind)
+TYPE 2    1    3    2    2    22   3    2    2    1     Default Object Template--Minimal Data for Legal Entity Type (Object Kind)
+TYPE 2    1    3    3    2    22   3    3    2    1     Default Object Template--Minimal Data for Legal Entity Category (Object Kind)
+TYPE 2    1    3    4    2    22   3    4    2    1     Default Object Template--Minimal Data for Registering Jurisdiction (Object Kind)
+
+
+     ObjKind   Object    LinkType   ToKind   ToObject  Template  
+RecIdKzticKcodeOzticOcodeLTdsiLTcodLKdsiLKcodLzticLcodeTzticTcode   
+
+LINK 2    13   5    7    2    30   2    50   5    1    2    13   link Set of US Based Company, Legal Entity Types to generic object for US Based C Corp Legal Entity Type
+LINK 2    13   5    7    2    30   2    50   5    2    2    13   link Set of US Based Company, Legal Entity Types to generic object for US Based S Corp Legal Entity Type
+LINK 2    13   5    7    2    30   2    50   5    3    2    13   link Set of US Based Company, Legal Entity Types to generic object for US Based Limited Liability Company Legal Entity Type
+LINK 2    13   5    7    2    30   2    50   5    4    2    13   link Set of US Based Company, Legal Entity Types to generic object for US Based Partnership Company Legal Entity Type
+
+LINK 2    13   5    15   2    30   2    50   5    8    2    13   link Set of Legal Entity Categories including only US Based Individual Persons and Single Proprietorship Companies (Legal Entity Category) to Legal Entity Category for US base individuals
+
+LINK 2    2    3    1    2    1    2    12   3    1    2    2    link object template for Legal Entity Base Template to technical profile
+LINK 2    2    3    2    2    1    2    12   3    2    2    2    link object template for Legal Entity Type to technical profile
+LINK 2    2    3    3    2    1    2    12   3    3    2    2    link object template for Legal Entity Category to technical profile
+LINK 2    2    3    4    2    1    2    12   3    4    2    2    link object template for Registering Jurisdiction to technical profile
+
+LINK 2    2    5    1    2    1    2    12   5    1    2    2    link object template for US Based Company to technical profile
+LINK 2    2    5    2    2    1    2    12   5    2    2    2    link object template for US Based Non-Profit Organization to technical profile
+LINK 2    2    5    3    2    1    2    12   5    3    2    2    link object template for US Based Government Agency to technical profile
+LINK 2    2    5    4    2    1    2    12   5    4    2    2    link object template for US Based Individual Person to technical profile
+LINK 2    2    5    5    2    1    2    12   5    5    2    2    link object template for US Based Married Couple to technical profile
+
+LINK 2    12   3    1    2    3    2    3    3    1    2    12   link tech profile for Legal Entity to object elem for legal entity legal name
+LINK 2    12   3    2    2    3    2    3    3    2    2    12   link tech profile for Legal Entity Type to object elem for description of legal entity type
+LINK 2    12   3    3    2    3    2    3    3    3    2    12   link tech profile for Legal Entity Category to object elem for description of legal entity category
+LINK 2    12   3    4    2    3    2    3    3    4    2    12   link tech profile for Registering Jurisdiction to object element for description of registering jurisdiction
+
+LINK 2    12   3    1    2    4    2    9    3    1    2    12   link tech profile for Legal Entity to type definition for Legal Entity Type
+LINK 2    9    3    1    2    29   2    5    5    1    2    9    link Type Definition: Legal Entity Type for a Legal Entity to Type Value Based Template Rule for US Based Companies
+LINK 2    9    3    1    2    29   2    5    5    4    2    9    link Type Definition: Legal Entity Type for a Legal Entity to Type Value Based Template Rule for US Based Individuals and Single proprietorships
+
+LINK 2    12   5    1    2    3    2    3    5    1    2    12   link tech profile for US Based Company to object element for Employer Identification Number (EIN)
+LINK 2    12   5    4    2    3    2    3    5    2    2    12   link tech profile for US Based Individuals and Single Proprietorships to object element for Social Security Number (SSN)
+
+LINK 2    13   5    1    2    12   2    1    3    2    2    13   link Set of All Legal Entity Types to Object Kind for Legal Entity Type to include all objects of Kind Legal Entity in the set
+LINK 2    13   5    5    2    14   2    48   5    1    2    13   link Set of US Based Individual Person and Single Proprietorship, Legal Entity Types (identfied by Legal Entity Category) to Type Value Based Object Set of LE types for individuals
+
+LINK 2    56   5    1    2    27   2    9    3    4    2    56   link Type Definition Path Legal Entity Type-->Legal Entity Category to type def: legal entity category for a legal entity type

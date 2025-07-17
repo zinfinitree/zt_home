@@ -1,0 +1,5 @@
+1.) edit .env to declare instance ID and associated namespace
+2.) edit client/zt_maintain_object.html to add new namespace to drop-downs
+3.) edit client/zt_file_import.html to add new namespace to drop-downs
+4.) edit client/zt_query.html to add new namespace to drop-downs
+5.) edit server/zt_admin.console.html to add new namespace to drop-downs

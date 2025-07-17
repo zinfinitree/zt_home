@@ -1,0 +1,339 @@
+ZTIC 2    131131/21
+ZTIC 3    zinfinitree.com/address
+ZTIC 1    abc.com/test1
+ZTIC 4    zinfinitree.com/server_config
+ZTIC 5    zinfinitree.com/software
+
+RZTI 1          receiver ztic
+
+
+      mode 1 means create/update with no future timestamps [DEPRECATED]
+MODE%1                                                     [DEPRECATED replaced by MPPG]
+
+
+    message processing parameters--general
+     default timesmp     msg id-client       last idx  mode user                SWdsiSWcod           
+MPPG 5179248000.000      id123               1234      99   usr1                4    1    
+     
+     Desc                                    Timestamp
+MSET MaintainSetId#1                         5179248000.000  
+
+CMNT TMPL                                         template for maintaing an object
+
+     ObjKind   Object    ObjElem   Template  
+RecIdKzticKcodeOzticOcodeEzticEcodeTzticTcode     OEValue
+ELEM 2    21   2    1    2    21   2    21        Object Kind (Code Range)
+ELEM 2    21   2    2    2    21   2    21        Object Template (Code Range) 
+ELEM 2    21   2    3    2    21   2    21        Object Element (Code Range)   
+ELEM 2    21   2    4    2    21   2    21        Table Element (Code Range) 
+ELEM 2    21   2    5    2    21   2    21        Type Value Based Template Rule (Code Range)
+ELEM 2    21   2    6    2    21   2    21        Link Based Template Rule (Code Range)
+ELEM 2    21   2    7    2    21   2    21        Object Element Value Based Template Rule (Code Range)      
+ELEM 2    21   2    8    2    21   2    21        Object Kind Type (Code Range) 
+ELEM 2    21   2    9    2    21   2    21        Object Type Definition (Code Range)
+ELEM 2    21   2    10   2    21   2    21        Link Type (Code Range)
+ELEM 2    21   2    11   2    21   2    21        Link Target Type (Code Range)
+ELEM 2    21   2    12   2    21   2    21        Technical Profile (Code Range)
+ELEM 2    21   2    13   2    21   2    21        Object Set Definition (Code Range)
+ELEM 2    21   2    14   2    21   2    21        ZT Instance (Code Range)
+ELEM 2    21   2    15   2    21   2    21        Namespace (Code Range)
+ELEM 2    21   2    16   2    21   2    21        Object Element Usage Type (Code Range)
+ELEM 2    21   2    17   2    21   2    21        Object Template Type (Code Range)
+ELEM 2    21   2    18   2    21   2    21        Language (Code Range)
+ELEM 2    21   2    19   2    21   2    21        User (Code Range)
+ELEM 2    21   2    20   2    21   2    21        User Type (Code Range) 
+ELEM 2    21   2    21   2    21   2    21        Code Range (Code Range)
+ELEM 2    21   2    22   2    21   2    21        Code Scheme (Code Range)
+ELEM 2    21   2    23   2    21   2    21        Code Scheme Type (Code Range)
+ELEM 2    21   2    24   2    21   2    21        System Message Definition (Code Range)
+ELEM 2    21   2    25   2    21   2    21        System Message Definition Type (Code Range)
+ELEM 2    21   2    26   2    21   2    21        Parameter (Code Range)
+ELEM 2    21   2    27   2    21   2    21        Parameter Type (Code Range)
+ELEM 2    21   2    28   2    21   2    21        System Message Definition Category (Code Range)
+ELEM 2    21   2    29   2    21   2    21        System Message Parameter Category (Code Range)
+ELEM 2    21   2    30   2    21   2    21        Table (Code Range) 
+ELEM 2    21   2    31   2    21   2    21        Data Element (Code Range)
+ELEM 2    21   2    32   2    21   2    21        Data Type (Code Range)
+ELEM 2    21   2    33   2    21   2    21        Extended Key Definition (Code Range)
+ELEM 2    21   2    34   2    21   2    21        Extended Key Definition Type (Code Range)
+ELEM 2    21   2    35   2    21   2    21        Object Element Usage Type (Code Range)
+ELEM 2    21   2    36   2    21   2    21        Function (Code Range)
+ELEM 2    21   2    37   2    21   2    21        Class/Program (Code Range)
+ELEM 2    21   2    38   2    21   2    21        Class/Program Type (Code Range)
+ELEM 2    21   2    39   2    21   2    21        Resource (Code Range)
+ELEM 2    21   2    40   2    21   2    21        Resource Protcol (Code Range)
+ELEM 2    21   2    41   2    21   2    21        Resource Name Extension (Code Range)
+ELEM 2    21   2    42   2    21   2    21        Software Runtime Profile (Code Range)
+ELEM 2    21   2    43   2    21   2    21        Software Runtime Component (Code Range)
+ELEM 2    21   2    44   2    21   2    21        Patch Level (Code Range)
+ELEM 2    21   2    45   2    21   2    21        Language & Patch Level Composite Extended Key (Code Range)
+ELEM 2    21   2    46   2    21   2    21        Object Set Definiton Type (Code Range)
+ELEM 2    21   2    47   2    21   2    21        Link Type Usage Type (Code Range)
+ELEM 2    21   2    48   2    21   2    21        Type Value Based Object Set (Code Range)
+ELEM 2    21   2    49   2    21   2    21        Template Set (Code Range)
+ELEM 2    21   2    50   2    21   2    21        Generic Object (Code Range)
+ELEM 2    21   2    51   2    21   2    21        Generic Object Element Value (Code Range)
+ELEM 2    21   2    52   2    21   2    21        Function Group (Code Range)
+ELEM 2    21   2    53   2    21   2    21        Function Group Type (Code Range)
+ELEM 2    21   2    54   2    21   2    21        Parameter Value Group (Code Range)
+ELEM 2    21   2    55   2    21   2    21        Object Template Path (Code Range)
+ELEM 2    21   2    56   2    21   2    21        Type Definition Path (Code Range)
+ELEM 2    21   2    57   2    21   2    21        Parameter Value (Code Range)
+ELEM 2    21   2    58   2    21   2    21        Statistical Values Object (Code Range)
+ELEM 2    21   2    59   2    21   2    21        Statistical Values Dimension (Code Range)
+ELEM 2    21   2    60   2    21   2    21        Statistic Type (Code Range)
+ELEM 2    21   2    61   2    21   2    21        Unit of Measure (Code Range)
+ELEM 2    21   2    62   2    21   2    21        Unit of Measure Dimension (Code Range)
+ELEM 2    21   2    63   2    21   2    21        Type Definition Usage Type (Code Range)
+ELEM 2    21   2    64   2    21   2    21        System Message Element Definition (Code Range)
+ELEM 2    21   2    65   2    21   2    21        System Message Element Definition Type (Code Range)
+ELEM 2    21   2    66   2    21   2    21        Numeric Data Type Details (Code Range)
+
+
+   next codes for code ranges
+     ObjKind   Object    ObjElem   Template  
+RecIdKzticKcodeOzticOcodeEzticEcodeTzticTcode     OEValue
+ELEM 2    21   2    1    2    204  2    21        1000
+ELEM 2    21   2    2    2    204  2    21        2000 
+ELEM 2    21   2    3    2    204  2    21        3000   
+ELEM 2    21   2    4    2    204  2    21        4000 
+ELEM 2    21   2    5    2    204  2    21        5000
+ELEM 2    21   2    6    2    204  2    21        6000
+ELEM 2    21   2    7    2    204  2    21        7000      
+ELEM 2    21   2    8    2    204  2    21        8000 
+ELEM 2    21   2    9    2    204  2    21        9000
+ELEM 2    21   2    10   2    204  2    21        10000
+ELEM 2    21   2    11   2    204  2    21        11000
+ELEM 2    21   2    12   2    204  2    21        12000
+ELEM 2    21   2    13   2    204  2    21        13050
+ELEM 2    21   2    14   2    204  2    21        14000
+ELEM 2    21   2    15   2    204  2    21        15050
+ELEM 2    21   2    16   2    204  2    21        16000
+ELEM 2    21   2    17   2    204  2    21        17000
+ELEM 2    21   2    18   2    204  2    21        18000
+ELEM 2    21   2    19   2    204  2    21        19000
+ELEM 2    21   2    20   2    204  2    21        20000 
+ELEM 2    21   2    21   2    204  2    21        21000
+ELEM 2    21   2    22   2    204  2    21        22000
+ELEM 2    21   2    23   2    204  2    21        23000
+ELEM 2    21   2    24   2    204  2    21        24000
+ELEM 2    21   2    25   2    204  2    21        25000
+ELEM 2    21   2    26   2    204  2    21        26000
+ELEM 2    21   2    27   2    204  2    21        27000
+ELEM 2    21   2    28   2    204  2    21        28000
+ELEM 2    21   2    29   2    204  2    21        29000
+ELEM 2    21   2    30   2    204  2    21        30000
+ELEM 2    21   2    31   2    204  2    21        31000
+ELEM 2    21   2    32   2    204  2    21        32000
+ELEM 2    21   2    33   2    204  2    21        33000
+ELEM 2    21   2    34   2    204  2    21        34000
+ELEM 2    21   2    35   2    204  2    21        35000
+ELEM 2    21   2    36   2    204  2    21        36000
+ELEM 2    21   2    37   2    204  2    21        37000
+ELEM 2    21   2    38   2    204  2    21        38000
+ELEM 2    21   2    39   2    204  2    21        39060
+ELEM 2    21   2    40   2    204  2    21        40000
+ELEM 2    21   2    41   2    204  2    21        41000
+ELEM 2    21   2    42   2    204  2    21        42000
+ELEM 2    21   2    43   2    204  2    21        43000
+ELEM 2    21   2    44   2    204  2    21        44000
+ELEM 2    21   2    45   2    204  2    21        45000
+ELEM 2    21   2    46   2    204  2    21        46000
+ELEM 2    21   2    47   2    204  2    21        47000
+ELEM 2    21   2    48   2    204  2    21        48000
+ELEM 2    21   2    49   2    204  2    21        49000
+ELEM 2    21   2    50   2    204  2    21        50000
+ELEM 2    21   2    51   2    204  2    21        51000
+ELEM 2    21   2    52   2    204  2    21        52000
+ELEM 2    21   2    53   2    204  2    21        53000
+ELEM 2    21   2    54   2    204  2    21        54000
+ELEM 2    21   2    55   2    204  2    21        55000
+ELEM 2    21   2    56   2    204  2    21        56000
+ELEM 2    21   2    57   2    204  2    21        57000
+ELEM 2    21   2    58   2    204  2    21        58000
+ELEM 2    21   2    59   2    204  2    21        59000
+ELEM 2    21   2    60   2    204  2    21        60000
+ELEM 2    21   2    61   2    204  2    21        61000
+ELEM 2    21   2    62   2    204  2    21        62000
+ELEM 2    21   2    63   2    204  2    21        63000
+ELEM 2    21   2    64   2    204  2    21        64000
+ELEM 2    21   2    65   2    204  2    21        65000
+ELEM 2    21   2    66   2    204  2    21        66000
+
+    software declaration
+     ObjKind   Object    ObjElem   Template  
+RecIdKzticKcodeOzticOcodeEzticEcodeTzticTcode     OEValue
+ELEM%2    1    5    1    2    1    2    1         Function (Object Kind)
+ELEM%2    1    5    2    2    1    2    1         Function Type (Object Kind)
+ELEM%2    1    5    3    2    1    2    1         Function Category (Object Kind)
+ELEM%2    1    5    4    2    1    2    1         Function Parameter (Object Kind)
+ELEM%2    1    5    5    2    1    2    1         Function Parameter Type (Object Kind)
+ELEM%2    1    5    6    2    1    2    1         Function Parameter Direction (Object Kind)
+ELEM%2    1    5    7    2    1    2    1         Program/Class (Object Kind)
+ELEM%2    1    5    8    2    1    2    1         Program/Class Type (Object Kind)
+ELEM%2    1    5    9    2    1    2    1         Server Software Patch Level (Object Kind)
+ELEM%2    1    5    10   2    1    2    1         Server Software Runtime Profile (Object Kind)
+ELEM%2    1    5    11   2    1    2    1         Server Software Runtime Profile Component (Object Kind)
+
+
+
+     ObjKind   Object    TypeDef   Type      Template  
+RecIdKdiscKcodeOzticOcodeTDdsiTDcodTzticTcodeTzticTcode
+
+TYPE 2    1    2    1    2    5    2    1               Code Range for Object Kind
+TYPE 2    1    2    2    2    5    2    2               Code Range for Object Template 
+TYPE 2    1    2    3    2    5    2    3               Code Range for Object Element    
+TYPE 2    1    2    4    2    5    2    4               Code Range for Table Element  
+TYPE 2    1    2    5    2    5    2    5               Code Range for Type Value Based Template Rule 
+TYPE 2    1    2    6    2    5    2    6               Code Range for Link Based Template Rule 
+TYPE 2    1    2    7    2    5    2    7               Code Range for Object Element Value Based Template Rule       
+TYPE 2    1    2    8    2    5    2    8               Code Range for Object Kind Type  
+TYPE 2    1    2    9    2    5    2    9               Code Range for Object Type Definition 
+TYPE 2    1    2    10   2    5    2    10              Code Range for Link Type 
+TYPE 2    1    2    11   2    5    2    11              Code Range for Link Target Type 
+TYPE 2    1    2    12   2    5    2    12              Code Range for Technical Profile 
+TYPE 2    1    2    13   2    5    2    13              Code Range for Object Set Definition 
+TYPE 2    1    2    14   2    5    2    14              Code Range for ZT Instance 
+TYPE 2    1    2    15   2    5    2    15              Code Range for Namespace 
+TYPE 2    1    2    16   2    5    2    16              Code Range for Object Element Usage Type 
+TYPE 2    1    2    17   2    5    2    17              Code Range for Object Template Type 
+TYPE 2    1    2    18   2    5    2    18              Code Range for Language 
+TYPE 2    1    2    19   2    5    2    19              Code Range for User 
+TYPE 2    1    2    20   2    5    2    20              Code Range for User Type  
+TYPE 2    1    2    21   2    5    2    21              Code Range for Code Range 
+TYPE 2    1    2    22   2    5    2    22              Code Range for Code Scheme 
+TYPE 2    1    2    23   2    5    2    23              Code Range for Code Scheme Type 
+TYPE 2    1    2    24   2    5    2    24              Code Range for System Message Definition 
+TYPE 2    1    2    25   2    5    2    25              Code Range for System Message Definition Type
+TYPE 2    1    2    26   2    5    2    26              Code Range for Parameter
+TYPE 2    1    2    27   2    5    2    27              Code Range for Parameter Type 
+TYPE 2    1    2    28   2    5    2    28              Code Range for System Message Definition Category 
+TYPE 2    1    2    29   2    5    2    29              Code Range for System Message Parameter Category 
+TYPE 2    1    2    30   2    5    2    30              Code Range for Table (standard, composite key etc)
+TYPE 2    1    2    31   2    5    2    31              Code Range for Data Element 
+TYPE 2    1    2    32   2    5    2    32              Code Range for Data Type 
+TYPE 2    1    2    33   2    5    2    33              Code Range for Extended Key Definition 
+TYPE 2    1    2    34   2    5    2    34              Code Range for Extended Key Definition Type 
+TYPE 2    1    2    35   2    5    2    35              Code Range for Object Element Usage Type 
+TYPE 2    1    2    36   2    5    2    36              Code Range for Function 
+TYPE 2    1    2    37   2    5    2    37              Code Range for Class/Program 
+TYPE 2    1    2    38   2    5    2    38              Code Range for Class/Program Type 
+TYPE 2    1    2    39   2    5    2    39              Code Range for Resource 
+TYPE 2    1    2    40   2    5    2    40              Code Range for Resource Protcol 
+TYPE 2    1    2    41   2    5    2    41              Code Range for Resource Name Extension 
+TYPE 2    1    2    42   2    5    2    42              Code Range for Software Runtime Profile 
+TYPE 2    1    2    43   2    5    2    43              Code Range for Software Runtime Component
+TYPE 2    1    2    44   2    5    2    44              Code Range for Patch Level
+TYPE 2    1    2    45   2    5    2    45              Code Range for Language & Patch Level Composite Extended Key
+TYPE 2    1    2    46   2    5    2    46              Code Range for Object Set Definition Type
+TYPE 2    1    2    47   2    5    2    47              Code Range for Link Type Usage Type
+TYPE 2    1    2    48   2    5    2    48              Code Range for Type Value Based Object Set
+TYPE 2    1    2    49   2    5    2    49              Code Range for Template Set
+TYPE 2    1    2    50   2    5    2    50              Code Range for Generic Object
+TYPE 2    1    2    51   2    5    2    51              Code Range for Generic Object Element Value
+TYPE 2    1    2    52   2    5    2    52              Code Range for Function Group
+TYPE 2    1    2    53   2    5    2    53              Code Range for Function Group Type
+TYPE 2    1    2    54   2    5    2    54              Code Range for Parameter Value Group
+TYPE 2    1    2    55   2    5    2    55              Code Range for Object Template Path
+TYPE 2    1    2    56   2    5    2    56              Code Range for Type Definition Path
+TYPE 2    1    2    57   2    5    2    57              Code Range for Parameter Value
+TYPE 2    1    2    58   2    5    2    58              Code Range for Statistical Values Object
+TYPE 2    1    2    59   2    5    2    59              Code Range for Statistical Values Dimension
+TYPE 2    1    2    60   2    5    2    60              Code Range for Statistic Type
+TYPE 2    1    2    61   2    5    2    61              Code Range for Unit of Measure
+TYPE 2    1    2    62   2    5    2    62              Code Range for Unit of Measure Dimension
+TYPE 2    1    2    63   2    5    2    63              Code Range for Type Definition Usage Type
+TYPE 2    1    2    64   2    5    2    64              Code Range for System Message Element Definition
+TYPE 2    1    2    65   2    5    2    65              Code Range for System Message Element Definition Type
+TYPE 2    1    2    66   2    5    2    66              Code Range for Numeric Data Type Details
+
+
+
+
+
+TYPE 2    21   2    1    2    6    2    1               Code Scheme for Object Kind Code Range
+TYPE 2    21   2    2    2    6    2    1               Code Scheme for Object Template Code Range 
+TYPE 2    21   2    3    2    6    2    1               Code Scheme for Object Element Code Range   
+TYPE 2    21   2    4    2    6    2    1               Code Scheme for Table Element (Code Range) 
+TYPE 2    21   2    5    2    6    2    1               Code Scheme for Type Value Based Template Rule Code Range
+TYPE 2    21   2    6    2    6    2    1               Code Scheme for Link Based Template Rule Code Range
+TYPE 2    21   2    7    2    6    2    1               Code Scheme for Object Element Value Based Template Rule Code Range      
+TYPE 2    21   2    8    2    6    2    1               Code Scheme for Object Kind Type Code Range 
+TYPE 2    21   2    9    2    6    2    1               Code Scheme for Object Type Definition Code Range
+TYPE 2    21   2    10   2    6    2    1               Code Scheme for Link Type Code Range
+TYPE 2    21   2    11   2    6    2    1               Code Scheme for Link Target Type Code Range
+TYPE 2    21   2    12   2    6    2    1               Code Scheme for Technical Profile Code Range
+TYPE 2    21   2    13   2    6    2    1               Code Scheme for Object Set Definition Code Range
+TYPE 2    21   2    14   2    6    2    1               Code Scheme for ZT Instance Code Range
+TYPE 2    21   2    15   2    6    2    1               Code Scheme for Namespace Code Range
+TYPE 2    21   2    16   2    6    2    1               Code Scheme for Object Element Usage Type Code Range
+TYPE 2    21   2    17   2    6    2    1               Code Scheme for Object Template Type Code Range
+TYPE 2    21   2    18   2    6    2    1               Code Scheme for Language Code Range
+TYPE 2    21   2    19   2    6    2    1               Code Scheme for User Code Range
+TYPE 2    21   2    20   2    6    2    1               Code Scheme for User Type Code Range 
+TYPE 2    21   2    21   2    6    2    1               Code Scheme for Code Range Code Range
+TYPE 2    21   2    22   2    6    2    1               Code Scheme for Code Scheme Code Range
+TYPE 2    21   2    23   2    6    2    1               Code Scheme for Code Scheme Type Code Range
+TYPE 2    21   2    24   2    6    2    1               Code Scheme for System Message Definition Code Range
+TYPE 2    21   2    25   2    6    2    1               Code Scheme for System Message Definition Type Code Range
+TYPE 2    21   2    26   2    6    2    1               Code Scheme for Parameter Code Range
+TYPE 2    21   2    27   2    6    2    1               Code Scheme for Parameter Type Code Range
+TYPE 2    21   2    28   2    6    2    1               Code Scheme for System Message Definition Category Code Range
+TYPE 2    21   2    29   2    6    2    1               Code Scheme for System Message Parameter Category Code Range
+TYPE 2    21   2    30   2    6    2    1               Code Scheme for Table Code Range 
+TYPE 2    21   2    31   2    6    2    1               Code Scheme for Data Element Code Range
+TYPE 2    21   2    32   2    6    2    1               Code Scheme for Data Type Code Range
+TYPE 2    21   2    33   2    6    2    1               Code Scheme for Extended Key Definition Code Range
+TYPE 2    21   2    34   2    6    2    1               Code Scheme for Extended Key Definition Type Code Range
+TYPE 2    21   2    35   2    6    2    1               Code Scheme for Object Element Usage Type Code Range
+TYPE 2    21   2    36   2    6    2    1               Code Scheme for Function Code Range
+TYPE 2    21   2    37   2    6    2    1               Code Scheme for Class/Program Code Range
+TYPE 2    21   2    38   2    6    2    1               Code Scheme for Class/Program Type Code Range
+TYPE 2    21   2    39   2    6    2    1               Code Scheme for Resource Code Range
+TYPE 2    21   2    40   2    6    2    1               Code Scheme for Resource Protcol Code Range
+TYPE 2    21   2    41   2    6    2    1               Code Scheme for Resource Name Extension Code Range
+TYPE 2    21   2    42   2    6    2    1               Code Scheme for Software Runtime Profile Code Range
+TYPE 2    21   2    43   2    6    2    1               Code Scheme for Software Runtime Component Code Range
+TYPE 2    21   2    44   2    6    2    1               Code Scheme for Patch Level Code Range
+TYPE 2    21   2    45   2    6    2    1               Code Scheme for Language & Patch Level Composite Extended Key Code Range
+TYPE 2    21   2    46   2    6    2    1               Code Scheme for Object Set Definition Type Code Range
+TYPE 2    21   2    47   2    6    2    1               Code Scheme for Link Type Usage Type Code Range
+TYPE 2    21   2    48   2    6    2    1               Code Scheme for Type Value Based Object Set Code Range
+TYPE 2    21   2    49   2    6    2    1               Code Scheme for Template Set Code Range
+TYPE 2    21   2    50   2    6    2    1               Code Scheme for Generic Object Code Range
+TYPE 2    21   2    51   2    6    2    1               Code Scheme for Generic Object Element Value Code Range
+TYPE 2    21   2    52   2    6    2    1               Code Scheme for Function Group Code Range
+TYPE 2    21   2    53   2    6    2    1               Code Scheme for Function Group Type Code Range
+TYPE 2    21   2    54   2    6    2    1               Code Scheme for Parameter Value Group Code Range
+TYPE 2    21   2    55   2    6    2    1               Code Scheme for Object Template Path Code Range
+TYPE 2    21   2    56   2    6    2    1               Code Scheme for Type Definition Path Code Range
+TYPE 2    21   2    57   2    6    2    1               Code Scheme for Parameter Value Code Range
+TYPE 2    21   2    58   2    6    2    1               Code Scheme for Statistical Values Object Code Range
+TYPE 2    21   2    59   2    6    2    1               Code Scheme for Statistical Values Dimension Code Range
+TYPE 2    21   2    60   2    6    2    1               Code Scheme for Statistic Type Code Range
+TYPE 2    21   2    61   2    6    2    1               Code Scheme for Unit of Measure Code Range
+TYPE 2    21   2    62   2    6    2    1               Code Scheme for Unit of Measure Dimension Code Range
+TYPE 2    21   2    63   2    6    2    1               Code Scheme for Type Definition Usage Type Code Range
+TYPE 2    21   2    64   2    6    2    1               Code Scheme for System Message Element Definition Code Range
+TYPE 2    21   2    65   2    6    2    1               Code Scheme for System Message Element Definition Type Code Range
+TYPE 2    21   2    66   2    6    2    1               Code Scheme for Numeric Data Type Details Code Range
+
+
+
+
+
+     ObjKind   Object    LinkType   ToKind   ToObject  Template
+RecIdKzticKcodeOzticOcodeLTdsiLTcodLKdsiLKcodLzticLcodeTzticTcode         
+LINK%2    2    3    1    2    1    2    12   3    1    2    2    link object template to technical profile
+LINK%2    12   3    1    2    2    2    3    3    1    2    12   link tech profile to object element for house number4
+LINK%2    12   3    1    2    2    2    3    3    2    2    12   link tech profile to object element for street4
+
+
+
+
+
+                                 query element, not used for this message (excluded by %)
+
+
+
+
