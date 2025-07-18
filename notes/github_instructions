@@ -2,6 +2,7 @@ github instructions
 
 run ./zt_prepare_github_env.sh in zt_home_gcp_and_github_transfer directory
 
+change to zt_home directory
 git add .
 git commit -m "10039"
 git push 
