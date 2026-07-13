@@ -43,12 +43,12 @@ var slog_sys_msg = new ServerLogSystemMessage();
 
   var set_error_status = false;
   this.msg.LinkUpdateWA_Array.forEach((linkUpdateWA) => {
-    const linkToStr = this.msg.TabNamePrfx+"_"+linkUpdateWA.linkToKindZTIC + "_"+linkUpdateWA.linkToKindCode +"_"+ linkUpdateWA.linkToCodeZTIC +"_"+ linkUpdateWA.linkToCode;
+    const linkToStr = this.msg.dbZtI_id+"_"+linkUpdateWA.linkToKindZTIC + "_"+linkUpdateWA.linkToKindCode +"_"+ linkUpdateWA.linkToCodeZTIC +"_"+ linkUpdateWA.linkToCode;
     //console.log("20240221a linkToStr: "+linkToStr);
     console.log("20250113c linkUpdateWA.newCode: "+linkUpdateWA.newCode);
     //if(linkUpdateWA.newCode == "false"){
       if(!this.svr1.ZtObject_idx_HM.has(linkToStr)){
-        slog_sys_msg.ztic = this.svr1.getCodeForNS(this.msg.TabNamePrfx, "zinfinitree.com/validation"); 
+        slog_sys_msg.ztic = this.svr1.getCodeForNS(this.msg.dbZtI_id, "zinfinitree.com/validation"); 
         //slog_sys_msg.ztic = "444";  // TEST REMOVE
         slog_sys_msg.code = "222";
         slog_sys_msg.shortSystemMessage = "failed link validation short message hard-coded";
@@ -71,7 +71,7 @@ var slog_sys_msg = new ServerLogSystemMessage();
     if(set_error_status){
 
         var status_rec = new QueryResponseMessageStatusWorkAreaRec();
-        status_rec.messageStatusZTIC = this.svr1.getCodeForNS(this.msg.TabNamePrfx, "131131/21");       
+        status_rec.messageStatusZTIC = this.svr1.getCodeForNS(this.msg.dbZtI_id, "131131/21");       
         //status_rec.messageStatusCode = "3";  // passed
         status_rec.messageStatusCode = "4";  // failed validation
         this.msg.responseMessageStatusWA_AR.push(status_rec);

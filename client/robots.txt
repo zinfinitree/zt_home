@@ -1,0 +1,9 @@
+# ZinfiniTree — a design for a generic, database-driven application platform
+User-agent: *
+Allow: /
+
+# Functional application/session endpoints — not indexable content
+Disallow: /zt/
+Disallow: /ZtObjectDbRec
+
+Sitemap: https://zinfinitree.com/sitemap.xml

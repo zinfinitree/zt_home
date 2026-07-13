@@ -347,20 +347,17 @@ TYPE 9    6    1    6386 9    2    9    4
 
 
    services info document
-ELEM 4    1    1    1009 4    1                   -
+ELEM 4    1    1    1009 4    1                   
 ELEM 4    1    1    1009 4    3                   ZinfiniTree Services
 TYPE 4    1    1    1009 4    1    4    1               
 ELEM 4    2    1    2043 4    4                   Consulting Services Heading
 ELEM 4    2    1    2043 4    5                   Consulting Services
-ELEM%4    2    1    2043 4    5                   ZinfiniTree consulting services can be arranged via email by contacting: zinfinitem@gmail.com
 TYPE 4    2    1    2043 4    2    4    1 
 ELEM 4    2    1    2044 4    4                   Development Services Heading
 ELEM 4    2    1    2044 4    5                   Development Services
-ELEM%4    2    1    2044 4    5                   ZinfiniTree consulting services can be arranged via email by contacting: zinfinitem@gmail.com
 TYPE 4    2    1    2044 4    2    4    1
 ELEM 4    2    1    2045 4    4                   Contact Heading
 ELEM 4    2    1    2045 4    5                   Contact
-ELEM%4    2    1    2045 4    5                   ZinfiniTree consulting services can be arranged via email by contacting: zinfinitem@gmail.com
 TYPE 4    2    1    2045 4    2    4    1
 ELEM%4    2    1    2044 4    4                   Services Information P1
 ELEM%4    2    1    2044 4    5                   email: zinfinitem@gmail.com
@@ -373,13 +370,13 @@ LINK%4    2    1    2043 4    2    4    2    1    2044                          
 LINK%4    2    1    2043 4    2    4    2    1    2045                          5179248000.000
 
 ELEM 4    2    1    2046 4    4                   Consulting Services P1
-ELEM 4    2    1    2046 4    5                   Consulting Services are available to explore how the ZinfiniTree design can be applied to specific problem domains or for advice on how to use ZinfiniTree example programs.
+ELEM 4    2    1    2046 4    5                   Consulting Services are available to explore how the ZinfiniTree design can be applied to specific problem domains or for advice on how to use ZinfiniTree software.
 
 ELEM 4    2    1    2047 4    4                   Development Services P1
-ELEM 4    2    1    2047 4    5                   Development Services are applicable to enhance the the ZinfiniTree programs to provide customized solutions.
+ELEM 4    2    1    2047 4    5                   Development Services can be utilized to enhance ZinfiniTree software to provide customized solutions.
 
 ELEM 4    2    1    2048 4    4                   Contact P1
-ELEM 4    2    1    2048 4    5                   ZinfiniTree Services can be arranged via email by contacting: zinfinitem@gmail.com
+ELEM 4    2    1    2048 4    5                   To arrange ZinfiniTree Services or if you are interested in becoming a ZinfiniTree Services Provider, please send email to zinfinitem@gmail.com.
 
 LINK 4    2    1    2043 4    2    4    2    1    2046                          5179248000.000
 LINK 4    2    1    2044 4    2    4    2    1    2047                          5179248000.000

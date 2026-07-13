@@ -982,10 +982,9 @@ html_str = html_str + "\n";
 
 html_str = html_str + "<meta charset=\"utf-8\">"
 html_str = html_str + "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">";
-html_str = html_str + "<meta name=\"keywords\" content=\"htmlcss bootstrap, multi level menu, submenu, treeview nav menu examples\" />";
-html_str = html_str + "<meta name=\"description\" content=\"Bootstrap 5 navbar multilevel treeview examples for any type of project, Bootstrap 5\" />";  
-
-// //<title>Demo - Bootstrap 5 multilevel dropdown submenu sample</title>
+html_str = html_str + "<meta name=\"keywords\" content=\"application platform, generic application design, metadata-driven applications, low-code platform, object modeling, workflow engine, ZinfiniTree\" />";
+html_str = html_str + "<meta name=\"description\" content=\"ZinfiniTree is an open-source design for a generic, metadata-driven application platform: define objects, documents, spreadsheets, and workflows without hand-coding each app.\" />";
+html_str = html_str + "<title>"+this.app_title+" — A Design for a Generic Application Platform</title>";
 
 html_str = html_str + "<script type=\"text/javascript\">";
 html_str = html_str + "function maintainObject(value){";

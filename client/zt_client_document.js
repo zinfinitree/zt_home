@@ -147,7 +147,13 @@ for(var s = 0; s < this.sess.document_AR[doc_idxx].docElem_AR.length; s++){
 
 
 
- var html_str =  "<!DOCTYPE html><html><head>";                                   
+ var html_str =  "<!DOCTYPE html><html><head>"; 
+  
+ // start 20250721
+ //html_str = html_str + "<link rel=\'stylesheet\' href=\'https://fonts.googleapis.com/css?family=Audiowide|Sofia|Trirong\'>";
+ // end 20250721
+ 
+
  html_str = html_str + "<title>ZT Document Display</title>";
  html_str = html_str + "<script src='//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js\'>  </script>";
  html_str = html_str + "<script>  $(document).ready(function(){";
@@ -157,6 +163,13 @@ for(var s = 0; s < this.sess.document_AR[doc_idxx].docElem_AR.length; s++){
  html_str = html_str + "</head>";
 
  html_str = html_str + "<body>";
+
+// start 20250721
+//html_str = html_str + "<style> h3.a {font-family: \'Audiowide\', sans-serif;} h3.b {font-family: \'Sofia\', sans-serif;} h3.c {font-family: \'Trirong', serif;}</style>";
+//html_str = html_str + "<style> p.a {font-family: \'Audiowide\', sans-serif;} p.b {font-family: \'Sofia\', sans-serif;} p.c {font-family: \'Trirong', sans-serif;}</style>";
+// end 20250721
+
+
  html_str = html_str + "<h1> "+this.sess.document_AR[doc_idxx].title+"</h1>";     20220214
  html_str = html_str + "<h3> "+this.sess.document_AR[doc_idxx].desc+"</h3>";     20220214
 
