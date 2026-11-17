@@ -21,7 +21,8 @@
           file_directory=$("#file_directory").val();
           file_name=$("#file_name").val();
           resp_map_mode = document.querySelector('input[name = "resp_map_mode"]:checked').value;
-          var jqxhr = $.post("http://localhost:3000/zt/client/process_query",{TargetNS: TargetNS, language: language, query_op_num: query_op_num, obj_templ_ztic: obj_templ_ztic, obj_templ_code: obj_templ_code, obj_kind_ztic: obj_kind_ztic, obj_kind_code: obj_kind_code, obj_ztic: obj_ztic, obj_code: obj_code, srch_val: srch_val, resp_map_mode: resp_map_mode, file_directory: file_directory, file_name: file_name, object_usage_type: object_usage_type}, function(data){ 
+          //var jqxhr = $.post("http://localhost:3000/zt/client/process_query",{TargetNS: TargetNS, language: language, query_op_num: query_op_num, obj_templ_ztic: obj_templ_ztic, obj_templ_code: obj_templ_code, obj_kind_ztic: obj_kind_ztic, obj_kind_code: obj_kind_code, obj_ztic: obj_ztic, obj_code: obj_code, srch_val: srch_val, resp_map_mode: resp_map_mode, file_directory: file_directory, file_name: file_name, object_usage_type: object_usage_type}, function(data){    (del) 20261116
+          var jqxhr = $.post("/zt/client/process_query",{TargetNS: TargetNS, language: language, query_op_num: query_op_num, obj_templ_ztic: obj_templ_ztic, obj_templ_code: obj_templ_code, obj_kind_ztic: obj_kind_ztic, obj_kind_code: obj_kind_code, obj_ztic: obj_ztic, obj_code: obj_code, srch_val: srch_val, resp_map_mode: resp_map_mode, file_directory: file_directory, file_name: file_name, object_usage_type: object_usage_type}, function(data){    // 20261116 relative URL - same host the page was served from
   console.log(data);
        //open a new window note:this is a popup so it may be blocked by your browser
        var newWindow = window.open("", "new window", "width=800, height=400");
@@ -34,8 +35,10 @@
    // alert( "second success" );
    //console.log("test data: ");
   })
-  .fail(function() {
+  //.fail(function() {   (del) 20261116
+  .fail(function(xhr) {   // 20261116
   //  alert( "error" );
+    alert("Query request failed: " + xhr.status + " " + xhr.statusText);   // 20261116 show errors instead of doing nothing
   })
   .always(function() {
   //  alert( "finished" );

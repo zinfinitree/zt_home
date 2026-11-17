@@ -92,7 +92,8 @@ this.parameter_AR.forEach((parameter) => {
     if(set_error_status){
 
         var status_rec = new QueryResponseMessageStatusWorkAreaRec();
-        status_rec.messageStatusZTIC = this.svr1.getCodeForNS(this.msg.TabNamePrfx, "131131/21");       
+        //status_rec.messageStatusZTIC = this.svr1.getCodeForNS(this.msg.TabNamePrfx, "131131/21");          //(del) 20261022
+        status_rec.messageStatusZTIC = this.svr1.getCodeForNS(this.msg.dbZtI_id, "131131/21");   // 20261022 messages carry dbZtI_id, TabNamePrfx is never set
         //status_rec.messageStatusCode = "3";  // passed
         status_rec.messageStatusCode = "4";  // failed validation
         console.log("20250111c status_rec.messageStatusCode: "+status_rec.messageStatusCode);

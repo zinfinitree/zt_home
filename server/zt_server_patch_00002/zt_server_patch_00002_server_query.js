@@ -381,7 +381,8 @@ for (var i = 0; i < this.msg.queryResponseSetMemberWA_AR.length; i++) {
              var stat_values_object_ztic = this.msg.queryResponseSetMemberWA_AR[i].objectResponseItem_AR[j].objZTIC.toString().trim();
              var stat_values_object_code = this.msg.queryResponseSetMemberWA_AR[i].objectResponseItem_AR[j].objCode.toString().trim();
                                                           
-             var statisticalValuesObj = new (require('./ds2b00002_server_statistical_values_object'))( this.svr1, this.msg, stat_values_object_ztic, stat_values_object_code);
+             //var statisticalValuesObj = new (require('./ds2b00002_server_statistical_values_object'))( this.svr1, this.msg, stat_values_object_ztic, stat_values_object_code);   //(del) 20261113 old file name
+             var statisticalValuesObj = new (require('./zt_server_patch_00002_server_statistical_values_object'))( this.svr1, this.msg, stat_values_object_ztic, stat_values_object_code);   // 20261113 renamed file (ds2b00002_... -> zt_server_patch_00002_...)
              statisticalValuesObj.addStatisticalValuesToResponseMessage();  //TEMP DEL 20230715 
              ////??this.queryResponseSetMemberAdd_forStatisticalValuesObject(queryResponseSet_idx, this.msg.queryResponseSetMemberWA_AR[i].setMemberID+":5:"+msgSetObj.setObj.objZTIC+"_"+msgSetObj.setObj.objCode, respTyp, msgSetObj.setObj.objZTIC, msgSetObj.setObj.objCode);  // moved above for loop 20201109 
  

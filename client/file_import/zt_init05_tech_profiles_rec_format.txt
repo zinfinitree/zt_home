@@ -87,6 +87,10 @@ ELEM 2    12   2    64   2    12   2    12        System Message Element Definit
 ELEM 2    12   2    65   2    12   2    12        System Message Element Definition Type (Base Tech Profile)
 ELEM 2    12   2    66   2    12   2    12        Numeric Data Type Details (Base Tech Profile)
 ELEM 2    12   2    67   2    12   2    12        Function Group Set Launch Point (Base Tech Profile)
+ELEM 2    12   2    68   2    12   2    12        User Interface Profile (Base Tech Profile)    
+ELEM 2    12   2    69   2    12   2    12        User Interface Attribute (Base Tech Profile)  
+ELEM 2    12   2    70   2    12   2    12        User Interface Attribute Type (Base Tech Profile)    
+ELEM 2    12   2    71   2    12   2    12        User Interface Attribute Category (Base Tech Profile)
 
 
      ObjKind   Object    TypeDef   Type      Template
@@ -162,6 +166,11 @@ LINK 2    12   2    54   2    3    2    3    2    54   2    12   Link Calculated
 LINK 2    12   2    55   2    3    2    3    2    55   2    12   Link Object Template Path to Descr Obj Elem
 LINK 2    12   2    56   2    3    2    3    2    56   2    12   Link Type Definition Path to Descr Obj Elem
 LINK 2    12   2    57   2    3    2    3    2    57   2    12   Link Parameter Value to Descr Obj Elem
+
+LINK 2    12   2    57   2    3    2    3    2    226  2    12   Link Parameter Value to Parameter Value Obj Elem
+LINK 2    12   2    57   2    4    2    9    2    31   2    12   Link Tech Profile for Parameter Value to type def for Parameter for a Parameter Value
+
+
 LINK 2    12   2    58   2    3    2    3    2    58   2    12   Link Statistical Values Object to Descr Obj Elem
 LINK 2    12   2    59   2    3    2    3    2    59   2    12   Link Statistical Values Dimension to Descr Obj Elem
 LINK 2    12   2    60   2    3    2    3    2    60   2    12   Link Statistic Type sum, count, mean, mode, median, std dev to Descr Obj Elem
@@ -172,6 +181,10 @@ LINK 2    12   2    64   2    3    2    3    2    64   2    12   Link System Mes
 LINK 2    12   2    65   2    3    2    3    2    65   2    12   Link System Message Element Definition Type to Descr Obj Elem
 LINK 2    12   2    66   2    3    2    3    2    66   2    12   Link Numeric Data Type Details to Descr Obj Elem
 LINK 2    12   2    67   2    3    2    3    2    67   2    12   Link Function Group Set Launch Point to Descr Obj Elem
+LINK 2    12   2    68   2    3    2    3    2    68   2    12   Link User Interface Profile to Descr Obj Elem    
+LINK 2    12   2    69   2    3    2    3    2    69   2    12   Link User Interface Attribute to Descr Obj Elem 
+LINK 2    12   2    70   2    3    2    3    2    70   2    12   Link User Interface Attribute Type to Descr Obj Elem    
+LINK 2    12   2    71   2    3    2    3    2    71   2    12   Link User Interface Attribute Category to Descr Obj Elem
 
 
 
@@ -329,4 +342,10 @@ LINK 2    12   2    52   2    4    2    9    2    51   2    52   Link Function G
     links for Function Group Set Launch Points
 LINK 2    12   2    67   2    4    2    9    2    50   2    67   Link Function Group Set Launch Point Tech Profile to Type Definition for Set of Function Groups for a Function Group Set Launch Points   
 
+
+
+    links for user interface
+LINK 2    12   2    68   2    5    2    10   2    36   2    68   Link Tech Profile for User Interface Profile to Link Type for User Interface Profile to User Interface Attribute
+LINK 2    12   2    68   2    5    2    10   2    37   2    68   Link Tech Profile for User Interface Profile to Link Type for User Interface Profile to User Interface Profile
+LINK 2    12   2    69   2    5    2    10   2    38   2    69   Link Tech Profile for User Interface Attribute to Link Type for User Interface Attribute to Parameter Value
 

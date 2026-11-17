@@ -32,11 +32,89 @@ class ZtApp {     //20200601
       this.user_name       = user_namex;
       this.app_title       = "";
       this.appPage_AR      = [];  
+      this.UI_profile_AR   = [];
       
 
       
   } // end of constructor
 
+
+
+// start 20261104 - UI profiles of the app: profile (base/68) -> UI attributes (base/69) -> parameter values (base/57), by parent id in the ObjectQset
+// parameter value: value = object element base/226, parameter = type value of type definition base/31; namespaces are added so other sessions do not depend on ZTIC numbering
+loadUIProfiles(msg, base_zticx){
+  var app_wa = require('./zt_client_app_workarea');
+  this.UI_profile_AR = [];
+  var self = this;
+  var nsForZTIC = function(zticx){
+    if(zticx == undefined || zticx == null){ return ""; }
+    var z = zticx.toString().trim();
+    for(var i = 0; i < self.ZTICNS_AR.length; i++){ if(self.ZTICNS_AR[i].code.toString().trim() == z){ return self.ZTICNS_AR[i].namespace.toString().trim(); } }
+    for(var i = 0; i < (msg.ZTIC_Array || []).length; i++){   // namespaces added by the server in the response
+      if(msg.ZTIC_Array[i].msgZTIC != undefined && msg.ZTIC_Array[i].msgZTIC.toString().trim() == z){ return msg.ZTIC_Array[i].namespace.toString().trim(); }
+    } // endfor
+    return "";
+  };
+  var profile_HM = {};
+  var attribute_HM = {};
+  var pv_objx_AR = [];
+  for(var h = 0; h < msg.queryResponseSetMemberWA_AR.length; h++){
+    if(msg.queryResponseSetMemberWA_AR[h].setMemberID != "ObjectQset"){ continue; }
+    for(var k = 0; k < msg.queryResponseSetMemberWA_AR[h].object_idx_AR.length; k++){
+      var objx = msg.queryResponseObjectWA_AR[msg.queryResponseSetMemberWA_AR[h].object_idx_AR[k]];
+      if(objx.objectKindZTIC.toString().trim() != base_zticx){ continue; }
+      var kind_code = objx.objectKindCode.toString().trim();
+      if(kind_code == "68"){
+        var prof = new app_wa.UI_Profile(objx.objectZTIC, objx.objectCode);
+        prof.UI_profile_ns = nsForZTIC(objx.objectZTIC);
+        profile_HM[objx.id] = prof;
+        this.UI_profile_AR.push(prof);
+      }
+      else if(kind_code == "69"){
+        var attr = new app_wa.UI_Attribute(objx.objectZTIC, objx.objectCode);
+        attr.UI_attribute_ns = nsForZTIC(objx.objectZTIC);
+        attr.parentId = objx.parentId;
+        attribute_HM[objx.id] = attr;
+      }
+      else if(kind_code == "57"){
+        pv_objx_AR.push(objx);
+      } // endif
+    } // endfor
+  } // endfor
+  for(var id in attribute_HM){   // attributes under their profile
+    if(profile_HM[attribute_HM[id].parentId]){ profile_HM[attribute_HM[id].parentId].UI_attribute_AR.push(attribute_HM[id]); }
+    delete attribute_HM[id].parentId;
+  } // endfor
+  for(var i = 0; i < pv_objx_AR.length; i++){   // parameter values under their attribute
+    var objx = pv_objx_AR[i];
+    var attr = attribute_HM[objx.parentId];
+    if(!attr){ continue; }
+    var pv = new app_wa.UI_ParameterValue(objx.objectZTIC, objx.objectCode);
+    pv.UI_parameterValue_ns = nsForZTIC(objx.objectZTIC);
+    for(var j = 0; j < objx.objectElement_idx_AR.length; j++){
+      var oe = msg.queryResponseObjectElementWA_AR[objx.objectElement_idx_AR[j]];
+      if(oe.objectElementZTIC.toString().trim() == base_zticx && oe.objectElementCode.toString().trim() == "226"){ pv.UI_parameterValue = oe.objectElementValue; }
+    } // endfor
+    for(var j = 0; j < objx.type_idx_AR.length; j++){
+      var tv = msg.queryResponseTypeWA_AR[objx.type_idx_AR[j]];
+      if(tv.typeDefinitionZTIC.toString().trim() == base_zticx && tv.typeDefinitionCode.toString().trim() == "31"){
+        pv.UI_parameter_ztic = tv.typeValueZTIC;
+        pv.UI_parameter_code = tv.typeValueCode;
+        pv.UI_parameter_ns   = nsForZTIC(tv.typeValueZTIC);
+      } // endif
+    } // endfor
+    attr.UI_parameterValue_AR.push(pv);
+  } // endfor
+}  // end of loadUIProfiles()
+
+
+// all UI attributes of the app's UI profiles - sent with maintain_object requests
+getUIAttribute_AR(){
+  var ret_AR = [];
+  this.UI_profile_AR.forEach(function(p){ p.UI_attribute_AR.forEach(function(a){ ret_AR.push(a); }); });
+  return ret_AR;
+}  // end of getUIAttribute_AR()
+// end 20261104
 
 
 setValuesFromInitialMessageForApp(msg, obj_zticx, obj_codex){      // 20200813
@@ -117,6 +195,7 @@ for(var i = 0; i < this.ZTICNS_AR.length; i++){
         mmo_ztic = this.ZTICNS_AR[i].code.toString().trim();
       } // endif
  } //endfor
+this.loadUIProfiles(msg, base_ztic);   // 20261104
 
 
 //console.log("20200129 this.msg.queryResponseSetMemberWA_AR.length: "+msg.queryResponseSetMemberWA_AR.length);
@@ -737,6 +816,11 @@ var html_str = "";
 html_str = html_str + "<html>";
 // start 20220614
 
+// start 20260716
+html_str = html_str + "<title>ZinfiniTree Application Platform</title>";
+
+// end 20260716
+
 html_str = html_str + "<head>";
 html_str = html_str + "\n";   // 20220716
 // start 20220712 for pop-up for values
@@ -948,7 +1032,7 @@ else
 } // endif process.env.ZT_CLIENT_IP.toString().trim() == "http://localhost"  // 20250527
 
 
-html_str = html_str +           "var jqxhr = $.post(\"" +url_maintain_object + "\",{TargetNS: TargetNS, language: language, status_sel: status_sel, obj_templ_ztic: obj_templ_ztic, obj_templ_code: obj_templ_code, obj_ztic: obj_ztic, obj_code: obj_code, test_AR: test_ARs, maint_mode: maint_mode, maint_format: maint_format }, function(data){"; 
+html_str = html_str +           "var jqxhr = $.post(\"" +url_maintain_object + "\",{TargetNS: TargetNS, language: language, status_sel: status_sel, obj_templ_ztic: obj_templ_ztic, obj_templ_code: obj_templ_code, obj_ztic: obj_ztic, obj_code: obj_code, test_AR: test_ARs, maint_mode: maint_mode, maint_format: maint_format, UI_attribute_AR: JSON.stringify(" + JSON.stringify(this.getUIAttribute_AR()).replace(/</g, "\\u003c") + ") }, function(data){";   // 20261104 UI_attribute_AR 
 
 html_str = html_str +         "var id = \"12345\";";
 html_str = html_str +        "sessionStorage.setItem(\"sent\", id);";  

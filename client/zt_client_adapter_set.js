@@ -835,13 +835,15 @@ html_str = html_str +         "var  init_page_code=\"\";";
 html_str = html_str +           "\n";
 
 html_str = html_str +             "if(app_action_type_code == 3){";   // to invoke another app
-html_str = html_str +   "var jqxhr2 = $.post(\"http://localhost:3000/ds2/client/app_page_display\",{TargetNS: TargetNS, language: language, user_name: user_name, user_password: user_password, AppNS: AppNS, app_code: app_code, InitPageNS: InitPageNS, init_page_code: init_page_code }, function(data){";
+//html_str = html_str +   "var jqxhr2 = $.post(\"http://localhost:3000/ds2/client/app_page_display\",{TargetNS: TargetNS, language: language, user_name: user_name, user_password: user_password, AppNS: AppNS, app_code: app_code, InitPageNS: InitPageNS, init_page_code: init_page_code }, function(data){";   (del) 20261116
+html_str = html_str +   "var jqxhr2 = $.post(\"/zt/client/app_page_display\",{TargetNS: TargetNS, language: language, user_name: user_name, user_password: user_password, AppNS: AppNS, app_code: app_code, InitPageNS: InitPageNS, init_page_code: init_page_code }, function(data){";   // 20261116 relative URL (and current /zt/ route) - same host the page was served from
 html_str = html_str +           "\n"; 
 html_str = html_str +           "var id = \"12345\";";
 html_str = html_str +           "sessionStorage.setItem(\"sent\", id);"; 
-html_str = html_str +           " var newWindow = window.open(\"http://localhost:3000/ds2/ds2_maintain_object_submit\", \"_blank\");";                 
+//html_str = html_str +           " var newWindow = window.open(\"http://localhost:3000/ds2/ds2_maintain_object_submit\", \"_blank\");";   (del) 20261116
+html_str = html_str +           " var newWindow = window.open(\"/zt/maintain_object_submit\", \"_blank\");";   // 20261116 relative URL (and current /zt/ route) - same host the page was served from
 html_str = html_str +           "\n";
-html_str = html_str +           "})";  // end of post
+html_str = html_str +           "}).fail(function(xhr){ alert('App request failed: ' + xhr.status + ' ' + xhr.statusText); })";  // end of post   // 20261116 show errors instead of doing nothing
 html_str = html_str +           "\n";
 html_str = html_str +             "}";   // endif app_action_type_code == 3
 // end 20220717
@@ -873,13 +875,15 @@ html_str = html_str +           "var test_ARs = JSON.stringify(test_AR);";
 html_str = html_str +           "\n";
 html_str = html_str +           "if((maint_mode == \"create\" || obj_code.toString().trim() != \"\") && app_action_type_code != 3){";    // 20220715
 
-html_str = html_str +           "var jqxhr = $.post(\"http://localhost:3000/zt/client/maintain_object\",{TargetNS: TargetNS, language: language, status_sel: status_sel, obj_templ_ztic: obj_templ_ztic, obj_templ_code: obj_templ_code, obj_ztic: obj_ztic, obj_code: obj_code, test_AR: test_ARs, maint_mode: maint_mode, maint_format: maint_format }, function(data){"; 
+//html_str = html_str +           "var jqxhr = $.post(\"http://localhost:3000/zt/client/maintain_object\",{TargetNS: TargetNS, language: language, status_sel: status_sel, obj_templ_ztic: obj_templ_ztic, obj_templ_code: obj_templ_code, obj_ztic: obj_ztic, obj_code: obj_code, test_AR: test_ARs, maint_mode: maint_mode, maint_format: maint_format }, function(data){";   (del) 20261116
+html_str = html_str +           "var jqxhr = $.post(\"/zt/client/maintain_object\",{TargetNS: TargetNS, language: language, status_sel: status_sel, obj_templ_ztic: obj_templ_ztic, obj_templ_code: obj_templ_code, obj_ztic: obj_ztic, obj_code: obj_code, test_AR: test_ARs, maint_mode: maint_mode, maint_format: maint_format }, function(data){";   // 20261116 relative URL (and current /zt/ route) - same host the page was served from
 html_str = html_str +         "var id = \"12345\";";
 html_str = html_str +        "sessionStorage.setItem(\"sent\", id);";  
-html_str = html_str +   "var newWindow = window.open(\"http://localhost:3000/zt/maintain_object_submit\", \"_blank\");";                 
+//html_str = html_str +   "var newWindow = window.open(\"http://localhost:3000/zt/maintain_object_submit\", \"_blank\");";   (del) 20261116
+html_str = html_str +   "var newWindow = window.open(\"/zt/maintain_object_submit\", \"_blank\");";   // 20261116 relative URL (and current /zt/ route) - same host the page was served from
 html_str = html_str +           "\n";
  
-html_str = html_str + "})";  // end of post 
+html_str = html_str + "}).fail(function(xhr){ alert('Maintain object request failed: ' + xhr.status + ' ' + xhr.statusText); })";  // end of post   // 20261116 show errors instead of doing nothing
 html_str = html_str + "\n";
 html_str = html_str +   "}";        // endif start of else 20220716a
 html_str = html_str +   "else ";

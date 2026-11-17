@@ -30,6 +30,9 @@ class ZtSession {     //20200601
       this.html_id_cntr    = 0;
       this.TargetNS        = TargetNSx;
       this.maint_mode      = "";
+      this.maint_format    = "";    // 20261020
+      this.foreign_ro_attr = " readonly style='background-color:#eeeeee'";   // 20261024 fields of objects in another namespace
+      this.UI_attribute_AR = [];   // 20261026 user interface attributes (e.g. linked objects of a link type listed as a table)
       this.objectSet_AR    = [];    // 20201112
       this.workbook_AR     = [];    // 20201123
       this.document_AR     = [];    // 20210113
@@ -55,6 +58,7 @@ class ZtSession {     //20200601
 
 setValuesFromInitialMessage(msg, obj_zticx, obj_codex){      // 20200813
 
+this.mergeMessageZTICs(msg);   // 20261021 namespaces added by the server in the response (e.g. ZTIC of a linked grandchild)
 
 // start clone statistical values from message into session 
 this.statisticalValuesObject_AR = JSON.parse(JSON.stringify(msg.queryResponseStatisticalValuesObjectWA_AR));
@@ -952,7 +956,10 @@ msg.queryResponseObjectElementWA_AR[objx.objectElement_idx_AR[j]].objectElementC
 
          // begin  add template for response type 2
              var new_templ_idx = objx.levelsDown / 2;        // 20201104 REVISIT, divide by 2 because tech profile adds a level between templates
-             var new_parent_templ_idx = new_templ_idx - 1;   // 20201104
+             //var new_parent_templ_idx = new_templ_idx - 1;   // 20201104   (del) 20261022 - only right with one template per level
+             // 20261022 parent template = template of the technical profile the template object hangs under; level 1 templates hang under the top template's technical profile, which is not in T2_templ_AR
+             var new_parent_templ_idx = this.getTemplateIdxForTechProfile(T2_templ_AR, objx.parentId);
+             if(new_parent_templ_idx == null){ new_parent_templ_idx = this.top_templ_idx; }
             // templ_rec = new TemplateRec(this.top_templ_idx, "1", objx.objectZTIC, objx.objectCode );    //20200617   (del) 20201102
 
             templ_rec = new TemplateRec(new_parent_templ_idx, new_templ_idx, objx.objectZTIC, objx.objectCode );
@@ -1023,6 +1030,63 @@ msg.queryResponseObjectElementWA_AR[objx.objectElement_idx_AR[j]].objectElementC
 //+this.msg.queryResponseObjectElementWA_AR[objx.objectElement_idx_AR[j]].objectElementCode+": "
 //+this.msg.queryResponseObjectElementWA_AR[objx.objectElement_idx_AR[j]].objectElementValue);
       }  // endfor loop through objx.objectElement_idx_AR  
+
+     // start 20261021 type definitions and link types of the related templates (needed for child pages) - same as for the top template in setValuesFromInitialMessage
+     if(objx.objectKindZTIC == base_ztic && (objx.objectKindCode == "9" || objx.objectKindCode == "10")){
+       var td_templ_idx = this.getTemplateIdxForTechProfile(T2_templ_AR, objx.parentId);
+       if(td_templ_idx != null && td_templ_idx != undefined && this.template_AR[td_templ_idx]){
+         for(var t = 0; t < objx.objectElement_idx_AR.length; t++){
+           var td_oe = msg.queryResponseObjectElementWA_AR[objx.objectElement_idx_AR[t]];
+           if(objx.objectKindCode == "9" && td_oe.objectElementZTIC == base_ztic && td_oe.objectElementCode == 9){   // type def with description
+             var type_def_already_added = false;
+             for(var u = 0; u < this.template_AR[td_templ_idx].typeDef_AR.length; u++){
+               if(this.template_AR[td_templ_idx].typeDef_AR[u].typeDef_ztic == objx.objectZTIC && this.template_AR[td_templ_idx].typeDef_AR[u].typeDef_code == objx.objectCode){ type_def_already_added = true; }
+             } // endfor
+             if(!type_def_already_added){
+               var typeDef_rec = new TypeDefinitionRec();
+               typeDef_rec.typeDef_ztic = objx.objectZTIC;
+               typeDef_rec.typeDef_code = objx.objectCode;
+               typeDef_rec.typeDef_desc = td_oe.objectElementValue;
+               for(var u = 0; u < objx.type_idx_AR.length; u++){
+                 if(msg.queryResponseTypeWA_AR[objx.type_idx_AR[u]].typeDefinitionZTIC == base_ztic && msg.queryResponseTypeWA_AR[objx.type_idx_AR[u]].typeDefinitionCode == "4"){  // object kind for the type definition
+                   typeDef_rec.objectKind_ztic = msg.queryResponseTypeWA_AR[objx.type_idx_AR[u]].typeValueZTIC;
+                   typeDef_rec.objectKind_code = msg.queryResponseTypeWA_AR[objx.type_idx_AR[u]].typeValueCode;
+                 } // endif
+                 if(msg.queryResponseTypeWA_AR[objx.type_idx_AR[u]].typeDefinitionZTIC == base_ztic && msg.queryResponseTypeWA_AR[objx.type_idx_AR[u]].typeDefinitionCode == "14"){  // object set of allowed values - dropdown
+                   var allowed_set_already_added = false;
+                   for(var n = 0; n < this.typeDefAllowedValueSet_AR.length; n++){
+                     if(this.typeDefAllowedValueSet_AR[n].typeDef_ztic == objx.objectZTIC && this.typeDefAllowedValueSet_AR[n].typeDef_code == objx.objectCode){ allowed_set_already_added = true; }
+                   } // endfor
+                   if(!allowed_set_already_added){
+                     var type_def_allowed_value_set_rec = new TypeDefAllowedValueSetRec();
+                     type_def_allowed_value_set_rec.typeDef_ztic = objx.objectZTIC;
+                     type_def_allowed_value_set_rec.typeDef_code = objx.objectCode;
+                     type_def_allowed_value_set_rec.objectSet_ztic = msg.queryResponseTypeWA_AR[objx.type_idx_AR[u]].typeValueZTIC;
+                     type_def_allowed_value_set_rec.objectSet_code = msg.queryResponseTypeWA_AR[objx.type_idx_AR[u]].typeValueCode;
+                     this.typeDefAllowedValueSet_AR.push(type_def_allowed_value_set_rec);
+                   } // endif
+                 } // endif
+               } // endfor
+               this.template_AR[td_templ_idx].typeDef_AR.push(typeDef_rec);
+             } // endif !type_def_already_added
+           } // endif type def
+           if(objx.objectKindCode == "10" && td_oe.objectElementZTIC == base_ztic && td_oe.objectElementCode == 10){   // link type with description
+             var link_type_already_added = false;
+             for(var u = 0; u < this.template_AR[td_templ_idx].linkType_AR.length; u++){
+               if(this.template_AR[td_templ_idx].linkType_AR[u].linkType_ztic == objx.objectZTIC && this.template_AR[td_templ_idx].linkType_AR[u].linkType_code == objx.objectCode){ link_type_already_added = true; }
+             } // endfor
+             if(!link_type_already_added){
+               var linktype_rec = new LinkTypeRec();
+               linktype_rec.linkType_ztic = objx.objectZTIC;
+               linktype_rec.linkType_code = objx.objectCode;
+               linktype_rec.linkType_desc = td_oe.objectElementValue;
+               this.template_AR[td_templ_idx].linkType_AR.push(linktype_rec);
+             } // endif !link_type_already_added
+           } // endif link type
+         } // endfor loop through objx.objectElement_idx_AR
+       } // endif td_templ_idx found
+     } // endif type definition or link type object
+     // end 20261021
 
  //console.log("Type values");
 
@@ -2980,7 +3044,8 @@ for(var j = 0; j < this.template_AR.length; j++){   // 20200910
 //console.log("20200923 *-*1 object_idx - object_found: "+object_idx+" - "+object_found);
 //if(!object_found)  // (del) 20200923
 if(!object_found && this.template_AR[sel_templ_idx].templLevelsDown == msg_objx.levelsDown){  // 20200923                           
- if((this.maint_mode == "update" && msg_objx.levelsDown == 1 ) || this.maint_mode != "update"){  // 20200911  del 20201030
+ //if((this.maint_mode == "update" && msg_objx.levelsDown == 1 ) || this.maint_mode != "update"){  // 20200911  del 20201030   (del) 20261021
+ if((this.maint_mode == "update" && msg_objx.levelsDown >= 1 ) || this.maint_mode != "update"){  // 20261021 levels below 1 too - grandchildren are maintained from child pages (Maintain on link rows); parent page and its Submit only use level 1
  //if((this.maint_mode == "create" && msg_objx.levelsDown == 1 ) || (this.maint_mode == "update" && msg_objx.levelsDown == 1 ) || this.maint_mode == "display"){    // 20201030
   var new_obj = new ObjectRec();
   new_obj.objZTIC           = msg_objx.objectZTIC;    // object ztic
@@ -3306,7 +3371,8 @@ for(var i = 0; i < this.template_AR[sel_templ_idx].object_AR.length; i++){
 if(object_found){
 
   this.template_AR[sel_templ_idx].object_AR[object_idx].linkStatus_html_input_val = msg_linkx.status;
-  this.template_AR[sel_templ_idx].object_AR[object_idx].linkValue_html_input_val  = msg_linkx.linkValue;  
+  this.template_AR[sel_templ_idx].object_AR[object_idx].linkValue_html_input_val  = msg_linkx.linkValue;
+  this.template_AR[sel_templ_idx].object_AR[object_idx].linkFromObj_key = msg_objx.objectKindZTIC.toString().trim()+"_"+msg_objx.objectKindCode.toString().trim()+"_"+msg_objx.objectZTIC.toString().trim()+"_"+msg_objx.objectCode.toString().trim();   // 20261021 source of link, used by child page
 
 }  // endif
 
@@ -3320,7 +3386,852 @@ if(object_found){
 
 
 
-getHtmlForTemplate(templ_zticx, templ_codex, maint_modex, maint_formatx){    // 20200724
+// start 20261021 - the server adds ZTICs to its response for namespaces not in the request (e.g. a linked grandchild in another namespace)
+// add them to this.ZTICNS_AR (the client ZTIC domain) so getNamespaceForZTIC resolves them; codes already in the domain are not changed
+mergeMessageZTICs(msg){
+  if(!msg.ZTIC_Array){ return; }
+  for(var i = 0; i < msg.ZTIC_Array.length; i++){
+    var ns_msg   = (msg.ZTIC_Array[i].namespace == undefined) ? "" : msg.ZTIC_Array[i].namespace.toString().trim();
+    var ztic_msg = (msg.ZTIC_Array[i].msgZTIC == undefined) ? "" : msg.ZTIC_Array[i].msgZTIC.toString().trim();
+    if(ns_msg == "" || ztic_msg == ""){ continue; }
+    var ns_found = false;
+    var code_used = false;
+    for(var j = 0; j < this.ZTICNS_AR.length; j++){
+      if(this.ZTICNS_AR[j].namespace.toString().trim() == ns_msg){ ns_found = true; }
+      if(this.ZTICNS_AR[j].code.toString().trim() == ztic_msg){ code_used = true; }
+    } // endfor
+    if(!ns_found && !code_used){
+      this.ZTICNS_AR.push({code: ztic_msg, namespace: ns_msg});
+    }
+    else if(!ns_found && code_used){
+      console.log("ERROR in mergeMessageZTICs - ZTIC "+ztic_msg+" for "+ns_msg+" already used for another namespace in the client ZTIC domain");
+    } // endif
+  } // endfor
+}  // end of mergeMessageZTICs()
+
+
+// start 20261021 - child page type values and links
+// templates one level below a child template (template_AR is flat, parent_idx = template index of parent level)
+getChildLinkTemplIdx_AR(child_templ_idxx){
+  var ret_AR = [];
+  for(var i = 0; i < this.template_AR.length; i++){
+    if(this.template_AR[i].parent_idx == child_templ_idxx && this.template_AR[i].templLevelsDown == this.template_AR[child_templ_idxx].templLevelsDown + 1){
+      ret_AR.push(i);
+    } // endif
+  } // endfor
+  return ret_AR;
+}  // end of getChildLinkTemplIdx_AR()
+
+
+// key used in linkFromObj_key for links from the selected child object
+getChildObjKey(child_templ_idxx, child_obj_idxx){
+  var child_obj = this.template_AR[child_templ_idxx].object_AR[child_obj_idxx];
+  return this.template_AR[child_templ_idxx].objKindZTIC.toString().trim()+"_"+this.template_AR[child_templ_idxx].objKindCode.toString().trim()+"_"+child_obj.objZTIC.toString().trim()+"_"+child_obj.objCodeAssigned.toString().trim();
+}  // end of getChildObjKey()
+
+
+// child objects are only loaded with OE values - add a type value rec per type definition and a create-link row per link template
+prepareChildPage(child_templ_idxx, child_obj_idxx){
+  const html_id_prfx = "val";
+  var child_obj = this.template_AR[child_templ_idxx].object_AR[child_obj_idxx];
+
+  for(var i = 0; i < this.template_AR[child_templ_idxx].typeDef_AR.length; i++){
+    var typeDefx = this.template_AR[child_templ_idxx].typeDef_AR[i];
+    var found_type_val = false;
+    for(var j = 0; j < child_obj.typeVal_AR.length; j++){
+      if(child_obj.typeVal_AR[j].typeDef_ztic == typeDefx.typeDef_ztic && child_obj.typeVal_AR[j].typeDef_code == typeDefx.typeDef_code){
+        found_type_val = true;
+      } // endif
+    } // endfor
+    if(!found_type_val){
+      var type_val_rec = new TypeValueRec();
+      type_val_rec.typeDef_ztic = typeDefx.typeDef_ztic;
+      type_val_rec.typeDef_code = typeDefx.typeDef_code;
+      this.html_id_cntr++;
+      type_val_rec.ztic_html_id  = html_id_prfx + this.html_id_cntr.toString().trim();
+      this.html_id_cntr++;
+      type_val_rec.code_html_id  = html_id_prfx + this.html_id_cntr.toString().trim();
+      this.html_id_cntr++;
+      type_val_rec.composite_html_id = html_id_prfx + this.html_id_cntr.toString().trim();
+      this.html_id_cntr++;
+      type_val_rec.dateStr_html_id = html_id_prfx + this.html_id_cntr.toString().trim();
+      child_obj.typeVal_AR.push(type_val_rec);
+    } // endif !found_type_val
+  } // endfor loop through typeDef_AR
+
+  var new_link_key = "new_"+child_templ_idxx+"_"+child_obj_idxx;
+  var link_templ_idx_AR = this.getChildLinkTemplIdx_AR(child_templ_idxx);
+  for(var i = 0; i < link_templ_idx_AR.length; i++){
+    var found_new_link_obj = false;
+    for(var j = 0; j < this.template_AR[link_templ_idx_AR[i]].object_AR.length; j++){
+      if(this.template_AR[link_templ_idx_AR[i]].object_AR[j].linkFromObj_key == new_link_key){
+        found_new_link_obj = true;
+      } // endif
+    } // endfor
+    if(!found_new_link_obj){
+      var obj = new ObjectRec();
+      this.html_id_cntr++;
+      obj.objZTIC_ns_html_id  = html_id_prfx + this.html_id_cntr.toString().trim();
+      this.html_id_cntr++;
+      obj.objCodeAssigned_html_id = html_id_prfx + this.html_id_cntr.toString().trim();
+      this.html_id_cntr++;
+      obj.linkStatus_html_id  = html_id_prfx + this.html_id_cntr.toString().trim();
+      this.html_id_cntr++;
+      obj.linkValue_html_id  = html_id_prfx + this.html_id_cntr.toString().trim();
+      obj.newCode = false;
+      obj.newLinkToExistingObject = true;
+      obj.linkFromObj_key = new_link_key;
+      this.template_AR[link_templ_idx_AR[i]].object_AR.push(obj);
+    } // endif !found_new_link_obj
+
+    // 20261021 blank new object to create and link from the selected object
+    if(this.getChildPageNewObj(child_templ_idxx, child_obj_idxx, link_templ_idx_AR[i]) == null){
+      this.createNewLinkedObject(child_templ_idxx, child_obj_idxx, link_templ_idx_AR[i]);   // 20261023 moved to createNewLinkedObject
+    } // endif no new object yet
+  } // endfor loop through link_templ_idx_AR
+}  // end of prepareChildPage()
+
+
+// start 20261023 - new linked objects (several per link template - Add New Linked Object)
+// blank new object of link template link_templ_idxx, linked from object src_obj_idxx of template src_templ_idxx when submitted
+createNewLinkedObject(src_templ_idxx, src_obj_idxx, link_templ_idxx){
+  const html_id_prfx = "val";
+  var new_obj = new ObjectRec();
+  new_obj.newCode = true;
+  new_obj.linkFromObj_key = "newobj_"+src_templ_idxx+"_"+src_obj_idxx;
+  this.html_id_cntr++;   // ns/code ids are not shown but every object needs them - page scripts assign <html_id> values for all objects
+  new_obj.objZTIC_ns_html_id  = html_id_prfx + this.html_id_cntr.toString().trim();
+  this.html_id_cntr++;
+  new_obj.objCodeAssigned_html_id = html_id_prfx + this.html_id_cntr.toString().trim();
+  this.html_id_cntr++;
+  new_obj.linkStatus_html_id  = html_id_prfx + this.html_id_cntr.toString().trim();
+  this.html_id_cntr++;
+  new_obj.linkValue_html_id  = html_id_prfx + this.html_id_cntr.toString().trim();
+  for(var j = 0; j < this.template_AR[link_templ_idxx].OE_def_AR.length; j++){
+    var new_oe_val_rec = new ObjectElementValueRec();
+    new_oe_val_rec.OE_ztic = this.template_AR[link_templ_idxx].OE_def_AR[j].OE_ztic;
+    new_oe_val_rec.OE_code = this.template_AR[link_templ_idxx].OE_def_AR[j].OE_code;
+    this.html_id_cntr++;
+    new_oe_val_rec.html_id = html_id_prfx + this.html_id_cntr.toString().trim();
+    new_obj.OE_val_AR.push(new_oe_val_rec);
+  } // endfor
+  this.template_AR[link_templ_idxx].object_AR.push(new_obj);
+  return new_obj;
+}  // end of createNewLinkedObject()
+
+
+// all new objects of a link template linked from a source object
+getChildPageNewObj_AR(src_templ_idxx, src_obj_idxx, link_templ_idxx){
+  var new_obj_key = "newobj_"+src_templ_idxx+"_"+src_obj_idxx;
+  return this.template_AR[link_templ_idxx].object_AR.filter(function(o){ return o.linkFromObj_key == new_obj_key; });
+}  // end of getChildPageNewObj_AR()
+
+
+// identity of an existing deeper source object (used when its own page is not applied), undefined otherwise
+getSourceObjIdent(src_templ_idxx, src_obj_idxx){
+  var src_templ = this.template_AR[src_templ_idxx];
+  var src_obj = src_templ ? src_templ.object_AR[src_obj_idxx] : null;
+  if(src_templ && src_obj && src_templ.templLevelsDown > 1 && !src_obj.newCode){
+    return {kind_ztic: src_templ.objKindZTIC, kind_code: src_templ.objKindCode, ns: this.getNamespaceForZTIC(src_obj.objZTIC), code: src_obj.objCodeAssigned};
+  } // endif
+  return undefined;
+}  // end of getSourceObjIdent()
+
+
+// Apply / Submit description of a new object block
+getNewObjMeta(src_templ_idxx, src_obj_idxx, link_templ_idxx, new_obj){
+  var ltx = this.template_AR[link_templ_idxx];
+  var new_obj_idx = ltx.object_AR.indexOf(new_obj);
+  var m = {linkType_ztic: ltx.linkableObjectLinkType_ztic, linkType_code: ltx.linkableObjectLinkType_code, kind_ztic: ltx.objKindZTIC, kind_code: ltx.objKindCode,
+           templ_ztic: ltx.templZTIC, templ_code: ltx.templCode, status_id: new_obj.linkStatus_html_id, value_id: new_obj.linkValue_html_id, oe: [],
+           key: link_templ_idxx+"_"+new_obj_idx, templ_idx: link_templ_idxx, obj_idx: new_obj_idx, source_key: src_templ_idxx+"_"+src_obj_idxx, ids: [new_obj.linkStatus_html_id, new_obj.linkValue_html_id]};
+  var src_ident = this.getSourceObjIdent(src_templ_idxx, src_obj_idxx);
+  if(src_ident){ m.source_obj_ident = src_ident; }
+  for(var k = 0; k < new_obj.OE_val_AR.length; k++){
+    m.oe.push({OE_ztic: new_obj.OE_val_AR[k].OE_ztic, OE_code: new_obj.OE_val_AR[k].OE_code, id: new_obj.OE_val_AR[k].html_id});
+    m.ids.push(new_obj.OE_val_AR[k].html_id);
+  } // endfor
+  return m;
+}  // end of getNewObjMeta()
+
+
+// table rows of a new object block: Maintain, link status/value, OE fields (blank)
+getNewLinkedObjectBlockHtml(link_templ_idxx, new_obj){
+  var ltx = this.template_AR[link_templ_idxx];
+  var new_obj_idx = ltx.object_AR.indexOf(new_obj);
+  if(this.isTableLinkTemplate(link_templ_idxx)){ return this.getLinkedObjectTableRowHtml(link_templ_idxx, new_obj, false); }   // 20261026 table row
+  var html = "<tr><td><input type='button' class='maintain_child' id='maintain_new_" + link_templ_idxx + "_" + new_obj_idx + "' data-sess_id='" + this.id + "' data-templ_idx='" + link_templ_idxx + "' data-obj_idx='" + new_obj_idx + "' value='Maintain'></td></tr>";
+  //html = html + "<tr><td>New Linked Object Status-Value </td><td><input type=\"TEXT\" id='"+ new_obj.linkStatus_html_id+ "' size='5' value=''></td><td><input type=\"TEXT\" id='" + new_obj.linkValue_html_id+ "' size='10' value=''></td></tr>";   //(del) 20261105
+  html = html + "<tr><td colspan='6' style='white-space:nowrap'>New Linked Object:&nbsp; <input type=\"TEXT\" id='"+ new_obj.linkStatus_html_id+ "' size='5' placeholder='Status' value=''> <input type=\"TEXT\" id='" + new_obj.linkValue_html_id+ "' size='10' placeholder='Value' value=''></td></tr>";   // 20261105 Status / Value right after the label
+  for(var k = 0; k < new_obj.OE_val_AR.length; k++){
+    var new_labelx = "";
+    var new_sizex  = 30;
+    for(var l = 0; l < ltx.OE_def_AR.length; l++){
+      if(ltx.OE_def_AR[l].OE_ztic == new_obj.OE_val_AR[k].OE_ztic && ltx.OE_def_AR[l].OE_code == new_obj.OE_val_AR[k].OE_code){
+        new_labelx = ltx.OE_def_AR[l].html_label;
+        if(ltx.OE_def_AR[l].html_size != undefined && ltx.OE_def_AR[l].html_size !== ""){ new_sizex = ltx.OE_def_AR[l].html_size; }
+      } // endif
+    } // endfor
+    if(new_sizex < 80){
+      html = html + "<tr><td>"+ new_labelx +"</td><td> <input type=\"TEXT\" id='"+ new_obj.OE_val_AR[k].html_id +"' size='"+ new_sizex +"' value=''></td></tr>";
+    }
+    else{
+      html = html + "<tr><td>"+ new_labelx +"</td></tr>";
+      //html = html + "<tr><td><textarea name=\"comments\" id='"+ new_obj.OE_val_AR[k].html_id +"' cols='80' rows='20'></textarea></td></tr>";   //(del) 20261105
+      html = html + "<tr><td colspan='6'><textarea name=\"comments\" id='"+ new_obj.OE_val_AR[k].html_id +"' cols='80' rows='20'></textarea></td></tr>";   // 20261105 text area spans the row so it does not widen the label column
+    } // endif new_sizex < 80
+  } // endfor
+  return html;
+}  // end of getNewLinkedObjectBlockHtml()
+
+
+// start 20261026 - linked objects listed as a table (UI attribute)
+// namespace -> ZTIC of the session
+getZTICForNamespace(nsx){
+  for(var i = 0; i < this.ZTICNS_AR.length; i++){
+    if(this.ZTICNS_AR[i].namespace.toString().trim() == nsx.toString().trim()){ return this.ZTICNS_AR[i].code.toString().trim(); }
+  } // endfor
+  return null;
+}  // end of getZTICForNamespace()
+
+
+// 20261104 font-family from the UI attributes (parameter zinfinitree.com/user_interface 4), "" if none
+// characters that could end the CSS rule or the style element are removed
+getUIFontFamily(){
+  if(!this.UI_attribute_AR){ return ""; }
+  for(var a = 0; a < this.UI_attribute_AR.length; a++){
+    var pv_AR = this.UI_attribute_AR[a].UI_parameterValue_AR || [];
+    for(var p = 0; p < pv_AR.length; p++){
+      var pv = pv_AR[p];
+      if(pv.UI_parameter_ns != undefined && pv.UI_parameter_ns.toString().trim() == "zinfinitree.com/user_interface" &&
+         pv.UI_parameter_code != undefined && pv.UI_parameter_code.toString().trim() == "4" &&
+         pv.UI_parameterValue != undefined && pv.UI_parameterValue.toString().trim() != ""){
+        return pv.UI_parameterValue.toString().replace(/[<>{};\\]/g, "").trim();
+      } // endif
+    } // endfor
+  } // endfor
+  return "";
+}  // end of getUIFontFamily()
+
+
+// true if a UI attribute names the link type of this link template with the horizontal (table) layout
+// 20261104 UI attributes from the app's UI profile: parameter values with parameter zinfinitree.com/user_interface 1 = namespace of the link type, 2 = code of the link type, 3 = layout code (1 vertical, 2 horizontal)
+isTableLinkTemplate(link_templ_idxx){
+  var ltx = this.template_AR[link_templ_idxx];
+  if(!ltx || !this.UI_attribute_AR){ return false; }
+  for(var a = 0; a < this.UI_attribute_AR.length; a++){
+    var ns = null, code = null, layout = null;
+    (this.UI_attribute_AR[a].UI_parameterValue_AR || []).forEach(function(pv){
+      if(pv.UI_parameter_ns == undefined || pv.UI_parameter_ns.toString().trim() != "zinfinitree.com/user_interface"){ return; }
+      var pcode = (pv.UI_parameter_code == undefined) ? "" : pv.UI_parameter_code.toString().trim();
+      if(pcode == "1"){ ns = pv.UI_parameterValue; }
+      if(pcode == "2"){ code = pv.UI_parameterValue; }
+      if(pcode == "3"){ layout = pv.UI_parameterValue; }
+    });
+    if(ns == null || code == null || layout == null || layout.toString().trim() != "2"){ continue; }
+    var ztic = this.getZTICForNamespace(ns);
+    if(ztic != null && ztic == ltx.linkableObjectLinkType_ztic.toString().trim() && code.toString().trim() == ltx.linkableObjectLinkType_code.toString().trim()){ return true; }
+  } // endfor
+  return false;
+}  // end of isTableLinkTemplate()
+
+
+// heading row: Maintain, Code, link status/value, then the object element descriptions
+getLinkedObjectTableHeadingHtml(link_templ_idxx){
+  var ltx = this.template_AR[link_templ_idxx];
+  var html = "<tr><th></th><th>Code</th><th>Link Status</th><th>Link Value</th>";
+  for(var l = 0; l < ltx.OE_def_AR.length; l++){
+    html = html + "<th>" + this.escapeHtml(ltx.OE_def_AR[l].html_label) + "</th>";
+  } // endfor
+  return html + "</tr>";
+}  // end of getLinkedObjectTableHeadingHtml()
+
+
+// one row for a linked object (existing or new) - same field ids as the block layout, so Apply / held values work unchanged
+getLinkedObjectTableRowHtml(link_templ_idxx, objx, page_readonlyx){
+  var ltx = this.template_AR[link_templ_idxx];
+  var obj_idx = ltx.object_AR.indexOf(objx);
+  var ro = (page_readonlyx || this.isForeignObject(objx)) ? this.foreign_ro_attr : "";
+  var link_ro = page_readonlyx ? this.foreign_ro_attr : "";   // link belongs to the object of the page
+  var btn_id = (objx.newCode ? "maintain_new_" : "maintain_link_") + link_templ_idxx + "_" + obj_idx;
+  var code_txt = objx.newCode ? "<span style='color:#888888'>(new)</span>" :   // 20261105 grey (new) as after ===== Code:
+      this.escapeHtml(objx.objCodeAssigned) + (this.isForeignObject(objx) ? " (" + this.escapeHtml(this.getNamespaceForZTIC(objx.objZTIC)) + ", display only)" : "");
+  var html = "<tr><td><input type='button' class='maintain_child' id='" + btn_id + "' data-sess_id='" + this.id + "' data-templ_idx='" + link_templ_idxx + "' data-obj_idx='" + obj_idx + "' value='Maintain'></td>";
+  html = html + "<td>" + code_txt + "</td>";
+  html = html + "<td><input type=\"TEXT\"" + link_ro + " id='" + objx.linkStatus_html_id + "' size='5' value='" + this.escapeHtml(objx.newCode ? "" : objx.linkStatus_html_input_val) + "'></td>";
+  html = html + "<td><input type=\"TEXT\"" + link_ro + " id='" + objx.linkValue_html_id + "' size='10' value='" + this.escapeHtml(objx.newCode ? "" : objx.linkValue_html_input_val) + "'></td>";
+  for(var l = 0; l < ltx.OE_def_AR.length; l++){
+    var oe_valx = null;
+    for(var k = 0; k < objx.OE_val_AR.length; k++){
+      if(objx.OE_val_AR[k].OE_ztic == ltx.OE_def_AR[l].OE_ztic && objx.OE_val_AR[k].OE_code == ltx.OE_def_AR[l].OE_code){ oe_valx = objx.OE_val_AR[k]; }
+    } // endfor
+    var sizex = (ltx.OE_def_AR[l].html_size != undefined && ltx.OE_def_AR[l].html_size !== "") ? Math.min(parseInt(ltx.OE_def_AR[l].html_size, 10) || 20, 30) : 20;
+    if(oe_valx == null){ html = html + "<td></td>"; continue; }
+    html = html + "<td><input type=\"TEXT\"" + ro + " id='" + oe_valx.html_id + "' size='" + sizex + "' value='" + this.escapeHtml(objx.newCode ? "" : oe_valx.html_input_val) + "'></td>";
+  } // endfor
+  return html + "</tr>";
+}  // end of getLinkedObjectTableRowHtml()
+// end 20261026
+
+
+// 20261105 code shown after "===== Code:" - (new) in grey when the object has no assigned code yet
+getCodeLabelHtml(objx){
+  var code = (objx.objCodeAssigned == undefined || objx.objCodeAssigned == null) ? "" : objx.objCodeAssigned.toString().trim();
+  if(code == ""){ return "<span style='color:#888888'>(new)</span>"; }   // 20261105 (new) as in the linked object table
+  return this.escapeHtml(code);
+}  // end of getCodeLabelHtml()
+
+
+// 20261105 Create Link to Existing Object row - label and the namespace / code / status / value inputs in one cell spanning the row
+getCreateLinkRowHtml(objx){
+  var inp = function(self, idx, size, valx, hint){ return "<input type=\"TEXT\" id='" + idx + "' size='" + size + "' placeholder='" + hint + "' value='" + self.escapeHtml(valx) + "'>"; };
+  return "<tr><td colspan='6' style='white-space:nowrap'>Create Link to Existing Object:&nbsp; "   // 20261105 field names shown as placeholders
+         + inp(this, objx.objZTIC_ns_html_id, 30, objx.objZTIC_ns_html_input_val, "Namespace") + " "
+         + inp(this, objx.objCodeAssigned_html_id, 5, objx.objCodeAssigned_html_input_val, "Code") + " "
+         + inp(this, objx.linkStatus_html_id, 5, objx.linkStatus_html_input_val, "Status") + " "
+         + inp(this, objx.linkValue_html_id, 10, objx.linkValue_html_input_val, "Value") + "</td></tr>";
+}  // end of getCreateLinkRowHtml()
+
+
+// Add New Linked Object button (after the Link Type heading) and the end marker the added blocks are inserted before
+getAddNewLinkedObjectButtonHtml(src_templ_idxx, src_obj_idxx, link_templ_idxx){
+  return " <input type='button' class='zt_add_new' value='Add New Linked Object' data-sess_id='" + this.id + "' data-src_templ_idx='" + src_templ_idxx + "' data-src_obj_idx='" + src_obj_idxx + "' data-link_templ_idx='" + link_templ_idxx + "'>";
+}  // end of getAddNewLinkedObjectButtonHtml()
+
+
+// called by /zt/client/add_new_linked_object - adds a blank new object, returns its rows and Apply/Submit description
+addNewLinkedObjectForPage(src_templ_idxx, src_obj_idxx, link_templ_idxx){
+  var new_obj = this.createNewLinkedObject(src_templ_idxx, src_obj_idxx, link_templ_idxx);
+  return {html: this.getNewLinkedObjectBlockHtml(link_templ_idxx, new_obj), meta: this.getNewObjMeta(src_templ_idxx, src_obj_idxx, link_templ_idxx, new_obj)};
+}  // end of addNewLinkedObjectForPage()
+// end 20261023
+
+
+// start 20261107 - specialized maintenance for workbooks (object kind zinfinitree.com/spreadsheet 1): Columns and Rows grid in the Links box
+// true for the parent page of a workbook in generic object maintenance
+isWorkbookGridPage(templ_idxx, is_child_pagex){
+  if(is_child_pagex){ return false; }
+  var ss_ztic = this.getZTICForNamespace("zinfinitree.com/spreadsheet");
+  var templx = this.template_AR[templ_idxx];
+  return (ss_ztic != null && templx && templx.objKindZTIC.toString().trim() == ss_ztic && templx.objKindCode.toString().trim() == "1" && this.maint_mode != "display");
+}  // end of isWorkbookGridPage()
+
+
+// level 1 templates of the workbook for columns (kind spreadsheet 3) and rows (kind spreadsheet 4), -1 if not found
+getWorkbookGridTemplIdx(top_templ_idxx){
+  var ss_ztic = this.getZTICForNamespace("zinfinitree.com/spreadsheet");
+  var ret = {col: -1, row: -1, sheet: -1};   // 20261113 sheet
+  var child_AR = this.template_AR[top_templ_idxx].childTempl_idx_AR;
+  for(var i = 0; i < child_AR.length; i++){
+    var tx = this.template_AR[child_AR[i]];
+    if(tx.templLevelsDown != 1 || tx.objKindZTIC.toString().trim() != ss_ztic){ continue; }
+    if(tx.objKindCode.toString().trim() == "3" && ret.col == -1){ ret.col = child_AR[i]; }
+    if(tx.objKindCode.toString().trim() == "4" && ret.row == -1){ ret.row = child_AR[i]; }
+    if(tx.objKindCode.toString().trim() == "2" && ret.sheet == -1){ ret.sheet = child_AR[i]; }   // 20261113 Sheets (Spreadsheet kind)
+  } // endfor
+  return ret;
+}  // end of getWorkbookGridTemplIdx()
+
+
+// a type value rec (with html ids) for each type definition of the template
+ensureTypeValRecs(templ_idxx, objx){
+  const html_id_prfx = "val";
+  for(var i = 0; i < this.template_AR[templ_idxx].typeDef_AR.length; i++){
+    var typeDefx = this.template_AR[templ_idxx].typeDef_AR[i];
+    var found = objx.typeVal_AR.some(function(tv){ return tv.typeDef_ztic == typeDefx.typeDef_ztic && tv.typeDef_code == typeDefx.typeDef_code; });
+    if(found){ continue; }
+    var type_val_rec = new TypeValueRec();
+    type_val_rec.typeDef_ztic = typeDefx.typeDef_ztic;
+    type_val_rec.typeDef_code = typeDefx.typeDef_code;
+    this.html_id_cntr++; type_val_rec.ztic_html_id      = html_id_prfx + this.html_id_cntr.toString().trim();
+    this.html_id_cntr++; type_val_rec.code_html_id      = html_id_prfx + this.html_id_cntr.toString().trim();
+    this.html_id_cntr++; type_val_rec.composite_html_id = html_id_prfx + this.html_id_cntr.toString().trim();
+    this.html_id_cntr++; type_val_rec.dateStr_html_id   = html_id_prfx + this.html_id_cntr.toString().trim();
+    objx.typeVal_AR.push(type_val_rec);
+  } // endfor
+}  // end of ensureTypeValRecs()
+
+
+// columns / rows shown in the grid: existing linked objects, the blank new object in create mode, and objects added with Add Column / Add Row
+getWorkbookGridObjects(item_templ_idxx, top_templ_idxx){
+  var self = this;
+  var added_key = "newobj_" + top_templ_idxx + "_0";
+  return this.template_AR[item_templ_idxx].object_AR.filter(function(o){
+    if(o.newLinkToExistingObject){ return false; }
+    if(o.linkFromObj_key == added_key){ return true; }
+    if(o.newCode){ return self.maint_mode == "create" && (o.linkFromObj_key == undefined || o.linkFromObj_key == ""); }
+    return o.objCodeAssigned != undefined && o.objCodeAssigned.toString().trim() != "";
+  });
+}  // end of getWorkbookGridObjects()
+
+
+// object element shown for a column / row: the description (label containing "Description"), else the first one
+getWorkbookDescOE(item_templ_idxx, objx){
+  var defs = this.template_AR[item_templ_idxx].OE_def_AR;
+  var def = null;
+  for(var i = 0; i < defs.length && def == null; i++){ if(defs[i].html_label != undefined && defs[i].html_label.indexOf("Description") != -1){ def = defs[i]; } }
+  if(def == null && defs.length > 0){ def = defs[0]; }
+  if(def == null){ return null; }
+  for(var k = 0; k < objx.OE_val_AR.length; k++){
+    if(objx.OE_val_AR[k].OE_ztic == def.OE_ztic && objx.OE_val_AR[k].OE_code == def.OE_code){ return objx.OE_val_AR[k]; }
+  } // endfor
+  return null;
+}  // end of getWorkbookDescOE()
+
+
+// 20261113 label element of a column / row (label containing "Label"), null if none
+getWorkbookLabelOE(item_templ_idxx, objx){
+  var defs = this.template_AR[item_templ_idxx].OE_def_AR;
+  var def = null;
+  for(var i = 0; i < defs.length && def == null; i++){ if(defs[i].html_label != undefined && defs[i].html_label.indexOf("Label") != -1){ def = defs[i]; } }
+  if(def == null){ return null; }
+  for(var k = 0; k < objx.OE_val_AR.length; k++){
+    if(objx.OE_val_AR[k].OE_ztic == def.OE_ztic && objx.OE_val_AR[k].OE_code == def.OE_code){ return objx.OE_val_AR[k]; }
+  } // endfor
+  return null;
+}  // end of getWorkbookLabelOE()
+
+
+// Apply/Submit description of a grid object: type values (and for added objects the new object link and OE values)
+getWorkbookItemMeta(item_templ_idxx, objx, top_templ_idxx){
+  var obj_idx = this.template_AR[item_templ_idxx].object_AR.indexOf(objx);
+  var m;
+  if(objx.linkFromObj_key == "newobj_" + top_templ_idxx + "_0"){
+    m = this.getNewObjMeta(top_templ_idxx, 0, item_templ_idxx, objx);   // added with Add Column / Add Row - created and linked from the workbook on Submit
+    delete m.ids;
+  }
+  else{
+    m = {key: item_templ_idxx + "_" + obj_idx, templ_idx: item_templ_idxx, obj_idx: obj_idx};   // existing or blank new level 1 object - OE values are read by the parent Submit
+  } // endif
+  m.tv = [];
+  for(var i = 0; i < this.template_AR[item_templ_idxx].typeDef_AR.length; i++){
+    var td = this.template_AR[item_templ_idxx].typeDef_AR[i];
+    var tvx = objx.typeVal_AR.find(function(tv){ return tv.typeDef_ztic == td.typeDef_ztic && tv.typeDef_code == td.typeDef_code; });
+    if(tvx && this.getAllowedValueSetWithMembers(td.typeDef_ztic, td.typeDef_code)){ m.tv.push({typeDef_ztic: td.typeDef_ztic, typeDef_code: td.typeDef_code, input: "sel", sel_id: tvx.composite_html_id}); }   // 20261108 dropdown
+    else if(tvx){ m.tv.push({typeDef_ztic: td.typeDef_ztic, typeDef_code: td.typeDef_code, input: "text", ns_id: tvx.ztic_html_id, code_id: tvx.code_html_id}); }
+  } // endfor
+  return m;
+}  // end of getWorkbookItemMeta()
+
+
+// 20261108 object set of allowed values for a type definition when its members are loaded, null otherwise
+getAllowedValueSetWithMembers(typeDef_zticx, typeDef_codex){
+  for(var n = 0; n < this.typeDefAllowedValueSet_AR.length; n++){
+    var avs = this.typeDefAllowedValueSet_AR[n];
+    if(avs.typeDef_ztic == typeDef_zticx && avs.typeDef_code == typeDef_codex && this.allowedValueSetHasMembers(avs.objectSet_ztic, avs.objectSet_code)){
+      for(var i = 0; i < this.objectSet_AR.length; i++){
+        if(this.objectSet_AR[i].objSetZTIC == avs.objectSet_ztic && this.objectSet_AR[i].objSetCode == avs.objectSet_code){ return this.objectSet_AR[i]; }
+      } // endfor
+    } // endif
+  } // endfor
+  return null;
+}  // end of getAllowedValueSetWithMembers()
+
+
+// 20261108 dropdown with the members of an object set - option value "ZTIC | code" (as the existing selection lists), current value selected
+getTypeValueSelectHtml(objSetx, select_idx, cur_nsx, cur_codex){
+  var self = this;
+  var html = "<select id='" + select_idx + "'><option value='     |     '>-</option>";
+  var seen = {};
+  var group_ns_AR = [];   // 20261111 options grouped by namespace (optgroup), namespaces in order of first appearance
+  var group_HM = {};
+  objSetx.objSetMember_AR.forEach(function(mx){
+    var key = mx.objectZTIC + "|" + mx.objectCode;
+    if(seen[key]){ return; } seen[key] = true;
+    var ns = self.getNamespaceForZTIC(mx.objectZTIC);
+    //var txt = mx.objectCode + ": " + mx.OE_val_AR.map(function(v){ return v.OE_value; }).join(" - ");   //(del) 20261111
+    var txt = ((ns == null) ? "" : ns + " - ") + mx.objectCode + ": " + mx.OE_val_AR.map(function(v){ return v.OE_value; }).join(" - ");   // 20261111 namespace first, as in the generic page dropdowns - same codes in several namespaces
+    var sel = (ns == cur_nsx && mx.objectCode.toString().trim() == (cur_codex == undefined ? "" : cur_codex.toString().trim())) ? " selected" : "";
+    //html = html + "<option value='" + self.escapeHtml(mx.objectZTIC + " | " + mx.objectCode) + "'" + sel + ">" + self.escapeHtml(txt) + "</option>";   //(del) 20261111 grouped below
+    var group_key = (ns == null) ? "" : ns;   // 20261111 namespace kept in the option text too - a closed dropdown shows only the selected option
+    if(group_HM[group_key] == undefined){ group_HM[group_key] = ""; group_ns_AR.push(group_key); }
+    group_HM[group_key] = group_HM[group_key] + "<option value='" + self.escapeHtml(mx.objectZTIC + " | " + mx.objectCode) + "'" + sel + ">" + self.escapeHtml(txt) + "</option>";
+  });
+  group_ns_AR.forEach(function(nsx){   // 20261111
+    html = html + "<optgroup label='" + self.escapeHtml(nsx == "" ? "(namespace unknown)" : nsx) + "'>" + group_HM[nsx] + "</optgroup>";
+  });
+  return html + "</select>";
+}  // end of getTypeValueSelectHtml()
+
+
+// 20261110 type value input(s) of an object for one type definition: dropdown when the allowed values are loaded, else namespace + code
+getWorkbookTypeValueInputHtml(objx, tdx){
+  var tvx = objx.typeVal_AR.find(function(tv){ return tv.typeDef_ztic == tdx.typeDef_ztic && tv.typeDef_code == tdx.typeDef_code; });
+  if(!tvx){ return ""; }
+  var avs = this.getAllowedValueSetWithMembers(tdx.typeDef_ztic, tdx.typeDef_code);
+  if(avs){ return this.getTypeValueSelectHtml(avs, tvx.composite_html_id, tvx.ztic_ns_html_input_val, tvx.code_html_input_val); }
+  return "<input type='TEXT' id='" + tvx.ztic_html_id + "' size='14' placeholder='Namespace' value='" + this.escapeHtml(tvx.ztic_ns_html_input_val) + "'> <input type='TEXT' id='" + tvx.code_html_id + "' size='4' placeholder='Code' value='" + this.escapeHtml(tvx.code_html_input_val) + "'>";
+}  // end of getWorkbookTypeValueInputHtml()
+
+
+// 20261110 Row Type Values column (grey, Open / Close) and the row type definition columns after it (hidden until Open)
+getWorkbookRowTypeCells(row_templ_idxx, kindx, objx){
+  var self = this;
+  var tds = this.template_AR[row_templ_idxx].typeDef_AR;
+  var grey = "background-color:#d9d9d9;";
+  if(kindx == "head"){
+    //return "<th style='" + grey + "white-space:nowrap;text-align:left'>Row Type Values&nbsp; <input type='button' class='zt_wb_rtv_btn' value='Open'></th>"   //(del) 20261113
+    return "<th style='" + grey + "text-align:left'>Row<br>Type<br>Values<br><input type='button' class='zt_wb_rtv_btn' value='Open'></th>"   // 20261113 one word per line, button below
+         + tds.map(function(td){ return "<th class='zt_wb_rtv' style='display:none'>" + self.escapeHtml(td.typeDef_desc) + "</th>"; }).join("");
+  } // endif
+  if(kindx == "row"){
+    return "<td style='" + grey + "'></td>"
+         + tds.map(function(td){ return "<td class='zt_wb_rtv' style='display:none;white-space:nowrap'>" + self.getWorkbookTypeValueInputHtml(objx, td) + "</td>"; }).join("");
+  } // endif
+  return "<td style='" + grey + "'></td>" + tds.map(function(){ return "<td class='zt_wb_rtv' style='display:none'></td>"; }).join("");   // column rows of the grid
+}  // end of getWorkbookRowTypeCells()
+
+
+// grid cells of one column: code, description, one per column type definition
+getWorkbookColumnCells(col_templ_idxx, objx){
+  var self = this;
+  var desc = this.getWorkbookDescOE(col_templ_idxx, objx);
+  var label = this.getWorkbookLabelOE(col_templ_idxx, objx);   // 20261113 Column Label
+  var cells = {label: "<td>" + (label ? "<input type='TEXT' id='" + label.html_id + "' size='20' placeholder='Column Label' value='" + this.escapeHtml(objx.newCode ? "" : label.html_input_val) + "'>" : "") + "</td>",   // 20261113
+               code: "<th class='zt_wb_col'>" + this.getCodeLabelHtml(objx) + "</th>",   // 20261110 zt_wb_col - counted by Add Row
+               desc: "<td>" + (desc ? "<input type='TEXT' id='" + desc.html_id + "' size='20' placeholder='Column Description' value='" + this.escapeHtml(objx.newCode ? "" : desc.html_input_val) + "'>" : "") + "</td>",
+               tv: []};
+  this.template_AR[col_templ_idxx].typeDef_AR.forEach(function(td){
+    var tvx = objx.typeVal_AR.find(function(tv){ return tv.typeDef_ztic == td.typeDef_ztic && tv.typeDef_code == td.typeDef_code; });
+    if(tvx){ cells.tv.push("<td style='white-space:nowrap'>" + self.getWorkbookTypeValueInputHtml(objx, td) + "</td>"); return; }   // 20261110 shared with row type values
+    cells.tv.push(tvx ? "<td style='white-space:nowrap'><input type='TEXT' id='" + tvx.ztic_html_id + "' size='14' placeholder='Namespace' value='" + self.escapeHtml(tvx.ztic_ns_html_input_val) + "'> <input type='TEXT' id='" + tvx.code_html_id + "' size='4' placeholder='Code' value='" + self.escapeHtml(tvx.code_html_input_val) + "'></td>" : "<td></td>");
+  });
+  return cells;
+}  // end of getWorkbookColumnCells()
+
+
+// one grid row for a row object: code and description, then an empty cell per column
+getWorkbookRowHtml(row_templ_idxx, objx, col_countx){
+  var desc = this.getWorkbookDescOE(row_templ_idxx, objx);
+  var rtv_cells = this.getWorkbookRowTypeCells(row_templ_idxx, "row", objx);   // 20261110 Row Type Values
+  var row_label = this.getWorkbookLabelOE(row_templ_idxx, objx);   // 20261113
+  //var html = "<tr class='zt_wb_row'><td style='white-space:nowrap'>" + this.getCodeLabelHtml(objx) + "&nbsp; " + (desc ? "<input type='TEXT' id='" + desc.html_id + "' size='22' placeholder='Row Description' value='" + this.escapeHtml(objx.newCode ? "" : desc.html_input_val) + "'>" : "") + "</td>";   //(del) 20261113
+  //var html = "<tr class='zt_wb_row'><td style='white-space:nowrap'>" + this.getCodeLabelHtml(objx) + "</td><td>" + (desc ? "<input type='TEXT' id='" + desc.html_id + "' size='22' placeholder='Row Description' value='" + this.escapeHtml(objx.newCode ? "" : desc.html_input_val) + "'>" : "") + "</td>";   // 20261113 code and description in separate cells   //(del) 20261113
+  var html = "<tr class='zt_wb_row'><td style='white-space:nowrap'>" + this.getCodeLabelHtml(objx) + "</td><td>" + (row_label ? "<input type='TEXT' id='" + row_label.html_id + "' size='16' placeholder='Row Label' value='" + this.escapeHtml(objx.newCode ? "" : row_label.html_input_val) + "'>" : "") + "</td><td>" + (desc ? "<input type='TEXT' id='" + desc.html_id + "' size='22' placeholder='Row Description' value='" + this.escapeHtml(objx.newCode ? "" : desc.html_input_val) + "'>" : "") + "</td>";   // 20261113 code and description in separate cells   // 20261113 Row Label between Row Code and Row Description
+  html = html + rtv_cells;   // 20261110
+  for(var c = 0; c < col_countx; c++){ html = html + "<td></td>"; }
+  return html + "</tr>";
+}  // end of getWorkbookRowHtml()
+
+
+// 20261113 one sheet in a cell of the Sheets table: code, object element values, type values
+getWorkbookSheetCellHtml(sheet_templ_idxx, objx){
+  var self = this;
+  var tx = this.template_AR[sheet_templ_idxx];
+  var html = "<td class='zt_wb_sheet' style='vertical-align:top'><table>";
+  html = html + "<tr><td><strong>Code:</strong></td><td>" + this.getCodeLabelHtml(objx) + "</td></tr>";
+  tx.OE_def_AR.forEach(function(def){
+    var oe = objx.OE_val_AR.find(function(v){ return v.OE_ztic == def.OE_ztic && v.OE_code == def.OE_code; });
+    if(!oe){ return; }
+    html = html + "<tr><td>" + self.escapeHtml(def.html_label) + "</td><td><input type='TEXT' id='" + oe.html_id + "' size='22' value='" + self.escapeHtml(objx.newCode ? "" : oe.html_input_val) + "'></td></tr>";
+  });
+  tx.typeDef_AR.forEach(function(td){
+    html = html + "<tr><td>" + self.escapeHtml(td.typeDef_desc) + "</td><td style='white-space:nowrap'>" + self.getWorkbookTypeValueInputHtml(objx, td) + "</td></tr>";
+  });
+  return html + "</table></td>";
+}  // end of getWorkbookSheetCellHtml()
+
+
+// Columns and Rows box (inside the Links box) - returns {html, meta_AR}
+getWorkbookGridHtml(top_templ_idxx){
+  var self = this;
+  var g = this.getWorkbookGridTemplIdx(top_templ_idxx);
+  var meta_AR = [];
+  if(g.col == -1 || g.row == -1){ return {html: "", meta_AR: meta_AR}; }
+  var col_AR = this.getWorkbookGridObjects(g.col, top_templ_idxx);
+  var row_AR = this.getWorkbookGridObjects(g.row, top_templ_idxx);
+  col_AR.forEach(function(o){ self.ensureTypeValRecs(g.col, o); meta_AR.push(self.getWorkbookItemMeta(g.col, o, top_templ_idxx)); });
+  row_AR.forEach(function(o){ self.ensureTypeValRecs(g.row, o); meta_AR.push(self.getWorkbookItemMeta(g.row, o, top_templ_idxx)); });
+  var btn = function(label, item_t){ return " <input type='button' class='zt_wb_add' value='" + label + "' data-sess_id='" + self.id + "' data-top_templ_idx='" + top_templ_idxx + "' data-item_templ_idx='" + item_t + "'>"; };
+  //var html = "<fieldset class='zt_linktype'><legend>Columns and Rows" + btn("Add Column", g.col) + btn("Add Row", g.row) + "</legend>";   //(del) 20261110
+  var html = "<fieldset class='zt_section'><legend>Grid" + btn("Add Column", g.col) + btn("Add Row", g.row) + "</legend>";   // 20261110 own box after the Links box
+  html = html + "<table id='zt_wb_grid' border='1' cellpadding='3' style='border-collapse:collapse;'>";
+  var rtv_other = this.getWorkbookRowTypeCells(g.row, "other", null);   // 20261110 Row Type Values cells for the column rows
+  //var code_row = "<tr id='zt_wb_code'><th style='text-align:left'>Column</th>" + this.getWorkbookRowTypeCells(g.row, "head", null);   // 20261110 Row Type Values heading   //(del) 20261113
+  var code_row = "<tr id='zt_wb_code'><th colspan='3' style='text-align:left'>Column Code</th>" + this.getWorkbookRowTypeCells(g.row, "head", null);   // 20261110 Row Type Values heading   // 20261113 Column Code, label spans Row Code + Row Description columns
+  //var desc_row = "<tr id='zt_wb_desc'><td><strong>Column Description</strong></td>" + rtv_other;   //(del) 20261113
+  var desc_row = "<tr id='zt_wb_desc'><td colspan='3'><strong>Column Description</strong></td>" + rtv_other;   // 20261113 label spans both label columns
+  //var tv_rows = this.template_AR[g.col].typeDef_AR.map(function(td){ return "<tr id='zt_wb_tv_" + td.typeDef_ztic + "_" + td.typeDef_code + "'><td>" + self.escapeHtml(td.typeDef_desc) + "</td>"; });   //(del) 20261109
+  //var tv_rows = this.template_AR[g.col].typeDef_AR.map(function(td){ return "<tr id='zt_wb_tv_" + td.typeDef_ztic + "_" + td.typeDef_code + "' class='zt_wb_tv_row' style='display:none'><td>" + self.escapeHtml(td.typeDef_desc) + "</td>" + rtv_other; });   // 20261109 hidden until Open  // 20261110 rtv_other   //(del) 20261113
+  var tv_rows = this.template_AR[g.col].typeDef_AR.map(function(td){ return "<tr id='zt_wb_tv_" + td.typeDef_ztic + "_" + td.typeDef_code + "' class='zt_wb_tv_row' style='display:none'><td colspan='3'>" + self.escapeHtml(td.typeDef_desc) + "</td>" + rtv_other; });   // 20261109 hidden until Open  // 20261110 rtv_other   // 20261113 label spans both label columns
+  //var tv_toggle_row = "<tr id='zt_wb_tv_toggle' style='background-color:#d9d9d9'><td style='white-space:nowrap'><strong>Column Type Values</strong>&nbsp; <input type='button' class='zt_wb_tv_btn' value='Open'></td>" + rtv_other;   // 20261109 Open / Close the column type values  // 20261110 rtv_other   //(del) 20261113
+  var tv_toggle_row = "<tr id='zt_wb_tv_toggle' style='background-color:#d9d9d9'><td colspan='3' style='white-space:nowrap'><strong>Column Type Values</strong>&nbsp; <input type='button' class='zt_wb_tv_btn' value='Open'></td>" + rtv_other;   // 20261109 Open / Close the column type values  // 20261110 rtv_other   // 20261113 label spans both label columns
+  var label_row = "<tr id='zt_wb_label'><td colspan='3'><strong>Column Label</strong></td>" + rtv_other;   // 20261113 Column Label after Column Code
+  col_AR.forEach(function(o){
+    var cells = self.getWorkbookColumnCells(g.col, o);
+    code_row = code_row + cells.code; desc_row = desc_row + cells.desc;
+    label_row = label_row + cells.label;   // 20261113
+    tv_toggle_row = tv_toggle_row + "<td></td>";   // 20261109
+    cells.tv.forEach(function(c, h){ tv_rows[h] = tv_rows[h] + c; });
+  });
+  html = html + code_row + "</tr>" + label_row + "</tr>" + desc_row + "</tr>" + tv_toggle_row + "</tr>" + tv_rows.map(function(r){ return r + "</tr>"; }).join("");   // 20261109 tv_toggle_row
+  //html = html + "<tr id='zt_wb_rows_head'><th style='text-align:left'>Rows</th>" + rtv_other + col_AR.map(function(){ return "<td></td>"; }).join("") + "</tr>";   //(del) 20261113
+  html = html + "<tr id='zt_wb_rows_head'><th style='text-align:left'>Row Code</th><th style='text-align:left'>Row Label</th><th style='text-align:left'>Row Description</th>" + rtv_other + col_AR.map(function(){ return "<td></td>"; }).join("") + "</tr>";   // 20261113 Row Code and Row Description headings
+  row_AR.forEach(function(o){ html = html + self.getWorkbookRowHtml(g.row, o, col_AR.length); });
+  //html = html + "</table></fieldset>";   //(del) 20261113 Sheets table below
+  html = html + "</table>";
+  if(g.sheet != -1){   // 20261113 Sheets - one row, a sheet per cell, Add Sheet adds cells to the right
+    var sheet_AR = this.getWorkbookGridObjects(g.sheet, top_templ_idxx);
+    sheet_AR.forEach(function(o){ self.ensureTypeValRecs(g.sheet, o); meta_AR.push(self.getWorkbookItemMeta(g.sheet, o, top_templ_idxx)); });
+    html = html + "<table id='zt_wb_sheets' border='1' cellpadding='3' style='border-collapse:collapse; margin-top:12px;'><tr id='zt_wb_sheets_row'>";
+    html = html + "<th style='vertical-align:top; text-align:left; white-space:nowrap'>Sheets<br>" + btn("Add Sheet", g.sheet) + "</th>";
+    sheet_AR.forEach(function(o){ html = html + self.getWorkbookSheetCellHtml(g.sheet, o); });
+    html = html + "</tr></table>";
+  } // endif g.sheet
+  html = html + "</fieldset>";   // 20261113
+  return {html: html, meta_AR: meta_AR};
+}  // end of getWorkbookGridHtml()
+
+
+// called by /zt/client/add_workbook_item - Add Column / Add Row
+addWorkbookItem(top_templ_idxx, item_templ_idxx, col_countx){
+  var g = this.getWorkbookGridTemplIdx(top_templ_idxx);
+  var objx = this.createNewLinkedObject(top_templ_idxx, 0, item_templ_idxx);   // created and linked from the workbook on Submit
+  this.ensureTypeValRecs(item_templ_idxx, objx);
+  var meta = this.getWorkbookItemMeta(item_templ_idxx, objx, top_templ_idxx);
+  if(item_templ_idxx == g.col){
+    var cells = this.getWorkbookColumnCells(item_templ_idxx, objx);
+    return {kind: "column", code: cells.code, label: cells.label, desc: cells.desc, tv: cells.tv, tv_row_ids: this.template_AR[item_templ_idxx].typeDef_AR.map(function(td){ return "zt_wb_tv_" + td.typeDef_ztic + "_" + td.typeDef_code; }), meta: meta};
+  } // endif
+  if(item_templ_idxx == g.sheet){ return {kind: "sheet", cell: this.getWorkbookSheetCellHtml(item_templ_idxx, objx), meta: meta}; }   // 20261113
+  return {kind: "row", row: this.getWorkbookRowHtml(item_templ_idxx, objx, col_countx), meta: meta};
+}  // end of addWorkbookItem()
+// end 20261107
+
+
+// 20261021 blank new object of a link template for the selected object of a child page, null if not prepared
+getChildPageNewObj(child_templ_idxx, child_obj_idxx, link_templ_idxx){
+  var new_obj_key = "newobj_"+child_templ_idxx+"_"+child_obj_idxx;
+  for(var j = 0; j < this.template_AR[link_templ_idxx].object_AR.length; j++){
+    if(this.template_AR[link_templ_idxx].object_AR[j].linkFromObj_key == new_obj_key){
+      return this.template_AR[link_templ_idxx].object_AR[j];
+    } // endif
+  } // endfor
+  return null;
+}  // end of getChildPageNewObj()
+
+
+// start 20261023 - parent objects of a child page object, top object first
+// each entry: template desc -- namespace code -- OE values separated by --
+getChildPageParentPath(child_templ_idxx, child_obj_idxx){
+  var path_AR = [];
+  var templ_idx = child_templ_idxx;
+  var obj = this.template_AR[child_templ_idxx].object_AR[child_obj_idxx];
+  var guard = 0;
+  while(obj && guard < 50){   // guard - template tree depth
+    guard++;
+    var parent = this.getParentObjectForPath(templ_idx, obj);
+    if(parent == null){ break; }
+    path_AR.unshift(this.getObjectPathLabel(parent.templ_idx, parent.obj));
+    if(parent.templ_idx == this.top_templ_idx){ break; }
+    templ_idx = parent.templ_idx;
+    obj = parent.obj;
+  } // endwhile
+  return path_AR;
+}  // end of getChildPageParentPath()
+
+
+// parent of an object: level 1 objects hang off the top object, deeper objects off the object their link came from (linkFromObj_key)
+getParentObjectForPath(templ_idxx, objx){
+  var templx = this.template_AR[templ_idxx];
+  if(templx.templLevelsDown == 1 || templx.parent_idx == this.top_templ_idx){
+    return {templ_idx: this.top_templ_idx, obj: this.template_AR[this.top_templ_idx].object_AR[0]};
+  } // endif
+  var parent_templ_idx = templx.parent_idx;
+  if(parent_templ_idx == null || parent_templ_idx == undefined || !this.template_AR[parent_templ_idx]){ return null; }
+  var key = objx.linkFromObj_key;
+  if(key == undefined || key == "" || key.indexOf("new") == 0){   // create-link / new object rows of a child page: new_<t>_<o>, newobj_<t>_<o>
+    var key_parts = (key == undefined) ? [] : key.split("_");
+    if(key_parts.length == 3 && this.template_AR[key_parts[1]] && this.template_AR[key_parts[1]].object_AR[key_parts[2]]){
+      return {templ_idx: parseInt(key_parts[1], 10), obj: this.template_AR[key_parts[1]].object_AR[key_parts[2]]};
+    } // endif
+    return null;
+  } // endif
+  var parent_templx = this.template_AR[parent_templ_idx];
+  for(var j = 0; j < parent_templx.object_AR.length; j++){
+    var px = parent_templx.object_AR[j];
+    var px_key = parent_templx.objKindZTIC.toString().trim()+"_"+parent_templx.objKindCode.toString().trim()+"_"+px.objZTIC.toString().trim()+"_"+px.objCodeAssigned.toString().trim();
+    if(px_key == key){ return {templ_idx: parent_templ_idx, obj: px}; }
+  } // endfor
+  return null;
+}  // end of getParentObjectForPath()
+
+
+// template desc -- namespace code -- OE values separated by --
+getObjectPathLabel(templ_idxx, objx){
+  var ns = this.getNamespaceForZTIC(objx.objZTIC);
+  var code = (objx.objCodeAssigned != undefined && objx.objCodeAssigned.toString().trim() != "") ? objx.objCodeAssigned : objx.objCodeTemp;
+  var label = this.template_AR[templ_idxx].templDesc.toString().trim() + " -- " + ((ns == null) ? "" : ns) + " " + code.toString().trim();
+  if(objx.newCode || code.toString().trim() == ""){   // 20261023 new object - no namespace/code until Submit
+    label = this.template_AR[templ_idxx].templDesc.toString().trim() + " -- (new, not yet submitted)";
+  } // endif
+  for(var k = 0; k < objx.OE_val_AR.length; k++){
+    var val = (objx.OE_val_AR[k].html_input_val == undefined || objx.OE_val_AR[k].html_input_val == null) ? "" : objx.OE_val_AR[k].html_input_val.toString().trim();
+    if(val != ""){ label = label + " -- " + val; }
+  } // endfor
+  return label;
+}  // end of getObjectPathLabel()
+
+
+escapeHtml(valx){
+  return (valx == undefined || valx == null) ? "" : valx.toString().replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/'/g,"&#39;");
+}  // end of escapeHtml()
+// end 20261023
+
+
+// start 20261024 - existing objects in another namespace than the target namespace are display only
+isForeignObject(objx){
+  if(!objx || objx.newCode || objx.newLinkToExistingObject){ return false; }
+  if(objx.objZTIC == undefined || objx.objZTIC.toString().trim() == ""){ return false; }
+  var ns = this.getNamespaceForZTIC(objx.objZTIC);
+  return (ns != null && ns.toString().trim() != this.TargetNS.toString().trim());
+}  // end of isForeignObject()
+// end 20261024
+
+
+// true if members of the object set used for a type definition dropdown were loaded
+allowedValueSetHasMembers(object_set_zticx, object_set_codex){
+  for(var i = 0; i < this.objectSet_AR.length; i++){
+    if(this.objectSet_AR[i].objSetZTIC == object_set_zticx && this.objectSet_AR[i].objSetCode == object_set_codex && this.objectSet_AR[i].objSetMember_AR.length > 0){
+      return true;
+    } // endif
+  } // endfor
+  return false;
+}  // end of allowedValueSetHasMembers()
+
+
+// link rows shown on a child page: existing links from the selected object plus its create-link rows
+getChildPageLinkObj_AR(child_templ_idxx, child_obj_idxx, link_templ_idxx){
+  var ret_AR = [];
+  var child_key    = this.getChildObjKey(child_templ_idxx, child_obj_idxx);
+  var new_link_key = "new_"+child_templ_idxx+"_"+child_obj_idxx;
+  var child_obj = this.template_AR[child_templ_idxx].object_AR[child_obj_idxx];
+  for(var j = 0; j < this.template_AR[link_templ_idxx].object_AR.length; j++){
+    var objx = this.template_AR[link_templ_idxx].object_AR[j];
+    if(objx.linkFromObj_key == new_link_key || (!child_obj.newCode && child_obj.objCodeAssigned.toString().trim() != "" && objx.linkFromObj_key == child_key)){
+      ret_AR.push(objx);
+    } // endif
+  } // endfor
+  return ret_AR;
+}  // end of getChildPageLinkObj_AR()
+
+
+// describes the type value and link inputs on a child page, used by Apply to Parent to hold them for the parent Submit
+getChildPageApplyMeta(child_templ_idxx, child_obj_idxx){
+  var meta = {key: child_templ_idxx+"_"+child_obj_idxx, templ_idx: child_templ_idxx, obj_idx: child_obj_idxx, tv: [], links: [], ids: [], gc_oe: [], new_objs: []};   // 20261021 gc_oe, new_objs
+  var child_obj = this.template_AR[child_templ_idxx].object_AR[child_obj_idxx];
+  if(this.template_AR[child_templ_idxx].templLevelsDown > 1 || (child_obj.newCode && child_obj.linkFromObj_key.toString().indexOf("newobj_") == 0)){   // grandchild or deeper - its OE fields are not on the parent page, hold them too  // 20261023 or a new linked object added on the parent page
+    meta.hold_oe = true;
+    if(child_obj.newCode && child_obj.linkFromObj_key.toString().indexOf("newobj_") == 0){   // 20261023 new linked object opened with Maintain - created on Submit, linked from its source
+      var src_parts = child_obj.linkFromObj_key.toString().split("_");   // newobj_<templ_idx>_<obj_idx> of the source object
+      var src_templ = this.template_AR[src_parts[1]];
+      var src_obj = src_templ ? src_templ.object_AR[src_parts[2]] : null;
+      meta.new_obj = {source_key: src_parts[1]+"_"+src_parts[2],
+                      linkType_ztic: this.template_AR[child_templ_idxx].linkableObjectLinkType_ztic, linkType_code: this.template_AR[child_templ_idxx].linkableObjectLinkType_code,
+                      kind_ztic: this.template_AR[child_templ_idxx].objKindZTIC, kind_code: this.template_AR[child_templ_idxx].objKindCode,
+                      templ_ztic: this.template_AR[child_templ_idxx].templZTIC, templ_code: this.template_AR[child_templ_idxx].templCode};
+      if(src_templ && src_obj && src_templ.templLevelsDown > 1 && !src_obj.newCode){   // existing deeper source - identity in case its page is not applied
+        meta.new_obj.source_obj_ident = {kind_ztic: src_templ.objKindZTIC, kind_code: src_templ.objKindCode, ns: this.getNamespaceForZTIC(src_obj.objZTIC), code: src_obj.objCodeAssigned};
+      } // endif
+    }
+    else{
+    meta.obj_ident = {kind_ztic: this.template_AR[child_templ_idxx].objKindZTIC, kind_code: this.template_AR[child_templ_idxx].objKindCode,
+                      ns: this.getNamespaceForZTIC(child_obj.objZTIC), code: child_obj.objCodeAssigned};
+    } // endif new linked object
+    meta.oe = [];
+    for(var i = 0; i < child_obj.OE_val_AR.length; i++){
+      meta.oe.push({OE_ztic: child_obj.OE_val_AR[i].OE_ztic, OE_code: child_obj.OE_val_AR[i].OE_code, id: child_obj.OE_val_AR[i].html_id});
+      meta.ids.push(child_obj.OE_val_AR[i].html_id);
+    } // endfor
+  } // endif templLevelsDown > 1
+  var time_ztic = "";
+  for(var i = 0; i < this.ZTICNS_AR.length; i++){
+    if(this.ZTICNS_AR[i].namespace.toString().trim() == "zinfinitree.com/time"){ time_ztic = this.ZTICNS_AR[i].code.toString().trim(); }
+  } // endfor
+  for(var i = 0; i < this.template_AR[child_templ_idxx].typeDef_AR.length; i++){
+    var typeDefx = this.template_AR[child_templ_idxx].typeDef_AR[i];
+    for(var j = 0; j < child_obj.typeVal_AR.length; j++){
+      var tvx = child_obj.typeVal_AR[j];
+      if(tvx.typeDef_ztic == typeDefx.typeDef_ztic && tvx.typeDef_code == typeDefx.typeDef_code){
+        var tv_meta = {typeDef_ztic: tvx.typeDef_ztic, typeDef_code: tvx.typeDef_code};
+        var found_allowed_val_set = false;
+        for(var n = 0; n < this.typeDefAllowedValueSet_AR.length; n++){
+          if(this.typeDefAllowedValueSet_AR[n].typeDef_ztic == tvx.typeDef_ztic && this.typeDefAllowedValueSet_AR[n].typeDef_code == tvx.typeDef_code &&
+             this.allowedValueSetHasMembers(this.typeDefAllowedValueSet_AR[n].objectSet_ztic, this.typeDefAllowedValueSet_AR[n].objectSet_code)){ found_allowed_val_set = true; }   // same test as child page rendering
+        } // endfor
+        if(typeDefx.objectKind_ztic == time_ztic && typeDefx.objectKind_code == "2"){   // same test as type value rendering
+          tv_meta.input = "date"; tv_meta.date_id = tvx.dateStr_html_id;
+          meta.ids.push(tvx.dateStr_html_id);
+        }
+        else if(found_allowed_val_set){
+          tv_meta.input = "sel"; tv_meta.sel_class = "ddl_TypeDef_"+tvx.typeDef_ztic.toString().trim()+"_"+tvx.typeDef_code.toString().trim();
+        }
+        else{
+          tv_meta.input = "text"; tv_meta.ns_id = tvx.ztic_html_id; tv_meta.code_id = tvx.code_html_id;
+          meta.ids.push(tvx.ztic_html_id); meta.ids.push(tvx.code_html_id);
+        } // endif
+        meta.tv.push(tv_meta);
+      } // endif
+    } // endfor
+  } // endfor
+
+  var link_templ_idx_AR = this.getChildLinkTemplIdx_AR(child_templ_idxx);
+  for(var i = 0; i < link_templ_idx_AR.length; i++){
+    var ltx = this.template_AR[link_templ_idx_AR[i]];
+    var link_obj_AR = this.getChildPageLinkObj_AR(child_templ_idxx, child_obj_idxx, link_templ_idx_AR[i]);
+    for(var j = 0; j < link_obj_AR.length; j++){
+      var lox = link_obj_AR[j];
+      var link_meta = {linkType_ztic: ltx.linkableObjectLinkType_ztic, linkType_code: ltx.linkableObjectLinkType_code, kind_ztic: ltx.objKindZTIC, kind_code: ltx.objKindCode,
+                       templ_ztic: ltx.templZTIC, templ_code: ltx.templCode, is_new: lox.newLinkToExistingObject, status_id: lox.linkStatus_html_id, value_id: lox.linkValue_html_id};
+      if(lox.newLinkToExistingObject){
+        link_meta.ns_id = lox.objZTIC_ns_html_id; link_meta.code_id = lox.objCodeAssigned_html_id;
+        meta.ids.push(lox.objZTIC_ns_html_id); meta.ids.push(lox.objCodeAssigned_html_id);
+      }
+      else{
+        link_meta.ns = this.getNamespaceForZTIC(lox.objZTIC); link_meta.code = lox.objCodeAssigned;
+        // 20261021 OE values of the linked grandchild shown on this page
+        var gc_meta = {key: link_templ_idx_AR[i]+"_"+this.template_AR[link_templ_idx_AR[i]].object_AR.indexOf(lox), templ_idx: link_templ_idx_AR[i], obj_idx: this.template_AR[link_templ_idx_AR[i]].object_AR.indexOf(lox),
+                       obj_ident: {kind_ztic: ltx.objKindZTIC, kind_code: ltx.objKindCode, ns: link_meta.ns, code: lox.objCodeAssigned}, oe: []};
+        for(var k = 0; k < lox.OE_val_AR.length; k++){
+          gc_meta.oe.push({OE_ztic: lox.OE_val_AR[k].OE_ztic, OE_code: lox.OE_val_AR[k].OE_code, id: lox.OE_val_AR[k].html_id});
+          meta.ids.push(lox.OE_val_AR[k].html_id);   // also for foreign objects - not copied to the parent page by id
+        } // endfor
+        if(gc_meta.oe.length > 0 && !this.isForeignObject(lox)){ meta.gc_oe.push(gc_meta); }   // 20261024 foreign namespace - display only
+      } // endif
+      meta.ids.push(lox.linkStatus_html_id); meta.ids.push(lox.linkValue_html_id);
+      meta.links.push(link_meta);
+    } // endfor
+
+    // 20261021 new object to create and link
+    // 20261023 all new objects of the link template (Add New Linked Object)
+    var new_obj_AR = this.getChildPageNewObj_AR(child_templ_idxx, child_obj_idxx, link_templ_idx_AR[i]);
+    for(var q = 0; q < new_obj_AR.length; q++){
+      var nm = this.getNewObjMeta(child_templ_idxx, child_obj_idxx, link_templ_idx_AR[i], new_obj_AR[q]);
+      nm.ids.forEach(function(id){ meta.ids.push(id); });
+      delete nm.ids;
+      meta.new_objs.push(nm);
+    } // endfor
+    var new_obj = null;   // 20261023 replaced by getNewObjMeta above
+    if(new_obj != null){
+      var new_obj_meta = {linkType_ztic: ltx.linkableObjectLinkType_ztic, linkType_code: ltx.linkableObjectLinkType_code, kind_ztic: ltx.objKindZTIC, kind_code: ltx.objKindCode,
+                          templ_ztic: ltx.templZTIC, templ_code: ltx.templCode, status_id: new_obj.linkStatus_html_id, value_id: new_obj.linkValue_html_id, oe: [],
+                          key: link_templ_idx_AR[i]+"_"+this.template_AR[link_templ_idx_AR[i]].object_AR.indexOf(new_obj),   // 20261023 own held entry
+                          templ_idx: link_templ_idx_AR[i], obj_idx: this.template_AR[link_templ_idx_AR[i]].object_AR.indexOf(new_obj), source_key: meta.key};
+      meta.ids.push(new_obj.linkStatus_html_id); meta.ids.push(new_obj.linkValue_html_id);
+      for(var k = 0; k < new_obj.OE_val_AR.length; k++){
+        new_obj_meta.oe.push({OE_ztic: new_obj.OE_val_AR[k].OE_ztic, OE_code: new_obj.OE_val_AR[k].OE_code, id: new_obj.OE_val_AR[k].html_id});
+        meta.ids.push(new_obj.OE_val_AR[k].html_id);
+      } // endfor
+      if(meta.obj_ident){ new_obj_meta.source_obj_ident = meta.obj_ident; }   // 20261023 existing deeper source
+      meta.new_objs.push(new_obj_meta);
+    } // endif new_obj != null
+  } // endfor
+  return meta;
+}  // end of getChildPageApplyMeta()
+// end 20261021
+
+
+getHtmlForTemplate(templ_zticx, templ_codex, maint_modex, maint_formatx, child_obj_idx, child_templ_idx){    // 20200724  // 20261020 child_obj_idx, child_templ_idx - only set from maintain_object_child
 //console.log("= 20210109 running getHtmlForTemplate templ_zticx-templ_codex-maint_modex-maint_formatx: "+  templ_zticx+"-"+ templ_codex+"-"+ maint_modex+"-"+maint_formatx );
 var html_str = "";
 var spreadsheet_ztic = "";
@@ -3372,7 +4283,7 @@ else if(((templ_zticx == message_ztic && templ_codex.toString().trim() == "1") |
     else
     {
  
-  html_str = this.getHtmlForTemplate_Generic(templ_zticx, templ_codex, maint_modex);
+  html_str = this.getHtmlForTemplate_Generic(templ_zticx, templ_codex, maint_modex, child_obj_idx, child_templ_idx);   // 20261020 child_obj_idx, child_templ_idx
 
    } // endif   
 
@@ -3385,7 +4296,11 @@ else if(((templ_zticx == message_ztic && templ_codex.toString().trim() == "1") |
 
 
 
-getHtmlForTemplate_Generic(templ_zticx, templ_codex, maint_modex){    //20200604
+getHtmlForTemplate_Generic(templ_zticx, templ_codex, maint_modex, child_obj_idx, child_templ_idx){    //20200604  // 20261020 child_obj_idx, child_templ_idx
+
+  // 20261020 - child page: show only the selected object, no Submit to server
+  var is_child_page = (child_obj_idx !== undefined && child_obj_idx !== null && child_obj_idx.toString().trim() !== "");
+  var child_obj_idx_num = is_child_page ? parseInt(child_obj_idx, 10) : -1;
 
   var time_ztic;
 
@@ -3401,8 +4316,12 @@ getHtmlForTemplate_Generic(templ_zticx, templ_codex, maint_modex){    //20200604
 
  var template_found = false;
  var templ_idx = 999999;
+ if(is_child_page && child_templ_idx !== undefined && child_templ_idx !== null){   // 20261020 - child page uses exact template index, not first ZTIC/code match
+   templ_idx = child_templ_idx;
+   template_found = true;
+ } // endif
  //console.log("this.template_AR.length: "+this.template_AR.length);
- for(var i = 0; i < this.template_AR.length; i++){
+ for(var i = 0; i < this.template_AR.length && !template_found; i++){   // 20261020 && !template_found
     // console.log(" this.template_AR[i].templZTIC - this.template_AR[i].templCode: "+this.template_AR[i].templZTIC+" - "+this.template_AR[i].templCode);
      if(this.template_AR[i].templZTIC == templ_zticx.toString().trim() && this.template_AR[i].templCode == templ_codex.toString().trim()){
        templ_idx = i;
@@ -3413,6 +4332,14 @@ getHtmlForTemplate_Generic(templ_zticx, templ_codex, maint_modex){    //20200604
  if(!template_found){
    console.log("ERROR: template not found in getHtmlForTemplate() in zt_client_session.js ztic/code: "+templ_zticx+" / "+templ_codex );
  }
+
+ if(is_child_page){   // 20261021 child page - add missing type value recs and create-link rows for the selected object
+   this.prepareChildPage(templ_idx, child_obj_idx_num);
+ } // endif is_child_page
+
+ // 20261024 existing object in another namespace than the target namespace - display only (values visible, not editable, no Apply)
+ var page_readonly = is_child_page && this.isForeignObject(this.template_AR[templ_idx].object_AR[child_obj_idx_num]);
+ var page_ro_attr  = page_readonly ? this.foreign_ro_attr : "";
 
 
 //console.log("20231212a this.template_AR[templ_idx].object_AR.length: "+this.template_AR[templ_idx].object_AR.length);
@@ -3427,6 +4354,16 @@ var obj_template_desc = "";
  
 
  html_str =  "<!DOCTYPE html><html><head>";                                   
+ // 20261104 UI attribute - font-family for generic object maintenance (parameter zinfinitree.com/user_interface 4)
+ var ui_font_family = this.getUIFontFamily();
+ // 20261105 boxes around the Object Element Values, Type Values and link type sections
+ html_str = html_str + "<style>fieldset.zt_section { border: 1px solid #c8c8c8; border-radius: 4px; padding: 6px 12px 10px 12px; margin: 10px 0; background-color: #e3eefa; }"   // 20261105 light blue inside the boxes (one step stronger than #eef5fc)
+                     + " fieldset.zt_section > legend { font-size: 1.25em; font-weight: bold; padding: 0 6px; }"
+                     + " fieldset.zt_linktype { border: none; border-top: 1px solid #e0e0e0; padding: 4px 0 6px 0; margin: 8px 0 0 0; }"   // 20261105 link types inside the Links box - separator line, no full box
+                     + " fieldset.zt_linktype > legend { font-weight: bold; padding: 0 6px 0 0; }</style>";
+ if(ui_font_family != ""){
+   html_str = html_str + "<style>body, input, textarea, select, button, table, th, td { font-family: " + ui_font_family + "; }</style>";
+ } // endif
  html_str = html_str + "<title>DS2 Maintain Object xx</title>";
  html_str = html_str + "<script src='//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js\'>  </script>";
  html_str = html_str + "<script>  $(document).ready(function(){";
@@ -3519,10 +4456,17 @@ for(var i = 0; i < this.TVBTR_template_AR[templ_idx].childTempl_idx_AR.length; i
 
 
 
- var objxx = this.template_AR[templ_idx].object_AR[0];   // 20200608 - use first object for template  REVISIT
- html_str = html_str + " var OK_ztic = " + this.template_AR[templ_idx].objKindZTIC      + "; ";   
- html_str = html_str + " var OK_code = " + this.template_AR[templ_idx].objKindCode      + "; ";   
- html_str = html_str + " var obj_ztic = " + this.template_AR[templ_idx].object_AR[0].objZTIC      + "; ";    //   use first object for template  REVISIT
+ //var objxx = this.template_AR[templ_idx].object_AR[0];   // 20200608 - use first object for template  REVISIT   (del) 20261021
+ var objxx = this.template_AR[templ_idx].object_AR[is_child_page ? child_obj_idx_num : 0];   // 20261021 child page - use selected object, object_AR[0] can be the blank new-object slot
+ html_str = html_str + " var OK_ztic = " + this.template_AR[templ_idx].objKindZTIC      + "; ";
+ html_str = html_str + " var OK_code = " + this.template_AR[templ_idx].objKindCode      + "; ";
+ //html_str = html_str + " var obj_ztic = " + this.template_AR[templ_idx].object_AR[0].objZTIC      + "; ";    //   use first object for template  REVISIT   (del) 20261021
+ if(objxx.objZTIC.toString().trim() == ""){   // 20261021 blank new-object slot has no ZTIC - empty value made a script syntax error (var obj_ztic = ;)
+  html_str = html_str + " var obj_ztic = '' ; ";
+  }
+  else {
+  html_str = html_str + " var obj_ztic = " + objxx.objZTIC.toString().trim()      + "; ";   // 20261021
+  } // endif
  html_str = html_str + " var obj_template_desc = '" + this.template_AR[templ_idx].templDesc.toString().trim()      + "'; ";     
  html_str = html_str + " var language = " + this.language.toString().trim()      + "; ";   // 20200506
  html_str = html_str + " var templ_idx = "+templ_idx +";";
@@ -4062,6 +5006,8 @@ for(var h = 0; h < this.template_AR[templ_idx].typeDef_AR.length; h++){
  html_str = html_str + " var OEscrnElem_AR = [];";  // 20200615
  html_str = html_str + " var OEscrnElem_ARs = JSON.stringify(OEscrnElem_AR); ";
  html_str = html_str + " var sess1_str = JSON.stringify(sess1); ";      //20200612
+ html_str = html_str + " if(window.zt_parent_new_objs && window.zt_child_updates){ window.zt_hold_new_objs(window.zt_parent_new_objs, window); } ";
+ html_str = html_str + " if(window.zt_hold_workbook){ window.zt_hold_workbook(); } ";   // 20261107 workbook grid   // 20261023 new linked objects added on the parent page
 
 
 require("dotenv").config();   // 20230304
@@ -4076,7 +5022,7 @@ else
    urlxx = clientIP+"/zt/client/maintain_object_submit";      // 20250527
 } // endif clientIP == "http://localhost"
 
-html_str = html_str + "var jqxhr = $.post('"+urlxx+"', {OK_ztic: OK_ztic, OK_code: OK_code, obj_ztic: obj_ztic, obj_code: obj_code, OEscrnElem_AR: OEscrnElem_ARs, obj_template_desc: obj_template_desc, language: language, session: sess1_str, templ_idx: templ_idx, TargetNS: TargetNS }, function(data){";   // 20240827
+html_str = html_str + "var jqxhr = $.post('"+urlxx+"', {OK_ztic: OK_ztic, OK_code: OK_code, obj_ztic: obj_ztic, obj_code: obj_code, OEscrnElem_AR: OEscrnElem_ARs, obj_template_desc: obj_template_desc, language: language, session: sess1_str, templ_idx: templ_idx, TargetNS: TargetNS, child_updates: JSON.stringify(window.zt_child_updates || {}) }, function(data){";   // 20240827  // 20261021 child_updates
 
  html_str = html_str + "console.log(data); ";
        //open new window popup
@@ -4090,8 +5036,171 @@ html_str = html_str + "var jqxhr = $.post('"+urlxx+"', {OK_ztic: OK_ztic, OK_cod
 
  
 
- html_str = html_str +       "}); ";  
- html_str = html_str +     "}); ";   
+ html_str = html_str +       "}); ";
+
+ // start 20261020 - Maintain button for child objects
+var url_childxx;
+if(clientIP.toString().trim() == "http://localhost"){
+   url_childxx = clientIP+":"+clientPort+"/zt/client/maintain_object_child";
+}
+else
+{
+   url_childxx = clientIP+"/zt/client/maintain_object_child";
+} // endif clientIP == "http://localhost"
+
+ //html_str = html_str + " $('.maintain_child').click(function(){";   //(del) 20261023
+ html_str = html_str + " $(document).on('click', '.maintain_child', function(){";   // 20261023 delegated - also for blocks added by Add New Linked Object
+ html_str = html_str + "var childWindow = window.open('', '_blank'); ";   // open before the post so the popup is not blocked
+ html_str = html_str + "$.post('"+url_childxx+"', {sess_id: $(this).attr('data-sess_id'), templ_idx: $(this).attr('data-templ_idx'), obj_idx: $(this).attr('data-obj_idx')}, function(data){";
+ html_str = html_str + "childWindow.document.write(data); childWindow.document.close(); ";
+ // 20261023 values already typed on this page are carried to the page being opened by the opened page itself (after it fills held values) - see zt_fill_from_held
+ html_str = html_str + "}); ";
+ html_str = html_str + "}); ";
+
+ // start 20261023 - Add New Linked Object and holding new linked objects (child page Apply, parent page Submit)
+var url_addxx;
+if(clientIP.toString().trim() == "http://localhost"){
+   url_addxx = clientIP+":"+clientPort+"/zt/client/add_new_linked_object";
+}
+else
+{
+   url_addxx = clientIP+"/zt/client/add_new_linked_object";
+} // endif clientIP == "http://localhost"
+ if(!is_child_page){
+   var parent_new_meta_AR = [];
+   for(var i = 0; i < this.template_AR[templ_idx].childTempl_idx_AR.length; i++){
+     var pn_AR = this.getChildPageNewObj_AR(templ_idx, 0, this.template_AR[templ_idx].childTempl_idx_AR[i]);
+     for(var q = 0; q < pn_AR.length; q++){ parent_new_meta_AR.push(this.getNewObjMeta(templ_idx, 0, this.template_AR[templ_idx].childTempl_idx_AR[i], pn_AR[q])); }
+   } // endfor
+   html_str = html_str + " window.zt_parent_new_objs = " + JSON.stringify(parent_new_meta_AR) + "; ";
+ } // endif !is_child_page
+ // start 20261107 workbook grid - Add Column / Add Row, values held for Submit
+var url_wbxx;
+if(clientIP.toString().trim() == "http://localhost"){
+   url_wbxx = clientIP+":"+clientPort+"/zt/client/add_workbook_item";
+}
+else
+{
+   url_wbxx = clientIP+"/zt/client/add_workbook_item";
+} // endif clientIP == "http://localhost"
+ html_str = html_str + " $(document).on('click', '.zt_wb_rtv_btn', function(){ var open = ($(this).val() == 'Open'); $('#zt_wb_grid .zt_wb_rtv').toggle(open); $(this).val(open ? 'Close' : 'Open'); }); ";   // 20261110 Open / Close the row type values
+ html_str = html_str + " $(document).on('click', '.zt_wb_tv_btn', function(){ var open = ($(this).val() == 'Open'); $('.zt_wb_tv_row').toggle(open); $(this).val(open ? 'Close' : 'Open'); }); ";   // 20261109 Open / Close the column type values
+ html_str = html_str + " $(document).on('click', '.zt_wb_add', function(){ var b = $(this); ";
+ html_str = html_str + "$.post('"+url_wbxx+"', {sess_id: b.attr('data-sess_id'), top_templ_idx: b.attr('data-top_templ_idx'), item_templ_idx: b.attr('data-item_templ_idx'), col_count: $('#zt_wb_code th.zt_wb_col').length}, function(data){ ";
+ html_str = html_str + "if(!data || !data.meta){ alert('Could not add: ' + (data && data.error ? data.error : '')); return; } ";
+ html_str = html_str + "if(data.kind == 'column'){ $('#zt_wb_code').append(data.code); $('#zt_wb_label').append(data.label); $('#zt_wb_desc').append(data.desc); $('#zt_wb_tv_toggle').append('<td></td>'); data.tv_row_ids.forEach(function(rid, h){ $('#' + rid).append(data.tv[h]); }); $('#zt_wb_rows_head').append('<td></td>'); $('.zt_wb_row').append('<td></td>'); } ";
+ html_str = html_str + "else if(data.kind == 'sheet'){ $('#zt_wb_sheets_row').append(data.cell); } ";   // 20261113 Add Sheet
+ html_str = html_str + "else { $('#zt_wb_grid').append(data.row); if($('.zt_wb_rtv_btn').val() == 'Close'){ $('#zt_wb_grid .zt_wb_rtv').show(); } } ";   // 20261110 added row follows Open / Close
+ html_str = html_str + "window.zt_wb_meta = window.zt_wb_meta || []; window.zt_wb_meta.push(data.meta); ";
+ html_str = html_str + "}, 'json'); }); ";
+ // grid values -> zt_child_updates of this page: type values of existing / blank new columns, and objects added with Add Column / Add Row
+ html_str = html_str + " window.zt_hold_workbook = function(){ if(!window.zt_wb_meta || !window.zt_child_updates){ return; } ";
+ html_str = html_str + "window.zt_wb_meta.forEach(function(m){ ";
+ html_str = html_str + "var tv = m.tv.map(function(t){ if(t.input == 'sel'){ return {typeDef_ztic: t.typeDef_ztic, typeDef_code: t.typeDef_code, input: 'sel', composite: $('#' + t.sel_id).val()}; } return {typeDef_ztic: t.typeDef_ztic, typeDef_code: t.typeDef_code, input: 'text', ns: $('#' + t.ns_id).val(), code: $('#' + t.code_id).val()}; }); ";   // 20261108 sel
+ html_str = html_str + "var has_tv = tv.some(function(t){ if(t.input == 'sel'){ return t.composite && t.composite.replace('|','').trim() != ''; } return t.ns && t.ns.trim() != '' && t.code && t.code.trim() != ''; }); ";
+ html_str = html_str + "if(m.source_key){ window.zt_hold_new_objs([m], window); } ";   // added object - new object entry with OE values
+ html_str = html_str + "var held = window.zt_child_updates[m.key] ? JSON.parse(window.zt_child_updates[m.key]) : null; ";
+ html_str = html_str + "if(!held && !has_tv){ return; } ";
+ html_str = html_str + "if(!held){ held = {templ_idx: m.templ_idx, obj_idx: m.obj_idx, tv: [], links: []}; ";
+ html_str = html_str + "if(m.source_key){ held.new_obj = {source_key: m.source_key, source_obj_ident: m.source_obj_ident, linkType_ztic: m.linkType_ztic, linkType_code: m.linkType_code, kind_ztic: m.kind_ztic, kind_code: m.kind_code, templ_ztic: m.templ_ztic, templ_code: m.templ_code, status: '', value: ''}; held.oe = []; } } ";   // added object with type values only - still a new object
+ html_str = html_str + "held.tv = tv; window.zt_child_updates[m.key] = JSON.stringify(held); }); }; ";
+ // end 20261107
+ html_str = html_str + " $(document).on('click', '.zt_add_new', function(){ var b = $(this); ";
+ html_str = html_str + "$.post('"+url_addxx+"', {sess_id: b.attr('data-sess_id'), templ_idx: b.attr('data-src_templ_idx'), obj_idx: b.attr('data-src_obj_idx'), link_templ_idx: b.attr('data-link_templ_idx')}, function(data){ ";
+ html_str = html_str + "if(!data || !data.html){ alert('New linked object could not be added: ' + (data && data.error ? data.error : '')); return; } ";
+ html_str = html_str + "$(data.html).insertBefore('#zt_new_end_' + b.attr('data-src_templ_idx') + '_' + b.attr('data-src_obj_idx') + '_' + b.attr('data-link_templ_idx')); ";
+ html_str = html_str + "if(typeof zt_child_meta !== 'undefined'){ data.meta.ids.forEach(function(id){ zt_child_meta.ids.push(id); }); delete data.meta.ids; zt_child_meta.new_objs.push(data.meta); } else { window.zt_parent_new_objs.push(data.meta); } ";
+ html_str = html_str + "}, 'json'); }); ";
+ // hold new object blocks of this page in the parent page's zt_child_updates (own entry per new object, merged - last Apply wins for OE values)
+ html_str = html_str + " window.zt_hold_new_objs = function(meta_AR, top_win){ var cnt = 0; ";
+ html_str = html_str + "meta_AR.forEach(function(m){ ";
+ html_str = html_str + "var oe_vals = m.oe.map(function(o){ return {OE_ztic: o.OE_ztic, OE_code: o.OE_code, value: $('#' + o.id).val()}; }); ";
+ html_str = html_str + "var has_val = oe_vals.some(function(o){ return o.value && o.value.trim() != ''; }); ";
+ html_str = html_str + "var held = top_win.zt_child_updates[m.key] ? JSON.parse(top_win.zt_child_updates[m.key]) : null; ";
+ html_str = html_str + "if(!held && !has_val){ return; } ";
+ html_str = html_str + "if(!held){ held = {templ_idx: m.templ_idx, obj_idx: m.obj_idx, tv: [], links: []}; } ";
+ html_str = html_str + "held.new_obj = {source_key: m.source_key, source_obj_ident: m.source_obj_ident, linkType_ztic: m.linkType_ztic, linkType_code: m.linkType_code, kind_ztic: m.kind_ztic, kind_code: m.kind_code, templ_ztic: m.templ_ztic, templ_code: m.templ_code, status: $('#' + m.status_id).val(), value: $('#' + m.value_id).val()}; ";
+ html_str = html_str + "held.oe = oe_vals; if(has_val){ cnt++; } ";
+ html_str = html_str + "top_win.zt_child_updates[m.key] = JSON.stringify(held); }); return cnt; }; ";
+ // end 20261023
+
+ // child page - copy values into fields with the same id on the parent page, parent Submit sends them to the server
+ // start 20261021 - type values and links are not on the parent page, Apply to Parent holds them in window.zt_child_updates of the parent page for the parent Submit
+ if(is_child_page){
+   html_str = html_str + " var zt_child_meta = window.zt_child_meta = " + JSON.stringify(this.getChildPageApplyMeta(templ_idx, child_obj_idx_num)) + "; ";   // window. for console inspection
+   if(page_readonly){ html_str = html_str + " $('select').prop('disabled', true); "; }   // 20261024 display-only page - dropdowns too
+   html_str = html_str + " var zt_top_win = window.opener; while(zt_top_win && !zt_top_win.zt_child_updates && zt_top_win.opener){ zt_top_win = zt_top_win.opener; } ";   // 20261023 page with Submit, found while the chain of opener pages is open
+   // 20261023 reopened page: values held on the parent page (applied, not yet submitted) first, then values on the page that opened it (same field ids, may be typed but not applied)
+   html_str = html_str + " (function zt_fill_from_held(){ ";
+   html_str = html_str + "  var held_all = (zt_top_win && !zt_top_win.closed && zt_top_win.zt_child_updates) ? zt_top_win.zt_child_updates : {}; ";
+   html_str = html_str + "  var get = function(k){ try { return held_all[k] ? JSON.parse(held_all[k]) : null; } catch(e){ return null; } }; ";
+   html_str = html_str + "  var setv = function(id, v){ if(id == undefined || v == undefined || v == null){ return; } var f = document.getElementById(id); if(f){ f.value = v; } }; ";
+   html_str = html_str + "  var fill_oe = function(oe_meta, held_oe){ if(!oe_meta || !held_oe){ return; } oe_meta.forEach(function(m){ held_oe.forEach(function(h){ if(h.OE_ztic == m.OE_ztic && h.OE_code == m.OE_code){ setv(m.id, h.value); } }); }); }; ";
+   html_str = html_str + "  var held = get(zt_child_meta.key); ";
+   html_str = html_str + "  if(held){ ";
+   html_str = html_str + "   fill_oe(zt_child_meta.oe, held.oe); ";
+   html_str = html_str + "   (held.tv || []).forEach(function(h){ zt_child_meta.tv.forEach(function(m){ if(m.typeDef_ztic != h.typeDef_ztic || m.typeDef_code != h.typeDef_code){ return; } ";
+   html_str = html_str + "     if(m.input == 'sel' && h.composite != undefined){ $('.' + m.sel_class).val(h.composite); } else if(m.input == 'date'){ setv(m.date_id, h.dateStr); } else { setv(m.ns_id, h.ns); setv(m.code_id, h.code); } }); }); ";
+   html_str = html_str + "   (held.links || []).forEach(function(h){ zt_child_meta.links.forEach(function(m){ if(m.linkType_ztic != h.linkType_ztic || m.linkType_code != h.linkType_code || m.is_new != h.is_new){ return; } ";
+   html_str = html_str + "     if(!m.is_new && (m.code != h.code || m.ns != h.ns)){ return; } if(m.is_new){ setv(m.ns_id, h.ns); setv(m.code_id, h.code); } setv(m.status_id, h.status); setv(m.value_id, h.value); }); }); ";
+   html_str = html_str + "  } ";
+   html_str = html_str + "  (zt_child_meta.gc_oe || []).forEach(function(g){ var hg = get(g.key); if(hg){ fill_oe(g.oe, hg.oe); } }); ";   // linked objects shown on this page
+   html_str = html_str + "  (zt_child_meta.new_objs || []).forEach(function(m){ var hn = get(m.key); if(hn){ fill_oe(m.oe, hn.oe); if(hn.new_obj){ setv(m.status_id, hn.new_obj.status); setv(m.value_id, hn.new_obj.value); } } }); ";   // new linked object blocks
+   html_str = html_str + "  if(window.opener && !window.opener.closed){ var flds = document.querySelectorAll('input[id], textarea[id], select[id]'); ";   // values on the page that opened this page
+   html_str = html_str + "   for(var zi = 0; zi < flds.length; zi++){ if(flds[zi].type == 'button'){ continue; } var src = window.opener.document.getElementById(flds[zi].id); if(src && src.type != 'button'){ flds[zi].value = src.value; } } } ";
+   html_str = html_str + " })(); ";
+ }
+ else{
+   html_str = html_str + " window.zt_child_updates = window.zt_child_updates || {}; ";
+ } // endif is_child_page
+ // end 20261021
+ html_str = html_str + " $('#apply_to_parent').click(function(){";
+ //html_str = html_str + "if(!window.opener || window.opener.closed){ alert('Parent page is closed - changes cannot be applied'); return; } ";   //(del) 20261023
+ html_str = html_str + "if(!zt_top_win || zt_top_win.closed || !zt_top_win.zt_child_updates){ alert('Parent page is closed - changes cannot be applied'); return; } ";   // 20261023 page with Submit
+ html_str = html_str + "var opener_open = (window.opener && !window.opener.closed); ";   // 20261023 page in between may be closed
+ html_str = html_str + "var applied_cnt = 0; var not_found_AR = []; ";
+ html_str = html_str + "$('input[id], textarea[id], select[id]').each(function(){ ";
+ html_str = html_str + "if(this.type == 'button'){ return; } ";
+ html_str = html_str + "if(zt_child_meta.ids.indexOf(this.id) != -1){ return; } ";   // 20261021 held below, not copied by id
+ html_str = html_str + "var parent_fld = opener_open ? window.opener.document.getElementById(this.id) : null; ";   // 20261023 opener_open
+ html_str = html_str + "if(parent_fld){ parent_fld.value = $(this).val(); applied_cnt++; } else { not_found_AR.push(this.id); } ";
+ html_str = html_str + "}); ";
+ html_str = html_str + "var msg = applied_cnt + ' field(s) applied to parent page.'; ";
+ // start 20261021 hold type values and links for the parent Submit
+ html_str = html_str + "var upd = {templ_idx: zt_child_meta.templ_idx, obj_idx: zt_child_meta.obj_idx, tv: [], links: []}; ";
+ html_str = html_str + "zt_child_meta.tv.forEach(function(m){ var r = {typeDef_ztic: m.typeDef_ztic, typeDef_code: m.typeDef_code, input: m.input}; ";
+ html_str = html_str + "if(m.input == 'sel'){ r.composite = $('.' + m.sel_class).val(); } else if(m.input == 'date'){ r.dateStr = $('#' + m.date_id).val(); } else { r.ns = $('#' + m.ns_id).val(); r.code = $('#' + m.code_id).val(); } ";
+ html_str = html_str + "upd.tv.push(r); }); ";
+ html_str = html_str + "zt_child_meta.links.forEach(function(m){ var r = {linkType_ztic: m.linkType_ztic, linkType_code: m.linkType_code, kind_ztic: m.kind_ztic, kind_code: m.kind_code, templ_ztic: m.templ_ztic, templ_code: m.templ_code, is_new: m.is_new, ns: m.ns, code: m.code}; ";
+ html_str = html_str + "if(m.is_new){ r.ns = $('#' + m.ns_id).val(); r.code = $('#' + m.code_id).val(); } ";
+ html_str = html_str + "r.status = $('#' + m.status_id).val(); r.value = $('#' + m.value_id).val(); upd.links.push(r); }); ";
+ // 20261023 new linked objects are held as their own entries (key templ_idx_obj_idx) - their own page (Maintain) holds into the same entry
+ html_str = html_str + "var new_obj_cnt = window.zt_hold_new_objs(zt_child_meta.new_objs, zt_top_win); ";   // 20261023 shared with parent page Submit
+ html_str = html_str + "if(zt_child_meta.hold_oe){ upd.obj_ident = zt_child_meta.obj_ident; upd.oe = zt_child_meta.oe.map(function(m){ return {OE_ztic: m.OE_ztic, OE_code: m.OE_code, value: $('#' + m.id).val()}; }); } ";   // 20261021 grandchild or deeper
+ // 20261023 page of a new linked object: keep link status/value entered on the source page
+ html_str = html_str + "if(zt_child_meta.new_obj){ var prev = zt_top_win.zt_child_updates[zt_child_meta.key] ? JSON.parse(zt_top_win.zt_child_updates[zt_child_meta.key]) : null; upd.new_obj = (prev && prev.new_obj) ? prev.new_obj : zt_child_meta.new_obj; delete upd.obj_ident; } ";
+ html_str = html_str + "var top_win = zt_top_win; ";   // 20261021 page with Submit - grandchild pages are opened from child pages  // 20261023 found at page load
+ html_str = html_str + "if(top_win && top_win.zt_child_updates){ top_win.zt_child_updates[zt_child_meta.key] = JSON.stringify(upd); } ";   // 20261021 top_win
+ // 20261021 grandchild page: keep the same fields on the page that opened it (child page shows grandchild OE values) in step
+ html_str = html_str + "if(zt_child_meta.hold_oe && opener_open){ zt_child_meta.oe.forEach(function(m){ var opener_fld = window.opener.document.getElementById(m.id); if(opener_fld){ opener_fld.value = $('#' + m.id).val(); } }); } ";   // 20261023 opener_open
+ // 20261021 child page: OE values of linked grandchildren shown on this page - merged into the grandchild's held entry (last Apply wins)
+ html_str = html_str + "var gc_oe_cnt = 0; ";
+ html_str = html_str + "if(top_win && top_win.zt_child_updates){ zt_child_meta.gc_oe.forEach(function(g){ ";
+ html_str = html_str + "var held = top_win.zt_child_updates[g.key] ? JSON.parse(top_win.zt_child_updates[g.key]) : {templ_idx: g.templ_idx, obj_idx: g.obj_idx, tv: [], links: []}; ";
+ html_str = html_str + "held.obj_ident = g.obj_ident; held.oe = g.oe.map(function(m){ return {OE_ztic: m.OE_ztic, OE_code: m.OE_code, value: $('#' + m.id).val()}; }); gc_oe_cnt = gc_oe_cnt + held.oe.length; ";
+ html_str = html_str + "top_win.zt_child_updates[g.key] = JSON.stringify(held); }); } ";
+ html_str = html_str + "var held_cnt = upd.tv.length + upd.links.length + (upd.oe ? upd.oe.length : 0) + gc_oe_cnt + new_obj_cnt; ";   // 20261021  // 20261021 gc_oe_cnt, new_objs
+ html_str = html_str + "var held_msg = (held_cnt > 0) ? (' ' + (upd.oe ? upd.oe.length + ' object element value(s), ' : '') + (gc_oe_cnt > 0 ? gc_oe_cnt + ' linked object element value(s), ' : '') + (new_obj_cnt > 0 ? new_obj_cnt + ' new linked object(s), ' : '') + upd.tv.length + ' type value(s) and ' + upd.links.length + ' link row(s) held for parent Submit.') : ''; ";   // 20261021 upd.oe  // 20261021 gc_oe_cnt
+ // end 20261021
+ html_str = html_str + "if(not_found_AR.length > 0){ msg = msg + ' Not on parent page, not applied: ' + not_found_AR.join(', '); } ";
+ html_str = html_str + "msg = msg + held_msg; ";   // 20261021
+ //html_str = html_str + "alert(msg); ";   //(del) 20261105 Apply confirmation popup turned off for now
+ html_str = html_str + "console.log(msg); ";   // 20261105 summary still in the browser console
+ html_str = html_str + "if(opener_open){ window.opener.focus(); } window.close(); ";   // 20261023 opener_open   // 20261021 close child page after applying - it was opened by the parent page script, so the browser allows close()
+ html_str = html_str + "}); ";
+ // end 20261020
+
+ html_str = html_str +     "}); ";
  html_str = html_str +   "</script>";
  html_str = html_str + "</head>";
 
@@ -4103,18 +5212,21 @@ var top_obj_dsi  =  this.getNamespaceForZTIC(this.template_AR[this.top_templ_idx
 var top_obj_code =  this.template_AR[this.top_templ_idx].object_AR[0].objCodeTemp; 
 
  html_str = html_str + "<table style='border:solid 1px;'>";
+ //html_str = html_str + "<tr><td colspan='3' style='font-size:1.6em; font-weight:bold; padding:4px 2px 6px 2px;'>ZinfiniTree Generic Object Maintenance</td></tr>";   // 20261105 title in the top box   //(del) 20261110
+ html_str = html_str + "<tr><td colspan='3' style='font-size:1.6em; font-weight:bold; padding:4px 2px 6px 2px;'>" + (this.isWorkbookGridPage(templ_idx, is_child_page) ? "ZinfiniTree Workbook Definition" : "ZinfiniTree Generic Object Maintenance") + "</td></tr>";   // 20261110 workbook maintenance has its own title
 
  html_str = html_str + "<tr>";
  html_str = html_str + "<td><strong>";
- html_str = html_str + "Target DSI: "+"</strong>"+this.TargetNS;
+ html_str = html_str + "Target ZTI: "+"</strong>"+this.TargetNS;
  html_str = html_str + "</td>";
 
  html_str = html_str + "<td><strong>";
- html_str = html_str + "Top Obj DSI: "+"</strong>"+top_obj_dsi;
+ html_str = html_str + "Top Obj ZTI: "+"</strong>"+top_obj_dsi;
  html_str = html_str + "</td>";
 
  html_str = html_str + "<td><strong>";
- html_str = html_str + "Top Obj Code: "+"</strong>"+top_obj_code;
+ //html_str = html_str + "Top Obj Code: "+"</strong>"+top_obj_code;   //(del) 20261105
+ html_str = html_str + "Top Obj Code: "+"</strong>"+(this.template_AR[this.top_templ_idx].object_AR[0].newCode ? "<span style='color:#888888'>(new)</span>" : this.escapeHtml(top_obj_code));   // 20261105 (new) in grey in create mode - the temporary code is internal
 
  html_str = html_str + "</td>";
 
@@ -4124,17 +5236,33 @@ var top_obj_code =  this.template_AR[this.top_templ_idx].object_AR[0].objCodeTem
  html_str = html_str + "</table>";
  // end 20200920
 
+ // start 20261023 child page - path of parent objects from the top object down
+ if(is_child_page){
+   var path_AR = this.getChildPageParentPath(templ_idx, child_obj_idx_num);
+   if(path_AR.length > 0){
+     html_str = html_str + "<table style='border:solid 1px; margin-top:6px;'>";
+     html_str = html_str + "<tr><td><strong>Parent Objects:</strong></td></tr>";
+     for(var p = 0; p < path_AR.length; p++){
+       html_str = html_str + "<tr><td>" + "&nbsp;&nbsp;".repeat(p) + (p > 0 ? "&rsaquo; " : "") + this.escapeHtml(path_AR[p]) + "</td></tr>";
+     } // endfor
+     html_str = html_str + "</table>";
+   } // endif path_AR.length > 0
+ } // endif is_child_page
+ // end 20261023
 
-  html_str = html_str +   "<h1>"+this.template_AR[templ_idx].templDesc.toString().trim() +"</h1>";   // 20200604
+
+  //html_str = html_str +   "<h1>"+this.template_AR[templ_idx].templDesc.toString().trim() +"</h1>";   // 20200604   //(del) 20261105
+  html_str = html_str +   "<h1 style='font-size:1.4em; margin:14px 0 6px 0;'>"+this.template_AR[templ_idx].templDesc.toString().trim() +"</h1>";   // 20261105 a little smaller than the title in the top box (1.6em)
 
 
 
  html_str = html_str +   "<br />";
 
- html_str = html_str +   "<br />";                   // 20230321
- html_str = html_str +   "<br />";                   // 20230321
- html_str = html_str + "<H2>Object Element Values: </H2>";     // 20230321
+ //html_str = html_str +   "<br />";                   // 20230321   //(del) 20261105 gap before the first box
+ //html_str = html_str +   "<br />";                   // 20230321   //(del) 20261105
+// html_str = html_str + "<H2>Object Element Values: </H2>";     // 20230321  (del) 20261018 - moved inside object_AR loop below
 
+ html_str = html_str + "<fieldset class='zt_section'><legend>Object Element Values</legend>";   // 20261105 box
  html_str = html_str + "<table>"
 
 
@@ -4149,6 +5277,8 @@ var html_ns_sizex = 35;
    //for(var j = 0; j < this.template_AR[i].object_AR.length; j++){  (del) 20200614
   //console.log("20200907 +++ zt_client_session this.template_AR[templ_idx].object_AR.length: "+this.template_AR[templ_idx].object_AR.length);
   for(var j = 0; j < this.template_AR[templ_idx].object_AR.length; j++){    // 20200614
+    if(is_child_page && j != child_obj_idx_num){ continue; }   // 20261020 child page - selected object only
+    //html_str = html_str + "<tr><td colspan='2'><H2>Object Element Values: </H2></td></tr>";   // 20261018 - moved from above loop   //(del) 20261105 legend of the box
    // console.log("   this.template_AR[templ_idx].object_AR[j].objZTIC:         " + this.template_AR[templ_idx].object_AR[j].objZTIC);
    // console.log("   this.template_AR[templ_idx].object_AR[j].objCodeTemp:     " + this.template_AR[templ_idx].object_AR[j].objCodeTemp);
    // console.log("   this.template_AR[templ_idx].object_AR[j].objCodeAssigned: " + this.template_AR[templ_idx].object_AR[j].objCodeAssigned);
@@ -4173,14 +5303,15 @@ var html_ns_sizex = 35;
     
 //console.log("%%^ 20211120b html_sizex: "+html_sizex);
 if(html_sizex < 80){
-html_str = html_str + "<tr><td>"+ html_labelx+"</td><td> <input type=\"TEXT\" id='"+ this.template_AR[templ_idx].object_AR[j].OE_val_AR[k].html_id+ "' size='"+html_sizex+"' value='"+ this.template_AR[templ_idx].object_AR[j].OE_val_AR[k].html_input_val+"'" +"></td></tr>";}
+html_str = html_str + "<tr><td>"+ html_labelx+"</td><td> <input type=\"TEXT\""+ page_ro_attr +" id='"+ this.template_AR[templ_idx].object_AR[j].OE_val_AR[k].html_id+ "' size='"+html_sizex+"' value='"+ this.template_AR[templ_idx].object_AR[j].OE_val_AR[k].html_input_val+"'" +"></td></tr>";}
    else{
  //html_str = html_str + "<tr><td>"+ html_labelx+"</td><td> <input type=\"TEXTAREA\"  id='"+ this.template_AR[this.template_AR[templ_idx].childTempl_idx_AR[i]].object_AR[j].OE_val_AR[k].html_id+ "' size='"+html_sizex+"' value='"+ this.template_AR[this.template_AR[templ_idx].childTempl_idx_AR[i]].object_AR[j].OE_val_AR[k].html_input_val+"'" +"></td></tr>"; 
 html_str = html_str + "<tr><td>   </td></tr>";
 html_str = html_str + "<tr><td>   </td></tr>";
 html_str = html_str + "<tr><td>"+html_labelx+"</td></tr>";
 
-html_str = html_str + "<tr><td><textarea name=\"comments\" id='"+ this.template_AR[templ_idx].object_AR[j].OE_val_AR[k].html_id+ "' cols='80' rows='20'  value='"+ this.template_AR[templ_idx].object_AR[j].OE_val_AR[k].html_input_val+"'" +">"+this.template_AR[templ_idx].object_AR[j].OE_val_AR[k].html_input_val+"</textarea></td></tr>";
+//html_str = html_str + "<tr><td><textarea name=\"comments\""+ page_ro_attr +" id='"+ this.template_AR[templ_idx].object_AR[j].OE_val_AR[k].html_id+ "' cols='80' rows='20'  value='"+ this.template_AR[templ_idx].object_AR[j].OE_val_AR[k].html_input_val+"'" +">"+this.template_AR[templ_idx].object_AR[j].OE_val_AR[k].html_input_val+"</textarea></td></tr>";   //(del) 20261105
+html_str = html_str + "<tr><td colspan='2'><textarea name=\"comments\""+ page_ro_attr +" id='"+ this.template_AR[templ_idx].object_AR[j].OE_val_AR[k].html_id+ "' cols='80' rows='20'  value='"+ this.template_AR[templ_idx].object_AR[j].OE_val_AR[k].html_input_val+"'" +">"+this.template_AR[templ_idx].object_AR[j].OE_val_AR[k].html_input_val+"</textarea></td></tr>";   // 20261105 text area spans the row so it does not widen the label column
 
  //<textarea name="comments" id="myTextarea" cols="40" rows="6">Suppose we have this text!</textarea>  (example)
 
@@ -4199,10 +5330,12 @@ html_str = html_str + this.TVBTR_getHtmlForTypeValueBasedTemplateRules(attribute
 var type_value_for_date;  // 20231028
 
  html_str = html_str + "</table>";
+ html_str = html_str + "</fieldset>";   // 20261105 end of Object Element Values box
 
- html_str = html_str +   "<br />";                   // 20230321
- html_str = html_str +   "<br />";                   // 20230321
- html_str = html_str + "<H2>Type Values: </H2>";     // 20230321
+ //html_str = html_str +   "<br />";                   // 20230321   //(del) 20261105
+ //html_str = html_str +   "<br />";                   // 20230321   //(del) 20261105
+ //html_str = html_str + "<H2>Type Values: </H2>";     // 20230321   //(del) 20261105
+ html_str = html_str + "<fieldset class='zt_section'><legend>Type Values</legend>";   // 20261105 box
 
 html_sizex = 5;
 html_str = html_str + "<table>";
@@ -4215,6 +5348,7 @@ html_str = html_str + "<table>";
        }
 
         for(var g = 0; g < this.template_AR[templ_idx].object_AR.length; g++){
+          if(is_child_page && g != child_obj_idx_num){ continue; }   // 20261020 child page - selected object only
           for(var f = 0; f < this.template_AR[templ_idx].object_AR[g].typeVal_AR.length; f++){
          //   html_str = html_str +   "<tr><td><h3>"+this.template_AR[templ_idx].typeDef_AR[h].typeDef_desc +"</h3></td>"; //  (del) 20211031 
             if(this.template_AR[templ_idx].object_AR[g].typeVal_AR[f].typeDef_ztic == this.template_AR[templ_idx].typeDef_AR[h].typeDef_ztic &&    this.template_AR[templ_idx].object_AR[g].typeVal_AR[f].typeDef_code == this.template_AR[templ_idx].typeDef_AR[h].typeDef_code){
@@ -4232,6 +5366,9 @@ html_str = html_str + "<table>";
                     type_def_idx = n;
                    }  // endif
               } // endfor
+              if(is_child_page && found_allowed_val_set && !this.allowedValueSetHasMembers(this.typeDefAllowedValueSet_AR[type_def_idx].objectSet_ztic, this.typeDefAllowedValueSet_AR[type_def_idx].objectSet_code)){
+                found_allowed_val_set = false;   // 20261021 child page - set members not loaded, use NS + code input instead of an empty dropdown
+              } // endif
 
               // start 20231028
               if(type_value_for_date){
@@ -4239,7 +5376,7 @@ html_str = html_str + "<table>";
            const ns_substr =  this.template_AR[templ_idx].object_AR[g].typeVal_AR[f].ztic_ns_html_input_val.substr(31,3);  // zinfinitree.com/time_gregorian_2020s_tz_est      // 20250606
            const datestr = ns_substr+this.template_AR[templ_idx].object_AR[g].typeVal_AR[f].code_html_input_val.substr(0,1)+"-"+this.template_AR[templ_idx].object_AR[g].typeVal_AR[f].code_html_input_val.substr(1,2)+"-"+this.template_AR[templ_idx].object_AR[g].typeVal_AR[f].code_html_input_val.substr(3,5);
            console.log("20250606b datestr: "+datestr);
-           const html_str_temp = "<td><input type=\"date\"  id='"+ this.template_AR[templ_idx].object_AR[g].typeVal_AR[f].dateStr_html_id+ "'  value='"+datestr+"'"  +"</td>";  // 20231107
+           const html_str_temp = "<td><input type=\"date\""+ page_ro_attr +"  id='"+ this.template_AR[templ_idx].object_AR[g].typeVal_AR[f].dateStr_html_id+ "'  value='"+datestr+"'"  +"</td>";  // 20231107
           // console.log("html_str_temp: "+html_str_temp);
             html_str = html_str + html_str_temp;
                // end 20231028
@@ -4250,12 +5387,12 @@ html_str = html_str + "<table>";
               if(!found_allowed_val_set){
     // end 20230328              
           
-                html_str = html_str + "<td><input list=\"ns_list\" name=\"ztic_ns\" id='"+ this.template_AR[templ_idx].object_AR[g].typeVal_AR[f].ztic_html_id+ "' size='"+html_ns_sizex+"' value='"+ this.template_AR[templ_idx].object_AR[g].typeVal_AR[f].ztic_ns_html_input_val+"'" +"</td>"; // (del) 20231027
+                html_str = html_str + "<td><input list=\"ns_list\" name=\"ztic_ns\""+ page_ro_attr +" id='"+ this.template_AR[templ_idx].object_AR[g].typeVal_AR[f].ztic_html_id+ "' size='"+html_ns_sizex+"' value='"+ this.template_AR[templ_idx].object_AR[g].typeVal_AR[f].ztic_ns_html_input_val+"'" +"</td>"; // (del) 20231027
 
 
                 html_str = html_str + ns_datalist;
 
-                html_str = html_str + "<td> <input type=\"TEXT\" id='"+ this.template_AR[templ_idx].object_AR[g].typeVal_AR[f].code_html_id+ "' size='"+html_sizex+"' value='"+ this.template_AR[templ_idx].object_AR[g].typeVal_AR[f].code_html_input_val+"'" +"</td>" +"</tr>";
+                html_str = html_str + "<td> <input type=\"TEXT\""+ page_ro_attr +" id='"+ this.template_AR[templ_idx].object_AR[g].typeVal_AR[f].code_html_id+ "' size='"+html_sizex+"' value='"+ this.template_AR[templ_idx].object_AR[g].typeVal_AR[f].code_html_input_val+"'" +"</td>" +"</tr>";
              }  // endif this.template_AR[templ_idx].object_AR[g].typeVal_AR[f] == ""  // 20230323
              else
              {
@@ -4282,26 +5419,34 @@ html_str = html_str + "<table>";
      } // endfor
 
 html_str = html_str + "</table>";
+html_str = html_str + "</fieldset>";   // 20261105 end of Type Values box
 // end 20200817
 //console.log("20230328c html_str for type values: "+html_str);
 
-html_str = html_str +   "<br />";                   // 20230321
-html_str = html_str +   "<br />";                   // 20230321
-html_str = html_str + "<H2>Links: </H2>";     // 20230321
+//html_str = html_str +   "<br />";                   // 20230321   //(del) 20261105
+//html_str = html_str +   "<br />";                   // 20230321   //(del) 20261105
+//html_str = html_str + "<H2>Links: </H2>";     // 20230321   //(del) 20261105
+//html_str = html_str + "<h3 class='zt_section_title'>Links</h3>";   // 20261105 one box per link type below   //(del) 20261105
+html_str = html_str + "<fieldset class='zt_section'><legend>Links</legend>";   // 20261105 Links box, link types inside separated by a line
 
 
  html_str = html_str + "<table>";
 //console.log("20200617 this.template_AR[templ_idx].childTempl_idx_AR.length: "+this.template_AR[templ_idx].childTempl_idx_AR.length);
+var wb_grid_page = this.isWorkbookGridPage(templ_idx, is_child_page);   // 20261107 workbook - Columns and Rows grid instead of the Column / Row link types
+var wb_grid_templ = wb_grid_page ? this.getWorkbookGridTemplIdx(templ_idx) : {col: -1, row: -1, sheet: -1};   // 20261113 sheet
 for(var i = 0; i < this.template_AR[templ_idx].childTempl_idx_AR.length; i++){
+ if(wb_grid_page && (this.template_AR[templ_idx].childTempl_idx_AR[i] == wb_grid_templ.col || this.template_AR[templ_idx].childTempl_idx_AR[i] == wb_grid_templ.row || this.template_AR[templ_idx].childTempl_idx_AR[i] == wb_grid_templ.sheet)){ continue; }   // 20261107 shown in the grid  // 20261113 sheets too
 // console.log("20200911 %% this.maint_mode - this.template_AR[this.template_AR[templ_idx].childTempl_idx_AR[i]].templLevelsDown: "+this.maint_mode + " - "+this.template_AR[this.template_AR[templ_idx].childTempl_idx_AR[i]].templLevelsDown);
  if((this.maint_mode != "display" && this.template_AR[this.template_AR[templ_idx].childTempl_idx_AR[i]].templLevelsDown == 1 ) || this.maint_mode == "display"){  // 20201104
      //html_str = html_str + "<tr><td><h2>"+ this.template_AR[this.template_AR[templ_idx].childTempl_idx_AR[i]].templDesc  +"</h2></td></tr>";   // (del) 20230321
      const templDescx = this.template_AR[this.template_AR[templ_idx].childTempl_idx_AR[i]].templDesc;
+     html_str = html_str + "</table><fieldset class='zt_linktype'>";   // 20261105 box per link type (heading below is its legend)
      for(var j = 0; j < this.template_AR[templ_idx].linkType_AR.length; j++){    // 20200618
         if( this.template_AR[templ_idx].linkType_AR[j].linkType_ztic == this.template_AR[this.template_AR[templ_idx].childTempl_idx_AR[i]].linkableObjectLinkType_ztic &&
             this.template_AR[templ_idx].linkType_AR[j].linkType_code == this.template_AR[this.template_AR[templ_idx].childTempl_idx_AR[i]].linkableObjectLinkType_code ) {
                //html_str = html_str + "<tr><td><h3>"+ this.template_AR[templ_idx].linkType_AR[j].linkType_desc  +"</h3></td></tr>";  //(del) 20230321
-               html_str = html_str + "<tr><td><strong>"+ this.template_AR[templ_idx].linkType_AR[j].linkType_desc  +" / Template: "+templDescx+"</strong></td></tr>";  // 20230321
+               //html_str = html_str + "<tr><td><strong>"+ this.template_AR[templ_idx].linkType_AR[j].linkType_desc  +" / Template: "+templDescx+"</strong>" + ((this.maint_mode != "display" && !is_child_page) ? this.getAddNewLinkedObjectButtonHtml(templ_idx, 0, this.template_AR[templ_idx].childTempl_idx_AR[i]) : "") + "</td></tr>";  // 20230321  // 20261023 Add New Linked Object   //(del) 20261105
+               html_str = html_str + "<legend>"+ this.template_AR[templ_idx].linkType_AR[j].linkType_desc  +" / Template: "+templDescx+ " " + ((this.maint_mode != "display" && !is_child_page) ? this.getAddNewLinkedObjectButtonHtml(templ_idx, 0, this.template_AR[templ_idx].childTempl_idx_AR[i]) : "") + "</legend>";   // 20261105 legend of the link type box  // 20230321  // 20261023 Add New Linked Object   // 20261105 spans the row so it does not widen the label column
 
 
               // html_str = html_str +   "<br />";   // 20200820
@@ -4310,25 +5455,35 @@ for(var i = 0; i < this.template_AR[templ_idx].childTempl_idx_AR.length; i++){
         }  // endif
                                                                 
      }  // endfor  // end 20200618
+     html_str = html_str + "<table>";   // 20261105 rows of this link type
 
 
+ var create_link_html = "";   // 20261105 Create Link to Existing Object rows are shown at the end of the link type section
  for(var j = 0; j < this.template_AR[this.template_AR[templ_idx].childTempl_idx_AR[i]].object_AR.length; j++){
+    if(!this.template_AR[this.template_AR[templ_idx].childTempl_idx_AR[i]].object_AR[j].newLinkToExistingObject){   // 20261105 no Maintain for the create-link row
+    html_str = html_str + "<tr><td><input type='button' class='maintain_child' id='maintain_" + i + "_" + j + "' data-sess_id='" + this.id + "' data-templ_idx='" + this.template_AR[templ_idx].childTempl_idx_AR[i] + "' data-obj_idx='" + j + "' value='Maintain'></td></tr>";   // 20261018 - child objects only  // 20261020 data-sess_id, data-templ_idx, data-obj_idx
+    } // endif
     var html_ns_sizex = 30;
     var html_code_sizex = 5;
    if(this.template_AR[this.template_AR[templ_idx].childTempl_idx_AR[i]].object_AR[j].newLinkToExistingObject){  // 20200821
-    html_str = html_str + "<tr><td>Create Link to Existing Object NS-Code-Status-Value </td><td><input type=\"TEXT\" id='"+ this.template_AR[this.template_AR[templ_idx].childTempl_idx_AR[i]].object_AR[j].objZTIC_ns_html_id+ "' size='"+html_ns_sizex+"' value='"+ this.template_AR[this.template_AR[templ_idx].childTempl_idx_AR[i]].object_AR[j].objZTIC_ns_html_input_val+"'"+"</td><td><input type=\"TEXT\" id='"+ this.template_AR[this.template_AR[templ_idx].childTempl_idx_AR[i]].object_AR[j].objCodeAssigned_html_id+ "' size='"+html_code_sizex+"' value='"+ this.template_AR[this.template_AR[templ_idx].childTempl_idx_AR[i]].object_AR[j].objCodeAssigned_html_input_val+"'"+"</td><td><input type=\"TEXT\" id='"+ this.template_AR[this.template_AR[templ_idx].childTempl_idx_AR[i]].object_AR[j].linkStatus_html_id+ "' size='"+"5"+"' value='"+ this.template_AR[this.template_AR[templ_idx].childTempl_idx_AR[i]].object_AR[j].linkStatus_html_input_val+"'"+ "</td><td><input type=\"TEXT\" id='" + this.template_AR[this.template_AR[templ_idx].childTempl_idx_AR[i]].object_AR[j].linkValue_html_id+ "' size='"+"10"+"' value='"+ this.template_AR[this.template_AR[templ_idx].childTempl_idx_AR[i]].object_AR[j].linkValue_html_input_val+"'"+"</td></tr>";
+    //(del) 20261105 html_str = html_str + ... - collected in create_link_html, shown at the end of the section
+    //create_link_html = create_link_html + "<tr><td>Create Link to Existing Object NS-Code-Status-Value </td><td><input type=\"TEXT\" id='"+ this.template_AR[this.template_AR[templ_idx].childTempl_idx_AR[i]].object_AR[j].objZTIC_ns_html_id+ "' size='"+html_ns_sizex+"' value='"+ this.template_AR[this.template_AR[templ_idx].childTempl_idx_AR[i]].object_AR[j].objZTIC_ns_html_input_val+"'"+"</td><td><input type=\"TEXT\" id='"+ this.template_AR[this.template_AR[templ_idx].childTempl_idx_AR[i]].object_AR[j].objCodeAssigned_html_id+ "' size='"+html_code_sizex+"' value='"+ this.template_AR[this.template_AR[templ_idx].childTempl_idx_AR[i]].object_AR[j].objCodeAssigned_html_input_val+"'"+"</td><td><input type=\"TEXT\" id='"+ this.template_AR[this.template_AR[templ_idx].childTempl_idx_AR[i]].object_AR[j].linkStatus_html_id+ "' size='"+"5"+"' value='"+ this.template_AR[this.template_AR[templ_idx].childTempl_idx_AR[i]].object_AR[j].linkStatus_html_input_val+"'"+ "</td><td><input type=\"TEXT\" id='" + this.template_AR[this.template_AR[templ_idx].childTempl_idx_AR[i]].object_AR[j].linkValue_html_id+ "' size='"+"10"+"' value='"+ this.template_AR[this.template_AR[templ_idx].childTempl_idx_AR[i]].object_AR[j].linkValue_html_input_val+"'"+"</td></tr>";   //(del) 20261105
+    create_link_html = create_link_html + this.getCreateLinkRowHtml(this.template_AR[this.template_AR[templ_idx].childTempl_idx_AR[i]].object_AR[j]);   // 20261105 label and inputs in one cell, inputs right after the label
 
-    html_str = html_str +   "<br />";
+    //html_str = html_str +   "<br />";   //(del) 20261105 row moved to the end of the section
    } // endif 20200821
 
 
    if(!(this.template_AR[this.template_AR[templ_idx].childTempl_idx_AR[i]].object_AR[j].newLinkToExistingObject)){   // 20210415
-   html_str = html_str + "<tr><td>===== Code: "+this.template_AR[this.template_AR[templ_idx].childTempl_idx_AR[i]].object_AR[j].objCodeAssigned+"</td><td><input type=\"TEXT\" id='"+ this.template_AR[this.template_AR[templ_idx].childTempl_idx_AR[i]].object_AR[j].linkStatus_html_id+ "' size='"+"5"+"' value='"+ this.template_AR[this.template_AR[templ_idx].childTempl_idx_AR[i]].object_AR[j].linkStatus_html_input_val+"'"+ "</td><td><input type=\"TEXT\" id='" + this.template_AR[this.template_AR[templ_idx].childTempl_idx_AR[i]].object_AR[j].linkValue_html_id+ "' size='"+"10"+"' value='"+ this.template_AR[this.template_AR[templ_idx].childTempl_idx_AR[i]].object_AR[j].linkValue_html_input_val+"'"+"</td></tr>"; 
-   }  // endif 
- 
+   //html_str = html_str + "<tr><td>===== Code: "+this.template_AR[this.template_AR[templ_idx].childTempl_idx_AR[i]].object_AR[j].objCodeAssigned+"</td><td><input type=\"TEXT\" id='"+ this.template_AR[this.template_AR[templ_idx].childTempl_idx_AR[i]].object_AR[j].linkStatus_html_id+ "' size='"+"5"+"' value='"+ this.template_AR[this.template_AR[templ_idx].childTempl_idx_AR[i]].object_AR[j].linkStatus_html_input_val+"'"+ "</td><td><input type=\"TEXT\" id='" + this.template_AR[this.template_AR[templ_idx].childTempl_idx_AR[i]].object_AR[j].linkValue_html_id+ "' size='"+"10"+"' value='"+ this.template_AR[this.template_AR[templ_idx].childTempl_idx_AR[i]].object_AR[j].linkValue_html_input_val+"'"+"</td></tr>";    //(del) 20261105
+   //html_str = html_str + "<tr><td>===== Code: "+this.template_AR[this.template_AR[templ_idx].childTempl_idx_AR[i]].object_AR[j].objCodeAssigned+"</td><td><input type=\"TEXT\" id='"+ this.template_AR[this.template_AR[templ_idx].childTempl_idx_AR[i]].object_AR[j].linkStatus_html_id+ "' size='5' placeholder='Status' value='"+ this.template_AR[this.template_AR[templ_idx].childTempl_idx_AR[i]].object_AR[j].linkStatus_html_input_val+"'>"+ "</td><td><input type=\"TEXT\" id='" + this.template_AR[this.template_AR[templ_idx].childTempl_idx_AR[i]].object_AR[j].linkValue_html_id+ "' size='10' placeholder='Value' value='"+ this.template_AR[this.template_AR[templ_idx].childTempl_idx_AR[i]].object_AR[j].linkValue_html_input_val+"'>"+"</td></tr>";   // 20261105 Status / Value shown inside the fields, inputs closed with >   //(del) 20261105
+   //html_str = html_str + "<tr><td colspan='6' style='white-space:nowrap'>===== Code: "+this.template_AR[this.template_AR[templ_idx].childTempl_idx_AR[i]].object_AR[j].objCodeAssigned+"&nbsp; <input type=\"TEXT\" id='"+ this.template_AR[this.template_AR[templ_idx].childTempl_idx_AR[i]].object_AR[j].linkStatus_html_id+ "' size='5' placeholder='Status' value='"+ this.template_AR[this.template_AR[templ_idx].childTempl_idx_AR[i]].object_AR[j].linkStatus_html_input_val+"'>"+ " <input type=\"TEXT\" id='" + this.template_AR[this.template_AR[templ_idx].childTempl_idx_AR[i]].object_AR[j].linkValue_html_id+ "' size='10' placeholder='Value' value='"+ this.template_AR[this.template_AR[templ_idx].childTempl_idx_AR[i]].object_AR[j].linkValue_html_input_val+"'>"+"</td></tr>";   // 20261105 Status / Value shown inside the fields, inputs closed with >   // 20261105 Code, Status and Value in one cell   //(del) 20261105
+   html_str = html_str + "<tr><td colspan='6' style='white-space:nowrap'>===== Code: "+this.getCodeLabelHtml(this.template_AR[this.template_AR[templ_idx].childTempl_idx_AR[i]].object_AR[j])+"&nbsp; <input type=\"TEXT\" id='"+ this.template_AR[this.template_AR[templ_idx].childTempl_idx_AR[i]].object_AR[j].linkStatus_html_id+ "' size='5' placeholder='Status' value='"+ this.template_AR[this.template_AR[templ_idx].childTempl_idx_AR[i]].object_AR[j].linkStatus_html_input_val+"'>"+ " <input type=\"TEXT\" id='" + this.template_AR[this.template_AR[templ_idx].childTempl_idx_AR[i]].object_AR[j].linkValue_html_id+ "' size='10' placeholder='Value' value='"+ this.template_AR[this.template_AR[templ_idx].childTempl_idx_AR[i]].object_AR[j].linkValue_html_input_val+"'>"+"</td></tr>";   // 20261105 Status / Value shown inside the fields, inputs closed with >   // 20261105 Code, Status and Value in one cell   // 20261105 <new> in grey when no code is assigned yet
+   }  // endif
+
    for(var k = 0; k < this.template_AR[this.template_AR[templ_idx].childTempl_idx_AR[i]].object_AR[j].OE_val_AR.length; k++){
 
-    
+
         html_labelx = "";
         for(var l = 0; l < this.template_AR[this.template_AR[templ_idx].childTempl_idx_AR[i]].OE_def_AR.length; l++){
           if(this.template_AR[this.template_AR[templ_idx].childTempl_idx_AR[i]].OE_def_AR[l].OE_ztic == this.template_AR[this.template_AR[templ_idx].childTempl_idx_AR[i]].object_AR[j].OE_val_AR[k].OE_ztic &&
@@ -4341,13 +5496,14 @@ for(var i = 0; i < this.template_AR[templ_idx].childTempl_idx_AR.length; i++){
 
 //console.log("%%^ 20211120 html_sizex: "+html_sizex);
 if(html_sizex < 80){
-html_str = html_str + "<tr><td>"+ html_labelx+"</td><td> <input type=\"TEXT\" id='"+ this.template_AR[this.template_AR[templ_idx].childTempl_idx_AR[i]].object_AR[j].OE_val_AR[k].html_id+ "' size='"+html_sizex+"' value='"+ this.template_AR[this.template_AR[templ_idx].childTempl_idx_AR[i]].object_AR[j].OE_val_AR[k].html_input_val+"'" +"></td></tr>";}
+html_str = html_str + "<tr><td>"+ html_labelx+"</td><td> <input type=\"TEXT\""+ (this.isForeignObject(this.template_AR[this.template_AR[templ_idx].childTempl_idx_AR[i]].object_AR[j]) ? this.foreign_ro_attr : "") +" id='"+ this.template_AR[this.template_AR[templ_idx].childTempl_idx_AR[i]].object_AR[j].OE_val_AR[k].html_id+ "' size='"+html_sizex+"' value='"+ this.template_AR[this.template_AR[templ_idx].childTempl_idx_AR[i]].object_AR[j].OE_val_AR[k].html_input_val+"'" +"></td></tr>";}
    else{
 html_str = html_str + "<tr><td>   </td></tr>";
 html_str = html_str + "<tr><td>   </td></tr>";
 html_str = html_str + "<tr><td>"+html_labelx+"</td></tr>";
 
-html_str = html_str + "<tr><td><textarea name=\"comments\" id='"+ this.template_AR[this.template_AR[templ_idx].childTempl_idx_AR[i]].object_AR[j].OE_val_AR[k].html_id+ "' cols='80' rows='20'  value='"+ this.template_AR[this.template_AR[templ_idx].childTempl_idx_AR[i]].object_AR[j].OE_val_AR[k].html_input_val+"'" +">"+this.template_AR[this.template_AR[templ_idx].childTempl_idx_AR[i]].object_AR[j].OE_val_AR[k].html_input_val+"</textarea></td></tr>";
+//html_str = html_str + "<tr><td><textarea name=\"comments\""+ (this.isForeignObject(this.template_AR[this.template_AR[templ_idx].childTempl_idx_AR[i]].object_AR[j]) ? this.foreign_ro_attr : "") +" id='"+ this.template_AR[this.template_AR[templ_idx].childTempl_idx_AR[i]].object_AR[j].OE_val_AR[k].html_id+ "' cols='80' rows='20'  value='"+ this.template_AR[this.template_AR[templ_idx].childTempl_idx_AR[i]].object_AR[j].OE_val_AR[k].html_input_val+"'" +">"+this.template_AR[this.template_AR[templ_idx].childTempl_idx_AR[i]].object_AR[j].OE_val_AR[k].html_input_val+"</textarea></td></tr>";   //(del) 20261105
+html_str = html_str + "<tr><td colspan='6'><textarea name=\"comments\""+ (this.isForeignObject(this.template_AR[this.template_AR[templ_idx].childTempl_idx_AR[i]].object_AR[j]) ? this.foreign_ro_attr : "") +" id='"+ this.template_AR[this.template_AR[templ_idx].childTempl_idx_AR[i]].object_AR[j].OE_val_AR[k].html_id+ "' cols='80' rows='20'  value='"+ this.template_AR[this.template_AR[templ_idx].childTempl_idx_AR[i]].object_AR[j].OE_val_AR[k].html_input_val+"'" +">"+this.template_AR[this.template_AR[templ_idx].childTempl_idx_AR[i]].object_AR[j].OE_val_AR[k].html_input_val+"</textarea></td></tr>";   // 20261105 text area spans the row so it does not widen the label column
 
 
 }  // endif    
@@ -4357,12 +5513,126 @@ html_str = html_str + "<tr><td><textarea name=\"comments\" id='"+ this.template_
 
 
   } // endfor loop through object_AR
+  // 20261023 new linked objects added on the parent page (Add New Linked Object) - inserted before the end marker
+  if(!is_child_page && this.maint_mode != "display"){
+    var parent_new_obj_AR = this.getChildPageNewObj_AR(templ_idx, 0, this.template_AR[templ_idx].childTempl_idx_AR[i]);
+    for(var q = 0; q < parent_new_obj_AR.length; q++){
+      html_str = html_str + this.getNewLinkedObjectBlockHtml(this.template_AR[templ_idx].childTempl_idx_AR[i], parent_new_obj_AR[q]);
+    } // endfor
+    html_str = html_str + "<tr id='zt_new_end_" + templ_idx + "_0_" + this.template_AR[templ_idx].childTempl_idx_AR[i] + "' style='display:none'><td></td></tr>";
+  } // endif
+  html_str = html_str + create_link_html;   // 20261105 Create Link to Existing Object at the end of the link type section
+  html_str = html_str + "</table></fieldset><table>";   // 20261105 end of link type box
  } // endif if((this.maint_mode != "display" && this.template_AR[this.template_AR[templ_idx].childTempl_idx_AR[i]].templLevelsDown == 1 ) || this.maint_mode == "display") 20201104
 } // endfor loop through childTempl_idx_AR
+var wb_grid = {html: "", meta_AR: []};   // 20261107
+if(wb_grid_page){
+  wb_grid = this.getWorkbookGridHtml(templ_idx);
+  //html_str = html_str + "</table>" + wb_grid.html + "<table>";   // 20261107 Columns and Rows grid in the Links box   //(del) 20261110 shown after the Links box
+  //html_str = html_str + "<script>window.zt_wb_meta = " + JSON.stringify(wb_grid.meta_AR).replace(/</g, "\\u003c") + ";</script>";   // 20261107 held at Submit by zt_hold_workbook   //(del) 20261110
+} // endif wb_grid_page
+
+// start 20261021 child page links - existing links from the selected object plus a create-link row per link template
+if(is_child_page){
+  var child_link_templ_idx_AR = this.getChildLinkTemplIdx_AR(templ_idx);
+  for(var i = 0; i < child_link_templ_idx_AR.length; i++){
+    var ltx = this.template_AR[child_link_templ_idx_AR[i]];
+    html_str = html_str + "</table><fieldset class='zt_linktype'>";   // 20261105 box per link type (heading below is its legend)
+    for(var j = 0; j < this.template_AR[templ_idx].linkType_AR.length; j++){
+      if(this.template_AR[templ_idx].linkType_AR[j].linkType_ztic == ltx.linkableObjectLinkType_ztic && this.template_AR[templ_idx].linkType_AR[j].linkType_code == ltx.linkableObjectLinkType_code){
+        //html_str = html_str + "<tr><td><strong>"+ this.template_AR[templ_idx].linkType_AR[j].linkType_desc +" / Template: "+ltx.templDesc+"</strong>" + ((this.maint_mode != "display" && !page_readonly) ? this.getAddNewLinkedObjectButtonHtml(templ_idx, child_obj_idx_num, child_link_templ_idx_AR[i]) : "") + "</td></tr>";   // 20261023 Add New Linked Object  // 20261024 !page_readonly   //(del) 20261105
+        html_str = html_str + "<legend>"+ this.template_AR[templ_idx].linkType_AR[j].linkType_desc +" / Template: "+ltx.templDesc+ " " + ((this.maint_mode != "display" && !page_readonly) ? this.getAddNewLinkedObjectButtonHtml(templ_idx, child_obj_idx_num, child_link_templ_idx_AR[i]) : "") + "</legend>";   // 20261105 legend of the link type box   // 20261023 Add New Linked Object  // 20261024 !page_readonly   // 20261105 spans the row so it does not widen the label column
+      } // endif
+    } // endfor
+    html_str = html_str + "<table>";   // 20261105 rows of this link type
+    var link_obj_AR = this.getChildPageLinkObj_AR(templ_idx, child_obj_idx_num, child_link_templ_idx_AR[i]);
+    var link_table = this.isTableLinkTemplate(child_link_templ_idx_AR[i]);   // 20261026 UI attribute - linked objects listed as a table below
+    var child_create_link_html = "";   // 20261105 Create Link to Existing Object rows are shown at the end of the link type section
+    for(var j = 0; j < link_obj_AR.length; j++){
+      var lox = link_obj_AR[j];
+      if(page_readonly && lox.newLinkToExistingObject){ continue; }   // 20261024 display-only page - no new links
+      if(link_table && !lox.newLinkToExistingObject){ continue; }    // 20261026 table row below
+      if(lox.newLinkToExistingObject){
+        //(del) 20261105 html_str = html_str + ... - collected in child_create_link_html, shown at the end of the section
+        //child_create_link_html = child_create_link_html + "<tr><td>Create Link to Existing Object NS-Code-Status-Value </td><td><input type=\"TEXT\" id='"+ lox.objZTIC_ns_html_id+ "' size='30' value='"+ lox.objZTIC_ns_html_input_val+"'></td><td><input type=\"TEXT\" id='"+ lox.objCodeAssigned_html_id+ "' size='5' value='"+ lox.objCodeAssigned_html_input_val+"'></td><td><input type=\"TEXT\" id='"+ lox.linkStatus_html_id+ "' size='5' value='"+ lox.linkStatus_html_input_val+"'></td><td><input type=\"TEXT\" id='" + lox.linkValue_html_id+ "' size='10' value='"+ lox.linkValue_html_input_val+"'></td></tr>";   //(del) 20261105
+        child_create_link_html = child_create_link_html + this.getCreateLinkRowHtml(lox);   // 20261105 label and inputs in one cell, inputs right after the label
+      }
+      else{
+        html_str = html_str + "<tr><td><input type='button' class='maintain_child' id='maintain_link_" + i + "_" + j + "' data-sess_id='" + this.id + "' data-templ_idx='" + child_link_templ_idx_AR[i] + "' data-obj_idx='" + this.template_AR[child_link_templ_idx_AR[i]].object_AR.indexOf(lox) + "' value='Maintain'></td></tr>";   // 20261021 maintain grandchild
+        //html_str = html_str + "<tr><td>===== Code: "+lox.objCodeAssigned+ (this.isForeignObject(lox) ? " ("+ this.escapeHtml(this.getNamespaceForZTIC(lox.objZTIC)) +", display only)" : "") +"</td><td><input type=\"TEXT\""+ page_ro_attr +" id='"+ lox.linkStatus_html_id+ "' size='5' value='"+ lox.linkStatus_html_input_val+"'></td><td><input type=\"TEXT\""+ page_ro_attr +" id='" + lox.linkValue_html_id+ "' size='10' value='"+ lox.linkValue_html_input_val+"'></td></tr>";   // 20261024 foreign namespace note, page_ro_attr   //(del) 20261105
+        //html_str = html_str + "<tr><td>===== Code: "+lox.objCodeAssigned+ (this.isForeignObject(lox) ? " ("+ this.escapeHtml(this.getNamespaceForZTIC(lox.objZTIC)) +", display only)" : "") +"</td><td><input type=\"TEXT\""+ page_ro_attr +" id='"+ lox.linkStatus_html_id+ "' size='5' placeholder='Status' value='"+ lox.linkStatus_html_input_val+"'></td><td><input type=\"TEXT\""+ page_ro_attr +" id='" + lox.linkValue_html_id+ "' size='10' placeholder='Value' value='"+ lox.linkValue_html_input_val+"'></td></tr>";   // 20261024 foreign namespace note, page_ro_attr   // 20261105 Status / Value shown inside the fields   //(del) 20261105
+        //html_str = html_str + "<tr><td colspan='6' style='white-space:nowrap'>===== Code: "+lox.objCodeAssigned+ (this.isForeignObject(lox) ? " ("+ this.escapeHtml(this.getNamespaceForZTIC(lox.objZTIC)) +", display only)" : "") +"&nbsp; <input type=\"TEXT\""+ page_ro_attr +" id='"+ lox.linkStatus_html_id+ "' size='5' placeholder='Status' value='"+ lox.linkStatus_html_input_val+"'> <input type=\"TEXT\""+ page_ro_attr +" id='" + lox.linkValue_html_id+ "' size='10' placeholder='Value' value='"+ lox.linkValue_html_input_val+"'></td></tr>";   // 20261024 foreign namespace note, page_ro_attr   // 20261105 Status / Value shown inside the fields   // 20261105 Code, Status and Value in one cell   //(del) 20261105
+        html_str = html_str + "<tr><td colspan='6' style='white-space:nowrap'>===== Code: "+this.getCodeLabelHtml(lox)+ (this.isForeignObject(lox) ? " ("+ this.escapeHtml(this.getNamespaceForZTIC(lox.objZTIC)) +", display only)" : "") +"&nbsp; <input type=\"TEXT\""+ page_ro_attr +" id='"+ lox.linkStatus_html_id+ "' size='5' placeholder='Status' value='"+ lox.linkStatus_html_input_val+"'> <input type=\"TEXT\""+ page_ro_attr +" id='" + lox.linkValue_html_id+ "' size='10' placeholder='Value' value='"+ lox.linkValue_html_input_val+"'></td></tr>";   // 20261024 foreign namespace note, page_ro_attr   // 20261105 Status / Value shown inside the fields   // 20261105 Code, Status and Value in one cell   // 20261105 <new> in grey when no code is assigned yet
+        // 20261021 OE values of the linked grandchild - same ids as on its own page, held for the parent Submit by Apply to Parent
+        for(var k = 0; k < lox.OE_val_AR.length; k++){
+          var gc_labelx = "";
+          var gc_sizex  = 30;
+          for(var l = 0; l < ltx.OE_def_AR.length; l++){
+            if(ltx.OE_def_AR[l].OE_ztic == lox.OE_val_AR[k].OE_ztic && ltx.OE_def_AR[l].OE_code == lox.OE_val_AR[k].OE_code){
+              gc_labelx = ltx.OE_def_AR[l].html_label;
+              if(ltx.OE_def_AR[l].html_size != undefined && ltx.OE_def_AR[l].html_size !== ""){ gc_sizex = ltx.OE_def_AR[l].html_size; }
+            } // endif
+          } // endfor
+          if(gc_sizex < 80){
+            html_str = html_str + "<tr><td>"+ gc_labelx +"</td><td> <input type=\"TEXT\""+ ((page_readonly || this.isForeignObject(lox)) ? this.foreign_ro_attr : "") +" id='"+ lox.OE_val_AR[k].html_id +"' size='"+ gc_sizex +"' value='"+ lox.OE_val_AR[k].html_input_val +"'></td></tr>";
+          }
+          else{
+            html_str = html_str + "<tr><td>"+ gc_labelx +"</td></tr>";
+            //html_str = html_str + "<tr><td><textarea name=\"comments\""+ ((page_readonly || this.isForeignObject(lox)) ? this.foreign_ro_attr : "") +" id='"+ lox.OE_val_AR[k].html_id +"' cols='80' rows='20'>"+ lox.OE_val_AR[k].html_input_val +"</textarea></td></tr>";   //(del) 20261105
+            html_str = html_str + "<tr><td colspan='6'><textarea name=\"comments\""+ ((page_readonly || this.isForeignObject(lox)) ? this.foreign_ro_attr : "") +" id='"+ lox.OE_val_AR[k].html_id +"' cols='80' rows='20'>"+ lox.OE_val_AR[k].html_input_val +"</textarea></td></tr>";   // 20261105 text area spans the row so it does not widen the label column
+          } // endif gc_sizex < 80
+        } // endfor loop through lox.OE_val_AR
+      } // endif lox.newLinkToExistingObject
+    } // endfor loop through link_obj_AR
+
+    // 20261021 new object to create and link from this object
+    // 20261023 all new objects of the link template, Add New Linked Object inserts more before the end marker
+    var new_obj_AR = this.getChildPageNewObj_AR(templ_idx, child_obj_idx_num, child_link_templ_idx_AR[i]);
+    if(link_table){   // 20261026 one row per linked object, object element descriptions in the heading row
+      html_str = html_str + "<tr><td colspan='5'><table style='border-collapse:collapse;' border='1' cellpadding='3'>";
+      html_str = html_str + this.getLinkedObjectTableHeadingHtml(child_link_templ_idx_AR[i]);
+      for(var j = 0; j < link_obj_AR.length; j++){
+        if(link_obj_AR[j].newLinkToExistingObject){ continue; }
+        html_str = html_str + this.getLinkedObjectTableRowHtml(child_link_templ_idx_AR[i], link_obj_AR[j], page_readonly);
+      } // endfor
+      for(var q = 0; q < new_obj_AR.length && !page_readonly; q++){
+        html_str = html_str + this.getNewLinkedObjectBlockHtml(child_link_templ_idx_AR[i], new_obj_AR[q]);   // table row in table mode
+      } // endfor
+      html_str = html_str + "<tr id='zt_new_end_" + templ_idx + "_" + child_obj_idx_num + "_" + child_link_templ_idx_AR[i] + "' style='display:none'><td></td></tr>";   // Add New Linked Object inserts rows before this
+      html_str = html_str + "</table></td></tr>";
+    }
+    else{
+    for(var q = 0; q < new_obj_AR.length && !page_readonly; q++){   // 20261024 !page_readonly
+      html_str = html_str + this.getNewLinkedObjectBlockHtml(child_link_templ_idx_AR[i], new_obj_AR[q]);
+    } // endfor
+    html_str = html_str + "<tr id='zt_new_end_" + templ_idx + "_" + child_obj_idx_num + "_" + child_link_templ_idx_AR[i] + "' style='display:none'><td></td></tr>";
+    } // endif link_table
+    html_str = html_str + child_create_link_html;   // 20261105 Create Link to Existing Object at the end of the link type section
+    html_str = html_str + "</table></fieldset><table>";   // 20261105 end of link type box
+  } // endfor loop through child_link_templ_idx_AR
+} // endif is_child_page
+// end 20261021
+
  html_str = html_str + "</table>";
+ html_str = html_str + "</fieldset>";   // 20261105 end of Links box
+ if(wb_grid_page && wb_grid.html != ""){   // 20261110 Grid box (workbook) after the Links box
+   html_str = html_str + wb_grid.html;
+   html_str = html_str + "<script>window.zt_wb_meta = " + JSON.stringify(wb_grid.meta_AR).replace(/</g, "\\u003c") + ";</script>";   // 20261107 held at Submit by zt_hold_workbook
+ } // endif
 
 
+  if(!is_child_page){   // 20261020
   html_str = html_str + "<br /> <br /><br /><input type='button' id='submit' value='Submit'><br /><br /> <br /><br />";
+  }
+  else
+  {
+  if(page_readonly){   // 20261024
+  html_str = html_str + "<br /> <br /><br /><strong>Display only</strong> - this object is in namespace " + this.escapeHtml(this.getNamespaceForZTIC(this.template_AR[templ_idx].object_AR[child_obj_idx_num].objZTIC)) + ", not the target namespace " + this.escapeHtml(this.TargetNS) + ".<br /><br /> <br /><br />";
+  }
+  else
+  //html_str = html_str + "<br /> <br /><br /><input type='button' id='apply_to_parent' value='Apply to Parent'> (changes are sent to the server when Submit is clicked on the parent page)<br /><br /> <br /><br />";   // 20261020   //(del) 20261105
+  html_str = html_str + "<br /> <br /><br /><input type='button' id='apply_to_parent' value='Apply'><br /><br /> <br /><br />";   // 20261105 shorter label, id unchanged (Apply handler)
+  } // endif !is_child_page
 
  html_str = html_str + "</body>";
 
@@ -4935,6 +6205,7 @@ function ObjectRec(){
    this.linkStatus_html_input_val = "";  //   input val of status of link to this object
    this.linkValue_html_id         = "";  //   link value of link to this object
    this.linkValue_html_input_val  = "";  //   input val of link value of link to this object
+   this.linkFromObj_key           = "";  //   20261021 kindZTIC_kindCode_objZTIC_objCode of the object linking to this object (child page links), "new_<templ_idx>_<obj_idx>" for a child page create-link row
 
 
 }// end of ObjectRec

@@ -763,11 +763,11 @@ listAllValues(){
    console.log("  ");
    console.log("    Object Type Value count: "+this.typeValueIdx_AR.length);
    for (var i = 0; i < this.typeValueIdx_AR.length; i++){
-     console.log("       i: "+i+" - "+this.svr1.ZtObjecttypeValueIdx_AR[this.typeValueIdx_AR[i]].typeDef_ztic+"-"+
-                                      this.svr1.ZtObjecttypeValueIdx_AR[this.typeValueIdx_AR[i]].typeDef_code+"-"+ 
-                                      this.svr1.ZtObjecttypeValueIdx_AR[this.typeValueIdx_AR[i]].typeValue_ztic+"-"+  
-                                      this.svr1.ZtObjecttypeValueIdx_AR[this.typeValueIdx_AR[i]].typeValue_code+"-"+ 
-                                      this.svr1.ZtObjecttypeValueIdx_AR[this.typeValueIdx_AR[i]].timestamp+"---type val idx: "+
+     console.log("       i: "+i+" - "+this.svr1.ZtObjectTypeValue_AR[this.typeValueIdx_AR[i]].typeDef_ztic+"-"+   // 20261115 ZtObjectTypeValue_AR (was misspelled ZtObjecttypeValueIdx_AR)
+                                      this.svr1.ZtObjectTypeValue_AR[this.typeValueIdx_AR[i]].typeDef_code+"-"+   // 20261115 ZtObjectTypeValue_AR (was misspelled ZtObjecttypeValueIdx_AR)
+                                      this.svr1.ZtObjectTypeValue_AR[this.typeValueIdx_AR[i]].typeValue_ztic+"-"+   // 20261115 ZtObjectTypeValue_AR (was misspelled ZtObjecttypeValueIdx_AR)
+                                      this.svr1.ZtObjectTypeValue_AR[this.typeValueIdx_AR[i]].typeValue_code+"-"+   // 20261115 ZtObjectTypeValue_AR (was misspelled ZtObjecttypeValueIdx_AR)
+                                      this.svr1.ZtObjectTypeValue_AR[this.typeValueIdx_AR[i]].timestamp+"---type val idx: "+   // 20261115 ZtObjectTypeValue_AR (was misspelled ZtObjecttypeValueIdx_AR)
                                       this.typeValueIdx_AR[i] );
 
                                       html_list_return.typeVal = html_list_return.typeVal + "<tr>";
@@ -775,10 +775,10 @@ listAllValues(){
                                       html_list_return.typeVal = html_list_return.typeVal + "<td>"+this.kindCode+"</td>";
                                       html_list_return.typeVal = html_list_return.typeVal + "<td>"+this.objZTIC+"</td>";
                                       html_list_return.typeVal = html_list_return.typeVal + "<td>"+this.objCode+"</td>";
-                                      html_list_return.typeVal = html_list_return.typeVal + "<td>"+this.svr1.ZtObjecttypeValueIdx_AR[this.typeValueIdx_AR[i]].typeDef_ztic+"</td>";
-                                      html_list_return.typeVal = html_list_return.typeVal + "<td>"+this.svr1.ZtObjecttypeValueIdx_AR[this.typeValueIdx_AR[i]].typeDef_code+"</td>";
-                                      html_list_return.typeVal = html_list_return.typeVal + "<td>"+this.svr1.ZtObjecttypeValueIdx_AR[this.typeValueIdx_AR[i]].typeValue_ztic+"</td>"; 
-                                      html_list_return.typeVal = html_list_return.typeVal + "<td>"+this.svr1.ZtObjecttypeValueIdx_AR[this.typeValueIdx_AR[i]].typeValue_code+"</td>"; 
+                                      html_list_return.typeVal = html_list_return.typeVal + "<td>"+this.svr1.ZtObjectTypeValue_AR[this.typeValueIdx_AR[i]].typeDef_ztic+"</td>";   // 20261115 ZtObjectTypeValue_AR (was misspelled ZtObjecttypeValueIdx_AR)
+                                      html_list_return.typeVal = html_list_return.typeVal + "<td>"+this.svr1.ZtObjectTypeValue_AR[this.typeValueIdx_AR[i]].typeDef_code+"</td>";   // 20261115 ZtObjectTypeValue_AR (was misspelled ZtObjecttypeValueIdx_AR)
+                                      html_list_return.typeVal = html_list_return.typeVal + "<td>"+this.svr1.ZtObjectTypeValue_AR[this.typeValueIdx_AR[i]].typeValue_ztic+"</td>";   // 20261115 ZtObjectTypeValue_AR (was misspelled ZtObjecttypeValueIdx_AR)
+                                      html_list_return.typeVal = html_list_return.typeVal + "<td>"+this.svr1.ZtObjectTypeValue_AR[this.typeValueIdx_AR[i]].typeValue_code+"</td>";   // 20261115 ZtObjectTypeValue_AR (was misspelled ZtObjecttypeValueIdx_AR)
 
 
                                       html_list_return.typeVal = html_list_return.typeVal + "</tr>";
@@ -891,18 +891,20 @@ getReferencedObjectIdx_AR(template_def_idx, timestampx){
 
   while(!done){
     var template_def_obj     =  this.svr1.ZtObject_AR[current_template_def_idx];
+    if(template_def_obj == undefined){ break; }   // 20261115 referenced template not found
     var template_found = false;
+    newest_timestamp = 0;   // 20261115 newest reference per template in the chain
     //console.log("20231009e template_def_obj.typeValueIdx_AR.length: "+template_def_obj.typeValueIdx_AR.length);
     for (var i = 0; i < template_def_obj.typeValueIdx_AR.length; i++){
        // check if type def code 30--reference template for a template
       // console.log("20231009c this.svr1.ZtObjecttypeValueIdx_AR[template_def_obj.typeValueIdx_AR[i]].typeDef_ztic - base_ztic_str: "+this.svr1.ZtObjecttypeValueIdx_AR[template_def_obj.typeValueIdx_AR[i]].typeDef_ztic + " - "+ base_ztic_str);
       // console.log("20231009d this.svr1.ZtObjecttypeValueIdx_AR[template_def_obj.typeValueIdx_AR[i]].typeDef_code: "+this.svr1.ZtObjecttypeValueIdx_AR[template_def_obj.typeValueIdx_AR[i]].typeDef_code);
        if(this.svr1.ZtObjectTypeValue_AR[template_def_obj.typeValueIdx_AR[i]].typeDef_ztic == base_ztic_str && this.svr1.ZtObjectTypeValue_AR[template_def_obj.typeValueIdx_AR[i]].typeDef_code == "30" && this.svr1.ZtObjectTypeValue_AR[template_def_obj.typeValueIdx_AR[i]].timestamp <= timestampx ){
-         if(newest_timestamp < this.svr1.ZtObjecttypeValueIdx_AR[template_def_obj.typeValueIdx_AR[i]].timestamp){
-            newest_timestamp = this.svr1.ZtObjecttypeValueIdx_AR[template_def_obj.typeValueIdx_AR[i]].timestamp;
+         if(newest_timestamp < this.svr1.ZtObjectTypeValue_AR[template_def_obj.typeValueIdx_AR[i]].timestamp){   // 20261115 ZtObjectTypeValue_AR (was misspelled ZtObjecttypeValueIdx_AR)
+            newest_timestamp = this.svr1.ZtObjectTypeValue_AR[template_def_obj.typeValueIdx_AR[i]].timestamp;   // 20261115 ZtObjectTypeValue_AR (was misspelled ZtObjecttypeValueIdx_AR)
             template_found = true;
         //    console.log("20231011a template_found: "+template_found);
-            const refTemplKeyStr = this.dbzti_id+"_"+base_ztic_str+"_2_"+this.svr1.ZtObjecttypeValueIdx_AR[template_def_obj.typeValueIdx_AR[i]].typeValue_ztic+"_"+this.svr1.ZtObjecttypeValueIdx_AR[template_def_obj.typeValueIdx_AR[i]].typeValue_code;
+            const refTemplKeyStr = this.dbzti_id+"_"+base_ztic_str+"_2_"+this.svr1.ZtObjectTypeValue_AR[template_def_obj.typeValueIdx_AR[i]].typeValue_ztic+"_"+this.svr1.ZtObjectTypeValue_AR[template_def_obj.typeValueIdx_AR[i]].typeValue_code;   // 20261115 ZtObjectTypeValue_AR (was misspelled ZtObjecttypeValueIdx_AR)
             const  ref_templ_obj_idx =  this.svr1.ZtObject_idx_HM.get(refTemplKeyStr);
         //    console.log("20231011b refTemplKeyStr - ref_templ_obj_idx: "+refTemplKeyStr+" - "+ref_templ_obj_idx);
             current_template_def_idx = ref_templ_obj_idx;
@@ -1210,7 +1212,7 @@ var top_resp_item = new  ZtObjectResponseItem(id_num, parent_id_num, this.svr1, 
       if(!resp_item_AR[i].complete){
          resp_item_AR[i].complete = true;  // 20200707   
          child_response_type = resp_item_AR[i].responseType;
-        // console.log("20230709 resp_item_AR[i].keyString: "+resp_item_AR[i].keyString);
+        // console.log("20261104b resp_item_AR[i].keyString: "+resp_item_AR[i].keyString);
          var obj_index   = this.svr1.ZtObject_idx_HM.get(resp_item_AR[i].keyString);
         // console.log("20230709 obj_index: "+obj_index);
         // console.log("20200821a resp_item_AR[i].keyString: "+resp_item_AR[i].keyString);
@@ -1221,7 +1223,7 @@ var top_resp_item = new  ZtObjectResponseItem(id_num, parent_id_num, this.svr1, 
 
          //time_before = timex.now();
 //         console.log("%%% 20220801 time before getOEvalueIdx: "+timex.now());
-      //   console.log("20231122f obj_index: "+obj_index);
+      //   console.log("20261104a obj_index: "+obj_index);
       //   console.log("20231122g templ_def_index: "+templ_def_index);
       //   console.log("20231122h timestampx: "+timestampx);
          resp_item_AR[i].objElemIdx_AR = this.svr1.ZtObject_AR[obj_index].getOEvalueIdxForTemplateDef(templ_def_index, msgx.extendedKeyWA_AR, timestampx, techProfileIdx_ARx);  
@@ -1278,10 +1280,23 @@ var top_resp_item = new  ZtObjectResponseItem(id_num, parent_id_num, this.svr1, 
 
 
             var templ_idx_of_linkable_obj = this.getTemplateIdxOfLinkableObject(link_type_ztic, link_type_code, timestampx);
-//            console.log(" ");
-//            console.log("20200805 in zt_server_object.js templ_idx_of_linkable_obj: "+templ_idx_of_linkable_obj);
-//            console.log("   link_type_ztic - link_type_code: "+link_type_ztic+" - "+link_type_code);
-//            console.log(" ");
+            //console.log(" ");
+            //console.log("20200805 in zt_server_object.js templ_idx_of_linkable_obj: "+templ_idx_of_linkable_obj);
+            //console.log("   link_type_ztic - link_type_code: "+link_type_ztic+" - "+link_type_code);
+            //console.log(" ");
+            //start 20261102
+/// for (var i = 0; i < this.svr1.ZTICDomain_AR.length; i++) {      
+
+///       for (var j = 0; j < this.svr1.ZTICDomain_AR[i].ZTICNS_AR.length; j++) {
+///              console.log("20261102 in zt_server_object.js NS and code");
+///              console.log(this.svr1.ZTICDomain_AR[i].ZTICNS_AR[j].namespace);
+///              console.log(this.svr1.ZTICDomain_AR[i].ZTICNS_AR[j].code);
+///              console.log(" ");
+///       } // endfor this.ZTICDomain_AR[i].ZTICNS_AR.length
+    
+
+///  }  // endfor loop through this.ZTICDomain_AR
+            // end 20261102
 
              var linkable_obj_templ_resp_item = new ZtObjectResponseItem(id_num, parent_id_num, this.svr1, this.dbzti_id, base_ztic, "2", this.svr1.ZtObject_AR[templ_idx_of_linkable_obj].objZTIC, this.svr1.ZtObject_AR[templ_idx_of_linkable_obj].objCode, base_ztic, "2", "2");  // took out querySetMember_memberIDx, left in query resp type param 20200526
                 linkable_obj_templ_resp_item.linkableObjectLinkType_ztic = link_type_ztic;

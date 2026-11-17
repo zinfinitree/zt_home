@@ -8,6 +8,7 @@ ZTIC 7    131131/22
 ZTIC 8    zinfinitree.com/time
 ZTIC 9    zinfinitree.com/time_tz_est
 ZTIC 10   zinfinitree.com/person
+ZTIC 11   zinfinitree.com/user_interface
 
 
 RZTI 1          receiver ztic
@@ -155,6 +156,7 @@ ELEM 2    10   3    5    2    10   2    10        Link Type: Menu Option to Appl
 ELEM 2    10   3    6    2    10   2    10        Link Type: Menu Option to Menu Option
 ELEM 2    10   3    7    2    10   2    10        Link Type: Application Action to Resource
 ELEM 2    10   3    8    2    10   2    10        Link Type: Application Page to default background Image
+ELEM 2    10   3    9    2    10   2    10        Link Type: Application to User Interface Profile
 ELEM 2    11   3    1    2    11   2    11        Link Target Type: Application to Application Page 
 ELEM 2    11   3    2    2    11   2    11        Link Target Type: Application Page to Menu 
 ELEM 2    11   3    3    2    11   2    11        Link Target Type: Application Page to Spreadsheet
@@ -163,6 +165,7 @@ ELEM 2    11   3    5    2    11   2    11        Link Target Type: Menu Option 
 ELEM 2    11   3    6    2    11   2    11        Link Target Type: Menu Opiion to Menu Option
 ELEM 2    11   3    7    2    11   2    11        Link Target Type: Application Action to Resource
 ELEM 2    11   3    8    2    11   2    11        Link Target Type: Application Page to default background Image MMO
+ELEM 2    11   3    9    2    11   2    11        Link Target Type: Application to User Interface Profile
 ELEM 2    9    3    1    2    9    2    9         Type Definition: Menu Type for Menu
 ELEM 2    9    3    2    2    9    2    9         Type Definition: Application Action Type for Application Action
 ELEM%2    9    3    3    2    9    2    9         Type Definition: Storage Location for a Thing
@@ -286,6 +289,7 @@ TYPE 2    10   3    5    2    2    3    5               link target type for lin
 TYPE 2    10   3    6    2    2    3    6               link target type for link type for menu option to menu option
 TYPE 2    10   3    7    2    2    3    7               link target type for link type for application action to resource
 TYPE 2    10   3    8    2    2    3    8               link target type for link type for application page to default background image MMO
+TYPE 2    10   3    9    2    2    3    9               link target type for link type for application to user interface profile
 
 
 
@@ -372,6 +376,7 @@ LINK 2    12   3    6    2    4    2    9    3    2    2    12   link tech profi
 
 
 LINK 2    12   3    1    2    5    2    10   3    1    2    12   link tech profile to link type for application to application page
+LINK 2    12   3    1    2    5    2    10   3    9    2    12   link tech profile to link type for application to UI profile
 LINK 2    12   3    2    2    5    2    10   3    2    2    12   link tech profile to link type for application page to menu
 LINK 2    12   3    2    2    5    2    10   3    3    2    12   link tech profile to link type for application page to spreadsheet  TEMP DEL 20220601 for test  
 LINK 2    12   3    3    2    5    2    10   3    4    2    12   link tech profile to link type for menu to menu option   
@@ -391,6 +396,7 @@ LINK 2    11   3    5    2    6    2    2    3    6    2    11   Link "Link Targ
 LINK 2    11   3    6    2    6    2    2    3    4    2    11   Link "Link Target Type" for Menu Option-->Menu Option to base template for Menu Option
 LINK 2    11   3    7    2    6    2    2    2    39   2    11   Link "Link Target Type" for Application Action-->Resource to base template for Resource 
 LINK 2    11   3    8    2    6    2    2    6    1    2    11   Link "Link Target Type" for Application Page-->MMO to base template for Image
+LINK 2    11   3    9    2    6    2    2    2    68   2    11   link 'Link Target Type" tor Application-->User Interface Profile to base template for User Interface Profile
 
 
 

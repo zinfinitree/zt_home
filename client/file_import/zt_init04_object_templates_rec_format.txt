@@ -86,6 +86,14 @@ ELEM 2    2    2    64   2    2    2    2         System Message Element Definit
 ELEM 2    2    2    65   2    2    2    2         System Message Element Definition Type (Base Template)
 ELEM 2    2    2    66   2    2    2    2         Numeric Data Type Details (Base Template)
 ELEM 2    2    2    67   2    2    2    2         Function Group Set Launch Point (Base Template)
+ELEM 2    2    2    68   2    1    2    1         User Interface Profile    
+ELEM 2    2    2    69   2    1    2    1         User Interface Attribute  
+ELEM 2    2    2    70   2    1    2    1         User Interface Attribute Type     
+ELEM 2    2    2    71   2    1    2    1         User Interface Attribute Category 
+
+
+
+
 
      ObjKind   Object    TypeDef   Type      Template  
 RecIdKdiscKcodeOzticOcodeTDdsiTDcodTzticTcodeTzticTcode
@@ -156,7 +164,12 @@ TYPE 2    2    2    63   2    3    2    63              Object Kind for template
 TYPE 2    2    2    64   2    3    2    64              Object Kind for template for System Message Element Definition (Base Template)
 TYPE 2    2    2    65   2    3    2    65              Object Kind for template for System Message Element Definition Type (Base Template)
 TYPE 2    2    2    66   2    3    2    66              Object Kind for template for Numeric Data Type Details (Base Template)
-ELEM 2    2    2    67   2    3    2    67              Object Kind for template for Function Group Set Launch Point (Base Template)
+TYPE 2    2    2    67   2    3    2    67              Object Kind for template for Function Group Set Launch Point (Base Template)
+TYPE 2    2    2    68   2    3    2    68              Object Kind for template for User Interface Profile    
+TYPE 2    2    2    69   2    3    2    69              Object Kind for template for User Interface Attribute  
+TYPE 2    2    2    70   2    3    2    70              Object Kind for template for User Interface Attribute Type     
+TYPE 2    2    2    71   2    3    2    71              Object Kind for template for User Interface Attribute Category 
+
 
 
 
@@ -230,7 +243,10 @@ LINK 2    2    2    64   2    1    2    12   2    64   2    2    System Message 
 LINK 2    2    2    65   2    1    2    12   2    65   2    2    System Message Element Definition Type to Base Technical Profile
 LINK 2    2    2    66   2    1    2    12   2    66   2    2    Numeric Data Type Details to Base Technical Profile
 LINK 2    2    2    67   2    1    2    12   2    67   2    2    Function Group Set Launch Point to Base Technical Profile
-
+LINK 2    2    2    68   2    1    2    12   2    68   2    2    User Interface Profile to Base Technical Profile    
+LINK 2    2    2    69   2    1    2    12   2    69   2    2    User Interface Attribute to Base Technical Profile  
+LINK 2    2    2    70   2    1    2    12   2    70   2    2    User Interface Attribute Type to Base Technical Profile     
+LINK 2    2    2    71   2    1    2    12   2    71   2    2    User Interface Attribute Category to Base Technical Profile 
 
 
 QSET%OTdsiOTcodSelMdRspSmQSMid                                           query set member format, not used for this message (excluded by %)

@@ -79,7 +79,7 @@ select() {
       console.log("20191104 this.msg.querySetMemberWA_AR[i].setMemberID/OT_ztic/OT_code:  "+this.msg.querySetMemberWA_AR[i].setMemberID+"/"+this.msg.querySetMemberWA_AR[i].objectTemplateZTIC+"/"+this.msg.querySetMemberWA_AR[i].objectTemplateCode);
       console.log("this.msg.querySetMemberWA_AR[i].selectionSet_idx_AR.length:  "+this.msg.querySetMemberWA_AR[i].selectionSetMember_idx_AR.length);
 
-      var templateKeyStr = this.msg.TabNamePrfx.toString().trim()+"_"+this.msg.serverZTICDom.getCodeForNS("131131/21").toString().trim() + "_2_" + this.msg.querySetMemberWA_AR[i].objectTemplateZTIC.toString().trim() +"_" + this.msg.querySetMemberWA_AR[i].objectTemplateCode.toString().trim();
+      var templateKeyStr = this.msg.dbZtI_id.toString().trim()+"_"+this.msg.serverZTICDom.getCodeForNS("131131/21").toString().trim() + "_2_" + this.msg.querySetMemberWA_AR[i].objectTemplateZTIC.toString().trim() +"_" + this.msg.querySetMemberWA_AR[i].objectTemplateCode.toString().trim();   // 20261115 dbZtI_id - messages never set TabNamePrfx
 
       for (var j = 0; j < this.msg.querySetMemberWA_AR[i].selectionSetMember_idx_AR.length; j++) {
          console.log(".selectionGroupNumber:  "+this.msg.querySelectionSetMemberWA_AR[this.msg.querySetMemberWA_AR[i].selectionSetMember_idx_AR[j]].selectionGroupNumber);

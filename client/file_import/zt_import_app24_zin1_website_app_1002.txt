@@ -15,6 +15,7 @@ ZTIC 14   zinfinitree.com/person
 ZTIC 15   zinfinitree.com/legal_entity
 ZTIC 16   zinfinitree.com/workflow
 ZTIC 17   zinfinitree.com/messaging
+ZTIC 18   zinfinitree.com/user_interface
 
 RZTI 1
 MPPG 5179248000.000      abc123              123       99   user1     10   2    
@@ -29,6 +30,9 @@ ELEM 9    2    1    2002 9    5                   ZinfiniTree
 LINK 9    2    1    2002 9    2    9    3    1    3002                          5179248000.000  
 ELEM 6    1    1    1001 6    1                   Default background image MMO for ZinfiniTree Public Main Page
 ELEM 2    39   1    390012    212                 /zin1/default_background_image1.jpg
+
+LINK 9    1    1    1002 9    9    2    68   18   1                             5179248000.000
+LINK 9    1    1    1005 9    9    2    68   18   1                             5179248000.000
 
 ELEM 9    3    1    3002 9    6                   Zinfintree Public Main Menu
 ELEM 9    3    1    3002 9    7                   Main Menu
@@ -81,6 +85,46 @@ ELEM 9    4    1    4036 9    9                   Contact Info
 LINK 9    4    1    4036 9    5    9    6    1    6008                          5179248000.000 
 ELEM 9    4    1    4021 9    8                   Video Library
 ELEM 9    4    1    4021 9    9                   Video
+
+LINK 9    4    1    4021 9    6    9    4    1    4602                          5179248000.000
+LINK%9    4    1    4021 9    6    9    4    1    4603                          5179248000.000
+LINK%9    4    1    4021 9    6    9    4    1    4604                          5179248000.000
+LINK%9    4    1    4021 9    6    9    4    1    4605                          5179248000.000
+LINK%9    4    1    4021 9    6    9    4    1    4606                          5179248000.000
+LINK%9    4    1    4021 9    6    9    4    1    4607                          5179248000.000
+
+ELEM 9    4    1    4602 9    8                   Video--Data Modeling
+ELEM 9    4    1    4602 9    9                   Data Modeling
+LINK 9    4    1    4602 9    5    9    6    1    6388                          5179248000.000
+
+ELEM%9    4    1    4603 9    8                   Video--xxx
+ELEM%9    4    1    4603 9    9                   xxx
+LINK%9    4    1    4603 9    5    9    6    1    6389                          5179248000.000
+
+ELEM%9    4    1    4604 9    8                   Video--yyy
+ELEM%9    4    1    4604 9    9                   yyy
+LINK%9    4    1    4604 9    5    9    6    1    6390                          5179248000.000
+
+ELEM%9    4    1    4605 9    8                   Video--zzz
+ELEM%9    4    1    4605 9    9                   zzz
+LINK%9    4    1    4605 9    5    9    6    1    6391                          5179248000.000
+
+ELEM%9    4    1    4606 9    8                   Video--aaa
+ELEM%9    4    1    4606 9    9                   aaa
+LINK%9    4    1    4606 9    5    9    6    1    6392                          5179248000.000
+
+ELEM%9    4    1    4607 9    8                   Video--bbb
+ELEM%9    4    1    4607 9    9                   bbb
+LINK%9    4    1    4607 9    5    9    6    1    6393                          5179248000.000
+
+ELEM 9    6    1    6388 9    11                  zt_video_data_modeling
+ELEM 9    6    1    6388 9    13         
+ELEM 9    6    1    6388 9    14         
+ELEM 9    6    1    6388 9    15      
+ELEM 9    6    1    6388 9    16  
+TYPE 9    6    1    6388 9    2    9    2
+
+
 ELEM 9    4    1    4022 9    8                   Library--Core Apps
 ELEM 9    4    1    4022 9    9                   Core Apps
 LINK 9    4    1    4022 9    6    9    4    1    4035                          5179248000.000
@@ -722,10 +766,13 @@ LINK 9    4    1    4034 9    6    9    4    1    4141                          
 LINK 9    4    1    4034 9    6    9    4    1    4142                          5179248000.000
 LINK 9    4    1    4034 9    6    9    4    1    4143                          5179248000.000
 
+
+         %20261113 start of add Workbook Display menu option. 4608 with 6394 appears to be available %20261113
 ELEM 9    4    1    4135 9    8                   Workbook
 ELEM 9    4    1    4135 9    9                   Workbook
 LINK 9    4    1    4135 9    6    9    4    1    4338                          5179248000.000
 LINK 9    4    1    4135 9    6    9    4    1    4339                          5179248000.000
+LINK 9    4    1    4135 9    6    9    4    1    4608                          5179248000.000
 LINK 9    4    1    4135 9    6    9    4    1    4340                          5179248000.000
 
 ELEM 9    4    1    4136 9    8                   Spreadsheet
@@ -1475,7 +1522,12 @@ ELEM 9    4    1    4338 9    9                   Create
 LINK 9    4    1    4338 9    5    9    6    1    6151                          5179248000.000          
 ELEM 9    4    1    4339 9    8                   Change Workbook option
 ELEM 9    4    1    4339 9    9                   Change
-LINK 9    4    1    4339 9    5    9    6    1    6152                          5179248000.000          
+LINK 9    4    1    4339 9    5    9    6    1    6152                          5179248000.000   
+
+ELEM 9    4    1    4608 9    8                   Display Workbook option
+ELEM 9    4    1    4608 9    9                   Display
+LINK 9    4    1    4608 9    5    9    6    1    6394                          5179248000.000 
+
 ELEM 9    4    1    4340 9    8                   List Workbook option
 ELEM 9    4    1    4340 9    9                   List
 LINK 9    4    1    4340 9    5    9    6    1    6153                          5179248000.000
@@ -1492,6 +1544,14 @@ ELEM 9    6    1    6152 9    14                  1
 ELEM 9    6    1    6152 9    15                  update
 ELEM 9    6    1    6152 9    16                  generic
 TYPE 9    6    1    6152 9    2    9    1 
+
+ELEM 9    6    1    6394 9    11                  Display Workbook
+ELEM 9    6    1    6394 9    13                  zinfinitree.com/spreadsheet
+ELEM 9    6    1    6394 9    14                  1
+ELEM 9    6    1    6394 9    15                  display
+ELEM 9    6    1    6394 9    16                  default
+TYPE 9    6    1    6394 9    2    9    1 
+
 ELEM 9    6    1    6153 9    11                  List Workbooks
 ELEM 9    6    1    6153 9    13                  zinfinitree.com/spreadsheet
 ELEM 9    6    1    6153 9    14                  1

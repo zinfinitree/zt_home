@@ -64,7 +64,8 @@ getValues(){
   var statusExclusion_AR  = [];  // revisit perhaps get it from msg
   const get_values_maxLevelsDown_99 = 99;  // REVISIT ??
 
-  var sv_wa = require('./ds2b00002_server_statistical_values_object_workarea');
+  //var sv_wa = require('./ds2b00002_server_statistical_values_object_workarea');   //(del) 20261113 old file name
+  var sv_wa = require('./zt_server_patch_00002_server_statistical_values_object_workarea');   // 20261113 renamed file (ds2b00002_... -> zt_server_patch_00002_...)
 
   const path_name = process.env.ZT_SERVER_HOME_DIR + "/zt_server_set";
 
@@ -81,7 +82,7 @@ getValues(){
 
   console.log("20250209b this.allowedTypeValue_idx_AR.length: "+this.allowedTypeValue_idx_AR.length);
   
-  var templDefForTypeDefPathKeyStr =     this.msg.TabNamePrfx.toString().trim() + "_"+ base_ztic+"_2_"+base_ztic+"_56";
+  var templDefForTypeDefPathKeyStr =     this.msg.dbZtI_id.toString().trim() + "_"+ base_ztic+"_2_"+base_ztic+"_56";   // 20261115 dbZtI_id - messages never set TabNamePrfx
   var template_def_idx_for_type_def_path = this.svr1.ZtObject_idx_HM.get(templDefForTypeDefPathKeyStr);
   var resp_item_for_type_def_path_AR = this.svr1.ZtObject_AR[this.type_def_path_obj_idx].getAllValuesForTemplateDef(template_def_idx_for_type_def_path, this.msg, this.svr1.time.now(), statusExclusion_AR, get_values_maxLevelsDown_99 ); 
           
@@ -156,7 +157,7 @@ getSourceObjectMultiLevelTypeValIdxForTypeDefPath(start_object_idxx){
        console.log("current_object.kindCode; "+current_object.kindCode);
        console.log("current_object.objZTIC; "+current_object.objZTIC);
        console.log("current_object.objCode; "+current_object.objCode);
-        const current_object_ns = this.svr1.getNSforCode(this.msg.TabNamePrfx, current_object.objZTIC);
+        const current_object_ns = this.svr1.getNSforCode(this.msg.dbZtI_id, current_object.objZTIC);   // 20261115 dbZtI_id - messages never set TabNamePrfx
           console.log("20250210c current_object_ns: "+current_object_ns);
  
         type_val_obj_idx = current_object.getTypeValueIdxForTypeDef(this.typeDefinitionAndValue_AR[k].type_def_ztic, this.typeDefinitionAndValue_AR[k].type_def_code, this.svr1.time.now()); 

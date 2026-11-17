@@ -23,9 +23,11 @@ console.log("parameters: ");
 var return_param_AR = [];
 
 const time_dsi_str = "zinfinitree.com/time";
-const time_ztic_str = this.svr1.getCodeForNS(this.msg.TabNamePrfx.toString().trim(), time_dsi_str);
+//const time_ztic_str = this.svr1.getCodeForNS(this.msg.TabNamePrfx.toString().trim(), time_dsi_str);   //(del) 20261113
+const time_ztic_str = this.svr1.getCodeForNS(this.msg.dbZtI_id.toString().trim(), time_dsi_str);   // 20261113 messages carry dbZtI_id, TabNamePrfx is never set
 const base_dsi_str = "131131/21";
-const base_ztic_str = this.svr1.getCodeForNS(this.msg.TabNamePrfx.toString().trim(), base_dsi_str);
+//const base_ztic_str = this.svr1.getCodeForNS(this.msg.TabNamePrfx.toString().trim(), base_dsi_str);   //(del) 20261113
+const base_ztic_str = this.svr1.getCodeForNS(this.msg.dbZtI_id.toString().trim(), base_dsi_str);   // 20261113 messages carry dbZtI_id, TabNamePrfx is never set
 
 
 //  1.  at end of zt_server_object.getAllValuesForTemplateDef call function getAllValuesForTemplateDefUserExitFunction() to call this program
@@ -41,7 +43,8 @@ const base_ztic_str = this.svr1.getCodeForNS(this.msg.TabNamePrfx.toString().tri
 //  11. populate the object element ztic with the ztic of the type definition
 //  12. populate the object element code with the code of the type definition
 
-const date_obj_idx;
+//const date_obj_idx;   //(del) 20261113
+var date_obj_idx;   // 20261113 assigned in the loop below - const needs a value
 var return_date_str;
 for(var i = 0; i < this.parameter_AR.length; i++){
 //   console.log(this.parameter_AR[i].namespace+" - "+this.parameter_AR[i].code + " - " + this.parameter_AR[i].value);
@@ -56,11 +59,16 @@ for(var i = 0; i < this.parameter_AR.length; i++){
 
 
 // start 20231022
-var stat_values_obj_KeyStr = this.msg.TabNamePrfx.toString().trim()+"_"+base_ztic_str+"_58_"+time_ztic_str+"_1;
+//var stat_values_obj_KeyStr = this.msg.TabNamePrfx.toString().trim()+"_"+base_ztic_str+"_58_"+time_ztic_str+"_1;   //(del) 20261113
+//var stat_values_obj_KeyStr = this.msg.TabNamePrfx.toString().trim()+"_"+base_ztic_str+"_58_"+time_ztic_str+"_1";   // 20261113 closing quote was missing   //(del) 20261113
+var stat_values_obj_KeyStr = this.msg.dbZtI_id.toString().trim()+"_"+base_ztic_str+"_58_"+time_ztic_str+"_1";   // 20261113 closing quote was missing   // 20261113 messages carry dbZtI_id, TabNamePrfx is never set
 var stat_values_object_idx = this.svr1.ZtObject_idx_HM.get(stat_values_obj_KeyStr);
-var stat_values_object_ztic = this.msg.queryResponseSetMemberWA_AR[i].objectResponseItem_AR[j].objZTIC.toString().trim();
-var stat_values_object_code = this.msg.queryResponseSetMemberWA_AR[i].objectResponseItem_AR[j].objCode.toString().trim();                                                        
-var statisticalValuesObj = new (require('./ds2b00002_server_statistical_values_object'))( this.svr1, this.msg, stat_values_object_ztic, stat_values_object_code);
+//var stat_values_object_ztic = this.msg.queryResponseSetMemberWA_AR[i].objectResponseItem_AR[j].objZTIC.toString().trim();   //(del) 20261113
+var stat_values_object_ztic = time_ztic_str;   // 20261113 the statistical values object of stat_values_obj_KeyStr (zinfinitree.com/time 1) - i/j were left over from the query code
+//var stat_values_object_code = this.msg.queryResponseSetMemberWA_AR[i].objectResponseItem_AR[j].objCode.toString().trim();                                                           //(del) 20261113
+var stat_values_object_code = "1";   // 20261113 code of stat_values_obj_KeyStr
+//var statisticalValuesObj = new (require('./ds2b00002_server_statistical_values_object'))( this.svr1, this.msg, stat_values_object_ztic, stat_values_object_code);   //(del) 20261113 old file name
+var statisticalValuesObj = new (require('./zt_server_patch_00002_server_statistical_values_object'))( this.svr1, this.msg, stat_values_object_ztic, stat_values_object_code);   // 20261113 renamed file (ds2b00002_... -> zt_server_patch_00002_...)
 statisticalValuesObj.single_object_idx = date_obj_idx;
 statisticalValuesObj.getValues();
 // end 20231022

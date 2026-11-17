@@ -99,7 +99,8 @@ getValues(){
 var statusExclusion_AR  = [];  // revisit perhaps get it from msg
 var get_values_maxLevelsDown_99 = 99;  // revisit perhaps get it from msg
 //console.log("20240206c this.TabNamePrfx: "+this.msg.TabNamePrfx);
-const base_ztic   = this.svr1.getCodeForNS(this.msg.TabNamePrfx, "131131/21");
+//const base_ztic   = this.svr1.getCodeForNS(this.msg.TabNamePrfx, "131131/21");   //(del) 20261022
+const base_ztic   = this.svr1.getCodeForNS(this.msg.dbZtI_id, "131131/21");   // 20261022 messages carry dbZtI_id, TabNamePrfx is never set
 //const validation_ztic = this.svr1.getCodeForNS(this.msg.TabNamePrfx, "zinfinitree.com/validation");
 //var validation_wa = require('./zt_server_validation_workarea');
 //console.log("20250206b this.function_group_set_launch_point_idx: "+this.function_group_set_launch_point_idx);
@@ -107,7 +108,8 @@ var func_grp_set_launch_pnt_db_obj = this.svr1.ZtObject_AR[this.function_group_s
 //var functionGroupSetLaunchPoint_KeyStr = this.msg.TabNamePrfx.toString().trim()+"_"+base_ztic+"_67_"+func_grp_set_launch_pnt_db_obj.objZTIC+"_"+func_grp_set_launch_pnt_db_obj.objCode;
 //var function_group_idx = this.svr1.ZtObject_idx_HM.get(functionGroupSetLaunchPoint_KeyStr);  
 //console.log("20240207i function_group_idx: "+function_group_idx);
-var templDefForFunctionGroupSetLaunchPoint_KeyStr =     this.msg.TabNamePrfx.toString().trim() + "_"+ base_ztic+"_2_"+base_ztic+"_67";
+//var templDefForFunctionGroupSetLaunchPoint_KeyStr =     this.msg.TabNamePrfx.toString().trim() + "_"+ base_ztic+"_2_"+base_ztic+"_67";   //(del) 20261022
+var templDefForFunctionGroupSetLaunchPoint_KeyStr =     this.msg.dbZtI_id.toString().trim() + "_"+ base_ztic+"_2_"+base_ztic+"_67";   // 20261022 messages carry dbZtI_id, TabNamePrfx is never set
 var template_def_idx_for_func_grp_set_launch_pnt = this.svr1.ZtObject_idx_HM.get(templDefForFunctionGroupSetLaunchPoint_KeyStr);
 //console.log("20250206c template_def_idx_for_func_grp_set_launch_pnt: "+template_def_idx_for_func_grp_set_launch_pnt);
 var resp_item_for_func_grp_set_launch_pnt_AR = func_grp_set_launch_pnt_db_obj.getAllValuesForTemplateDef(template_def_idx_for_func_grp_set_launch_pnt, this.msg, this.svr1.time.now(), statusExclusion_AR, get_values_maxLevelsDown_99 );           
@@ -130,7 +132,8 @@ resp_item_for_func_grp_set_launch_pnt_AR.forEach((resp_item_for_func_grp_set_lau
              const typeValue_ztic = this.svr1.ZtObjectTypeValue_AR[resp_item_for_func_grp_set_launch_pnt_typeValue_idx].typeValue_ztic;
              const typeValue_code = this.svr1.ZtObjectTypeValue_AR[resp_item_for_func_grp_set_launch_pnt_typeValue_idx].typeValue_code;
 
-             const functionGroupSetKeyStr = this.msg.TabNamePrfx+"_"+base_ztic + "_13_"+ typeValue_ztic +"_"+ typeValue_code;
+             //const functionGroupSetKeyStr = this.msg.TabNamePrfx+"_"+base_ztic + "_13_"+ typeValue_ztic +"_"+ typeValue_code;   //(del) 20261022
+             const functionGroupSetKeyStr = this.msg.dbZtI_id+"_"+base_ztic + "_13_"+ typeValue_ztic +"_"+ typeValue_code;   // 20261022 messages carry dbZtI_id, TabNamePrfx is never set
              //console.log("20250207i functionGroupSetKeyStr: "+functionGroupSetKeyStr);
                if(this.svr1.ZtObject_idx_HM.has(functionGroupSetKeyStr)){
                   //console.log("20250207j functionGroupSetKeyStr found in ZtObject_idx_HM");
@@ -213,7 +216,8 @@ resp_item_for_func_grp_set_launch_pnt_AR.forEach((resp_item_for_func_grp_set_lau
          if(this.svr1.ZtObjectLink_AR[resp_item_for_function_link].linkType_ztic == base_ztic && this.svr1.ZtObjectLink_AR[resp_item_for_function_link].linkType_code == "8"){  // link function parameter
           const empty_string = "";
           //console.log("20250122d this.svr1.ZtObjectLink_AR[resp_item_for_function_link].linkToCode_ztic: "+this.svr1.ZtObjectLink_AR[resp_item_for_function_link].linkToCode_ztic);
-          const param_ns = this.svr1.getNSforCode(this.msg.TabNamePrfx, this.svr1.ZtObjectLink_AR[resp_item_for_function_link].linkToCode_ztic);
+          //const param_ns = this.svr1.getNSforCode(this.msg.TabNamePrfx, this.svr1.ZtObjectLink_AR[resp_item_for_function_link].linkToCode_ztic);   //(del) 20261022
+          const param_ns = this.svr1.getNSforCode(this.msg.dbZtI_id, this.svr1.ZtObjectLink_AR[resp_item_for_function_link].linkToCode_ztic);   // 20261022 messages carry dbZtI_id, TabNamePrfx is never set
           //const param_ns = this.svr1.getNSforCode(this.msg.TabNamePrfx, param_ztic);
           //console.log("20250122e param_ns: "+param_ns);
            validation_function.setParameterValue(param_ns, this.svr1.ZtObjectLink_AR[resp_item_for_function_link].linkToCode, empty_string);            

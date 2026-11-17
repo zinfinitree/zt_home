@@ -47,6 +47,7 @@ var app = express();
 const path = require('path');    // 20250407
 
 const cors = require('cors');   // 20250405
+const crypto = require('crypto');   // 20261020 - unique session ids
 app.use(cors());   // 20250405
 
 app.set('port', process.env.ZT_CLIENT_PORT || 3000);   // 20230227
@@ -110,6 +111,15 @@ app.get('/zt/app_logon',function(req,res){
 
 });
 
+//start 20260715
+app.get('/sitemap.xml',function(req,res){
+  var dirnamex = __dirname + "/sitemap.xml";   
+
+  res.sendFile(dirnamex);         
+
+});
+// end 20260715
+
 //app.get('/zinfinitree',function(req,res){    //(del) 20250328
 app.get('/',function(req,res){ 
 
@@ -168,6 +178,8 @@ console.log("20250307 TargetNS: "+TargetNS, " Language: "+language, " user_name:
 
          clientZTICDomain.pushNamespace("zinfinitree.com/legal_entity");                  // 20231107
          clientZTICDomain.pushNamespace("zinfinitree.com/legal_entity_example");          // 20231107
+         clientZTICDomain.pushNamespace("zinfinitree.com/user_interface");
+
 
          var sessID = "123";
          
@@ -428,6 +440,18 @@ app.get('/zt_server_spec_doc',function(req,res){   // this was needed to make it
 });
 
                                                                            //20200415
+
+// start 20260720
+app.get('/zt_video_data_modeling',function(req,res){   // this was needed to make it work from http://localhost:3000/zinfinitree, this will make it not work from generic app launcher, don't know where /zt/ is introduced
+
+  var dirnamex = __dirname + "/ZinfiniTree_DataModeling_ConceptualOverview_20261009.mp4";   // 20230217
+
+  res.sendFile(dirnamex);                                             // 202302187
+
+});
+
+
+// end 20260720
 
 
 app.get('/zt/maintain_object_submit_a',function(req,res){
@@ -851,6 +875,54 @@ app.post('/zt/client/maintain_object',function(req,res){
   var maint_format=req.body.maint_format.toString().trim();
   var test_AR = []; test_AR.length = 0;
       test_AR = JSON.parse(req.body.test_AR);
+  var UI_attribute_AR = []; UI_attribute_AR.length = 0;
+  //    UI_attribute_AR = JSON.parse(req.body.UI_attribute_AR);
+  if(req.body.UI_attribute_AR){   // 20261104 UI attributes of the app's UI profiles (zt_client_app.js getUIAttribute_AR)
+    try{ UI_attribute_AR = JSON.parse(req.body.UI_attribute_AR); }
+    catch(e){ console.log("ERROR in maintain_object - UI_attribute_AR not parsed: "+e.message); UI_attribute_AR = []; }
+  } // endif
+
+
+// start UI TEST 20261026
+//  var UI_attribute_AR = []; UI_attribute_AR.length = 0;
+
+//    function UI_ParameterValueRec(){
+//  this.UI_parameter_value_type_ns = "";
+//  this.UI_parameter_value_type_code = "";    
+//  this.UI_parameter_value_ns = "";
+//  this.UI_parameter_value_code = "";
+//  this.UI_parameter_value      = "";
+//}
+
+
+//var p1 = new UI_ParameterValueRec();
+//p1.UI_parameter_value_type_ns = "zinfinitree.com/user_interface";
+//p1.UI_parameter_value_type_code = "1";  
+//p1.UI_parameter_value_ns = "zinfinitree.com/user_interface";
+//p1.UI_parameter_value_code = "1"; 
+//p1.UI_parameter_value = "zinfinitree.com/storage"; 
+
+//var p2 = new UI_ParameterValueRec();
+//p2.UI_parameter_value_type_ns = "zinfinitree.com/user_interface";
+//p2.UI_parameter_value_type_code = "1";  
+//p2.UI_parameter_value_ns = "zinfinitree.com/user_interface";
+//p2.UI_parameter_value_code = "2"; 
+//p2.UI_parameter_value = "4"; 
+
+
+//  function UI_AttributeRec(){
+//  this.UI_attribute_ztic = "";
+//  this.UI_attribute_code = "";
+//  this.UI_parameter_AR = [];
+//}
+
+//var a1 = new UI_AttributeRec();
+//a1.UI_parameter_AR.push(p1);
+//a1.UI_parameter_AR.push(p2);
+//UI_attribute_AR.push(a1);   // 20261026 test: linked objects of link type zinfinitree.com/storage 4 (Thing to Thing Transaction Line Item) listed as a table
+
+
+// end UI TEST 20261026
 
 
 //console.log("20240128a TargetNS: "+TargetNS, " Language: "+language, " Status Sel: "+status_selx, " Obj Templ ZTIC: "+obj_templ_ztic_nsx, " Obj Templ Code: "+obj_templ_codex, " Obj ZTIC: "+obj_ztic_nsx, " Obj Code: "+obj_codex, "Maint Mode: "+maint_modex, "Maint Format: "+maint_format );  
@@ -883,7 +955,8 @@ app.post('/zt/client/maintain_object',function(req,res){
          clientZTICDomain.pushNamespace("zinfinitree.com/time_gregorian_millenium3");     // 20230707
          clientZTICDomain.pushNamespace("zinfinitree.com/time");                          // 20230707
          clientZTICDomain.pushNamespace("zinfinitree.com/legal_entity");                  // 20231107
-         clientZTICDomain.pushNamespace("zinfinitree.com/legal_entity_example");          // 20231107
+         clientZTICDomain.pushNamespace("zinfinitree.com/legal_entity_example"); 
+         clientZTICDomain.pushNamespace("zinfinitree.com/user_interface");           // 20231107
          // 20210324
          var sessID = "123";
          
@@ -963,9 +1036,13 @@ var options = {
     var sm1_str = './zt_client_message';            
     var sm1 = new (require(sm1_str));                
 
-   var sess_idx = "sess1abc";
-   var sess = new (require('./zt_client_session'))(sess_idx, clientZTICDomain.ZTICNS_AR, language, TargetNS);
+   //var sess_idx = "sess1abc";   // (del) 20261020
+   //var sess_id = crypto.randomUUID();   // 20261020  (del) 20261116 randomUUID needs Node 14.17+, older Node on GCP threw "not a function"
+   var sess_id = (typeof crypto.randomUUID === 'function') ? crypto.randomUUID() : crypto.randomBytes(16).toString('hex');   // 20261116 works on any Node version
+   var sess = new (require('./zt_client_session'))(sess_id, clientZTICDomain.ZTICNS_AR, language, TargetNS);   // 20261020
+       sess.UI_attribute_AR = UI_attribute_AR;   // 20261026 UI TEST
        sess.maint_mode = maint_modex;   // 20200826
+       sess.maint_format = maint_format;   // 20261020
    var sess_idx = session_AR.push(sess) -1;
    for(var i = 0; i < session_AR.length; i++){
      //console.log("20200601 session_AR[i].id: "+session_AR[i].id);
@@ -983,11 +1060,26 @@ var options = {
 
 
 request(options, function (err, resp, body) {
+  var ui_font = (session_AR[sess_idx] && session_AR[sess_idx].getUIFontFamily) ? session_AR[sess_idx].getUIFontFamily() : "";   // 20261104 font-family UI attribute for message pages
   if (err) {
     console.log('Error :', err)
+    respStr2 = getInvalidObjectIdHtml(obj_ztic_nsx, obj_codex, "The server could not be reached.", ui_font);   // 20261022 answer the request instead of leaving it open
+    res.send(respStr2);
+    maintain_object_submit_html = respStr2;
     return
   }
   //console.log(' Body :', body)
+
+  // start 20261022 - an invalid object code or namespace must not crash the client
+  if(!Array.isArray(body)){   // server error page instead of a message
+    console.log("ERROR in maintain_object - server response is not a message for obj_ztic/obj_code: "+obj_ztic_nsx+"/"+obj_codex);
+    respStr2 = getInvalidObjectIdHtml(obj_ztic_nsx, obj_codex, "", ui_font);
+    res.send(respStr2);
+    maintain_object_submit_html = respStr2;
+    return;
+  } // endif !Array.isArray(body)
+  try{
+  // end 20261022
 
     sm1.setZtRawMessageAR(rm_AR);
     sm1.addResponseToZtRawMessageAR(body);
@@ -1004,6 +1096,20 @@ for(var i = 0; i < sm1.ZtRawMessageAR.length; i++){
          sm_parse.process();
     //console.log("= 20210109 listing parsed response OE values");
     //console.log("20200702 obj_codex: "+obj_codex);
+    // start 20261022 failed validation or no object found - message for the user instead of an empty or broken page
+    if(sm1.getResponseMessageCurrentStatus() == "4"){
+      respStr2 = getInvalidObjectIdHtml(obj_ztic_nsx, obj_codex, "", ui_font) + sm1.getHtmlForServerLogSystemMessageWA_AR();
+      res.send(respStr2);
+      maintain_object_submit_html = respStr2;
+      return;
+    } // endif status 4
+    if((maint_modex == "update" || maint_modex == "display") && !queriedObjectFound(sm1)){
+      respStr2 = getInvalidObjectIdHtml(obj_ztic_nsx, obj_codex, "", ui_font);
+      res.send(respStr2);
+      maintain_object_submit_html = respStr2;
+      return;
+    } // endif object not found
+    // end 20261022
     //session_AR[sess_idx].setValuesFromInitialMessage(sm1, OK_ztic, obj_kind_codex, obj_ztic, obj_codex);        //20200603  //(del) 20200813
     session_AR[sess_idx].setValuesFromInitialMessage(sm1, obj_ztic, obj_codex);                                   //20200813
     // start 20210109
@@ -1152,6 +1258,13 @@ if(sm1.getResponseMessageCurrentStatus() == "4"){
 
 }  // endif
 
+  // start 20261022
+  }
+  catch(e){
+    console.log("ERROR in maintain_object - response for obj_ztic/obj_code "+obj_ztic_nsx+"/"+obj_codex+" not processed: "+e.stack);
+    respStr2 = getInvalidObjectIdHtml(obj_ztic_nsx, obj_codex, "", ui_font);
+  } // end try
+  // end 20261022
 
 res.send(respStr2);     
 maintain_object_submit_html = respStr2;   //20200416
@@ -1162,6 +1275,85 @@ maintain_object_submit_html = respStr2;   //20200416
 
 
 });  //end of app.post for maintain_object
+
+
+
+app.post('/zt/client/maintain_object_child',function(req,res){     // 20261020
+
+  var sess_idx = session_AR.findIndex(s => s.id == req.body.sess_id);   // 20261020
+  if(sess_idx == -1){
+    res.send("Session not found - please reopen the object from Maintain Object");
+    return;
+  } // endif
+  var child_templ_idx = parseInt(req.body.templ_idx, 10);        // 20261020 - index of child template in session template_AR
+  if(isNaN(child_templ_idx) || child_templ_idx < 0 || child_templ_idx >= session_AR[sess_idx].template_AR.length){
+    res.send("Child template not found in session - please reopen the object from Maintain Object");
+    return;
+  } // endif
+  var OT_ztic         = session_AR[sess_idx].template_AR[child_templ_idx].templZTIC;   // 20261020 - template ZTIC of selected child object
+  var obj_templ_codex = session_AR[sess_idx].template_AR[child_templ_idx].templCode;   // 20261020 - template code of selected child object
+  var maint_modex  = session_AR[sess_idx].maint_mode;     // 20261020
+  var maint_format = session_AR[sess_idx].maint_format;   // 20261020
+
+  var child_obj_idx   = req.body.obj_idx.toString().trim();      // 20261020 - index of selected object in child template object_AR
+
+  var respStr2 = session_AR[sess_idx].getHtmlForTemplate(OT_ztic, obj_templ_codex, maint_modex, maint_format, child_obj_idx, child_templ_idx);   // 20261020 child_obj_idx, child_templ_idx
+
+  res.send(respStr2);
+
+});  //end of app.post for maintain_object_child
+
+
+app.post('/zt/client/add_new_linked_object',function(req,res){     // 20261023 Add New Linked Object - another blank new object block for a link template
+
+  var sess_idx = session_AR.findIndex(s => s.id == req.body.sess_id);
+  if(sess_idx == -1){
+    res.json({error: "Session not found - please reopen the object from Maintain Object"});
+    return;
+  } // endif
+  var sess = session_AR[sess_idx];
+  var src_templ_idx  = parseInt(req.body.templ_idx, 10);
+  var src_obj_idx    = parseInt(req.body.obj_idx, 10);
+  var link_templ_idx = parseInt(req.body.link_templ_idx, 10);
+  if(isNaN(src_templ_idx) || isNaN(src_obj_idx) || isNaN(link_templ_idx) || !sess.template_AR[src_templ_idx] || !sess.template_AR[src_templ_idx].object_AR[src_obj_idx] || !sess.template_AR[link_templ_idx]){
+    res.json({error: "Template or object not found in session - please reopen the object from Maintain Object"});
+    return;
+  } // endif
+  try{
+    res.json(sess.addNewLinkedObjectForPage(src_templ_idx, src_obj_idx, link_templ_idx));
+  }
+  catch(e){
+    console.log("ERROR in add_new_linked_object: "+e.stack);
+    res.json({error: "New linked object could not be added"});
+  } // end try
+
+});  //end of app.post for add_new_linked_object
+
+
+app.post('/zt/client/add_workbook_item',function(req,res){     // 20261107 workbook grid - Add Column / Add Row
+
+  var sess_idx = session_AR.findIndex(s => s.id == req.body.sess_id);
+  if(sess_idx == -1){
+    res.json({error: "Session not found - please reopen the object from Maintain Object"});
+    return;
+  } // endif
+  var sess = session_AR[sess_idx];
+  var top_templ_idx  = parseInt(req.body.top_templ_idx, 10);
+  var item_templ_idx = parseInt(req.body.item_templ_idx, 10);
+  var col_count      = parseInt(req.body.col_count, 10);
+  if(isNaN(top_templ_idx) || isNaN(item_templ_idx) || !sess.template_AR[top_templ_idx] || !sess.template_AR[item_templ_idx]){
+    res.json({error: "Template not found in session - please reopen the object from Maintain Object"});
+    return;
+  } // endif
+  try{
+    res.json(sess.addWorkbookItem(top_templ_idx, item_templ_idx, isNaN(col_count) ? 0 : col_count));
+  }
+  catch(e){
+    console.log("ERROR in add_workbook_item: "+e.stack);
+    res.json({error: "Column or row could not be added"});
+  } // end try
+
+});  //end of app.post for add_workbook_item
 
 
 
@@ -1184,6 +1376,21 @@ app.post('/zt/client/maintain_object_submit',function(req,res){
       OEscrnElem_AR = JSON.parse(req.body.OEscrnElem_AR);
   
   var sess1_resp         = JSON.parse(req.body.session);   //  20200612
+
+  // start 20261021 - type values and links of child objects held on the parent page by Apply to Parent on child pages
+  var child_update_AR = [];
+  if(req.body.child_updates){
+    try{
+      var child_updates_obj = JSON.parse(req.body.child_updates);
+      for(var child_key in child_updates_obj){
+        child_update_AR.push(JSON.parse(child_updates_obj[child_key]));
+      } // endfor
+    }
+    catch(e){
+      console.log("ERROR in maintain_object_submit - child_updates not parsed: "+e.message);
+    } // end try
+  } // endif req.body.child_updates
+  // end 20261021
 
   //console.log("20200621 list sess1_rsp in maintain_object_submit in zt_client.js");
   //console.log("20200621 sess1_resp.template_AR.length: "+sess1_resp.template_AR.length);
@@ -1366,7 +1573,8 @@ clientZTICDomain.pushNamespace("zinfinitree.com/time_gregorian_millenium3");    
 clientZTICDomain.pushNamespace("zinfinitree.com/time");                          // 20230707
 
 clientZTICDomain.pushNamespace("zinfinitree.com/legal_entity");                  // 20231107
-clientZTICDomain.pushNamespace("zinfinitree.com/legal_entity_example");          // 20231107
+clientZTICDomain.pushNamespace("zinfinitree.com/legal_entity_example"); 
+clientZTICDomain.pushNamespace("zinfinitree.com/user_interface");           
 
   var address_def_ztic = clientZTICDomain.getCodeForNamespace("zinfinitree.com/address");
   var address_app_ztic = clientZTICDomain.getCodeForNamespace("zinfinitree.com/address_app_data");
@@ -1520,10 +1728,26 @@ for(var l = 0; l < sess1_resp.template_AR[templ_idx].childTempl_idx_AR.length; l
    if(sess1_resp.template_AR[sess1_resp.template_AR[templ_idx].childTempl_idx_AR[l]].object_AR[j].newCode){ 
      obj_code_child++;   // 20200625
    //  console.log("20200626 obj_code_child.toString().trim(): "+obj_code_child.toString().trim());
-     sess1_resp.template_AR[sess1_resp.template_AR[templ_idx].childTempl_idx_AR[l]].object_AR[j].objCodeTemp = obj_code_child.toString().trim();  // 20200625 
+     sess1_resp.template_AR[sess1_resp.template_AR[templ_idx].childTempl_idx_AR[l]].object_AR[j].objCodeTemp = obj_code_child.toString().trim();  // 20200625
    } // endif
  } // endfor loop through  sess1_resp.template_AR[templ_idx].object_AR  20200616
-} // endfor loop through sess1_resp.template_AR[templ_idx].childTempl_idx_AR 
+} // endfor loop through sess1_resp.template_AR[templ_idx].childTempl_idx_AR
+
+// 20261021 a new child object with only type values or links (no OE values) is still used - link to it and create it
+for(var u = 0; u < child_update_AR.length; u++){
+  if(child_update_AR[u].obj_ident || child_update_AR[u].new_obj){ continue; }   // grandchild or deeper / new linked object - handled below  // 20261023 new_obj
+  var upd_obj = getChildUpdateObject(sess1_resp, child_update_AR[u]);
+  if(upd_obj && upd_obj.newCode && childUpdateHasValues(child_update_AR[u])){ upd_obj.isUsed = true; }
+} // endfor
+
+// 20261023 new linked objects from child pages (own held entries, key templ_idx_obj_idx) - created when they or a new object under them have a value
+var child_upd_HM = {};
+for(var u = 0; u < child_update_AR.length; u++){ child_upd_HM[child_update_AR[u].templ_idx+"_"+child_update_AR[u].obj_idx] = child_update_AR[u]; }
+for(var u = 0; u < child_update_AR.length; u++){
+  if(child_update_AR[u].new_obj && (childUpdateHasValues(child_update_AR[u]) || childUpdateHasOEvalues(child_update_AR[u]))){
+    markNewChildUpdCreated(child_update_AR[u], child_upd_HM, sess1_resp);
+  } // endif
+} // endfor
 
 
 
@@ -1534,6 +1758,7 @@ for(var l = 0; l < sess1_resp.template_AR[templ_idx].childTempl_idx_AR.length; l
  var usedNewObject_HM = new HashMap(); // 20210215
  for(var j = 0; j < sess1_resp.template_AR[templ_idx].object_AR.length; j++){                           // 20200616
   for(var l = 0; l < sess1_resp.template_AR[templ_idx].childTempl_idx_AR.length; l++){                  // 20200626
+    if(sess1_resp.template_AR[sess1_resp.template_AR[templ_idx].childTempl_idx_AR[l]].templLevelsDown != 1){ continue; }   // 20261021 only templates one level down are on the parent page - deeper objects come from child_updates
 //console.log("20200629 sess1_resp.template_AR[sess1_resp.template_AR[templ_idx].childTempl_idx_AR[l]].object_AR.length: " +sess1_resp.template_AR[sess1_resp.template_AR[templ_idx].childTempl_idx_AR[l]].object_AR.length);
     for(var k = 0; k < sess1_resp.template_AR[sess1_resp.template_AR[templ_idx].childTempl_idx_AR[l]].object_AR.length; k++){  // 20200626
  
@@ -1549,7 +1774,8 @@ if(sess1_resp.template_AR[templ_idx].object_AR[j].newCode){   // 20200616
    
 
      for(var m = 0; m < sess1_resp.template_AR[sess1_resp.template_AR[templ_idx].childTempl_idx_AR[l]].object_AR[k].OE_val_AR.length; m++){
-      var oe_val = sess1_resp.template_AR[sess1_resp.template_AR[templ_idx].childTempl_idx_AR[l]].object_AR[k].OE_val_AR[m].html_input_val.toString().trim();
+      var oe_val_raw = sess1_resp.template_AR[sess1_resp.template_AR[templ_idx].childTempl_idx_AR[l]].object_AR[k].OE_val_AR[m].html_input_val;   // 20261107 undefined when the field is not on the page (e.g. workbook grid shows descriptions only)
+      var oe_val = (oe_val_raw == undefined || oe_val_raw == null) ? "" : oe_val_raw.toString().trim();
       if(oe_val != ""){ sess1_resp.template_AR[sess1_resp.template_AR[templ_idx].childTempl_idx_AR[l]].object_AR[k].isUsed = true; }
      } // endfor
 
@@ -1635,10 +1861,13 @@ sess1_resp.template_AR[sess1_resp.template_AR[templ_idx].childTempl_idx_AR[l]].o
  
 //console.log("20200622 sess1_resp.template_AR[templ_idx].childTempl_idx_AR.length: "+sess1_resp.template_AR[templ_idx].childTempl_idx_AR.length);
 for(var l = 0; l < sess1_resp.template_AR[templ_idx].childTempl_idx_AR.length; l++){
+    if(sess1_resp.template_AR[sess1_resp.template_AR[templ_idx].childTempl_idx_AR[l]].templLevelsDown != 1){ continue; }   // 20261021 only templates one level down are on the parent page - deeper objects come from child_updates
 
  for(var j = 0; j < sess1_resp.template_AR[sess1_resp.template_AR[templ_idx].childTempl_idx_AR[l]].object_AR.length; j++){                           // 20200616
 
     var suppress_elem = false; // 20210215
+    var elem_obj = sess1_resp.template_AR[sess1_resp.template_AR[templ_idx].childTempl_idx_AR[l]].object_AR[j];   // 20261024 existing object in another namespace - display only, values not sent
+    if(!elem_obj.newCode && elem_obj.objZTIC != undefined && elem_obj.objZTIC.toString().trim() != "" && clientZTICDomain.getNamespaceForCode(elem_obj.objZTIC) != null && clientZTICDomain.getNamespaceForCode(elem_obj.objZTIC) != TargetNS.toString().trim()){ suppress_elem = true; }
 
 
     for(var k = 0; k < sess1_resp.template_AR[sess1_resp.template_AR[templ_idx].childTempl_idx_AR[l]].object_AR[j].OE_val_AR.length; k++){           // 20200616
@@ -1664,13 +1893,117 @@ line = "ELEM "
 +sess1_resp.template_AR[sess1_resp.template_AR[templ_idx].childTempl_idx_AR[l]].object_AR[j].objCodeTemp.toString().trim().padEnd(5)
 +sess1_resp.template_AR[sess1_resp.template_AR[templ_idx].childTempl_idx_AR[l]].object_AR[j].OE_val_AR[k].OE_ztic.toString().trim().padEnd(5)
 +sess1_resp.template_AR[sess1_resp.template_AR[templ_idx].childTempl_idx_AR[l]].object_AR[j].OE_val_AR[k].OE_code.toString().trim().padEnd(5)+"3    1    "+new_code_bool.padEnd(5) 
-+sess1_resp.template_AR[sess1_resp.template_AR[templ_idx].childTempl_idx_AR[l]].object_AR[j].OE_val_AR[k].html_input_val.toString().trim();  //20200616
-  if(!suppress_elem){
++((sess1_resp.template_AR[sess1_resp.template_AR[templ_idx].childTempl_idx_AR[l]].object_AR[j].OE_val_AR[k].html_input_val == undefined) ? "" : sess1_resp.template_AR[sess1_resp.template_AR[templ_idx].childTempl_idx_AR[l]].object_AR[j].OE_val_AR[k].html_input_val.toString().trim());  //20200616  // 20261107 undefined-safe
+  if(!suppress_elem && sess1_resp.template_AR[sess1_resp.template_AR[templ_idx].childTempl_idx_AR[l]].object_AR[j].OE_val_AR[k].html_input_val != undefined){   // 20261107 field not on the page - value not sent (keeps the stored value)
     lines.push(line);
   }  // endif 
     }  //endfor loop through sess1_resp.template_AR[templ_idx].object_AR[j].OE_val_AR
  } // endfor loop through  sess1_resp.template_AR[templ_idx].object_AR  20200616
-} // endfor loop through sess1_resp.template_AR[templ_idx].childTempl_idx_AR  
+} // endfor loop through sess1_resp.template_AR[templ_idx].childTempl_idx_AR
+
+
+// start 20261021 - TYPE and LINK lines for child objects from child_updates (child page type values and links to existing objects)
+// 20261023 identities resolved by resolveChildUpdIdent - existing (deeper, obj_ident), level 1 (session) or new linked object (temp code, linked from its source)
+var ztic_cnt_before_child_upd = clientZTICDomain.ZTICNS_AR.length;
+// 20261021 temp codes for new objects from child pages continue after the temp codes of new child objects above - the server maps temp codes to assigned codes by code only, so they must be unique in the message
+var desc_temp_code_ref = {next: parseInt(obj_code_child, 10)};   // 20261023 object so resolveChildUpdIdent can advance it
+if(isNaN(desc_temp_code_ref.next)){ desc_temp_code_ref.next = 1; }
+var child_upd_ctx = {sess1_resp: sess1_resp, upd_HM: child_upd_HM, target_ztic: target_ztic, obj_ztic: obj_ztic, zticDom: clientZTICDomain, temp_code_ref: desc_temp_code_ref,
+                     TargetNS: TargetNS,   // 20261024
+                     top_templ_idx: templ_idx, top_ident: {kind_ztic: OK_ztic.toString().trim(), kind_code: OK_code.toString().trim(),   // 20261023 new linked objects added on the parent page hang off the top object
+                       ztic: (sess1_resp.template_AR[templ_idx].object_AR[0].newCode ? target_ztic : obj_ztic), code: obj_code.toString().trim(), new_code_bool: (sess1_resp.template_AR[templ_idx].object_AR[0].newCode ? "+" : "-")}};
+for(var u = 0; u < child_update_AR.length; u++){
+  var upd = child_update_AR[u];
+  if(!upd.tv){ upd.tv = []; }
+  if(!upd.links){ upd.links = []; }
+  var upd_ident = resolveChildUpdIdent(upd, child_upd_ctx);
+  if(upd_ident == null){ continue; }   // not found, or new object / new child that is not created
+  var upd_new_code_bool = upd_ident.new_code_bool;
+  var upd_obj_ztic  = upd_ident.ztic;
+  var upd_obj_code  = upd_ident.code;
+  var upd_kind_ztic = upd_ident.kind_ztic;
+  var upd_kind_code = upd_ident.kind_code;
+
+  if(upd.oe){   // OE values held from a grandchild or deeper page
+    for(var t = 0; t < upd.oe.length; t++){
+      var oe_val = (upd.oe[t].value == undefined || upd.oe[t].value == null) ? "" : upd.oe[t].value.toString().trim();
+      line = "ELEM " +upd_kind_ztic.padEnd(5)+upd_kind_code.padEnd(5)+upd_obj_ztic.toString().trim().padEnd(5)+upd_obj_code.padEnd(5)
+             + upd.oe[t].OE_ztic.toString().trim().padEnd(5) + upd.oe[t].OE_code.toString().trim().padEnd(5) + "3    1    " + upd_new_code_bool.padEnd(5) + oe_val;
+      lines.push(line);
+    } // endfor
+  } // endif upd.oe
+
+  for(var t = 0; t < upd.tv.length; t++){
+    var tv = upd.tv[t];
+    var tv_ns = "";
+    var tv_code = "";
+    if(tv.input == "sel"){
+      if(tv.composite != undefined && tv.composite != null && tv.composite.indexOf('|') != -1){
+        var tv_ztic = tv.composite.substring(0, tv.composite.indexOf('|')).trim();
+        tv_code = tv.composite.substr(tv.composite.indexOf('|') + 1).trim();
+        if(tv_ztic != ""){ tv_ns = clientZTICDomain.getNamespaceForCode(tv_ztic); }
+      } // endif
+    }
+    else if(tv.input == "date"){
+      if(tv.dateStr != undefined && tv.dateStr != ""){
+        tv_ns   = "zinfinitree.com/time_gregorian_"+ tv.dateStr.substr(0,3) +"0s_tz_est";
+        tv_code = tv.dateStr.substr(3,1)+tv.dateStr.substr(5,2)+tv.dateStr.substr(8,2);
+      } // endif
+    }
+    else{
+      tv_ns   = (tv.ns == undefined) ? "" : tv.ns.toString().trim();
+      tv_code = (tv.code == undefined) ? "" : tv.code.toString().trim();
+    } // endif
+    if(tv_ns == null || tv_ns.toString().trim() == "" || tv_code.toString().trim() == ""){ continue; }   // no type value selected
+    var tv_val_ztic = clientZTICDomain.getCodeForNamespace(tv_ns);
+    line = "TYPE " +upd_kind_ztic.padEnd(5)+upd_kind_code.padEnd(5)+upd_obj_ztic.toString().trim().padEnd(5)+upd_obj_code.padEnd(5)
+           + tv.typeDef_ztic.toString().trim().padEnd(5) + tv.typeDef_code.toString().trim().padEnd(5) + tv_val_ztic.toString().trim().padEnd(5) + tv_code.toString().trim().padEnd(5);
+    lines.push(line);
+  } // endfor loop through upd.tv
+
+  for(var t = 0; t < upd.links.length; t++){
+    var lk = upd.links[t];
+    var lk_ns   = (lk.ns == undefined || lk.ns == null) ? "" : lk.ns.toString().trim();
+    var lk_code = (lk.code == undefined || lk.code == null) ? "" : lk.code.toString().trim();
+    if(lk_ns == "" || lk_code == ""){ continue; }   // create-link row left blank
+    var lk_ztic   = clientZTICDomain.getCodeForNamespace(lk_ns);
+    var lk_status = (lk.status == undefined) ? "" : lk.status.toString().trim();
+    var lk_value  = (lk.value == undefined) ? "" : lk.value.toString().trim();
+    var upd_timestampEff = "5179248000.000";   // same as LINK lines above
+    line = "LINK " +upd_kind_ztic.padEnd(5)+upd_kind_code.padEnd(5)+upd_obj_ztic.toString().trim().padEnd(5)+upd_obj_code.padEnd(5)
+           + lk.linkType_ztic.toString().trim().padEnd(5) + lk.linkType_code.toString().trim().padEnd(5)
+           + lk.kind_ztic.toString().trim().padEnd(5) + lk.kind_code.toString().trim().padEnd(5)
+           + lk_ztic.toString().trim().padEnd(5) + lk_code.padEnd(5)
+           + lk.templ_ztic.toString().trim().padEnd(5) + lk.templ_code.toString().trim().padEnd(5)
+           + upd_new_code_bool.padEnd(5) + "-".padEnd(5) + lk_status.padEnd(5) + upd_timestampEff.padEnd(20) + lk_value.padEnd(5);   // link target is an existing object
+    lines.push(line);
+  } // endfor loop through upd.links
+
+  // 20261023 new linked object - link from its source object, link target is the new object
+  if(upd.new_obj){
+    var src_ident = upd_ident.source_ident;
+    if(src_ident == null){
+      console.log("ERROR in maintain_object_submit - no source object for new linked object templ_idx/obj_idx: "+upd.templ_idx+"/"+upd.obj_idx);
+    }
+    else{
+      var nobj_status = (upd.new_obj.status == undefined || upd.new_obj.status == null) ? "" : upd.new_obj.status.toString().trim();
+      var nobj_value  = (upd.new_obj.value == undefined || upd.new_obj.value == null) ? "" : upd.new_obj.value.toString().trim();
+      line = "LINK " +src_ident.kind_ztic.padEnd(5)+src_ident.kind_code.padEnd(5)+src_ident.ztic.toString().trim().padEnd(5)+src_ident.code.padEnd(5)
+             + upd.new_obj.linkType_ztic.toString().trim().padEnd(5) + upd.new_obj.linkType_code.toString().trim().padEnd(5)
+             + upd_kind_ztic.padEnd(5) + upd_kind_code.padEnd(5)
+             + upd_obj_ztic.toString().trim().padEnd(5) + upd_obj_code.padEnd(5)
+             + upd.new_obj.templ_ztic.toString().trim().padEnd(5) + upd.new_obj.templ_code.toString().trim().padEnd(5)
+             + src_ident.new_code_bool.padEnd(5) + "+".padEnd(5) + nobj_status.padEnd(5) + "5179248000.000".padEnd(20) + nobj_value.padEnd(5);
+      lines.push(line);
+    } // endif src_ident
+  } // endif upd.new_obj
+} // endfor loop through child_update_AR
+
+// namespaces added by getCodeForNamespace above need ZTIC lines - the ZTIC lines at the top of the message were already written
+for(var z = clientZTICDomain.ZTICNS_AR.length - 1; z >= ztic_cnt_before_child_upd; z--){
+  lines.unshift("ZTIC "+clientZTICDomain.ZTICNS_AR[z].code.toString().trim().padEnd(5)+clientZTICDomain.ZTICNS_AR[z].namespace.toString().trim());
+} // endfor
+// end 20261021
 
 
 
@@ -1708,6 +2041,34 @@ var options = {
       maint_obj_util.new_code_bool     = new_code_bool;
       //console.log("20200522 clientZTICDomain in zt_client.js: "+clientZTICDomain);
       maint_obj_util.zticDom = clientZTICDomain;     //20200522
+
+      // start 20261024 - template descriptions for the response page (Maintained Objects ... Code / Template)
+      // key kind code + "_" + code sent; the server returns kind code and code sent with each maintained object (its ZTICs are server ZTICs, kind codes are the same)
+      maint_obj_util.TargetNS = TargetNS;
+      var templDesc_HM = {};
+      var kind_cnt = {};
+      sess1_resp.template_AR.forEach(function(t){ var k = t.objKindCode.toString().trim(); kind_cnt[k] = (kind_cnt[k] || 0) + 1; });
+      sess1_resp.template_AR.forEach(function(t){ var k = t.objKindCode.toString().trim(); if(kind_cnt[k] == 1){ templDesc_HM["kind_" + k] = t.templDesc.toString().trim(); } });   // kind code identifies one template
+      var top_templ = sess1_resp.template_AR[templ_idx];
+      templDesc_HM[OK_code.toString().trim() + "_" + obj_code.toString().trim()] = top_templ.templDesc.toString().trim();
+      for(var l = 0; l < top_templ.childTempl_idx_AR.length; l++){
+        var ct = sess1_resp.template_AR[top_templ.childTempl_idx_AR[l]];
+        if(ct.templLevelsDown != 1){ continue; }
+        ct.object_AR.forEach(function(o){ if(o.objCodeTemp != undefined && o.objCodeTemp.toString().trim() != ""){ templDesc_HM[ct.objKindCode.toString().trim() + "_" + o.objCodeTemp.toString().trim()] = ct.templDesc.toString().trim(); } });
+      } // endfor
+      child_update_AR.forEach(function(u){
+        if(!u._ident){ return; }
+        var t_desc = "";
+        sess1_resp.template_AR.forEach(function(t){
+          if(u.new_obj && t.templZTIC == u.new_obj.templ_ztic && t.templCode == u.new_obj.templ_code){ t_desc = t.templDesc; }
+          else if(!u.new_obj && t.objKindZTIC == u._ident.kind_ztic && t.objKindCode == u._ident.kind_code){ t_desc = t.templDesc; }
+        });
+        if(t_desc != ""){ templDesc_HM[u._ident.kind_code.toString().trim() + "_" + u._ident.code.toString().trim()] = t_desc.toString().trim(); }
+      });
+      maint_obj_util.templDesc_HM = templDesc_HM;
+      var submit_sess = session_AR.find(function(sx){ return sx.id == sess1_resp.id; });   // 20261104 font-family UI attribute of the session the page came from
+      maint_obj_util.ui_font_family = (submit_sess && submit_sess.getUIFontFamily) ? submit_sess.getUIFontFamily() : "";
+      // end 20261024
 
 request(options, function (err, resp, body) {
   if (err) {
@@ -1931,7 +2292,8 @@ app.post('/zt/client/app_page_display',function(req,res){
          clientZTICDomain.pushNamespace("zinfinitree.com/time");                          
 
          clientZTICDomain.pushNamespace("zinfinitree.com/legal_entity");                  
-         clientZTICDomain.pushNamespace("zinfinitree.com/legal_entity_example");          
+         clientZTICDomain.pushNamespace("zinfinitree.com/legal_entity_example");  
+         clientZTICDomain.pushNamespace("zinfinitree.com/user_interface");
 
          var sessID = "123";
          
@@ -2234,6 +2596,136 @@ function ZTICNS(code, namespace) {
    this.code = code;
    this.namespace = namespace;
 } // end of function ZTICNS
+
+
+// start 20261022 - message page for an object id (namespace / code) that cannot be maintained
+function getInvalidObjectIdHtml(nsx, codex, detailx, ui_font_familyx){   // 20261104 ui_font_familyx
+   var esc = function(v){ return (v == undefined || v == null) ? "" : v.toString().replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); };
+   var html = "<html><head>" + getUIFontStyleHtml(ui_font_familyx) + "</head><body><h2>Invalid code and/or namespace</h2>";   // 20261104 head with UI font
+   html = html + "<p>No object was found for namespace '" + esc(nsx) + "' and code '" + esc(codex) + "'. Check the values entered under Object Id and try again.</p>";
+   if(detailx != undefined && detailx != ""){ html = html + "<p>" + esc(detailx) + "</p>"; }
+   html = html + "</body></html>";
+   return html;
+} // end of function getInvalidObjectIdHtml
+
+// 20261104 style element for the font-family UI attribute (value already cleaned by ZtSession.getUIFontFamily), "" when none
+function getUIFontStyleHtml(ui_font_familyx){
+   if(ui_font_familyx == undefined || ui_font_familyx == null || ui_font_familyx.toString().trim() == ""){ return ""; }
+   return "<style>body, input, textarea, select, button, table, th, td { font-family: " + ui_font_familyx.toString().replace(/[<>{};\\]/g, "").trim() + "; }</style>";
+} // end of function getUIFontStyleHtml
+
+// true if the query response contains at least one object for the ObjectQset (the object being maintained)
+function queriedObjectFound(msgx){
+   for(var h = 0; h < msgx.queryResponseSetMemberWA_AR.length; h++){
+     if(msgx.queryResponseSetMemberWA_AR[h].setMemberID == "ObjectQset" && msgx.queryResponseSetMemberWA_AR[h].object_idx_AR.length > 0){ return true; }
+   } // endfor
+   return false;
+} // end of function queriedObjectFound
+// end 20261022
+
+
+// start 20261021 - child_updates from Apply to Parent on child pages (maintain_object_submit)
+function getChildUpdateObject(sess1_respx, updx){
+   var templx = sess1_respx.template_AR[updx.templ_idx];
+   if(!templx){ return null; }
+   var objx = templx.object_AR[updx.obj_idx];
+   return objx ? objx : null;
+} // end of function getChildUpdateObject
+
+function childUpdateHasValues(updx){
+   for(var i = 0; i < updx.tv.length; i++){
+     var tvx = updx.tv[i];
+     if(tvx.input == "sel"  && tvx.composite && tvx.composite.replace('|','').trim() != ""){ return true; }
+     if(tvx.input == "date" && tvx.dateStr && tvx.dateStr.trim() != ""){ return true; }
+     if(tvx.input == "text" && tvx.ns && tvx.ns.trim() != "" && tvx.code && tvx.code.trim() != ""){ return true; }
+   } // endfor
+   for(var i = 0; i < updx.links.length; i++){
+     if(updx.links[i].ns && updx.links[i].ns.trim() != "" && updx.links[i].code && updx.links[i].code.toString().trim() != ""){ return true; }
+   } // endfor
+   if(updx.new_objs && updx.new_objs.length > 0){ return true; }   // 20261021 new linked objects (only held when a value was entered)
+   return false;
+} // end of function childUpdateHasValues
+
+// start 20261023 - new linked objects in child_updates
+function childUpdateHasOEvalues(updx){
+   if(!updx.oe){ return false; }
+   for(var i = 0; i < updx.oe.length; i++){
+     if(updx.oe[i].value != undefined && updx.oe[i].value != null && updx.oe[i].value.toString().trim() != ""){ return true; }
+   } // endfor
+   return false;
+} // end of function childUpdateHasOEvalues
+
+// a new linked object is created - so is its source if the source is new (another new linked object or a new level 1 child)
+function markNewChildUpdCreated(updx, upd_HMx, sess1_respx){
+   var guard = 0;
+   var cur = updx;
+   while(cur && cur.new_obj && !cur._created && guard < 50){
+     guard++;
+     cur._created = true;
+     var src = upd_HMx[cur.new_obj.source_key];
+     if(src){ cur = src; continue; }
+     var key_parts = cur.new_obj.source_key.toString().split("_");   // source page not applied - level 1 object of the session
+     var src_obj = getChildUpdateObject(sess1_respx, {templ_idx: key_parts[0], obj_idx: key_parts[1]});
+     if(src_obj && src_obj.newCode){ src_obj.isUsed = true; }
+     cur = null;
+   } // endwhile
+   if(cur && !cur.new_obj && !cur.obj_ident){   // source entry is a level 1 object
+     var src_obj2 = getChildUpdateObject(sess1_respx, cur);
+     if(src_obj2 && src_obj2.newCode){ src_obj2.isUsed = true; }
+   } // endif
+} // end of function markNewChildUpdCreated
+
+// identity of a child_updates entry: {kind_ztic, kind_code, ztic, code, new_code_bool, source_ident (new linked objects)}, null when it is not sent
+function resolveChildUpdIdent(updx, ctx){
+   if(updx._ident !== undefined){ return updx._ident; }
+   updx._ident = null;   // also stops loops
+   if(updx.obj_ident){   // grandchild or deeper - existing object identified on its own page
+     if(updx.obj_ident.ns == undefined || updx.obj_ident.ns == null || updx.obj_ident.ns.toString().trim() == ""){
+       console.log("ERROR in maintain_object_submit - no namespace for child_updates object templ_idx/obj_idx: "+updx.templ_idx+"/"+updx.obj_idx);
+       return null;
+     } // endif
+     if(ctx.TargetNS != undefined && updx.obj_ident.ns.toString().trim() != ctx.TargetNS.toString().trim()){   // 20261024 object in another namespace - display only, nothing sent
+       console.log("maintain_object_submit - object in namespace "+updx.obj_ident.ns+" is display only, not sent: "+updx.obj_ident.code);
+       return null;
+     } // endif
+     updx._ident = {kind_ztic: updx.obj_ident.kind_ztic.toString().trim(), kind_code: updx.obj_ident.kind_code.toString().trim(),
+                    ztic: ctx.zticDom.getCodeForNamespace(updx.obj_ident.ns), code: updx.obj_ident.code.toString().trim(), new_code_bool: "-"};
+     return updx._ident;
+   } // endif obj_ident
+   if(updx.new_obj){   // new linked object from a child page
+     if(!updx._created){ return null; }
+     var source_ident = null;
+     var src = ctx.upd_HM[updx.new_obj.source_key];
+     if(src){ source_ident = resolveChildUpdIdent(src, ctx); }
+     else if(updx.new_obj.source_obj_ident){ source_ident = resolveChildUpdIdent({obj_ident: updx.new_obj.source_obj_ident}, ctx); }
+     else{
+       var key_parts = updx.new_obj.source_key.toString().split("_");
+       source_ident = resolveChildUpdIdent({templ_idx: key_parts[0], obj_idx: key_parts[1]}, ctx);
+     } // endif
+     if(source_ident == null){ return null; }
+     ctx.temp_code_ref.next++;
+     updx._ident = {kind_ztic: updx.new_obj.kind_ztic.toString().trim(), kind_code: updx.new_obj.kind_code.toString().trim(),
+                    ztic: ctx.target_ztic, code: ctx.temp_code_ref.next.toString().trim(), new_code_bool: "+", source_ident: source_ident};
+     return updx._ident;
+   } // endif new_obj
+   if(ctx.top_templ_idx != undefined && updx.templ_idx == ctx.top_templ_idx && updx.obj_idx == 0){   // 20261023 top object (source of new linked objects added on the parent page)
+     updx._ident = ctx.top_ident;
+     return updx._ident;
+   } // endif top object
+   // level 1 object of the parent page session
+   var templx = ctx.sess1_resp.template_AR[updx.templ_idx];
+   var objx = getChildUpdateObject(ctx.sess1_resp, updx);
+   if(!templx || !objx){
+     console.log("ERROR in maintain_object_submit - child object not found for child_updates templ_idx/obj_idx: "+updx.templ_idx+"/"+updx.obj_idx);
+     return null;
+   } // endif
+   if(objx.newCode && !objx.isUsed){ return null; }   // new child object not created - nothing to attach to
+   updx._ident = {kind_ztic: templx.objKindZTIC.toString().trim(), kind_code: templx.objKindCode.toString().trim(),
+                  ztic: objx.newCode ? ctx.target_ztic : ctx.obj_ztic, code: objx.objCodeTemp.toString().trim(), new_code_bool: objx.newCode ? "+" : "-"};   // existing: same ZTIC as ELEM lines for child objects
+   return updx._ident;
+} // end of function resolveChildUpdIdent
+// end 20261023
+// end 20261021
 
 
 

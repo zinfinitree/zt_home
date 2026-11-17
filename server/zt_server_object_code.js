@@ -38,16 +38,16 @@ class ZtObjectCode {
 
  var nextCode = "";
  var found = false;
- const base_ztic = svr1.getCodeForNS(msg.TabNamePrfx.toString().trim(), "131131/21");
+ const base_ztic = svr1.getCodeForNS(msg.dbZtI_id.toString().trim(), "131131/21");   // 20261115 dbZtI_id - messages never set TabNamePrfx
 
- var kindObjKeyStr = this.msg.TabNamePrfx+"_"+base_ztic+"_1"+"_"+obj_kind_ztic+"_"+obj_kind_code;
+ var kindObjKeyStr = this.msg.dbZtI_id+"_"+base_ztic+"_1"+"_"+obj_kind_ztic+"_"+obj_kind_code;   // 20261115 dbZtI_id - messages never set TabNamePrfx
  var kind_obj_idx = svr1.ZtObject_HM.get(kindObjKeyStr);
  var kind_obj = svr1.ZtObject_AR[kind_obj_idx];
 
  var code_rng_idx = kind_obj.getTypeValueIdxForTypeDef(base_ztic, "5", timestampx);
 
  var code_rng_obj = svr1.ZtObject_AR[code_rng_idx];
- const code_rng_base_templ_key_str = this.msg.TabNamePrfx+"_"+base_ztic+"_2_"+base_ztic+"_21";
+ const code_rng_base_templ_key_str = this.msg.dbZtI_id+"_"+base_ztic+"_2_"+base_ztic+"_21";   // 20261115 dbZtI_id - messages never set TabNamePrfx
 
  var code_rng_base_templ_idx = svr1.ZtObject_HM.get(code_rng_base_templ_key_str);
 
@@ -92,14 +92,14 @@ getIncrementedCode(code_rng_idx, assignedCode, timestampx) {
 //3. execute program to increment code
 //4. return incremented code
 
- const base_ztic = svr1.getCodeForNS(msg.TabNamePrfx.toString().trim(), "131131/21");
+ const base_ztic = svr1.getCodeForNS(msg.dbZtI_id.toString().trim(), "131131/21");   // 20261115 dbZtI_id - messages never set TabNamePrfx
 
  var code_rng_obj = svr1.ZtObject_AR[code_rng_idx];
 
  var code_scheme_idx = code_rng_obj.getTypeValueIdxForTypeDef(base_ztic, "6", timestampx);
 
  var code_scheme_obj = svr1.ZtObject_AR[code_scheme_idx];
- const code_scheme_base_templ_key_str = this.msg.TabNamePrfx+"_"+base_ztic+"_2_"+base_ztic+"_22";
+ const code_scheme_base_templ_key_str = this.msg.dbZtI_id+"_"+base_ztic+"_2_"+base_ztic+"_22";   // 20261115 dbZtI_id - messages never set TabNamePrfx
 
  var code_scheme_base_templ_idx = svr1.ZtObject_HM.get(code_scheme_base_templ_key_str);
 

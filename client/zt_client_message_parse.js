@@ -79,6 +79,15 @@ if (this.msg.ZtRawMessageAR[i].me_code.trim() == 4036) { var MaintRespObjWArec_4
                                             MaintRespObjWArec_4036.objectCodeAssigned       =  this.msg.ZtRawMessageAR[i].data;
                                             MaintRespObjWArec_4036.rawMsg_idx               = this.msg.ZtRawMessageAR[i].index;
  
+                                            // 20261024 kind ZTIC/code, object ZTIC and code sent are siblings of 4036 under the same 4031 (ZTICs are server ZTICs)
+                                            for (var r = 0; r < this.msg.ZtRawMessageAR.length; r++) {
+                                              var rowx = this.msg.ZtRawMessageAR[r];
+                                              if (!rowx || rowx.me_code == undefined || rowx.parent_index != this.msg.ZtRawMessageAR[i].parent_index) { continue; }
+                                              if (rowx.me_code.trim() == 4032) { MaintRespObjWArec_4036.objectKindZTICode = rowx.data; }
+                                              if (rowx.me_code.trim() == 4033) { MaintRespObjWArec_4036.objectKindCode    = rowx.data; }
+                                              if (rowx.me_code.trim() == 4034) { MaintRespObjWArec_4036.objectZTICode     = rowx.data; }
+                                              if (rowx.me_code.trim() == 4035) { MaintRespObjWArec_4036.objectCodeTemp    = rowx.data; }
+                                            } // endfor
                                             this.msg.maintainResponseObjectWA_AR.push(MaintRespObjWArec_4036);
 
                                                    }

@@ -1280,7 +1280,8 @@ ELEM 2    26   3    1    2    26   2    26        Object Index of Date to get da
 ELEM 2    26   3    2    2    26   2    26        Date String (Parameter)
 ELEM 2    37   3    1    2    37   2    37        Class for returning date string for date type value
 ELEM 2    39   3    1    2    39   2    39        Resource for class to return date string for date type value
-ELEM 2    39   3    1    2    211  2    39   -    ./ds2b00002/ds2b00002_server_date_string_class
+ELEM%2    39   3    1    2    211  2    39   -    ./ds2b00002/ds2b00002_server_date_string_class
+ELEM 2    39   3    1    2    211  2    39   -    ./zt_server_patch_00002/zt_server_patch_00002_server_date_string_class
 
 
      ObjKind   Object    TypeDef   Type      Template

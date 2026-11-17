@@ -99,7 +99,7 @@ if(!found){
    ////  var class_resource_obj = new (require('./zt_server_resource'))( svr1, resource_idx, timestampx );
    ////  var patchLevel = "00001";
    ////  var class_resource_str = class_resource_obj.getUrlForPatchLevel(patchLevel);
-     //console.log("20200320 resource_name: "+resource_name);
+     console.log("20261115 resource_name: "+resource_name);
      var function_exec_obj = new (require(resource_name))( this.svr1, this.msg, this.parameter_AR);         
      function_exec_obj.execute();
      //var return_param_AR = function_exec_obj.execute();

@@ -14,11 +14,15 @@
           TargetNS=$('.ddlTargetNS').val();
           file_num=$('.ddlFileNum').val();
           file_format=$('.ddFileFormat').val();
-           $.post("http://localhost:3000/zt/client/process_file",{file_name: file_name, file_directory: file_directory, op_num: op_num, TargetNS: TargetNS, dbZtI_id: dbZtI_id, file_num: file_num, file_format: file_format}, function(data){ 
+          // $.post("http://localhost:3000/zt/client/process_file",{file_name: file_name, file_directory: file_directory, op_num: op_num, TargetNS: TargetNS, dbZtI_id: dbZtI_id, file_num: file_num, file_format: file_format}, function(data){   (del) 20261116
+           // 20261116 relative URL - post to the client that served this page (localhost only worked when the browser ran on the client machine)
+           $.post("/zt/client/process_file",{file_name: file_name, file_directory: file_directory, op_num: op_num, TargetNS: TargetNS, dbZtI_id: dbZtI_id, file_num: file_num, file_format: file_format}, function(data){
             if(data==='done')
               {
                 alert("login success");
               }
+          }).fail(function(xhr){   // 20261116 show errors instead of doing nothing
+            alert("File import request failed: " + xhr.status + " " + xhr.statusText);
           });
         });
       });

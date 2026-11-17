@@ -29,3 +29,8 @@ Additional steps for both options:
 13. Select a target ZT Instance ie. TST1, select operation: Clear (Delete) ZT Instance, select Source DB: MongoDB
 14. Select Object Kind: *. All Kinds, select Object Source ZT Instance, *. All Instances, Code From: 1, Code to 99999, ObjElem Value *, Max Recs 1000 and click Submit
 15. Keep deleting records until instance is clean.  If deletion gets stuck, restart the server in the terminal window by entering Cntl C, then node zt_server
+
+
+
+Note on this implementation's design:
+This repository is a reference and demonstration implementation of the ZinfiniTree Specification. When the server starts, it loads every record of every configured instance from MongoDB into memory and answers all requests from those in-memory structures, writing changes to both memory and the database. This keeps the code simple and makes metadata-driven lookups fast, but it also means startup time and memory use grow with the full history of all instances, and only a single server process can run against a database at a time. These are design choices of this implementation, not requirements of the specification. Other implementations are free to use their own storage, caching and scaling approach, for example keeping only metadata in memory, loading business data on demand, or running several servers against a shared database.

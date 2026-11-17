@@ -53,10 +53,12 @@ ELEM 2    11   2    31   2    11   2    11        Link Target Type: Function Gro
 ELEM 2    11   2    32   2    11   2    11        Link Target Type: Function Group to a Function
 ELEM 2    11   2    33   2    11   2    11        Link Target Type: Link Type to Link Based Template Rule
 ELEM 2    11   2    34   2    11   2    11        Link Target Type: Object Element to Object Element Value Based Template Rule
-ELEM%2    11   2    35   2    11   2    11        Link Target Type: Placeholder for code 35 Link Type
-ELEM%2    11   2    36   2    11   2    11        Link Target Type: Placeholder for code 36 Link Type
-ELEM%2    11   2    37   2    11   2    11        Link Target Type: Placeholder for code 37 Link Type
-ELEM%2    11   2    38   2    11   2    11        Link Target Type: Placeholder for code 38 Link Type
+
+ELEM 2    11   2    35   2    11   2    11        Link Target Type: Object Template to User Interface Profile 
+ELEM 2    11   2    36   2    11   2    11        Link Target Type: User Interface Profile to User Interface Attribute
+ELEM 2    11   2    37   2    11   2    11        Link Target Type: User Interface Profile to User Interface Profile
+ELEM 2    11   2    38   2    11   2    11        Link Target Type: User Interface Attribute to Parameter Value
+
 ELEM%2    11   2    39   2    11   2    11        Link Target Type: Placeholder for code 39 Link Type
 ELEM%2    11   2    40   2    11   2    11        Link Target Type: Placeholder for code 40 Link Type
 ELEM%2    11   2    41   2    11   2    11        Link Target Type: Placeholder for code 41 Link Type
@@ -121,6 +123,11 @@ LINK 2    11   2    30   2    6    2    2    2    50   2    11   link "Link targ
 
 LINK 2    11   2    31   2    6    2    2    2    24   2    11   link "Link target type" for Validation to System Message Definition to base template System Message Definition
 LINK 2    11   2    32   2    6    2    2    2    36   2    11   link "Link target type" for Validation to a Function to base template for a function
+
+LINK 2    11   2    35   2    6    2    2    2    68   2    11   link "Link Target Type" for Object Template to User Interface Profile to base template for User Interface Profile
+LINK 2    11   2    36   2    6    2    2    2    69   2    11   link "Link Target Type" for User Interface Profile to User Interface Attribute to base template for User Interface Attribute
+LINK 2    11   2    37   2    6    2    2    2    68   2    11   link "Link Target Type" for User Interface Profile to User Interface Profile to base template for User Interface Profile
+LINK 2    11   2    38   2    6    2    2    2    57   2    11   link "Link Target Type" for User Interface Attribute to Parameter Value to base template for Parameter Value
 
 
 

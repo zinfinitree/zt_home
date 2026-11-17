@@ -44,10 +44,21 @@ var slog_sys_msg = new ServerLogSystemMessage();
   var set_error_status = false;
   this.msg.LinkUpdateWA_Array.forEach((linkUpdateWA) => {
     const linkToStr = this.msg.dbZtI_id+"_"+linkUpdateWA.linkToKindZTIC + "_"+linkUpdateWA.linkToKindCode +"_"+ linkUpdateWA.linkToCodeZTIC +"_"+ linkUpdateWA.linkToCode;
-    //console.log("20240221a linkToStr: "+linkToStr);
+    console.log("20261021a linkToStr: "+linkToStr);
     console.log("20250113c linkUpdateWA.newCode: "+linkUpdateWA.newCode);
     //if(linkUpdateWA.newCode == "false"){
-      if(!this.svr1.ZtObject_idx_HM.has(linkToStr)){
+      // 20261021 link target is a new object in this same message (e.g. object with children) -
+      // linkToCode is still a temp code here; it is not in ZtObject_idx_HM until updateMaintainSetWA
+      // assigns the real code, so check the target against the new objects in the message instead
+      var link_target_found = false;
+      if(linkUpdateWA.newLinkTargetCode.toString().trim() == "+"){
+        link_target_found = this.isNewObjectInMessage(linkUpdateWA.linkToKindZTIC, linkUpdateWA.linkToKindCode, linkUpdateWA.linkToCodeZTIC, linkUpdateWA.linkToCode);
+      }
+      else{
+        link_target_found = this.svr1.ZtObject_idx_HM.has(linkToStr);
+      } // endif linkUpdateWA.newLinkTargetCode == "+"
+      //if(!this.svr1.ZtObject_idx_HM.has(linkToStr)){   //(del) 20261021
+      if(!link_target_found){
         slog_sys_msg.ztic = this.svr1.getCodeForNS(this.msg.dbZtI_id, "zinfinitree.com/validation"); 
         //slog_sys_msg.ztic = "444";  // TEST REMOVE
         slog_sys_msg.code = "222";
@@ -88,6 +99,19 @@ var slog_sys_msg = new ServerLogSystemMessage();
 
 
 } // end of execute()
+
+
+// 20261021 true if the message creates a new object (newCode "+") with this kind and temp code
+isNewObjectInMessage(kindZTICx, kindCodex, objZTICx, tempCodex){
+  const isMatch = (wa) => wa.newCode.toString().trim() == "+"
+                       && wa.objectKindZTIC.toString().trim() == kindZTICx.toString().trim()
+                       && wa.objectKindCode.toString().trim() == kindCodex.toString().trim()
+                       && wa.objectZTIC.toString().trim()     == objZTICx.toString().trim()
+                       && wa.objectCodeTemp.toString().trim() == tempCodex.toString().trim();
+  return this.msg.OEupdateWA_Array.some(isMatch)
+      || this.msg.TypeValueUpdateWA_Array.some(isMatch)
+      || this.msg.LinkUpdateWA_Array.some(isMatch);
+} // end of isNewObjectInMessage()
 
 
 

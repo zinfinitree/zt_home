@@ -88,11 +88,11 @@ ELEM 2    1    2    63   2    1    2    1         Type Definition Usage Type (Ob
 ELEM 2    1    2    64   2    1    2    1         System Message Element Definition (Object Kind)
 ELEM 2    1    2    65   2    1    2    1         System Message Element Definition Type (Object Kind) 
 ELEM 2    1    2    66   2    1    2    1         Numeric Data Type Details (Object Kind)
-ELEM 2    1    2    67   2    1    2    1         Function Group Set Launch Point
-ELEM%2    1    2    68   2    1    2    1         User Interface Profile     (can be a link target for Object Template, can be linked to one or more UI attributes)
-ELEM%2    1    2    69   2    1    2    1         User Interface Attribute   (can be linked to one or more other UI attributes)
-ELEM%2    1    2    70   2    1    2    1         User Interface Attribute Type     (type value for UI Attribute)
-ELEM%2    1    2    71   2    1    2    1         User Interface Attribute Category (type value for UI Attribute Type)
+ELEM 2    1    2    67   2    1    2    1         Function Group Set Launch Point (Object Kind)
+ELEM 2    1    2    68   2    1    2    1         User Interface Profile (Object Kind)    
+ELEM 2    1    2    69   2    1    2    1         User Interface Attribute (Object Kind) 
+ELEM 2    1    2    70   2    1    2    1         User Interface Attribute Type (Object Kind)    
+ELEM 2    1    2    71   2    1    2    1         User Interface Attribute Category (Object Kind)
 
 
 

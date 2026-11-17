@@ -53,10 +53,10 @@ ELEM 2    10   2    31   2    10   2    10        Link Type: Function Group to a
 ELEM 2    10   2    32   2    10   2    10        Link Type: Function Group to a Function
 ELEM 2    10   2    33   2    10   2    10        Link Type: Link Type to Link Based Template Rule
 ELEM 2    10   2    34   2    10   2    10        Link Type: Object Element to Object Element Value Based Template Rule
-ELEM%2    10   2    35   2    10   2    10        Link Type: Object Template to User Interface Profile 
-ELEM%2    10   2    36   2    10   2    10        Link Type: User Interface Profile to User Interface Attribute
-ELEM%2    10   2    37   2    10   2    10        Link Type: User Interface Profile to User Interface Profile
-ELEM%2    10   2    38   2    10   2    10        Placeholder for code 38 Link Type
+ELEM 2    10   2    35   2    10   2    10        Link Type: Object Template to User Interface Profile 
+ELEM 2    10   2    36   2    10   2    10        Link Type: User Interface Profile to User Interface Attribute
+ELEM 2    10   2    37   2    10   2    10        Link Type: User Interface Profile to User Interface Profile
+ELEM 2    10   2    38   2    10   2    10        Link Type: User Interface Attribute to Parameter Value
 ELEM%2    10   2    39   2    10   2    10        Placeholder for code 39 Link Type
 ELEM%2    10   2    40   2    10   2    10        Placeholder for code 40 Link Type
 ELEM%2    10   2    41   2    10   2    10        Placeholder for code 41 Link Type
@@ -111,6 +111,11 @@ TYPE 2    10   2    31   2    2    2    31              link target type for lin
 TYPE 2    10   2    32   2    2    2    32              link target type for link type for Validation to Function
 TYPE 2    10   2    33   2    2    2    33              link target type for link type for Link Type to Link Based Template Rule
 TYPE 2    10   2    34   2    2    2    34              link target type for link type for Object Element to Object Element Value Based Template Rule
+
+TYPE 2    10   2    35   2    2    2    35              link target type for link type for Object Template to User Interface Profile 
+TYPE 2    10   2    36   2    2    2    36              link target type for link type for User Interface Profile to User Interface Attribute
+TYPE 2    10   2    37   2    2    2    37              link target type for link type for User Interface Profile to User Interface Profile
+TYPE 2    10   2    38   2    2    2    38              link target type for link type for User Interface Attribute to Parameter Value
 
 
 

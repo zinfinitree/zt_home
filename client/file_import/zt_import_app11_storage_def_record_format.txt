@@ -95,10 +95,10 @@ ELEM 2    3    3    5    2    3    2    3         Storage Location QR Code Link 
 ELEM 2    3    3    6    2    3    2    3         Thing Description    (Object Element)
 ELEM 2    3    3    7    2    3    2    3         Storage Location Type Description (Object Element)
 ELEM 2    3    3    8    2    3    2    3         Thing Type Description (Object Element)
-ELEM 2    3    3    9    2    3    2    3         Thing Transaction Line Item Description (Object Element)
-ELEM 2    3    3    10   2    3    2    3         Thing Transaction Line Item Quantity (Object Element)
-ELEM 2    3    3    11   2    3    2    3         Thing Transaction Line Item Long Description (Object Element)
-ELEM 2    3    3    12   2    3    2    3         Thing Transaction Line Item Type Description (Object Element)
+ELEM 2    3    3    9    2    3    2    3         TTLI Description 
+ELEM 2    3    3    10   2    3    2    3         TTLI Quantity 
+ELEM 2    3    3    11   2    3    2    3         TTLI Long Description 
+ELEM 2    3    3    12   2    3    2    3         TTLI Type Description 
 ELEM 2    31   3    1    2    31   2    31        Storage Domain Description DE (Data Element)
 ELEM 2    31   3    2    2    31   2    31        Storage Domain Long Description DE    (Data Element)
 ELEM 2    31   3    3    2    31   2    31        Storage Domain Title DE               (Data Element)
@@ -369,8 +369,10 @@ ELEM 5    4    3    1    5    9    5    4         Thing for Thing Transaction Su
 
      ObjKind   Object    TypeDef   Type      Template  
 RecIdKdiscKcodeOzticOcodeTDdsiTDcodTzticTcodeTzticTcode
-TYPE 5    2    3    1    5    15   3    2    5    2          SV Dimension for Thing Transaction Summary Spreadsheet (Years)
-TYPE 5    3    3    1    5    16   3    3    5    3          SV Dimension for Thing Transaction Summary Column (Months)
+TYPE%5    2    3    1    5    15   3    2    5    2          SV Dimension for Thing Transaction Summary Spreadsheet (Years)
+TYPE%5    3    3    1    5    16   3    3    5    3          SV Dimension for Thing Transaction Summary Column (Months)
+TYPE 5    2    3    1    5    15   3    3    5    2          SV Dimension for Thing Transaction Summary Spreadsheet (Years)
+TYPE 5    3    3    1    5    16   3    2    5    3          SV Dimension for Thing Transaction Summary Column (Months)
 TYPE 5    4    3    1    5    17   3    4    5    4          SV Dimension for Thing Transaction Summary Row (Things)
 
 

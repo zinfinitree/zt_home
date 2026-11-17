@@ -1167,7 +1167,8 @@ html_str = html_str + "} ";   // endfor
  html_str = html_str + " var sess1_str = JSON.stringify(sess1); ";      //20200612
 
 
-html_str = html_str + "var jqxhr = $.post('http://localhost:3000/zt/client/maintain_object_submit',{OK_ztic: OK_ztic, OK_code: OK_code, obj_ztic: obj_ztic, obj_code: obj_code, OEscrnElem_AR: OEscrnElem_ARs, obj_template_desc: obj_template_desc, language: language, session: sess1_str, templ_idx: templ_idx, TargetNS: TargetNS }, function(data){";     // 20200612
+//html_str = html_str + "var jqxhr = $.post('http://localhost:3000/zt/client/maintain_object_submit',{OK_ztic: OK_ztic, OK_code: OK_code, obj_ztic: obj_ztic, obj_code: obj_code, OEscrnElem_AR: OEscrnElem_ARs, obj_template_desc: obj_template_desc, language: language, session: sess1_str, templ_idx: templ_idx, TargetNS: TargetNS }, function(data){";     // 20200612  (del) 20261116
+html_str = html_str + "var jqxhr = $.post('/zt/client/maintain_object_submit',{OK_ztic: OK_ztic, OK_code: OK_code, obj_ztic: obj_ztic, obj_code: obj_code, OEscrnElem_AR: OEscrnElem_ARs, obj_template_desc: obj_template_desc, language: language, session: sess1_str, templ_idx: templ_idx, TargetNS: TargetNS }, function(data){";     // 20261116 relative URL - same client host the page came from
 
 
  html_str = html_str + "console.log(data); ";
@@ -1176,10 +1177,11 @@ html_str = html_str + "var jqxhr = $.post('http://localhost:3000/zt/client/maint
        //write the data to the document of the newWindow
  html_str = html_str +  "newWindow.document.write(data);";
   //alert( "success" );
- html_str = html_str + "}) ";  
+ html_str = html_str + "}) ";
+ html_str = html_str + ".fail(function(xhr){ alert('Workbook submit failed: ' + xhr.status + ' ' + xhr.statusText); }); ";   // 20261116 show errors instead of doing nothing
 
 
- html_str = html_str +       "}); ";  
+ html_str = html_str +       "}); ";
  html_str = html_str +     "}); ";   
  html_str = html_str +   "</script>";
 
@@ -1513,7 +1515,7 @@ if(maint_modex == "display"){
 
  if(sessx.workbook_AR.length == 1){workbook_idx = 0;}
 // html_str = html_str + "<br />";   (del) 20220804
- html_str = html_str + "<table>";
+ //html_str = html_str + "<table>";   (del) 20261116 table now opened per sheet below
 if(!(body_onlyx)){  // 20210706
  //html_str = html_str + "<tr><td><h2>Spreadsheet Format--Display Mode</h2></td></tr>";  (del) 20230927
 }  // endif 20210706
@@ -1521,7 +1523,8 @@ if(!(body_onlyx)){  // 20210706
 
 
 
-  html_str = html_str + "<td><h3>     " + sessx.workbook_AR[workbook_idx].label + "</h3></td>";
+  //html_str = html_str + "<td><h3>     " + sessx.workbook_AR[workbook_idx].label + "</h3></td>";   (del) 20261116 label was boxed as a table cell
+  html_str = html_str + "<h3>" + sessx.workbook_AR[workbook_idx].label + "</h3>";   // 20261116 workbook label without box
    
 
 
@@ -1571,32 +1574,75 @@ sessx.workbook_AR[workbook_idx].displayColumn_AR.forEach(column => {
 
 
 
+// start 20261115 one table per display sheet (sheet dimension of a statistical values object), selected with tabs at the bottom
+var disp_wb = sessx.workbook_AR[workbook_idx];
+var sheet_count = disp_wb.displaySheet_AR.length;      // 0 = no sheet dimension, all cells in one table as before
+var sheet_loop_count = (sheet_count > 0) ? sheet_count : 1;
+if(sheet_count > 0){
+  //html_str = html_str + "</table>";   (del) 20261116
+  html_str = html_str + "<div class='zt_wb_sheets'>";
+}  // endif
+
+// start 20261116 header row and row labels: light grey background, bold line below the header row and right of the row labels
+var hdr_bg       = "background:#eeeeee;";
+var bold_line    = "3px solid black";
+var has_row_labels = disp_wb.displayRow_AR.some(function(r){ return r.label != undefined && r.label.toString().trim() != ""; });
+// end 20261116
+
+for(var s = 0; s < sheet_loop_count; s++){
+
+if(sheet_count > 0){
+  //html_str = html_str + "<div class='zt_sheet' data-sheet='"+s+"'"+((s == 0) ? "" : " style='display:none'")+"><table>";   (del) 20261116
+  html_str = html_str + "<div class='zt_sheet' data-sheet='"+s+"'"+((s == 0) ? "" : " style='display:none'")+">";   // 20261116
+}  // endif
+html_str = html_str + "<table>";   // 20261116
+
 html_str = html_str + "<tr>";    // 20210725
+if(has_row_labels){ html_str = html_str + "<td style='"+hdr_bg+" border-bottom:"+bold_line+"; border-right:"+bold_line+";'></td>"; }   // 20261116 corner above row labels
 //console.log("20230908a sessx.workbook_AR[workbook_idx].displayColumn_AR.length: "+sessx.workbook_AR[workbook_idx].displayColumn_AR.length);
 for(var h = 0; h < sessx.workbook_AR[workbook_idx].displayColumn_AR.length; h++){    // 20210314
-html_str = html_str + "<td><h4>" + sessx.workbook_AR[workbook_idx].displayColumn_AR[h].label + "</h4></td>";   // 20210725
+//html_str = html_str + "<td><h4>" + sessx.workbook_AR[workbook_idx].displayColumn_AR[h].label + "</h4></td>";   // 20210725  (del) 20261116
+html_str = html_str + "<td style='"+hdr_bg+" border-bottom:"+bold_line+";'><h4>" + sessx.workbook_AR[workbook_idx].displayColumn_AR[h].label + "</h4></td>";   // 20261116
 //console.log("**+ 20230907a sessx.workbook_AR[workbook_idx].displayColumn_AR[h].label: "+sessx.workbook_AR[workbook_idx].displayColumn_AR[h].label);
-} // endfor loop through .displayColumn_AR.length   
-html_str = html_str + "</tr>";  
+} // endfor loop through .displayColumn_AR.length
+html_str = html_str + "</tr>";
 
 // for(var i = 0; i < this.displayRow_AR.length; i++){   (del) 20210109
   for(var i = 0; i < sessx.workbook_AR[workbook_idx].displayRow_AR.length; i++){      // 20210109
      html_str = html_str + "<tr>";
+     if(has_row_labels){ html_str = html_str + "<td style='"+hdr_bg+" border-right:"+bold_line+";'>" + ((sessx.workbook_AR[workbook_idx].displayRow_AR[i].label == undefined) ? "" : sessx.workbook_AR[workbook_idx].displayRow_AR[i].label) + "</td>"; }   // 20261116 row label
      for(var h = 0; h < sessx.workbook_AR[workbook_idx].displayColumn_AR.length; h++){  // 20230927
+       var cell_found = false;   // 20261115
        for(var j = 0; j < sessx.workbook_AR[workbook_idx].displayRow_AR[i].cell_idx_AR.length; j++){
-         if(sessx.workbook_AR[workbook_idx].displayCell_AR[sessx.workbook_AR[workbook_idx].displayRow_AR[i].cell_idx_AR[j]].column_idx == h){
+         var disp_cell = sessx.workbook_AR[workbook_idx].displayCell_AR[sessx.workbook_AR[workbook_idx].displayRow_AR[i].cell_idx_AR[j]];   // 20261115
+         //if(sessx.workbook_AR[workbook_idx].displayCell_AR[sessx.workbook_AR[workbook_idx].displayRow_AR[i].cell_idx_AR[j]].column_idx == h){  (del) 20261115
+         if(disp_cell.column_idx == h && (sheet_count == 0 || disp_cell.sheet_idx === s)){   // 20261115 only cells of the selected sheet
           html_str = html_str + "<td>"+sessx.workbook_AR[workbook_idx].displayCell_AR[sessx.workbook_AR[workbook_idx].displayRow_AR[i].cell_idx_AR[j]].value+"</td>";
+          cell_found = true;   // 20261115
            //console.log("   this.displayRow_AR[i].cell_idx_AR[j]: "+this.displayRow_AR[i].cell_idx_AR[j]);
            //console.log("   Cell Contents: "+this.displayCell_AR[this.displayRow_AR[i].cell_idx_AR[j]].value);
          }  // endif
        } // endfor  loop through cells
- 
-     } /// endfor loop through displayColumn_AR  // 20230927 
+       if(sheet_count > 0 && !cell_found){ html_str = html_str + "<td></td>"; }   // 20261115 keep columns aligned when a sheet has no value for a cell
+
+     } /// endfor loop through displayColumn_AR  // 20230927
    html_str = html_str + "</tr>";
    }  // endfor loop through row_AR
 
 
  html_str = html_str + "</table>";
+
+if(sheet_count > 0){
+  html_str = html_str + "</div>";   // end of zt_sheet
+}  // endif
+
+}  // endfor loop through display sheets
+
+if(sheet_count > 0){
+  html_str = html_str + this.getSheetTabsHtml(sessx, disp_wb);
+  html_str = html_str + "</div>";   // end of zt_wb_sheets
+}  // endif
+// end 20261115
 
 } // endif maint_modex == "display"
 
@@ -1626,6 +1672,33 @@ return html_str;
 
 
 }  // end of method
+
+
+
+// start 20261115
+// tab bar below the sheets of a workbook in display mode; clicking a tab shows only that sheet's table
+// label is the sheet type value label, or its code (as for statistical values columns), namespace shown on hover
+getSheetTabsHtml(sessx, disp_wbx){
+  var tab_style    = "display:inline-block; padding:4px 14px; margin-right:2px; border:1px solid black; border-top:none; cursor:pointer; font-family:inherit;";
+  var active_bg    = "background:#ffffff; font-weight:bold;";
+  var inactive_bg  = "background:#dddddd; font-weight:normal;";
+  var onclick_js   = "var t0=this, bar=t0.parentNode, w=bar.parentNode, s=t0.getAttribute('data-sheet');"
+                   + " for(var i=0;i<w.children.length;i++){ var d=w.children[i]; if(d.className=='zt_sheet'){ d.style.display=(d.getAttribute('data-sheet')==s)?'':'none'; } }"
+                   + " for(var i=0;i<bar.children.length;i++){ var b=bar.children[i]; b.style.background=(b==t0)?'#ffffff':'#dddddd'; b.style.fontWeight=(b==t0)?'bold':'normal'; }";
+  var html = "<div class='zt_sheet_tabs' style='margin-top:0;'>";
+  for(var s = 0; s < disp_wbx.displaySheet_AR.length; s++){
+    var sheet = disp_wbx.displaySheet_AR[s];
+    var label = (sheet.label != undefined && sheet.label.toString().trim() != "") ? sheet.label.toString().trim() : sheet.sv_type_val_code.toString().trim();
+    var ns = "";
+    for(var i = 0; i < sessx.ZTICNS_AR.length; i++){
+      if(sessx.ZTICNS_AR[i].code.toString().trim() == sheet.sv_type_val_ztic.toString().trim()){ ns = sessx.ZTICNS_AR[i].namespace.toString().trim(); }
+    } // endfor
+    html = html + "<span class='zt_sheet_tab' data-sheet='"+s+"' title='"+ns+" "+sheet.sv_type_val_code+"' style='"+tab_style+((s == 0) ? active_bg : inactive_bg)+"' onclick=\""+onclick_js+"\">"+label+"</span>";
+  } // endfor loop through displaySheet_AR
+  html = html + "</div>";
+  return html;
+}  // end of getSheetTabsHtml
+// end 20261115
 
 
 

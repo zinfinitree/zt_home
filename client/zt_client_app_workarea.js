@@ -164,5 +164,28 @@ exports.LinkToMenuOption = function(){
 
 
 
+exports.UI_Profile = function(zticx, codex) {
+   this.UI_profile_ztic = zticx;
+   this.UI_profile_code = codex;
+   this.UI_attribute_AR  = [];
+ 
+ } // end of function UI_Profile
 
+
+ exports.UI_Attribute = function(zticx, codex) {
+   this.UI_attribute_ztic = zticx;
+   this.UI_attribute_code = codex;
+   this.UI_parameterValue_AR  = [];
+ 
+ } // end of function UI_Attribute
+
+
+  exports.UI_ParameterValue = function(pv_zticx, pv_codex) {
+   this.UI_parameterValue_ztic = pv_zticx;
+   this.UI_parameterValue_code = pv_codex;
+   this.UI_parameter_ztic  = "";
+   this.UI_parameter_code  = "";
+   this.UI_parameterValue  = "";
+ 
+ } // end of function UI_ParameterValue
 

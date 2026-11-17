@@ -58,7 +58,8 @@
 
   //console.log(data);   (del) 20210324
 
-          var jqxhr = $.post("http://localhost:3000/zt/client/app_page_display",{TargetNS: TargetNS, language: language, user_name: user_name, user_password: user_password, AppNS: AppNS, app_code: app_code, InitPageNS: InitPageNS, init_page_code: init_page_code }, function(data){
+          //var jqxhr = $.post("http://localhost:3000/zt/client/app_page_display",{TargetNS: TargetNS, language: language, user_name: user_name, user_password: user_password, AppNS: AppNS, app_code: app_code, InitPageNS: InitPageNS, init_page_code: init_page_code }, function(data){   (del) 20261116
+          var jqxhr = $.post("/zt/client/app_page_display",{TargetNS: TargetNS, language: language, user_name: user_name, user_password: user_password, AppNS: AppNS, app_code: app_code, InitPageNS: InitPageNS, init_page_code: init_page_code }, function(data){   // 20261116 relative URL - same host the page was served from
 
 
 
@@ -67,12 +68,14 @@
 
        var id = "12345";
        sessionStorage.setItem("sent", id);  // 20200417
-       var newWindow = window.open("http://localhost:3000/zt/maintain_object_submit", "_blank");                 //20200416
+       //var newWindow = window.open("http://localhost:3000/zt/maintain_object_submit", "_blank");                 //20200416   (del) 20261116
+       var newWindow = window.open("/zt/maintain_object_submit", "_blank");                 //20200416   // 20261116 relative URL - same host the page was served from
        //write the data to the document of the newWindow
        //newWindow.document.write(data);    (del) temp 20200416
        
   //alert( "success" );
 })  
+jqxhr.fail(function(xhr){ alert("App logon request failed: " + xhr.status + " " + xhr.statusText); });   // 20261116 show errors instead of doing nothing
 
  
 

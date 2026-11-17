@@ -161,7 +161,8 @@ var returnMember_idx_AR = [];
       var type_value_based_object_set_idx = this.svr1.ZtObject_idx_HM.get(typeValueBasedObjectSetObjStr);
       var type_value_based_object_set = this.svr1.ZtObject_AR[type_value_based_object_set_idx]; 
 
-         const path_name = process.env.ZT_SERVER_HOME_DIR + "/ds2b00002/ds2b00002_server_type_value_based_object_set";
+         //const path_name = process.env.ZT_SERVER_HOME_DIR + "/ds2b00002/ds2b00002_server_type_value_based_object_set";   //(del) 20261113 old file name
+         const path_name = process.env.ZT_SERVER_HOME_DIR + "/zt_server_patch_00002/zt_server_patch_00002_server_type_value_based_object_set";   // 20261113 renamed file (ds2b00002_... -> zt_server_patch_00002_...)
         //var TVBOS_obj = new (require('./ds2b00002_server_type_value_based_object_set'))(this.svr1, type_value_based_object_set_idx, this.msg);  //  (del) 20250208   
         var TVBOS_obj = new (require(path_name))(this.svr1, type_value_based_object_set_idx, this.msg);  //  20250208
         var TVBOS_member_idx_AR = TVBOS_obj.getTVBOSoutputSet();

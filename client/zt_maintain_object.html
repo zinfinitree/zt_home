@@ -35,16 +35,19 @@
 
 //  console.log(data);
 
-          var jqxhr = $.post("http://localhost:3000/zt/client/maintain_object",{TargetNS: TargetNS, language: language, status_sel: status_sel, obj_templ_ztic: obj_templ_ztic, obj_templ_code: obj_templ_code, obj_ztic: obj_ztic, obj_code: obj_code, test_AR: test_ARs, maint_mode: maint_mode, maint_format: maint_format }, function(data){ 
+          //var jqxhr = $.post("http://localhost:3000/zt/client/maintain_object",{TargetNS: TargetNS, language: language, status_sel: status_sel, obj_templ_ztic: obj_templ_ztic, obj_templ_code: obj_templ_code, obj_ztic: obj_ztic, obj_code: obj_code, test_AR: test_ARs, maint_mode: maint_mode, maint_format: maint_format }, function(data){    (del) 20261116
+          var jqxhr = $.post("/zt/client/maintain_object",{TargetNS: TargetNS, language: language, status_sel: status_sel, obj_templ_ztic: obj_templ_ztic, obj_templ_code: obj_templ_code, obj_ztic: obj_ztic, obj_code: obj_code, test_AR: test_ARs, maint_mode: maint_mode, maint_format: maint_format }, function(data){    // 20261116 relative URL - same host the page was served from
   //console.log(data);   (del) 20210324
        //open a new window popup 
 
        var id = "12345";
        sessionStorage.setItem("sent", id);  // 20200417
-       var newWindow = window.open("http://localhost:3000/zt/maintain_object_submit", "_blank");                 //20200416
+       //var newWindow = window.open("http://localhost:3000/zt/maintain_object_submit", "_blank");                 //20200416   (del) 20261116
+       var newWindow = window.open("/zt/maintain_object_submit", "_blank");                 //20200416   // 20261116 relative URL - same host the page was served from
        
   //alert( "success" );
 })  
+jqxhr.fail(function(xhr){ alert("Maintain object request failed: " + xhr.status + " " + xhr.statusText); });   // 20261116 show errors instead of doing nothing
 
 
  

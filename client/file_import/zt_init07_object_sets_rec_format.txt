@@ -176,7 +176,7 @@ LINK 2    13   2    63   2    12   2    1    2    63   2    13
 LINK 2    13   2    64   2    12   2    1    2    64   2    13
 LINK 2    13   2    65   2    12   2    1    2    65   2    13
 LINK 2    13   2    66   2    12   2    1    2    66   2    13
-ELEM 2    13   2    67   2    12   2    1    2    67   2    13   link set of all Function Group Set Launch Points to object kind for Function Group Set Launch Points
+LINK 2    13   2    67   2    12   2    1    2    67   2    13   link set of all Function Group Set Launch Points to object kind for Function Group Set Launch Points
 
 
 

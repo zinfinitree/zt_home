@@ -224,29 +224,43 @@ var html_str = "";
 
  html_str =  "<!DOCTYPE html><html><head>";                                   
  html_str = html_str + "<title>DS2 Maintain Submit Response</title>";
+ if(this.ui_font_family != undefined && this.ui_font_family.toString().trim() != ""){   // 20261104 font-family UI attribute
+   html_str = html_str + "<style>body, input, textarea, select, button, table, th, td { font-family: " + this.ui_font_family.toString().replace(/[<>{};\\]/g, "").trim() + "; }</style>";
+ } // endif
 
 
  html_str = html_str + "</head>";
 
  html_str = html_str + "<body>";
  //html_str = html_str +   "<h1>DS2 Maintain Object--Object Created</h1>";
- if(this.new_code_bool == "+"){
-     html_str = html_str +   "<h1>"+this.obj_template_desc+" Created</h1>";
-     }   //20200505
-   else {
-     html_str = html_str +   "<h1>"+this.obj_template_desc+" Updated</h1>";
- }
- html_str = html_str +   "<br />";
- html_str = html_str + "<table>"
+ // start 20261024 - list of maintained objects: code and template (replaces template Created/Updated heading and codes only)
+// if(this.new_code_bool == "+"){
+//     html_str = html_str +   "<h1>"+this.obj_template_desc+" Created</h1>";
+//     }   //20200505
+//   else {
+//     html_str = html_str +   "<h1>"+this.obj_template_desc+" Updated</h1>";
+// }
+// html_str = html_str +   "<br />";
+// html_str = html_str + "<table>"
 
- for(var i = 0; i < this.msg.maintainResponseObjectWA_AR.length; i++){
+// for(var i = 0; i < this.msg.maintainResponseObjectWA_AR.length; i++){
   
-    html_str = html_str + "<tr><td>"+ this.msg.maintainResponseObjectWA_AR[i].objectCodeAssigned +"</td></tr>"; 
+//    html_str = html_str + "<tr><td>"+ this.msg.maintainResponseObjectWA_AR[i].objectCodeAssigned +"</td></tr>"; 
 
+// } // endfor loop through this.msg.maintainResponseObjectWA_AR
+
+
+// html_str = html_str + "</table>";   //(del) 20261024
+ var esc = function(v){ return (v == undefined || v == null) ? "" : v.toString().replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); };
+ html_str = html_str +   "<h2>Maintained Objects for Target Namespace: " + esc(this.TargetNS) + "</h2>";
+ html_str = html_str + "<table>";
+ html_str = html_str + "<tr><th style='text-align:left; padding-right:24px;'>Code</th><th style='text-align:left;'>Template</th></tr>";
+ for(var i = 0; i < this.msg.maintainResponseObjectWA_AR.length; i++){
+    var resp_obj = this.msg.maintainResponseObjectWA_AR[i];
+    html_str = html_str + "<tr><td style='padding-right:24px;'>"+ esc(resp_obj.objectCodeAssigned) +"</td><td>"+ esc(this.getTemplateDescForMaintainedObject(resp_obj)) +"</td></tr>";
  } // endfor loop through this.msg.maintainResponseObjectWA_AR
-
-
  html_str = html_str + "</table>";
+ // end 20261024
 
  
  html_str = html_str +   "<br />";
@@ -267,6 +281,18 @@ var html_str = "";
  html_str = html_str + "</html>";
  return html_str;
 }  // end of getSubmitResponseHtml()
+
+
+// 20261024 template description of a maintained object - templDesc_HM is set by maintain_object_submit from the objects it sent:
+// key kind code + "_" + code sent (temp code for new objects); kind code alone when it identifies one template
+getTemplateDescForMaintainedObject(resp_objx){
+  if(!this.templDesc_HM){ return ""; }
+  var kind_code = (resp_objx.objectKindCode == undefined) ? "" : resp_objx.objectKindCode.toString().trim();
+  var code_sent = (resp_objx.objectCodeTemp == undefined) ? "" : resp_objx.objectCodeTemp.toString().trim();
+  if(this.templDesc_HM[kind_code + "_" + code_sent] != undefined){ return this.templDesc_HM[kind_code + "_" + code_sent]; }
+  if(this.templDesc_HM["kind_" + kind_code] != undefined){ return this.templDesc_HM["kind_" + kind_code]; }
+  return "";
+}  // end of getTemplateDescForMaintainedObject()
 
 
 
